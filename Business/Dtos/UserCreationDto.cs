@@ -6,15 +6,16 @@ namespace Chameleon.Business.Dto;
 
 public class UserCreationDto
 {
-    [Required]
+    [Required(ErrorMessage = "The FirstName is required.")]
+    [RegularExpression(@"^[^\d]+$", ErrorMessage = "The FirstName must not contain numbers.")]
     [MinLength(2)]
     [MaxLength(50)]
     public string FirstName { get; set; }
     
+    [Required(ErrorMessage = "The LastName is required.")]
+    [RegularExpression(@"^[^\d]+$", ErrorMessage = "The LastNAme must not contain numbers.")]
     [MinLength(2)]
     [MaxLength(50)]
-    [Required(ErrorMessage = "The LastName is required.")]
-    [RegularExpression(@"^[^\d]+$", ErrorMessage = "The first name must not contain numbers.")]
     public string LastName { get; set; }
     
     [Required]
@@ -35,5 +36,7 @@ public class UserCreationDto
     
     [Required]
     public string PassWordCheck { get; set; }
-    public Collection<RolesDto> Roles { get; set; }
+    
+    [Required]
+    public List<RolesDto> Roles { get; set; }
 }
