@@ -2,7 +2,6 @@ using System.Data.Common;
 using Chameleon.DataAccess.Entity;
 using Chameleon.DataAccess.EntityConfig;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace Chameleon;
 
@@ -14,7 +13,7 @@ public class Context : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseMySQL("server=localhost;database=Chameleon;user=root;password=tshishi");
+        optionsBuilder.UseMySQL("server=localhost;database=Chameleons;user=root;password=tshishi");
     }
 
 
