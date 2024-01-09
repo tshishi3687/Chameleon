@@ -5,10 +5,11 @@ using Chameleon.Securities;
 
 namespace Chameleon.Business.Mappers;
 
-public class UserMapper: Mappers<UserCreationDto, User>
+public class UserCreationMapper: Mappers<UserCreationDto, User>
 {
-    private MdpCrypte _crypte = new MdpCrypte();
-
+    private MdpCrypte Crypte;
+    private Context Context;
+    private RoleMapper RoleMapper;
 
     public UserCreationDto ToDto(User entity)
     {
@@ -17,17 +18,31 @@ public class UserMapper: Mappers<UserCreationDto, User>
 
     public User toEntity(UserCreationDto dto)
     {
-        return new User(
-            dto.FirstName,
-            dto.LastName,
-            dto.BursDateTime,
-            _crypte.CryptMdp(dto.Email),
-            EncodeEmail(dto.Email),
-            EncodePhone(dto.Phone),
-            _crypte.CryptMdp(dto.Phone), 
-            _crypte.CryptMdp(dto.PassWord)
-        );
+        List<UsersRoles> ListUR = Context.UsersRoles
+            .Where(ur => dto.Roles.Any(r => r.Id == ur.RoleId))
+            .ToList();
+
+        List<Roles> ListR = Context.Roles
+            .Where(r => ListUR.Any(ur => ur.RoleId == r.Id))
+            .ToList();
+
+        ICollection<UsersRoles> userRoles = ListR.Select(role => new UsersRoles { RoleId = role.Id }).ToList();
+
+        return new User
+        {
+            ReferenceCode = Guid.NewGuid(),
+            FirstName = dto.FirstName,
+            LastName = dto.LastName,
+            BursDateTime = dto.BursDateTime,
+            Email = Crypte.CryptMdp(dto.Email),
+            EmailEncoding = EncodeEmail(dto.Email),
+            Phone = Crypte.CryptMdp(dto.Phone),
+            PhoneEncoding = EncodePhone(dto.Phone),
+            PassWord = Crypte.CryptMdp(dto.PassWord),
+            Roles = userRoles
+        };
     }
+
     
     private string EncodeEmail(string email)
     {
