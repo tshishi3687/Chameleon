@@ -1,8 +1,6 @@
-using System.Data.Common;
 using Chameleon.DataAccess.Entity;
 using Chameleon.DataAccess.EntityConfig;
 using Microsoft.EntityFrameworkCore;
-using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace Chameleon;
 
@@ -11,6 +9,12 @@ public class Context : Microsoft.EntityFrameworkCore.DbContext
     public DbSet<User> User { get; set; }
     public DbSet<Roles> Roles { get; set; }
     public DbSet<UsersRoles> UsersRoles { get; set; }
+    
+    public DbSet<Locality> Localities { get; set; }
+    
+    public DbSet<Country> Countries { get; set; }
+    
+    public DbSet<ContactDetails> ContactDetails { get; set; }
 
     
     
@@ -31,6 +35,9 @@ public class Context : Microsoft.EntityFrameworkCore.DbContext
         modelBuilder.ApplyConfiguration<Roles>(new RoleConfig());
         modelBuilder.ApplyConfiguration<User>(new UserConfig());
         modelBuilder.ApplyConfiguration<UsersRoles>(new UserRoleConfig());
+        modelBuilder.ApplyConfiguration<Locality>(new LocalityConfig());
+        modelBuilder.ApplyConfiguration<Country>(new CountryConfig());
+        modelBuilder.ApplyConfiguration<ContactDetails>(new ContactDetailsConfig());
 
         // Allimenter la DB
 

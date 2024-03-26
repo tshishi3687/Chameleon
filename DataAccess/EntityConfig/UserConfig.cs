@@ -21,9 +21,7 @@ public class UserConfig: IEntityTypeConfiguration<User>
         builder.Property(x => x.LastName).IsRequired(); 
         builder.Property(x => x.BursDateTime).IsRequired();
         builder.Property(x => x.Email).IsRequired();
-        builder.Property(x => x.EmailEncoding).IsRequired();
         builder.Property(x => x.Phone).IsRequired();
-        builder.Property(x => x.PhoneEncoding).IsRequired();
         builder.Property(x => x.PassWord).IsRequired();
 
         // Prés recquis

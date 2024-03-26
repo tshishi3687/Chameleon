@@ -4,6 +4,7 @@ using Chameleon;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Chameleon.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20240326092733_AddCountry_Locality_ContactDetails")]
+    partial class AddCountry_Locality_ContactDetails
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,104 +24,6 @@ namespace Chameleon.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
-
-            modelBuilder.Entity("Chameleon.DataAccess.Entity.ContactDetails", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<Guid>("CountryId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlComputedColumn(b.Property<DateTime>("CreatedAt"));
-
-                    b.Property<Guid>("LocalityId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("Number")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlComputedColumn(b.Property<DateTime>("UpdatedAt"));
-
-                    b.HasKey("Id")
-                        .HasName("PK_ContactDetails");
-
-                    b.HasIndex("CountryId");
-
-                    b.HasIndex("LocalityId");
-
-                    b.ToTable("ContactDetails", (string)null);
-                });
-
-            modelBuilder.Entity("Chameleon.DataAccess.Entity.Country", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlComputedColumn(b.Property<DateTime>("CreatedAt"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlComputedColumn(b.Property<DateTime>("UpdatedAt"));
-
-                    b.HasKey("Id")
-                        .HasName("PK_Country");
-
-                    b.ToTable("Country", (string)null);
-                });
-
-            modelBuilder.Entity("Chameleon.DataAccess.Entity.Locality", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlComputedColumn(b.Property<DateTime>("CreatedAt"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlComputedColumn(b.Property<DateTime>("UpdatedAt"));
-
-                    b.HasKey("Id")
-                        .HasName("PK_Locality");
-
-                    b.ToTable("Locality", (string)null);
-                });
 
             modelBuilder.Entity("Chameleon.DataAccess.Entity.Roles", b =>
                 {
@@ -220,25 +125,6 @@ namespace Chameleon.Migrations
                     b.ToTable("UsersRoles");
                 });
 
-            modelBuilder.Entity("Chameleon.DataAccess.Entity.ContactDetails", b =>
-                {
-                    b.HasOne("Chameleon.DataAccess.Entity.Country", "Country")
-                        .WithMany("ContactDetailsList")
-                        .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Chameleon.DataAccess.Entity.Locality", "Locality")
-                        .WithMany("ContactDetailsList")
-                        .HasForeignKey("LocalityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Country");
-
-                    b.Navigation("Locality");
-                });
-
             modelBuilder.Entity("Chameleon.DataAccess.Entity.UsersRoles", b =>
                 {
                     b.HasOne("Chameleon.DataAccess.Entity.Roles", "Roles")
@@ -256,16 +142,6 @@ namespace Chameleon.Migrations
                     b.Navigation("Roles");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Chameleon.DataAccess.Entity.Country", b =>
-                {
-                    b.Navigation("ContactDetailsList");
-                });
-
-            modelBuilder.Entity("Chameleon.DataAccess.Entity.Locality", b =>
-                {
-                    b.Navigation("ContactDetailsList");
                 });
 
             modelBuilder.Entity("Chameleon.DataAccess.Entity.Roles", b =>

@@ -8,15 +8,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Migrations/20240326081142_first.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20240326081142_first.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/ContextModelSnapshot.cs" afterDir="false" />
+    <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="MySql.EntityFramwork works">
+      <change afterPath="$PROJECT_DIR$/DataAccess/Entities/BaseEntity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Entities/ContactDetails.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Entities/Country.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Entities/Locality.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/EntityConfig/LocalityConfig.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Migrations/20240326084832_AddBaseEntity.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Migrations/20240326084832_AddBaseEntity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Migrations/20240326085827_CleanEntities.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Migrations/20240326085827_CleanEntities.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chameleon.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Chameleon.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Context.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Context.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/Mappers/UserCreationMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Mappers/UserCreationMapper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/Mappers/UserMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Mappers/UserMapper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccess/Entities/Roles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/Entities/Roles.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccess/Entities/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/Entities/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccess/EntityConfig/UserConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/EntityConfig/UserConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/ContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/ContextModelSnapshot.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +170,7 @@
       <workItem from="1704816819342" duration="4570000" />
       <workItem from="1711278216511" duration="1120000" />
       <workItem from="1711437691230" duration="1144000" />
-      <workItem from="1711438855337" duration="2618000" />
+      <workItem from="1711438855337" duration="5480000" />
     </task>
     <task id="LOCAL-00001" summary="base">
       <option name="closed" value="true" />
@@ -180,7 +188,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704813865243</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="MySql.EntityFramwork works">
+      <option name="closed" value="true" />
+      <created>1711441546112</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711441546112</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,7 +219,8 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="base" />
     <MESSAGE value="try debug package... not work" />
-    <option name="LAST_COMMIT_MESSAGE" value="try debug package... not work" />
+    <MESSAGE value="MySql.EntityFramwork works" />
+    <option name="LAST_COMMIT_MESSAGE" value="MySql.EntityFramwork works" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

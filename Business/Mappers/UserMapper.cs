@@ -19,8 +19,6 @@ public class UserMapper : Mappers<UserDto, User>
             FirstName = entity.FirstName,
             LastName = entity.LastName,
             BursDateTime = entity.BursDateTime,
-            EmailEncoding = entity.EmailEncoding,
-            PhoneEncoding = entity.PhoneEncoding,
             Roles = ListR.Select(r => RoleMapper.ToDto(r)).ToList()
         };
     }
