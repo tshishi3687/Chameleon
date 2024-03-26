@@ -8,7 +8,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="Add LocalityService.cs">
+    <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="Clean LocalityService.cs">
+      <change afterPath="$PROJECT_DIR$/Business/Services/BaseContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Business/Services/LocalityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Services/LocalityService.cs" afterDir="false" />
     </list>
@@ -27,6 +28,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0c53ee5c91f047f387400d094b3581c4267420/df/e0f44768/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Business/Services/LocalityService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Context.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Context.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Context.cs" root0="SKIP_HIGHLIGHTING" />
@@ -160,7 +162,7 @@
       <workItem from="1704816819342" duration="4570000" />
       <workItem from="1711278216511" duration="1120000" />
       <workItem from="1711437691230" duration="1144000" />
-      <workItem from="1711438855337" duration="22915000" />
+      <workItem from="1711438855337" duration="24056000" />
     </task>
     <task id="LOCAL-00001" summary="base">
       <option name="closed" value="true" />
@@ -218,7 +220,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711463302106</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Clean LocalityService.cs">
+      <option name="closed" value="true" />
+      <created>1711468367946</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1711468367946</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,7 +255,8 @@
     <MESSAGE value="add Locality.cs, Country.cs and ContactDetails.cs" />
     <MESSAGE value="Add ContactDetails in Users" />
     <MESSAGE value="Add LocalityService.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add LocalityService.cs" />
+    <MESSAGE value="Clean LocalityService.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clean LocalityService.cs" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

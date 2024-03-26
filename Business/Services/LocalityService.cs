@@ -4,14 +4,13 @@ using Chameleon.Business.Mappers;
 
 namespace Chameleon.Business.Services;
 
-public class LocalityService(Context context) : IService<LocalityDto, Guid>
+public class LocalityService(Context context) : BaseContext(context), IService<LocalityDto, Guid>
 {
-    private readonly Context _context = context ?? throw new ArgumentNullException(nameof(context));
     private readonly LocalityMapper _localityMappers = new();
 
     public LocalityDto CreatEntity(LocalityDto dto)
     {
-        var locality = _context.Localities.SingleOrDefault(lo => lo.Name.ToUpper().Equals(dto.Name.ToUpper()));
+        var locality = Context.Localities.SingleOrDefault(lo => lo.Name.ToUpper().Equals(dto.Name.ToUpper()));
 
         if (locality != null)
         {
@@ -19,9 +18,9 @@ public class LocalityService(Context context) : IService<LocalityDto, Guid>
         }
 
         var data = _localityMappers.toEntity(dto);
-        _context.Localities.Add(data);
+        Context.Localities.Add(data);
 
-        var affectedRows = _context.SaveChanges();
+        var affectedRows = Context.SaveChanges();
 
         if (affectedRows != 1)
         {
@@ -33,7 +32,7 @@ public class LocalityService(Context context) : IService<LocalityDto, Guid>
 
     public LocalityDto ReadEntity(Guid guid)
     {
-        var locality = _context.Localities.SingleOrDefault(lo => lo.Id.Equals(guid));
+        var locality = Context.Localities.SingleOrDefault(lo => lo.Id.Equals(guid));
 
         if (locality == null)
         {
@@ -45,28 +44,28 @@ public class LocalityService(Context context) : IService<LocalityDto, Guid>
 
     public ICollection<LocalityDto> ReadAllEntity()
     {
-        return _context.Localities.Select(locality => _localityMappers.ToDto(locality)).ToList();
+        return Context.Localities.Select(locality => _localityMappers.ToDto(locality)).ToList();
     }
 
     public LocalityDto updateEntity(LocalityDto dto, Guid guid)
     {
-        var localityToRemove = _context.Localities.FirstOrDefault(p => p.Id.Equals(guid));
+        var localityToRemove = Context.Localities.FirstOrDefault(p => p.Id.Equals(guid));
 
         if (localityToRemove == null)
         {
             throw new DllNotFoundException("Entity not found!");
         }
 
-        _context.Localities.Remove(localityToRemove);
-        _context.Localities.Add(_localityMappers.toEntity(dto));
+        Context.Localities.Remove(localityToRemove);
+        Context.Localities.Add(_localityMappers.toEntity(dto));
         
-        var i = _context.SaveChanges();
+        var i = Context.SaveChanges();
         if (i != 2)
         {
             throw new DataMisalignedException();
         }
 
-        var localitySaved = _context.Localities.SingleOrDefault(lo => lo.Name.Equals(dto));
+        var localitySaved = Context.Localities.SingleOrDefault(lo => lo.Name.Equals(dto));
         if (localitySaved == null)
         {
             throw new DataException();
@@ -77,10 +76,10 @@ public class LocalityService(Context context) : IService<LocalityDto, Guid>
 
     public void delete(Guid guid)
     {
-        var entityToDelete = _context.Localities.SingleOrDefault(lo => lo.Id.Equals(guid));
+        var entityToDelete = Context.Localities.SingleOrDefault(lo => lo.Id.Equals(guid));
         if (entityToDelete != null)
         {
-            _context.Localities.Remove(entityToDelete);
+            Context.Localities.Remove(entityToDelete);
         }
     }
 }
