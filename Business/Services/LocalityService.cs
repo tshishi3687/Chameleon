@@ -1,80 +1,86 @@
 using System.Data;
 using Chameleon.Business.Dtos;
 using Chameleon.Business.Mappers;
-using Chameleon.DataAccess.Entity;
 
 namespace Chameleon.Business.Services;
 
-public class LocalityService : IService<LocalityDto, Guid>
+public class LocalityService(Context context) : IService<LocalityDto, Guid>
 {
-    public Context Context;
-    public Mappers<LocalityDto, Locality> LocalityMappers = new LocalityMapper();
-
-    public LocalityService(Context context)
-    {
-        Context = context;
-    }
+    private readonly Context _context = context ?? throw new ArgumentNullException(nameof(context));
+    private readonly LocalityMapper _localityMappers = new();
 
     public LocalityDto CreatEntity(LocalityDto dto)
     {
-        Locality locality = Context.Localities.SingleOrDefault(lo => lo.Name.ToUpper() == dto.Name.ToUpper());
+        var locality = _context.Localities.SingleOrDefault(lo => lo.Name.ToUpper().Equals(dto.Name.ToUpper()));
 
         if (locality != null)
         {
-            return LocalityMappers.ToDto(locality);
+            return _localityMappers.ToDto(locality);
         }
 
-        Locality data = LocalityMappers.toEntity(dto);
-        Context.Localities.Add(data);
+        var data = _localityMappers.toEntity(dto);
+        _context.Localities.Add(data);
 
-        int affectedRows = Context.SaveChanges();
+        var affectedRows = _context.SaveChanges();
 
-        if (affectedRows == 1)
+        if (affectedRows != 1)
         {
-            return LocalityMappers.ToDto(data);
+            throw new DataException("An error occurred while saving in the DB");
         }
 
-        throw new DataException("An error occurred while saving in the DB");
+        return _localityMappers.ToDto(data);
     }
 
     public LocalityDto ReadEntity(Guid guid)
     {
-        Locality locality = Context.Localities.SingleOrDefault(lo => lo.Id == guid);
+        var locality = _context.Localities.SingleOrDefault(lo => lo.Id.Equals(guid));
 
-        if (locality != null)
+        if (locality == null)
         {
-            return LocalityMappers.ToDto(locality);
+            throw new KeyNotFoundException("Unable to find entity with this key");
         }
 
-        throw new KeyNotFoundException("Unable to find entity with this key");
+        return _localityMappers.ToDto(locality);
     }
 
     public ICollection<LocalityDto> ReadAllEntity()
     {
-        return Context.Localities.Select(locality => LocalityMappers.ToDto(locality)).ToList();
+        return _context.Localities.Select(locality => _localityMappers.ToDto(locality)).ToList();
     }
 
     public LocalityDto updateEntity(LocalityDto dto, Guid guid)
     {
-        if (Context.Localities.SingleOrDefault(lo => lo.Id == guid) == null)
+        var localityToRemove = _context.Localities.FirstOrDefault(p => p.Id.Equals(guid));
+
+        if (localityToRemove == null)
         {
             throw new DllNotFoundException("Entity not found!");
         }
 
-        Context.Localities.Remove(Context.Localities.FirstOrDefault(lo => lo.Id.Equals(guid)));
-        Context.Localities.Add(LocalityMappers.toEntity(dto));
-        int i = Context.SaveChanges();
-
+        _context.Localities.Remove(localityToRemove);
+        _context.Localities.Add(_localityMappers.toEntity(dto));
+        
+        var i = _context.SaveChanges();
         if (i != 2)
         {
             throw new DataMisalignedException();
         }
 
-        return LocalityMappers.ToDto(Context.Localities.FirstOrDefault(lo => lo.Name.Equals(dto)));
+        var localitySaved = _context.Localities.SingleOrDefault(lo => lo.Name.Equals(dto));
+        if (localitySaved == null)
+        {
+            throw new DataException();
+        }
+
+        return _localityMappers.ToDto(localitySaved);
     }
 
     public void delete(Guid guid)
     {
-        Context.Localities.Remove(Context.Localities.FirstOrDefault(lo => lo.Id.Equals(guid)));
+        var entityToDelete = _context.Localities.SingleOrDefault(lo => lo.Id.Equals(guid));
+        if (entityToDelete != null)
+        {
+            _context.Localities.Remove(entityToDelete);
+        }
     }
 }

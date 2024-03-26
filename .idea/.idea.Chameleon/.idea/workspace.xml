@@ -8,21 +8,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="Add ContactDetails in Users">
-      <change afterPath="$PROJECT_DIR$/Business/Dtos/ContactDetailsDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Dtos/CountryDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Dtos/LocalityDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Mappers/ContactDetailsMapper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Mappers/CountryMapper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Mappers/LocalityMapper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Services/IService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Services/LocalityService.cs" afterDir="false" />
+    <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="Add LocalityService.cs">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/Mappers/Mappers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Mappers/Mappers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/Mappers/RoleMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Mappers/RoleMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/Mappers/UserCreationMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Mappers/UserCreationMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/Mappers/UserMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Mappers/UserMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataAccess/EntityConfig/LocalityConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/EntityConfig/LocalityConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/Services/LocalityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Services/LocalityService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +160,7 @@
       <workItem from="1704816819342" duration="4570000" />
       <workItem from="1711278216511" duration="1120000" />
       <workItem from="1711437691230" duration="1144000" />
-      <workItem from="1711438855337" duration="19700000" />
+      <workItem from="1711438855337" duration="22915000" />
     </task>
     <task id="LOCAL-00001" summary="base">
       <option name="closed" value="true" />
@@ -222,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711450338147</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add LocalityService.cs">
+      <option name="closed" value="true" />
+      <created>1711463302106</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1711463302106</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,7 +244,8 @@
     <MESSAGE value="MySql.EntityFramwork works" />
     <MESSAGE value="add Locality.cs, Country.cs and ContactDetails.cs" />
     <MESSAGE value="Add ContactDetails in Users" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add ContactDetails in Users" />
+    <MESSAGE value="Add LocalityService.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add LocalityService.cs" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
