@@ -14,4 +14,9 @@ public class RoleMapper: Mappers<RolesDto, Roles>
     {
         return new Roles { Name = dto.Name };
     }
+
+    public ICollection<RolesDto> toDtos(ICollection<Roles> entities)
+    {
+        return entities.Select(entity => ToDto(entity)).ToList();
+    }
 }

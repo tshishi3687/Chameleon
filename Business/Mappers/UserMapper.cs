@@ -27,4 +27,9 @@ public class UserMapper : Mappers<UserDto, User>
     {
         throw new NotImplementedException();
     }
+
+    public ICollection<UserDto> toDtos(ICollection<User> entities)
+    {
+        return entities.Select(entity => ToDto(entity)).ToList();
+    }
 }

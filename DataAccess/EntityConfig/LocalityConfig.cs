@@ -11,5 +11,6 @@ public class LocalityConfig : IEntityTypeConfiguration<Locality>
         builder.ToTable("Locality");
         builder.HasKey(x => x.Id).HasName("PK_Locality");
         builder.Property(x => x.Id).ValueGeneratedOnAdd();
+        builder.HasIndex(x => x.Name).IsUnique();
     }
 }
