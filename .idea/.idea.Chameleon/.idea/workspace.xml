@@ -8,23 +8,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="MySql.EntityFramwork works">
-      <change afterPath="$PROJECT_DIR$/DataAccess/Entities/BaseEntity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataAccess/Entities/ContactDetails.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataAccess/Entities/Country.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataAccess/Entities/Locality.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataAccess/EntityConfig/LocalityConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20240326084832_AddBaseEntity.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20240326084832_AddBaseEntity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20240326085827_CleanEntities.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20240326085827_CleanEntities.cs" afterDir="false" />
+    <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="add Locality.cs, Country.cs and ContactDetails.cs">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/Mappers/UserCreationMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Mappers/UserCreationMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/Mappers/UserMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Mappers/UserMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataAccess/Entities/Roles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/Entities/Roles.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccess/Entities/Country.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/Entities/Country.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccess/Entities/Locality.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/Entities/Locality.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataAccess/Entities/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/Entities/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataAccess/EntityConfig/UserConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/EntityConfig/UserConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/ContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/ContextModelSnapshot.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +33,9 @@
     <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Context.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Context.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Context.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/DataAccess/Entities/Country.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/DataAccess/Entities/Locality.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/DataAccess/Entities/User.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -170,7 +161,7 @@
       <workItem from="1704816819342" duration="4570000" />
       <workItem from="1711278216511" duration="1120000" />
       <workItem from="1711437691230" duration="1144000" />
-      <workItem from="1711438855337" duration="5480000" />
+      <workItem from="1711438855337" duration="9059000" />
     </task>
     <task id="LOCAL-00001" summary="base">
       <option name="closed" value="true" />
@@ -196,7 +187,23 @@
       <option name="project" value="LOCAL" />
       <updated>1711441546112</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add Locality.cs, Country.cs and ContactDetails.cs">
+      <option name="closed" value="true" />
+      <created>1711445472507</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711445472507</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add Locality.cs, Country.cs and ContactDetails.cs">
+      <option name="closed" value="true" />
+      <created>1711445940378</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1711445940378</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,7 +227,8 @@
     <MESSAGE value="base" />
     <MESSAGE value="try debug package... not work" />
     <MESSAGE value="MySql.EntityFramwork works" />
-    <option name="LAST_COMMIT_MESSAGE" value="MySql.EntityFramwork works" />
+    <MESSAGE value="add Locality.cs, Country.cs and ContactDetails.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Locality.cs, Country.cs and ContactDetails.cs" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

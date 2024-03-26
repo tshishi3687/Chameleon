@@ -28,5 +28,10 @@ public class UserConfig: IEntityTypeConfiguration<User>
         builder.Property(x => x.FirstName).HasMaxLength(50);
         builder.Property(x => x.FirstName).HasMaxLength(50); 
         builder.HasIndex(x => x.Email).IsUnique();
+        
+        builder.HasMany(u => u.ContactDetails) // Définition de la relation
+            .WithOne(cd => cd.User)         // Propriété de navigation inverse dans ContactDetails
+            .HasForeignKey(cd => cd.UserId) // Clé étrangère dans ContactDetails
+            .IsRequired(); 
     }
 }

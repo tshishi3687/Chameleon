@@ -10,4 +10,6 @@ public class User : BaseEntity
     public string Phone { get; set; }
     public string PassWord { get; set; }
     public ICollection<UsersRoles> Roles { get; set; }
+    
+    public ICollection<UsersContactDetails> ContactDetails { get; set; }
 }

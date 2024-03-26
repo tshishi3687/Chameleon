@@ -15,6 +15,7 @@ public class Context : Microsoft.EntityFrameworkCore.DbContext
     public DbSet<Country> Countries { get; set; }
     
     public DbSet<ContactDetails> ContactDetails { get; set; }
+    public DbSet<UsersContactDetails> UsersContactDetails { get; set; }
 
     
     
@@ -38,6 +39,7 @@ public class Context : Microsoft.EntityFrameworkCore.DbContext
         modelBuilder.ApplyConfiguration<Locality>(new LocalityConfig());
         modelBuilder.ApplyConfiguration<Country>(new CountryConfig());
         modelBuilder.ApplyConfiguration<ContactDetails>(new ContactDetailsConfig());
+        modelBuilder.ApplyConfiguration<UsersContactDetails>(new UserContactDetailsConfig());
 
         // Allimenter la DB
 
