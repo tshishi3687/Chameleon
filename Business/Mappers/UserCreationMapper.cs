@@ -35,9 +35,7 @@ public class UserCreationMapper: Mappers<UserCreationDto, User>
             LastName = dto.LastName,
             BursDateTime = dto.BursDateTime,
             Email = Crypte.CryptMdp(dto.Email),
-            EmailEncoding = EncodeEmail(dto.Email),
             Phone = Crypte.CryptMdp(dto.Phone),
-            PhoneEncoding = EncodePhone(dto.Phone),
             PassWord = Crypte.CryptMdp(dto.PassWord),
             Roles = userRoles
         };
