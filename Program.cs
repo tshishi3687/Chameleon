@@ -1,6 +1,5 @@
 using Chameleon;
 using MySql.EntityFrameworkCore.Extensions;
-using MySqlConnector;
 
 var builder = WebApplication.CreateBuilder(args);
 

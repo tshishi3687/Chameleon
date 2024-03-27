@@ -9,13 +9,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Tests/Integrations/BaseTestContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/Integrations/Services/LocalityServiceTest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chameleon.sln.DotSettings.user" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/global.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/Services/IService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Services/IService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Business/Services/LocalityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Services/LocalityService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chameleon.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Chameleon.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Context.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Context.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Integrations/BaseTestContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Integrations/Services/LocalityServiceTest.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,15 +34,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0c53ee5c91f047f387400d094b3581c4267420/df/e0f44768/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Business/Services/LocalityService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Context.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Context.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Context.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Context.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/DataAccess/Entities/Country.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/DataAccess/Entities/Locality.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/DataAccess/Entities/User.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/DataAccess/Entities/User.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/53fca94d28e641638e74febf9e7ddda8d7ae00/c1/79104a05/Activator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Tests/Integrations/Services/LocalityServiceTest.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -60,34 +55,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.Chameleon: http.executor&quot;: &quot;Run&quot;,
-    &quot;.NET Launch Settings Profile.Chameleon: https.executor&quot;: &quot;Run&quot;,
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Docker.Docker: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.Chameleon: http.executor": "Run",
+    ".NET Launch Settings Profile.Chameleon: https.executor": "Run",
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Docker.Docker: Compose Deployment.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "da4d22a8-5028-4dea-a22d-ed3d73257239.executor": "Debug",
+    "fb27a40c-d8a5-4583-a206-930a31eadf14.executor": "Debug",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "settings.sync",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
     ],
-    &quot;rider.external.source.directories&quot;: [
-      &quot;/Users/cedricktshibangu/Library/Application Support/JetBrains/Rider2023.3/resharper-host/DecompilerCache&quot;,
-      &quot;/Users/cedricktshibangu/Library/Application Support/JetBrains/Rider2023.3/resharper-host/SourcesCache&quot;,
-      &quot;/Users/cedricktshibangu/.local/share/Symbols/src&quot;
+    "rider.external.source.directories": [
+      "/Users/cedricktshibangu/Library/Application Support/JetBrains/Rider2023.3/resharper-host/DecompilerCache",
+      "/Users/cedricktshibangu/Library/Application Support/JetBrains/Rider2023.3/resharper-host/SourcesCache",
+      "/Users/cedricktshibangu/.local/share/Symbols/src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Docker.Docker: Compose Deployment">
     <configuration name="Chameleon: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Chameleon.csproj" />
@@ -170,7 +167,8 @@
       <workItem from="1711278216511" duration="1120000" />
       <workItem from="1711437691230" duration="1144000" />
       <workItem from="1711438855337" duration="34760000" />
-      <workItem from="1711522181497" duration="1247000" />
+      <workItem from="1711522181497" duration="5097000" />
+      <workItem from="1711527302114" duration="9370000" />
     </task>
     <task id="LOCAL-00001" summary="base">
       <option name="closed" value="true" />
@@ -244,7 +242,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711469127839</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Try to add test">
+      <option name="closed" value="true" />
+      <created>1711523606956</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1711523606956</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,7 +279,40 @@
     <MESSAGE value="Add LocalityService.cs" />
     <MESSAGE value="Clean LocalityService.cs" />
     <MESSAGE value="Add BaseContext.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add BaseContext.cs" />
+    <MESSAGE value="Try to add test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Try to add test" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Business/Services/LocalityService.cs</url>
+          <line>78</line>
+          <properties documentPath="$PROJECT_DIR$/Business/Services/LocalityService.cs" initialLine="78" containingFunctionPresentation="Lambda expression inside Method 'delete'">
+            <startOffsets>
+              <option value="2290" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2308" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Business/Services/LocalityService.cs</url>
+          <line>79</line>
+          <properties documentPath="$PROJECT_DIR$/Business/Services/LocalityService.cs" initialLine="79" containingFunctionPresentation="Method 'delete'">
+            <startOffsets>
+              <option value="2319" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2346" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

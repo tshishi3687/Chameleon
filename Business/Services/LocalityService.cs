@@ -65,7 +65,7 @@ public class LocalityService(Context context) : BaseContext(context), IService<L
             throw new DataMisalignedException();
         }
 
-        var localitySaved = Context.Localities.SingleOrDefault(lo => lo.Name.Equals(dto));
+        var localitySaved = Context.Localities.SingleOrDefault(lo => lo.Name.Equals(dto.Name.ToUpper()));
         if (localitySaved == null)
         {
             throw new DataException();
@@ -80,6 +80,7 @@ public class LocalityService(Context context) : BaseContext(context), IService<L
         if (entityToDelete != null)
         {
             Context.Localities.Remove(entityToDelete);
+            Context.SaveChanges();
         }
     }
 }
