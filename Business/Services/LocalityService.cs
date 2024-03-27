@@ -1,16 +1,22 @@
 using System.Data;
+using System.Runtime;
 using Chameleon.Business.Dtos;
 using Chameleon.Business.Mappers;
 
 namespace Chameleon.Business.Services;
 
-public class LocalityService(Context context) : BaseContext(context), IService<LocalityDto, Guid>
+public class LocalityService(Context context) : IContext(context), IService<LocalityDto, Guid>
 {
     private readonly LocalityMapper _localityMappers = new();
 
     public LocalityDto CreateEntity(LocalityDto dto)
     {
-        var locality = Context.Localities.SingleOrDefault(lo => lo.Name.ToUpper().Equals(dto.Name.ToUpper()));
+        if (string.IsNullOrWhiteSpace(dto.Name))
+        {
+            throw new AmbiguousImplementationException("Dto name's can't be null!");
+        }
+        
+        var locality = Context.Localities.SingleOrDefault(l => l.Name.ToUpper().Equals(dto.Name.ToUpper()));
 
         if (locality != null)
         {
@@ -32,7 +38,7 @@ public class LocalityService(Context context) : BaseContext(context), IService<L
 
     public LocalityDto ReadEntity(Guid guid)
     {
-        var locality = Context.Localities.SingleOrDefault(lo => lo.Id.Equals(guid));
+        var locality = Context.Localities.SingleOrDefault(l => l.Id.Equals(guid));
 
         if (locality == null)
         {
@@ -44,12 +50,12 @@ public class LocalityService(Context context) : BaseContext(context), IService<L
 
     public ICollection<LocalityDto> ReadAllEntity()
     {
-        return Context.Localities.Select(locality => _localityMappers.ToDto(locality)).ToList();
+        return Context.Localities.Select(l => _localityMappers.ToDto(l)).ToList();
     }
 
     public LocalityDto updateEntity(LocalityDto dto, Guid guid)
     {
-        var localityToRemove = Context.Localities.FirstOrDefault(p => p.Id.Equals(guid));
+        var localityToRemove = Context.Localities.FirstOrDefault(l => l.Id.Equals(guid));
 
         if (localityToRemove == null)
         {
@@ -65,7 +71,7 @@ public class LocalityService(Context context) : BaseContext(context), IService<L
             throw new DataMisalignedException();
         }
 
-        var localitySaved = Context.Localities.SingleOrDefault(lo => lo.Name.Equals(dto.Name.ToUpper()));
+        var localitySaved = Context.Localities.SingleOrDefault(l => l.Name.Equals(dto.Name.ToUpper()));
         if (localitySaved == null)
         {
             throw new DataException();
@@ -76,7 +82,7 @@ public class LocalityService(Context context) : BaseContext(context), IService<L
 
     public void delete(Guid guid)
     {
-        var entityToDelete = Context.Localities.SingleOrDefault(lo => lo.Id.Equals(guid));
+        var entityToDelete = Context.Localities.SingleOrDefault(l => l.Id.Equals(guid));
         if (entityToDelete != null)
         {
             Context.Localities.Remove(entityToDelete);

@@ -1,10 +1,11 @@
+using System.Runtime;
 using Chameleon.Business.Dtos;
 using Chameleon.Business.Services;
 using Xunit;
 
 namespace Chameleon.Tests.Integrations.Services
 {
-    public class LocalityServiceTest: BaseTestContext
+    public class LocalityServiceTest: ITestContext
     {
         [Fact]
         public void CrudServiceTest()
@@ -12,6 +13,15 @@ namespace Chameleon.Tests.Integrations.Services
             using var context = CreateDbContext();
             var localityService = new LocalityService(context);
 
+            var badDto1 = new LocalityDto();
+            Assert.Throws<AmbiguousImplementationException>(() => localityService.CreateEntity(badDto1));
+
+            var badDto2 = new LocalityDto { Name = ""};
+            Assert.Throws<AmbiguousImplementationException>(() => localityService.CreateEntity(badDto2));
+
+            var badDto3 = new LocalityDto { Name = " "};
+            Assert.Throws<AmbiguousImplementationException>(() => localityService.CreateEntity(badDto3));
+            
             var localityDto = new LocalityDto { Name = "test" };
 
             // CreateEntity

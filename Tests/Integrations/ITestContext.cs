@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Chameleon.Tests.Integrations;
 
-public abstract class BaseTestContext : DbContext
+public abstract class ITestContext : DbContext
 {
     protected Context CreateDbContext()
     {

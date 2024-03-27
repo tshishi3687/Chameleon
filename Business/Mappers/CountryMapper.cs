@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Text.Json.Serialization.Metadata;
 using Chameleon.Business.Dtos;
 using Chameleon.DataAccess.Entity;
 
@@ -20,7 +18,7 @@ public class CountryMapper: Mappers<CountryDto, Country>
     {
         return new Country
         {
-            Name = dto.Name,
+            Name = dto.Name.ToUpper(),
             ContactDetailsList = new List<ContactDetails>()
         };
     }

@@ -8,16 +8,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Chameleon.sln.DotSettings.user" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/global.json" afterDir="false" />
+    <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="Add LocalityServiceTest.cs">
+      <change afterPath="$PROJECT_DIR$/Business/Services/CountryService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/Services/BaseContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Services/IContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Business/Services/LocalityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Services/LocalityService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chameleon.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Chameleon.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Context.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Context.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Integrations/BaseTestContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Integrations/Services/LocalityServiceTest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Integrations/Services/LocalityServiceTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Integrations/Services/LocalityServiceTest.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +31,13 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0c53ee5c91f047f387400d094b3581c4267420/df/e0f44768/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/53fca94d28e641638e74febf9e7ddda8d7ae00/c1/79104a05/Activator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Tests/Integrations/BaseTestContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Tests/Integrations/BaseTestContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Tests/Integrations/BaseTestContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Tests/Integrations/BaseTestContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Tests/Integrations/Services/LocalityServiceTest.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Tests/Integrations/Services/LocalityServiceTest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Tests/Integrations/Services/LocalityServiceTest.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -168,7 +170,7 @@
       <workItem from="1711437691230" duration="1144000" />
       <workItem from="1711438855337" duration="34760000" />
       <workItem from="1711522181497" duration="5097000" />
-      <workItem from="1711527302114" duration="9370000" />
+      <workItem from="1711527302114" duration="14873000" />
     </task>
     <task id="LOCAL-00001" summary="base">
       <option name="closed" value="true" />
@@ -250,7 +252,23 @@
       <option name="project" value="LOCAL" />
       <updated>1711523606956</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Add LocalityServiceTest.cs">
+      <option name="closed" value="true" />
+      <created>1711538795932</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1711538795932</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Add LocalityServiceTest.cs">
+      <option name="closed" value="true" />
+      <created>1711538812510</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1711538812510</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,39 +298,8 @@
     <MESSAGE value="Clean LocalityService.cs" />
     <MESSAGE value="Add BaseContext.cs" />
     <MESSAGE value="Try to add test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Try to add test" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Business/Services/LocalityService.cs</url>
-          <line>78</line>
-          <properties documentPath="$PROJECT_DIR$/Business/Services/LocalityService.cs" initialLine="78" containingFunctionPresentation="Lambda expression inside Method 'delete'">
-            <startOffsets>
-              <option value="2290" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2308" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Business/Services/LocalityService.cs</url>
-          <line>79</line>
-          <properties documentPath="$PROJECT_DIR$/Business/Services/LocalityService.cs" initialLine="79" containingFunctionPresentation="Method 'delete'">
-            <startOffsets>
-              <option value="2319" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2346" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Add LocalityServiceTest.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add LocalityServiceTest.cs" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
