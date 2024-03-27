@@ -9,26 +9,28 @@ public class Context : Microsoft.EntityFrameworkCore.DbContext
     public DbSet<User> User { get; set; }
     public DbSet<Roles> Roles { get; set; }
     public DbSet<UsersRoles> UsersRoles { get; set; }
-    
+
     public DbSet<Locality> Localities { get; set; }
-    
+
     public DbSet<Country> Countries { get; set; }
-    
+
     public DbSet<ContactDetails> ContactDetails { get; set; }
     public DbSet<UsersContactDetails> UsersContactDetails { get; set; }
 
-    
-    
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseMySql(
             "server=localhost;user id=root;password=tshishi;database=Chameleons",
             new MariaDbServerVersion(new Version(10, 5, 4)),
-            mySqlOptions => {}
+            mySqlOptions => { }
         );
     }
 
-
+    protected void ConfigureForTesting(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseInMemoryDatabase("TestDatabase");
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -8,7 +8,7 @@ public class LocalityService(Context context) : BaseContext(context), IService<L
 {
     private readonly LocalityMapper _localityMappers = new();
 
-    public LocalityDto CreatEntity(LocalityDto dto)
+    public LocalityDto CreateEntity(LocalityDto dto)
     {
         var locality = Context.Localities.SingleOrDefault(lo => lo.Name.ToUpper().Equals(dto.Name.ToUpper()));
 
