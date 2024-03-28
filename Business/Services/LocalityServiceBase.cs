@@ -5,7 +5,7 @@ using Chameleon.Business.Mappers;
 
 namespace Chameleon.Business.Services;
 
-public class LocalityService(Context context) : IContext(context), IService<LocalityDto, Guid>
+public class LocalityServiceBase(Context context) : IContext(context), IService<LocalityDto, Guid>
 {
     private readonly LocalityMapper _localityMappers = new();
 
@@ -15,7 +15,7 @@ public class LocalityService(Context context) : IContext(context), IService<Loca
         {
             throw new AmbiguousImplementationException("Dto name's can't be null!");
         }
-        
+
         var locality = Context.Localities.SingleOrDefault(l => l.Name.ToUpper().Equals(dto.Name.ToUpper()));
 
         if (locality != null)
@@ -25,15 +25,9 @@ public class LocalityService(Context context) : IContext(context), IService<Loca
 
         var data = _localityMappers.toEntity(dto);
         Context.Localities.Add(data);
+        Context.SaveChanges();
 
-        var affectedRows = Context.SaveChanges();
-
-        if (affectedRows != 1)
-        {
-            throw new DataException("An error occurred while saving in the DB");
-        }
-
-        return _localityMappers.ToDto(data);
+        return _localityMappers.ToDto(Context.Localities.Last());
     }
 
     public LocalityDto ReadEntity(Guid guid)
@@ -53,18 +47,18 @@ public class LocalityService(Context context) : IContext(context), IService<Loca
         return Context.Localities.Select(l => _localityMappers.ToDto(l)).ToList();
     }
 
-    public LocalityDto updateEntity(LocalityDto dto, Guid guid)
+    public LocalityDto UpdateEntity(LocalityDto dto, Guid guid)
     {
         var localityToRemove = Context.Localities.FirstOrDefault(l => l.Id.Equals(guid));
 
         if (localityToRemove == null)
         {
-            throw new DllNotFoundException("Entity not found!");
+            throw new KeyNotFoundException("Entity not found!");
         }
 
         Context.Localities.Remove(localityToRemove);
         Context.Localities.Add(_localityMappers.toEntity(dto));
-        
+
         var i = Context.SaveChanges();
         if (i != 2)
         {
@@ -80,7 +74,7 @@ public class LocalityService(Context context) : IContext(context), IService<Loca
         return _localityMappers.ToDto(localitySaved);
     }
 
-    public void delete(Guid guid)
+    public void DeleteEntity(Guid guid)
     {
         var entityToDelete = Context.Localities.SingleOrDefault(l => l.Id.Equals(guid));
         if (entityToDelete != null)

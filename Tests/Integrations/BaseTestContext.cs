@@ -2,9 +2,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Chameleon.Tests.Integrations;
 
-public abstract class ITestContext : DbContext
+public abstract class BaseTestContext : DbContext
 {
-    protected Context CreateDbContext()
+    protected static Context CreateDbContext()
     {
         var context = new Context();
         context.IsTesting = true;

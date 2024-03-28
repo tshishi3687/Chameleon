@@ -5,13 +5,12 @@ using Xunit;
 
 namespace Chameleon.Tests.Integrations.Services;
 
-public class CountryServiceTest : ITestContext
+public class CountryServiceBaseTest : BaseTestContext
 {
     [Fact]
     public void CrudServiceTest()
     {
-        using var context = CreateDbContext();
-        var countryService = new CountryService(context);
+        var countryService = new CountryServiceBase(CreateDbContext());
 
         var badDto1 = new CountryDto();
         Assert.Throws<AmbiguousImplementationException>(() => countryService.CreateEntity(badDto1));
@@ -44,14 +43,14 @@ public class CountryServiceTest : ITestContext
 
         // UpdateEntity
         var updateDto = new CountryDto { Name = "test 2" };
-        var updateEntity = countryService.updateEntity(updateDto, readCountryDto.Id);
+        var updateEntity = countryService.UpdateEntity(updateDto, readCountryDto.Id);
         Assert.NotEqual(readCountryDto.Name, updateEntity.Name);
         Assert.NotEqual(readCountryDto.Id, updateEntity.Id);
         Assert.Equal(updateEntity.Name, updateDto.Name.ToUpper());
         Assert.Throws<KeyNotFoundException>(() => countryService.ReadEntity(readCountryDto.Id));
 
         // DeleteEntity
-        countryService.delete(updateEntity.Id);
+        countryService.DeleteEntity(updateEntity.Id);
         Assert.Throws<KeyNotFoundException>(() => countryService.ReadEntity(updateEntity.Id));
         Assert.Empty(countryService.ReadAllEntity());
     }

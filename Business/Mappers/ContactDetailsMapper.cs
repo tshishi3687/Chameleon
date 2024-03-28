@@ -26,9 +26,7 @@ public class ContactDetailsMapper: Mappers<ContactDetailsDto, ContactDetails>
         return new ContactDetails
         {
             Address = dto.Address,
-            Number = dto.Number,
-            Locality = null,
-            Country = null
+            Number = dto.Number
         };
     }
 

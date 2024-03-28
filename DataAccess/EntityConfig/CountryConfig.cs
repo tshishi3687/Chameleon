@@ -11,6 +11,7 @@ public class CountryConfig: IEntityTypeConfiguration<Country>
         builder.ToTable("Country");
         builder.HasKey(x => x.Id).HasName("PK_Country");
         builder.Property(x => x.Id).ValueGeneratedOnAdd();
+        builder.HasIndex(x => x.Name).IsUnique();
     }
     
 }

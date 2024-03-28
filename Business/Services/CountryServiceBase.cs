@@ -5,18 +5,17 @@ using Chameleon.Business.Mappers;
 
 namespace Chameleon.Business.Services;
 
-public class CountryService(Context context) : IContext(context), IService<CountryDto, Guid>
+public class CountryServiceBase(Context context) : IContext(context), IService<CountryDto, Guid>
 {
-
     private readonly CountryMapper _countryMapper = new();
-    
+
     public CountryDto CreateEntity(CountryDto dto)
     {
         if (string.IsNullOrWhiteSpace(dto.Name))
         {
             throw new AmbiguousImplementationException("Dto name's can't be null!");
         }
-        
+
         var country = Context.Countries.SingleOrDefault(l => l.Name.ToUpper().Equals(dto.Name.ToUpper()));
 
         if (country != null)
@@ -26,15 +25,9 @@ public class CountryService(Context context) : IContext(context), IService<Count
 
         var data = _countryMapper.toEntity(dto);
         Context.Countries.Add(data);
+        Context.SaveChanges();
 
-        var affectedRows = Context.SaveChanges();
-
-        if (affectedRows != 1)
-        {
-            throw new DataException("An error occurred while saving in the DB");
-        }
-
-        return _countryMapper.ToDto(data);
+        return _countryMapper.ToDto(Context.Countries.Last());
     }
 
     public CountryDto ReadEntity(Guid guid)
@@ -54,7 +47,7 @@ public class CountryService(Context context) : IContext(context), IService<Count
         return Context.Countries.Select(c => _countryMapper.ToDto(c)).ToList();
     }
 
-    public CountryDto updateEntity(CountryDto dto, Guid guid)
+    public CountryDto UpdateEntity(CountryDto dto, Guid guid)
     {
         var countryToRemove = Context.Countries.FirstOrDefault(c => c.Id.Equals(guid));
 
@@ -65,7 +58,7 @@ public class CountryService(Context context) : IContext(context), IService<Count
 
         Context.Countries.Remove(countryToRemove);
         Context.Countries.Add(_countryMapper.toEntity(dto));
-        
+
         var i = Context.SaveChanges();
         if (i != 2)
         {
@@ -81,7 +74,7 @@ public class CountryService(Context context) : IContext(context), IService<Count
         return _countryMapper.ToDto(countrySaved);
     }
 
-    public void delete(Guid guid)
+    public void DeleteEntity(Guid guid)
     {
         var entityToDelete = Context.Countries.SingleOrDefault(c => c.Id.Equals(guid));
         if (entityToDelete != null)
