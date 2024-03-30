@@ -1,20 +1,19 @@
-using System.Text;
 using Chameleon.Business.Dto;
 using Chameleon.DataAccess.Entity;
 using Chameleon.Securities;
 
 namespace Chameleon.Business.Mappers;
 
-public class UserCreationMapper: Mappers<UserCreationDto, User>
+public class CreationUserMapper: Mappers<CreationUserDto, User>
 {
-    private MdpCrypte Crypte;
+    private MdpCrypte Crypte = new MdpCrypte();
 
-    public UserCreationDto ToDto(User entity)
+    public CreationUserDto ToDto(User entity)
     {
-        throw new NotImplementedException();
+        return new CreationUserDto();
     }
 
-    public User toEntity(UserCreationDto dto)
+    public User toEntity(CreationUserDto dto)
     {
         return new User
         {
@@ -22,15 +21,15 @@ public class UserCreationMapper: Mappers<UserCreationDto, User>
             FirstName = dto.FirstName,
             LastName = dto.LastName,
             BursDateTime = dto.BursDateTime,
-            Email = Crypte.CryptMdp(dto.Email),
-            Phone = Crypte.CryptMdp(dto.Phone),
+            Email = dto.Email,
+            Phone = dto.Phone,
             PassWord = Crypte.CryptMdp(dto.PassWord),
-            Roles = null,
-            ContactDetails = null
+            Roles = new List<UsersRoles>(),
+            ContactDetails = new List<UsersContactDetails>()
         };
     }
 
-    public ICollection<UserCreationDto> toDtos(ICollection<User> entities)
+    public ICollection<CreationUserDto> toDtos(ICollection<User> entities)
     {
         return entities.Select(entity => ToDto(entity)).ToList();
     }

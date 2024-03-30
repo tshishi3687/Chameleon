@@ -9,21 +9,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Business/Services/ContactDetailsServiceBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20240328081350_AddUniqueCounrtyName.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20240328081350_AddUniqueCounrtyName.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/Integrations/Services/ContactDetailsServiceBaseTest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/Mappers/CreationUserMapper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/Services/CreationUserServiceBase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/Services/UserVueServiceBase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Migrations/20240328095506_AddUniqueUserPhoneAndUserEmail.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Migrations/20240328095506_AddUniqueUserPhoneAndUserEmail.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Migrations/20240328141739_AddCascadeInUserAndUserContactDetails.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Migrations/20240328141739_AddCascadeInUserAndUserContactDetails.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Migrations/20240330110558_AddCreatedAtAndUpdateAt.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Migrations/20240330110558_AddCreatedAtAndUpdateAt.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tests/Integrations/Services/UserServiceBaseTest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/Dtos/UserCreationDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Dtos/CreationUserDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/Dtos/UserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Dtos/UserDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Business/Mappers/ContactDetailsMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Mappers/ContactDetailsMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/Services/CountryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Services/CountryServiceBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/Services/IService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Services/IService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/Services/LocalityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Services/LocalityServiceBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/Mappers/UserCreationMapper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/Mappers/UserMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Mappers/UserMapper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/Services/ContactDetailsServiceBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Services/ContactDetailsServiceBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/Services/CountryServiceBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Services/CountryServiceBase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chameleon.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Chameleon.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataAccess/EntityConfig/CountryConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/EntityConfig/CountryConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccess/Entities/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/Entities/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccess/EntityConfig/UserConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/EntityConfig/UserConfig.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Migrations/ContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/ContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Integrations/ITestContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Integrations/BaseTestContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Integrations/Services/CountryServiceTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Integrations/Services/CountryServiceBaseTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Integrations/Services/LocalityServiceTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Integrations/Services/LocalityServiceBaseTest.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,16 +46,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0c53ee5c91f047f387400d094b3581c4267420/df/e0f44768/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1ff7927ee88947b1a5b31f536853b58f2e400/20/c8430508/Queryable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/53fca94d28e641638e74febf9e7ddda8d7ae00/c1/79104a05/Activator.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Business/Mappers/ContactDetailsMapper.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Business/Services/CountryService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Business/Services/IService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Business/Services/LocalityService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/DataAccess/EntityConfig/CountryConfig.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Tests/Integrations/Services/CountryServiceTest.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Tests/Integrations/Services/LocalityServiceTest.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Tests/Integrations/Services/LocalityServiceTest.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -72,6 +75,8 @@
   "keyToString": {
     ".NET Launch Settings Profile.Chameleon: http.executor": "Run",
     ".NET Launch Settings Profile.Chameleon: https.executor": "Run",
+    "333e729f-07b6-45ff-b44b-e261e1907e05.executor": "Debug",
+    "3b27ae94-f945-4518-b49a-d2020fbd6daf.executor": "Debug",
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Docker.Docker: Compose Deployment.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -183,7 +188,10 @@
       <workItem from="1711438855337" duration="34760000" />
       <workItem from="1711522181497" duration="5097000" />
       <workItem from="1711527302114" duration="22438000" />
-      <workItem from="1711609157962" duration="7421000" />
+      <workItem from="1711609157962" duration="17069000" />
+      <workItem from="1711634091930" duration="13188000" />
+      <workItem from="1711749015406" duration="3761000" />
+      <workItem from="1711791939396" duration="7958000" />
     </task>
     <task id="LOCAL-00001" summary="base">
       <option name="closed" value="true" />
@@ -289,7 +297,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711564742498</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Add ContactDetailsServiceBase.cs and ContactDetailsServiceBaseTest.cs">
+      <option name="closed" value="true" />
+      <created>1711617900861</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1711617900861</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -321,54 +337,13 @@
     <MESSAGE value="Try to add test" />
     <MESSAGE value="Add LocalityServiceTest.cs" />
     <MESSAGE value="Add CountryService.cs and CountryServiceTest.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add CountryService.cs and CountryServiceTest.cs" />
+    <MESSAGE value="Add ContactDetailsServiceBase.cs and ContactDetailsServiceBaseTest.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add ContactDetailsServiceBase.cs and ContactDetailsServiceBaseTest.cs" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Business/Services/ContactDetailsServiceBase.cs</url>
-          <line>20</line>
-          <properties documentPath="$PROJECT_DIR$/Business/Services/ContactDetailsService.cs" initialLine="20" containingFunctionPresentation="Method 'CreateEntity'">
-            <startOffsets>
-              <option value="759" />
-            </startOffsets>
-            <endOffsets>
-              <option value="806" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Business/Services/ContactDetailsServiceBase.cs</url>
-          <line>22</line>
-          <properties documentPath="$PROJECT_DIR$/Business/Services/ContactDetailsService.cs" initialLine="22" containingFunctionPresentation="Method 'CreateEntity'">
-            <startOffsets>
-              <option value="816" />
-            </startOffsets>
-            <endOffsets>
-              <option value="859" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Tests/Integrations/Services/CountryServiceBaseTest.cs</url>
-          <line>53</line>
-          <properties documentPath="$PROJECT_DIR$/Tests/Integrations/Services/CountryServiceTest.cs" initialLine="53" containingFunctionPresentation="Method 'CrudServiceTest'">
-            <startOffsets>
-              <option value="2102" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2147" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
+        <PinnedItemInfo parentTag="Type#Chameleon.Business.Dtos.ContactDetailsDto" memberName="Locality" />
         <PinnedItemInfo parentTag="Type#Chameleon.DataAccess.Entity.ContactDetails" memberName="Country" />
       </pinned-members>
     </pin-to-top-manager>

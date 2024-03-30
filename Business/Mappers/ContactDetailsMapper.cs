@@ -25,8 +25,9 @@ public class ContactDetailsMapper: Mappers<ContactDetailsDto, ContactDetails>
     {
         return new ContactDetails
         {
+            Id = dto.Id,
             Address = dto.Address,
-            Number = dto.Number
+            Number = dto.Number,
         };
     }
 

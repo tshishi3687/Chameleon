@@ -57,21 +57,8 @@ public class LocalityServiceBase(Context context) : IContext(context), IService<
         }
 
         Context.Localities.Remove(localityToRemove);
-        Context.Localities.Add(_localityMappers.toEntity(dto));
-
-        var i = Context.SaveChanges();
-        if (i != 2)
-        {
-            throw new DataMisalignedException();
-        }
-
-        var localitySaved = Context.Localities.SingleOrDefault(l => l.Name.Equals(dto.Name.ToUpper()));
-        if (localitySaved == null)
-        {
-            throw new DataException();
-        }
-
-        return _localityMappers.ToDto(localitySaved);
+        Context.SaveChanges();
+        return CreateEntity(dto);
     }
 
     public void DeleteEntity(Guid guid)

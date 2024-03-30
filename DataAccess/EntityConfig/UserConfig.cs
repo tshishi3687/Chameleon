@@ -2,36 +2,41 @@ using Chameleon.DataAccess.Entity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Chameleon.DataAccess.EntityConfig;
-
-public class UserConfig: IEntityTypeConfiguration<User>
+namespace Chameleon.DataAccess.EntityConfig
 {
-    public void Configure(EntityTypeBuilder<User> builder)
+    public class UserConfig : IEntityTypeConfiguration<User>
     {
-        // nom de la table
-        builder.ToTable("User");
+        public void Configure(EntityTypeBuilder<User> builder)
+        {
+            builder.ToTable("User");
 
-        // Primary Key
-        builder.HasKey(x => x.Id).HasName("PK_user");
-        //Rendre la Primary Key auto-incrémantable
-        builder.Property(x => x.Id).ValueGeneratedOnAdd();
+            builder.HasKey(x => x.Id).HasName("PK_user");
+            builder.Property(x => x.Id).ValueGeneratedOnAdd();
 
-        // gestion des null
-        builder.Property(x => x.FirstName).IsRequired(); 
-        builder.Property(x => x.LastName).IsRequired(); 
-        builder.Property(x => x.BursDateTime).IsRequired();
-        builder.Property(x => x.Email).IsRequired();
-        builder.Property(x => x.Phone).IsRequired();
-        builder.Property(x => x.PassWord).IsRequired();
+            builder.Property(x => x.FirstName).IsRequired(); 
+            builder.Property(x => x.LastName).IsRequired(); 
+            builder.Property(x => x.BursDateTime).IsRequired();
+            builder.Property(x => x.Email).IsRequired();
+            builder.Property(x => x.Phone).IsRequired();
+            builder.Property(x => x.PassWord).IsRequired();
 
-        // Prés recquis
-        builder.Property(x => x.FirstName).HasMaxLength(50);
-        builder.Property(x => x.FirstName).HasMaxLength(50); 
-        builder.HasIndex(x => x.Email).IsUnique();
-        
-        builder.HasMany(u => u.ContactDetails) // Définition de la relation
-            .WithOne(cd => cd.User)         // Propriété de navigation inverse dans ContactDetails
-            .HasForeignKey(cd => cd.UserId) // Clé étrangère dans ContactDetails
-            .IsRequired(); 
+            builder.Property(x => x.FirstName).HasMaxLength(50);
+            builder.Property(x => x.FirstName).HasMaxLength(50); 
+            builder.HasIndex(x => x.Email).IsUnique();
+            builder.HasIndex(x => x.Phone).IsUnique();
+            
+            builder.Property(x => x.Email)
+                .IsRequired()
+                .HasAnnotation("RegularExpression", @"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,6}$");
+            builder.Property(x => x.Phone)
+                .IsRequired()
+                .HasAnnotation("RegularExpression", @"^(\\+|00)\\d{1,4}[\\s/0-9]*$");
+            
+            builder.HasMany(u => u.ContactDetails) 
+                .WithOne(cd => cd.User)
+                .HasForeignKey(cd => cd.UserId)
+                .OnDelete(DeleteBehavior.Cascade)
+                .IsRequired(); 
+        }
     }
 }

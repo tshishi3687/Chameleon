@@ -1,4 +1,3 @@
-using System.Data;
 using System.Runtime;
 using Chameleon.Business.Dtos;
 using Chameleon.Business.Mappers;
@@ -11,7 +10,6 @@ public class ContactDetailsServiceBase(Context context) : IContext(context), ISe
     private readonly ContactDetailsMapper _contactDetailsMapper = new();
     private readonly LocalityMapper _localityMapper = new();
     private readonly CountryMapper _countryMapper = new();
-
     private readonly LocalityServiceBase _localityServiceBase = new(context);
     private readonly CountryServiceBase _countryServiceBase = new(context);
 
@@ -51,10 +49,8 @@ public class ContactDetailsServiceBase(Context context) : IContext(context), ISe
         }
 
         Context.ContactDetails.Remove(contactDetails);
-        Context.ContactDetails.Add(CreateContactDetails(dto));
         Context.SaveChanges();
-
-        return _contactDetailsMapper.ToDto(Context.ContactDetails.Last());
+        return CreateEntity(dto);
     }
 
     public void DeleteEntity(Guid guid)

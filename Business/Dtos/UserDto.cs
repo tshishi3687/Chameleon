@@ -8,7 +8,6 @@ public class UserDto
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public DateTime BursDateTime { get; set; }
-    public string EmailEncoding { get; set; }
-    public string PhoneEncoding { get; set;  }
-    public List<RolesDto> Roles { get; set; }
+    public ICollection<RolesDto> Roles { get; set; }
+    public ICollection<ContactDetailsDto> ContactDetails { get; set; }
 }

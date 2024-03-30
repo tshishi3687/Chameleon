@@ -1,10 +1,9 @@
-using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
-using System.Text.RegularExpressions;
+using Chameleon.Business.Dtos;
 
 namespace Chameleon.Business.Dto;
 
-public class UserCreationDto
+public class CreationUserDto
 {
     [Required(ErrorMessage = "The FirstName is required.")]
     [RegularExpression(@"^[^\d]+$", ErrorMessage = "The FirstName must not contain numbers.")]
@@ -37,6 +36,7 @@ public class UserCreationDto
     [Required]
     public string PassWordCheck { get; set; }
     
-    [Required]
+    public List<ContactDetailsDto> ContactDetails { get; set; }
+    
     public List<RolesDto> Roles { get; set; }
 }

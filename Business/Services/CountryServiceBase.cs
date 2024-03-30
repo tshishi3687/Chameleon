@@ -1,4 +1,3 @@
-using System.Data;
 using System.Runtime;
 using Chameleon.Business.Dtos;
 using Chameleon.Business.Mappers;
@@ -16,7 +15,7 @@ public class CountryServiceBase(Context context) : IContext(context), IService<C
             throw new AmbiguousImplementationException("Dto name's can't be null!");
         }
 
-        var country = Context.Countries.SingleOrDefault(l => l.Name.ToUpper().Equals(dto.Name.ToUpper()));
+        var country = Context.Countries.FirstOrDefault(l => l.Name.ToUpper().Equals(dto.Name.ToUpper()));
 
         if (country != null)
         {
@@ -57,21 +56,8 @@ public class CountryServiceBase(Context context) : IContext(context), IService<C
         }
 
         Context.Countries.Remove(countryToRemove);
-        Context.Countries.Add(_countryMapper.toEntity(dto));
-
-        var i = Context.SaveChanges();
-        if (i != 2)
-        {
-            throw new DataMisalignedException();
-        }
-
-        var countrySaved = Context.Countries.SingleOrDefault(c => c.Name.Equals(dto.Name.ToUpper()));
-        if (countrySaved == null)
-        {
-            throw new DataException();
-        }
-
-        return _countryMapper.ToDto(countrySaved);
+        Context.SaveChanges();
+        return CreateEntity(dto);
     }
 
     public void DeleteEntity(Guid guid)
