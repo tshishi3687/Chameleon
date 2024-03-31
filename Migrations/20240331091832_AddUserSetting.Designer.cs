@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Chameleon.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20240328095506_AddUniqueUserPhoneAndUserEmail")]
-    partial class AddUniqueUserPhoneAndUserEmail
+    [Migration("20240331091832_AddUserSetting")]
+    partial class AddUserSetting
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -21,20 +21,17 @@ public class Context : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        if (!optionsBuilder.IsConfigured)
+        if (IsTesting)
         {
-            if (IsTesting)
-            {
-                optionsBuilder.UseInMemoryDatabase("TestDatabase");
-            }
-            else
-            {
-                optionsBuilder.UseMySql(
-                    "server=localhost;user id=root;password=tshishi;database=Chameleons",
-                    new MariaDbServerVersion(new Version(10, 5, 4)),
-                    mySqlOptions => { }
-                );
-            }
+            optionsBuilder.UseInMemoryDatabase("TestDatabase");
+        }
+        else
+        {
+            optionsBuilder.UseMySql(
+                "server=localhost;user id=root;password=tshishi;database=Chameleons",
+                new MariaDbServerVersion(new Version(10, 5, 4)),
+                mySqlOptions => { }
+            );
         }
     }
 

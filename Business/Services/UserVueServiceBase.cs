@@ -8,7 +8,7 @@ public class UserVueServiceBase(Context context) : IContext(context), IService<U
     private readonly UserMapper _userMapper = new();
     private readonly ContactDetailsMapper _contactDetailsMapper = new();
     
-    public UserDto CreateEntity(UserDto dto)
+    public UserDto CreateEntity1(UserDto dto)
     {
         throw new NotImplementedException();
     }

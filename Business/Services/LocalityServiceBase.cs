@@ -9,7 +9,7 @@ public class LocalityServiceBase(Context context) : IContext(context), IService<
 {
     private readonly LocalityMapper _localityMappers = new();
 
-    public LocalityDto CreateEntity(LocalityDto dto)
+    public LocalityDto CreateEntity1(LocalityDto dto)
     {
         if (string.IsNullOrWhiteSpace(dto.Name))
         {
@@ -27,7 +27,7 @@ public class LocalityServiceBase(Context context) : IContext(context), IService<
         Context.Localities.Add(data);
         Context.SaveChanges();
 
-        return _localityMappers.ToDto(Context.Localities.Last());
+        return _localityMappers.ToDto(Context.Localities.FirstOrDefault(l => l.Name.Equals(data.Name)));
     }
 
     public LocalityDto ReadEntity(Guid guid)
@@ -58,7 +58,7 @@ public class LocalityServiceBase(Context context) : IContext(context), IService<
 
         Context.Localities.Remove(localityToRemove);
         Context.SaveChanges();
-        return CreateEntity(dto);
+        return CreateEntity1(dto);
     }
 
     public void DeleteEntity(Guid guid)

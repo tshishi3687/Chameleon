@@ -13,18 +13,18 @@ public class CountryServiceBaseTest : BaseTestContext
         var countryService = new CountryServiceBase(CreateDbContext());
 
         var badDto1 = new CountryDto();
-        Assert.Throws<AmbiguousImplementationException>(() => countryService.CreateEntity(badDto1));
+        Assert.Throws<AmbiguousImplementationException>(() => countryService.CreateEntity1(badDto1));
 
         var badDto2 = new CountryDto { Name = "" };
-        Assert.Throws<AmbiguousImplementationException>(() => countryService.CreateEntity(badDto2));
+        Assert.Throws<AmbiguousImplementationException>(() => countryService.CreateEntity1(badDto2));
 
         var badDto3 = new CountryDto { Name = " " };
-        Assert.Throws<AmbiguousImplementationException>(() => countryService.CreateEntity(badDto3));
+        Assert.Throws<AmbiguousImplementationException>(() => countryService.CreateEntity1(badDto3));
 
         var countryDto = new CountryDto { Name = "test" };
 
         // CreateEntity
-        var createdCountryDto = countryService.CreateEntity(countryDto);
+        var createdCountryDto = countryService.CreateEntity1(countryDto);
         Assert.NotNull(createdCountryDto);
         Assert.Equal(createdCountryDto.Name, countryDto.Name.ToUpper());
 

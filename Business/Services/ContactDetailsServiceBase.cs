@@ -13,7 +13,7 @@ public class ContactDetailsServiceBase(Context context) : IContext(context), ISe
     private readonly LocalityServiceBase _localityServiceBase = new(context);
     private readonly CountryServiceBase _countryServiceBase = new(context);
 
-    public ContactDetailsDto CreateEntity(ContactDetailsDto dto)
+    public ContactDetailsDto CreateEntity1(ContactDetailsDto dto)
     {
         CheckAddressAndNumber(dto);
         var contactDetails = CreateContactDetails(dto);
@@ -50,7 +50,7 @@ public class ContactDetailsServiceBase(Context context) : IContext(context), ISe
 
         Context.ContactDetails.Remove(contactDetails);
         Context.SaveChanges();
-        return CreateEntity(dto);
+        return CreateEntity1(dto);
     }
 
     public void DeleteEntity(Guid guid)
@@ -80,8 +80,8 @@ public class ContactDetailsServiceBase(Context context) : IContext(context), ISe
     private ContactDetails CreateContactDetails(ContactDetailsDto dto)
     {
         var contactDetails = _contactDetailsMapper.toEntity(dto);
-        contactDetails.Locality = _localityMapper.toEntity(_localityServiceBase.CreateEntity(dto.Locality));
-        contactDetails.Country = _countryMapper.toEntity(_countryServiceBase.CreateEntity(dto.Country));
+        contactDetails.Locality = _localityMapper.toEntity(_localityServiceBase.CreateEntity1(dto.Locality));
+        contactDetails.Country = _countryMapper.toEntity(_countryServiceBase.CreateEntity1(dto.Country));
         return contactDetails;
     }
 }

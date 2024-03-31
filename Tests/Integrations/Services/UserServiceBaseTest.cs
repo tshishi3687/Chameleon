@@ -16,12 +16,12 @@ public class UserServiceBaseTest : BaseTestContext
         var userVueService = new UserVueServiceBase(context);
 
         // CreateEntity (exception) : password no match
-        Assert.Throws<ArgumentException>(() => creationUserService.CreateEntity(NoMatchPassword()));
+        Assert.Throws<ArgumentException>(() => creationUserService.CreateEntity1(NoMatchPassword()));
 
-        var creationUserDto = creationUserService.CreateEntity(AddCreationUserDto());
+        var creationUserDto = creationUserService.CreateEntity1(AddCreationUserDto());
         Assert.NotNull(creationUserDto);
         //CreationEntity (exception) : tests the exception if we add a user with the same data: phone, Email. 
-        Assert.Throws<Exception>(() => creationUserService.CreateEntity(AddCreationUserDto()));
+        Assert.Throws<Exception>(() => creationUserService.CreateEntity1(AddCreationUserDto()));
 
         // ReadEntity
         var readUserDto = userVueService.ReadEntity(creationUserDto.Id);

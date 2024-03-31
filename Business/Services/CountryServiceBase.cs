@@ -8,7 +8,7 @@ public class CountryServiceBase(Context context) : IContext(context), IService<C
 {
     private readonly CountryMapper _countryMapper = new();
 
-    public CountryDto CreateEntity(CountryDto dto)
+    public CountryDto CreateEntity1(CountryDto dto)
     {
         if (string.IsNullOrWhiteSpace(dto.Name))
         {
@@ -26,7 +26,7 @@ public class CountryServiceBase(Context context) : IContext(context), IService<C
         Context.Countries.Add(data);
         Context.SaveChanges();
 
-        return _countryMapper.ToDto(Context.Countries.Last());
+        return _countryMapper.ToDto(Context.Countries.FirstOrDefault(c => c.Name.Equals(data.Name)));
     }
 
     public CountryDto ReadEntity(Guid guid)
@@ -57,7 +57,7 @@ public class CountryServiceBase(Context context) : IContext(context), IService<C
 
         Context.Countries.Remove(countryToRemove);
         Context.SaveChanges();
-        return CreateEntity(dto);
+        return CreateEntity1(dto);
     }
 
     public void DeleteEntity(Guid guid)

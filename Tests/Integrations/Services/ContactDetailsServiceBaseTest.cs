@@ -13,9 +13,9 @@ public class ContactDetailsServiceBaseTest : BaseTestContext
         var contactDetailsService = new ContactDetailsServiceBase(CreateDbContext());
 
         // CreateEntity
-        Assert.Throws<AmbiguousImplementationException>(() => contactDetailsService.CreateEntity(AddBadContactDetailsDto()));
+        Assert.Throws<AmbiguousImplementationException>(() => contactDetailsService.CreateEntity1(AddBadContactDetailsDto()));
         
-        var createContactDetailsDto = contactDetailsService.CreateEntity(AddContactDetailsDto());
+        var createContactDetailsDto = contactDetailsService.CreateEntity1(AddContactDetailsDto());
         Assert.NotNull(createContactDetailsDto);
         Assert.Equal(createContactDetailsDto.Address, AddContactDetailsDto().Address);
         Assert.Equal(createContactDetailsDto.Number, AddContactDetailsDto().Number);

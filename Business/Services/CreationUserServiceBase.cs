@@ -5,7 +5,7 @@ using Chameleon.DataAccess.Entity;
 
 namespace Chameleon.Business.Services;
 
-public class CreationUserServiceBase(Context context) : IContext(context)
+public class CreationUserServiceBase(Context context) : IContext(context),IService<CreationUserDto, Guid>
 {
     private readonly UserMapper _userMapper = new();
     private readonly CreationUserMapper _creationUserMapper = new();
@@ -13,7 +13,7 @@ public class CreationUserServiceBase(Context context) : IContext(context)
 
     private readonly ContactDetailsServiceBase _contactDetailsServiceBase = new(context);
 
-    public UserDto CreateEntity(CreationUserDto dto)
+    public UserDto CreateEntity1(CreationUserDto dto)
     {
         PasswordMatch(dto);
         UniqueUser(dto);
@@ -30,7 +30,7 @@ public class CreationUserServiceBase(Context context) : IContext(context)
         uc.UserId = user.Id;
         foreach (var contactDetailsDto in dto.ContactDetails)
         {
-            var contactDetails = _contactDetailsServiceBase.CreateEntity(contactDetailsDto);
+            var contactDetails = _contactDetailsServiceBase.CreateEntity1(contactDetailsDto);
             uc.ContactDetailsId = contactDetails.Id;
         }
 
@@ -50,6 +50,31 @@ public class CreationUserServiceBase(Context context) : IContext(context)
         return userDto;
     }
 
+    public CreationUserDto ReadEntity(Guid guid)
+    {
+        throw new NotImplementedException();
+    }
+
+    public ICollection<CreationUserDto> ReadAllEntity()
+    {
+        throw new NotImplementedException();
+    }
+
+    CreationUserDto IService<CreationUserDto, Guid>.UpdateEntity(CreationUserDto dto, Guid guid)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void DeleteEntity(Guid guid)
+    {
+        throw new NotImplementedException();
+    }
+
+    CreationUserDto IService<CreationUserDto, Guid>.CreateEntity1(CreationUserDto dto)
+    {
+        throw new NotImplementedException();
+    }
+
     public UserDto UpdateEntity(CreationUserDto dto, Guid guid)
     {
         var userRemove = Context.User.FirstOrDefault(u => u.Id.Equals(guid));
@@ -60,7 +85,7 @@ public class CreationUserServiceBase(Context context) : IContext(context)
 
         Context.User.Remove(userRemove);
         Context.SaveChanges();
-        return CreateEntity(dto);
+        return CreateEntity1(dto);
     }
 
     private void UniqueUser(CreationUserDto dto)

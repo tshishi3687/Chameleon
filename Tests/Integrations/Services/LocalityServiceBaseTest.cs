@@ -13,18 +13,18 @@ namespace Chameleon.Tests.Integrations.Services
             var localityService = new LocalityServiceBase(CreateDbContext());
 
             var badDto1 = new LocalityDto();
-            Assert.Throws<AmbiguousImplementationException>(() => localityService.CreateEntity(badDto1));
+            Assert.Throws<AmbiguousImplementationException>(() => localityService.CreateEntity1(badDto1));
 
             var badDto2 = new LocalityDto { Name = ""};
-            Assert.Throws<AmbiguousImplementationException>(() => localityService.CreateEntity(badDto2));
+            Assert.Throws<AmbiguousImplementationException>(() => localityService.CreateEntity1(badDto2));
 
             var badDto3 = new LocalityDto { Name = " "};
-            Assert.Throws<AmbiguousImplementationException>(() => localityService.CreateEntity(badDto3));
+            Assert.Throws<AmbiguousImplementationException>(() => localityService.CreateEntity1(badDto3));
             
             var localityDto = new LocalityDto { Name = "test" };
 
             // CreateEntity
-            var createdLocalityDto = localityService.CreateEntity(localityDto);
+            var createdLocalityDto = localityService.CreateEntity1(localityDto);
             Assert.NotNull(createdLocalityDto);
             Assert.Equal(createdLocalityDto.Name, localityDto.Name.ToUpper());
             
