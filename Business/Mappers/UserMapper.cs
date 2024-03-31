@@ -3,13 +3,13 @@ using Chameleon.DataAccess.Entity;
 
 namespace Chameleon.Business.Mappers;
 
-public class UserMapper : Mappers<UserDto, User>
+public class UserMapper : Mappers<UserVueDto, User>
 {
     
-    public UserDto ToDto(User entity)
+    public UserVueDto ToDto(User entity)
     {
 
-        return new UserDto
+        return new UserVueDto
         {
             Id = entity.Id,
             FirstName = entity.FirstName,
@@ -19,12 +19,12 @@ public class UserMapper : Mappers<UserDto, User>
         };
     }
 
-    public User toEntity(UserDto dto)
+    public User toEntity(UserVueDto vueDto)
     {
         throw new NotImplementedException();
     }
 
-    public ICollection<UserDto> toDtos(ICollection<User> entities)
+    public ICollection<UserVueDto> toDtos(ICollection<User> entities)
     {
         return entities.Select(ToDto).ToList();
     }

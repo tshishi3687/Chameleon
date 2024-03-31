@@ -2,7 +2,7 @@ using Chameleon.Business.Dto;
 
 namespace Chameleon.Business.Dtos;
 
-public class UserDto
+public class UserVueDto
 {
     public Guid Id { get; set; }
     public string FirstName { get; set; }

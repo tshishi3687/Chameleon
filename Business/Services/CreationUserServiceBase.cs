@@ -13,7 +13,7 @@ public class CreationUserServiceBase(Context context) : IContext(context),IServi
 
     private readonly ContactDetailsServiceBase _contactDetailsServiceBase = new(context);
 
-    public UserDto CreateEntity1(CreationUserDto dto)
+    public UserVueDto CreateEntity1(CreationUserDto dto)
     {
         PasswordMatch(dto);
         UniqueUser(dto);
@@ -75,7 +75,7 @@ public class CreationUserServiceBase(Context context) : IContext(context),IServi
         throw new NotImplementedException();
     }
 
-    public UserDto UpdateEntity(CreationUserDto dto, Guid guid)
+    public UserVueDto UpdateEntity(CreationUserDto dto, Guid guid)
     {
         var userRemove = Context.User.FirstOrDefault(u => u.Id.Equals(guid));
         if (userRemove == null)

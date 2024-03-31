@@ -6,11 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 namespace Chameleon.Controller.UserControllerTest
 {
     [ApiController]
-    [Route("/user")]
+    [Route("[controller]")]
     public class UserControllerTest(Context context) : ControllerBase
     {
-        [HttpPost("/add")]
-        [ProducesResponseType(typeof(UserDto), 200)]
+        [HttpPost]
+        [ProducesResponseType(typeof(UserVueDto), 200)]
         [ProducesResponseType(400)]
         public IActionResult CreateUserDto([FromBody] CreationUserDto dto)
         {
@@ -19,12 +19,11 @@ namespace Chameleon.Controller.UserControllerTest
                 return BadRequest(ModelState);
             }
 
-            var createdUser = new CreationUserServiceBase(context).CreateEntity1(dto);
-            return Ok(createdUser);
+            return Ok(new CreationUserServiceBase(context).CreateEntity1(dto));
         }
 
-        [HttpGet("/get")]
-        public IActionResult get()
+        [HttpGet]
+        public IActionResult Get()
         {
             return Ok("test");
         }
