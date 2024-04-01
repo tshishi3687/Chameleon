@@ -9,31 +9,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="restructuring of test files">
+      <change afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/Company.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/CompanyUser.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/EntityConfig/CompanyConfig.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/EntityConfig/CompanyUserConfig.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/HumanSetting/UsersRolesExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Dtos/ContactDetailsDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Business/Dtos/ContactDetailsDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Dtos/CountryDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Business/Dtos/CountryDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Dtos/CreationUserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Business/Dtos/CreationUserDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Dtos/LocalityDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Business/Dtos/LocalityDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/ContactDetailsMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Business/Mappers/ContactDetailsMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/CountryMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Business/Mappers/CountryMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/LocalityMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Business/Mappers/LocalityMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/Mappers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Business/Mappers/Mappers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/ContactDetailsServiceBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Business/Services/ContactDetailsServiceBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/CountryServiceBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Business/Services/CountryServiceBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/IContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Business/Services/IContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/IService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Business/Services/IService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/LocalityServiceBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Business/Services/LocalityServiceBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/BaseEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/DataAccess/Entities/BaseEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/ContactDetails.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/DataAccess/Entities/ContactDetails.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/Country.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/DataAccess/Entities/Country.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/Locality.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/DataAccess/Entities/Locality.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/EntityConfig/ContactDetailsConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/DataAccess/EntityConfig/ContactDetailsConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/EntityConfig/CountryConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/DataAccess/EntityConfig/CountryConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/EntityConfig/LocalityConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/DataAccess/EntityConfig/LocalityConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/HumanSettingTest/Services/ContactDetailsServiceBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Tests/Integrations/Common/Services/ContactDetailsServiceBaseTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/HumanSettingTest/Services/CountryServiceBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Tests/Integrations/Common/Services/CountryServiceBaseTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/HumanSettingTest/Services/LocalityServiceBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Tests/Integrations/Common/Services/LocalityServiceBaseTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/HumanSettingTest/Services/UserServiceBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Tests/Integrations/HumanSettingTest/Services/UserServiceBaseTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Common/DataAccess/Entities/BaseEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/DataAccess/Entities/BaseEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Common/DataAccess/Entities/ContactDetails.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/DataAccess/Entities/ContactDetails.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Common/DataAccess/Entities/Country.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/DataAccess/Entities/Country.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Common/DataAccess/Entities/Locality.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/DataAccess/Entities/Locality.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Common/DataAccess/EntityConfig/ContactDetailsConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/DataAccess/EntityConfig/ContactDetailsConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Dtos/RolesDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Dtos/RolesDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/Roles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/Roles.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chameleon.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Chameleon.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Context.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Context.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,8 +43,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0c53ee5c91f047f387400d094b3581c4267420/df/e0f44768/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1ff7927ee88947b1a5b31f536853b58f2e400/20/c8430508/Queryable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/53fca94d28e641638e74febf9e7ddda8d7ae00/c1/79104a05/Activator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a6ca83fd68634bcf88b36fa07a3599b426a020/02/1e4f6ed1/IEntityTypeConfiguration`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a6ca83fd68634bcf88b36fa07a3599b426a020/f0/fe8b6706/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e330c7cf8aae4be3a5d948c8cc05a2de7a00/85/9918d021/HttpsPolicyBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/HumanSetting/DataAccess/EntityConfig/UserRoleConfig.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

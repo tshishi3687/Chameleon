@@ -32,7 +32,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Application\CompanySetting\" />
+      <Folder Include="Application\CompanySetting\Business\Dtos\" />
+      <Folder Include="Application\CompanySetting\Business\Mappers\" />
+      <Folder Include="Application\CompanySetting\Business\Services\" />
       <Folder Include="Application\Tests\Integrations\HumanSettingTest\" />
       <Folder Include="Migrations\" />
     </ItemGroup>
