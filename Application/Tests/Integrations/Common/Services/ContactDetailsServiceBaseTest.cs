@@ -1,9 +1,9 @@
 using System.Runtime;
 using Xunit;
 
-namespace Chameleon.Application.Tests.Integrations.HumanSettingTest.Services;
+namespace Chameleon.Application.Tests.Integrations.Common.Services;
 
-public class ContactDetailsServiceBase : BaseModelsForTests
+public class ContactDetailsServiceBaseTest : BaseModelsForTests
 {
     [Fact]
     public void CrudServiceTest()

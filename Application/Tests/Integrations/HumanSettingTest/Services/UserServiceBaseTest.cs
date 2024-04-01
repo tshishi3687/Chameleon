@@ -3,7 +3,7 @@ using Xunit;
 
 namespace Chameleon.Application.Tests.Integrations.HumanSettingTest.Services;
 
-public class UserServiceBase : BaseModelsForTests
+public class UserServiceBaseTest : BaseModelsForTests
 {
     [Fact]
     public void CrudService()

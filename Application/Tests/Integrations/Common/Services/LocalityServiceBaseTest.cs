@@ -2,9 +2,9 @@ using System.Runtime;
 using Chameleon.Application.HumanSetting.Business.Dtos;
 using Xunit;
 
-namespace Chameleon.Application.Tests.Integrations.HumanSettingTest.Services
+namespace Chameleon.Application.Tests.Integrations.Common.Services
 {
-    public class LocalityServiceBase: BaseModelsForTests
+    public class LocalityServiceBaseTest: BaseModelsForTests
     {
         [Fact]
         public void CrudServiceTest()
