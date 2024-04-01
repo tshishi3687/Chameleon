@@ -3,7 +3,7 @@ using Chameleon.Application.HumanSetting.DataAccess.Entities;
 
 namespace Chameleon.Application.HumanSetting.Business.Mappers;
 
-public class UserMapper : Mappers<UserVueDto, User>
+public class UserVueMapper : Mappers<UserVueDto, User>
 {
     
     public UserVueDto ToDto(User entity)

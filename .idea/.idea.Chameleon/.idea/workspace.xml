@@ -8,9 +8,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="Add Company.cs">
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Dtos/RolesDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Dtos/RolesDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/UsersRolesExtensions.cs" beforeDir="false" />
+    <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/.idea.Chameleon/.idea/workspace.xml&#10;#&#9;Application/Common/DataAccess/Entities/ContactDetails.cs&#10;#&#9;Application/CompanySetting/DataAccess/EntityConfig/CompanyConfig.cs&#10;#&#9;Application/HumanSetting/DataAccess/Entities/Roles.cs&#10;#&#9;Application/HumanSetting/DataAccess/Entities/User.cs&#10;#&#9;Context.cs">
+      <change afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/CompanySympleVueDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/CreationCompanyDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Mappers/CompanySympleVueMapper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chameleon.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Chameleon.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +41,7 @@
     <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/Common/DataAccess/Entities/ContactDetails.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/CompanySetting/DataAccess/EntityConfig/CompanyConfig.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/CompanySetting/DataAccess/EntityConfig/CompanyConfig.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/HumanSetting/Business/Dtos/RolesDto.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/HumanSetting/DataAccess/Entities/Roles.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/HumanSetting/DataAccess/Entities/Roles.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/HumanSetting/DataAccess/Entities/User.cs" root0="SKIP_HIGHLIGHTING" />
@@ -365,7 +370,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711983974876</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/.idea.Chameleon/.idea/workspace.xml&#10;#&#9;Application/Common/DataAccess/Entities/ContactDetails.cs&#10;#&#9;Application/CompanySetting/DataAccess/EntityConfig/CompanyConfig.cs&#10;#&#9;Application/HumanSetting/DataAccess/Entities/Roles.cs&#10;#&#9;Application/HumanSetting/DataAccess/Entities/User.cs&#10;#&#9;Context.cs">
+      <option name="closed" value="true" />
+      <created>1711984296766</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1711984296766</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -405,7 +418,8 @@
     <MESSAGE value="restructuring files part two" />
     <MESSAGE value="restructuring of test files" />
     <MESSAGE value="Add Company.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Company.cs" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/.idea.Chameleon/.idea/workspace.xml&#10;#&#9;Application/Common/DataAccess/Entities/ContactDetails.cs&#10;#&#9;Application/CompanySetting/DataAccess/EntityConfig/CompanyConfig.cs&#10;#&#9;Application/HumanSetting/DataAccess/Entities/Roles.cs&#10;#&#9;Application/HumanSetting/DataAccess/Entities/User.cs&#10;#&#9;Context.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/.idea.Chameleon/.idea/workspace.xml&#10;#&#9;Application/Common/DataAccess/Entities/ContactDetails.cs&#10;#&#9;Application/CompanySetting/DataAccess/EntityConfig/CompanyConfig.cs&#10;#&#9;Application/HumanSetting/DataAccess/Entities/Roles.cs&#10;#&#9;Application/HumanSetting/DataAccess/Entities/User.cs&#10;#&#9;Context.cs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

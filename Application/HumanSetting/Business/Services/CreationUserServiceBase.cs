@@ -6,7 +6,7 @@ namespace Chameleon.Application.HumanSetting.Business.Services;
 
 public class CreationUserServiceBase(Context context) : IContext(context),IService<CreationUserDto, Guid>
 {
-    private readonly UserMapper _userMapper = new();
+    private readonly UserVueMapper _userVueMapper = new();
     private readonly CreationUserMapper _creationUserMapper = new();
     private readonly ContactDetailsMapper _contactDetailsMapper = new();
 
@@ -38,7 +38,7 @@ public class CreationUserServiceBase(Context context) : IContext(context),IServi
         Context.SaveChanges();
         
         var lastUserCreated = Context.User.Last();
-        var userDto = _userMapper.ToDto(lastUserCreated);
+        var userDto = _userVueMapper.ToDto(lastUserCreated);
         foreach (var usersContactDetails in lastUserCreated.ContactDetails)
         {
             Context.ContactDetails.FirstOrDefault(c => c.Id.Equals(usersContactDetails.ContactDetailsId));
