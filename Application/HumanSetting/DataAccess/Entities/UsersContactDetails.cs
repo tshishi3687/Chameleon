@@ -1,3 +1,5 @@
+using Chameleon.Application.Common.DataAccess.Entities;
+
 namespace Chameleon.Application.HumanSetting.DataAccess.Entities;
 
 public class UsersContactDetails

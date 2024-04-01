@@ -1,5 +1,4 @@
 using Chameleon.Application.HumanSetting.DataAccess.Entities;
-using Chameleon.Securities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -14,12 +13,11 @@ public class RoleConfig: IEntityTypeConfiguration<Roles>
         builder.HasKey(x => x.Id).HasName("PK_Roles");
         
         builder.Property(x => x.Id).ValueGeneratedOnAdd();
-        
-        builder.Property(x => x.Name).HasMaxLength(50);
+        builder.HasIndex(x => x.Name).IsUnique();
         
         builder.HasMany(r => r.Users)
             .WithOne(p => p.Roles);
         
-        builder.Property(x => x.Name).HasDefaultValue(Constentes.RoleCl);
+        builder.Property(x => x.Name).HasDefaultValue(EnumUsersRoles.CUSTOMER.ToString());
     }
 }

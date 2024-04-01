@@ -1,8 +1,9 @@
+using Chameleon.Application.Common.DataAccess.Entities;
 using Chameleon.Application.HumanSetting.DataAccess.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Chameleon.Application.HumanSetting.DataAccess.EntityConfig;
+namespace Chameleon.Application.Common.DataAccess.EntityConfig;
 
 public class ContactDetailsConfig: IEntityTypeConfiguration<ContactDetails>
 {

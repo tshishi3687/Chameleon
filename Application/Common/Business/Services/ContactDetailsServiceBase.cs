@@ -1,4 +1,5 @@
 using System.Runtime;
+using Chameleon.Application.Common.DataAccess.Entities;
 using Chameleon.Application.HumanSetting.Business.Dtos;
 using Chameleon.Application.HumanSetting.Business.Mappers;
 using Chameleon.Application.HumanSetting.DataAccess.Entities;

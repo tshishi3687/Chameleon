@@ -22,7 +22,7 @@ namespace Chameleon.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("Chameleon.DataAccess.Entity.ContactDetails", b =>
+            modelBuilder.Entity("Chameleon.Application.Common.DataAccess.Entities.ContactDetails", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -64,7 +64,64 @@ namespace Chameleon.Migrations
                     b.ToTable("ContactDetails", (string)null);
                 });
 
-            modelBuilder.Entity("Chameleon.DataAccess.Entity.Country", b =>
+            modelBuilder.Entity("Chameleon.Application.CompanySetting.DataAccess.Entities.Company", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("BusinessNumber")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<Guid>("ContactDetailsId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime(6)");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlComputedColumn(b.Property<DateTime>("CreatedAt"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<Guid>("TutorId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime(6)");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlComputedColumn(b.Property<DateTime>("UpdatedAt"));
+
+                    b.HasKey("Id")
+                        .HasName("PK_company");
+
+                    b.HasIndex("ContactDetailsId");
+
+                    b.HasIndex("TutorId");
+
+                    b.ToTable("Company", (string)null);
+                });
+
+            modelBuilder.Entity("Chameleon.Application.CompanySetting.DataAccess.Entities.CompanyUser", b =>
+                {
+                    b.Property<Guid>("CompanyId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("char(36)");
+
+                    b.HasKey("CompanyId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("CompanyUsers");
+                });
+
+            modelBuilder.Entity("Chameleon.Application.HumanSetting.DataAccess.Entities.Country", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -95,7 +152,7 @@ namespace Chameleon.Migrations
                     b.ToTable("Country", (string)null);
                 });
 
-            modelBuilder.Entity("Chameleon.DataAccess.Entity.Locality", b =>
+            modelBuilder.Entity("Chameleon.Application.HumanSetting.DataAccess.Entities.Locality", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -126,10 +183,13 @@ namespace Chameleon.Migrations
                     b.ToTable("Locality", (string)null);
                 });
 
-            modelBuilder.Entity("Chameleon.DataAccess.Entity.Roles", b =>
+            modelBuilder.Entity("Chameleon.Application.HumanSetting.DataAccess.Entities.Roles", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid>("CompanyId")
                         .HasColumnType("char(36)");
 
                     b.Property<DateTime>("CreatedAt")
@@ -141,9 +201,8 @@ namespace Chameleon.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)")
-                        .HasDefaultValue("Client");
+                        .HasColumnType("varchar(255)")
+                        .HasDefaultValue("CUSTOMER");
 
                     b.Property<DateTime>("UpdatedAt")
                         .ValueGeneratedOnAddOrUpdate()
@@ -154,10 +213,15 @@ namespace Chameleon.Migrations
                     b.HasKey("Id")
                         .HasName("PK_Roles");
 
+                    b.HasIndex("CompanyId");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.ToTable("Roles", (string)null);
                 });
 
-            modelBuilder.Entity("Chameleon.DataAccess.Entity.User", b =>
+            modelBuilder.Entity("Chameleon.Application.HumanSetting.DataAccess.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -216,7 +280,7 @@ namespace Chameleon.Migrations
                     b.ToTable("User", (string)null);
                 });
 
-            modelBuilder.Entity("Chameleon.DataAccess.Entity.UsersContactDetails", b =>
+            modelBuilder.Entity("Chameleon.Application.HumanSetting.DataAccess.Entities.UsersContactDetails", b =>
                 {
                     b.Property<Guid>("ContactDetailsId")
                         .HasColumnType("char(36)");
@@ -231,7 +295,7 @@ namespace Chameleon.Migrations
                     b.ToTable("UsersContactDetails");
                 });
 
-            modelBuilder.Entity("Chameleon.DataAccess.Entity.UsersRoles", b =>
+            modelBuilder.Entity("Chameleon.Application.HumanSetting.DataAccess.Entities.UsersRoles", b =>
                 {
                     b.Property<Guid>("RoleId")
                         .HasColumnType("char(36)");
@@ -246,15 +310,15 @@ namespace Chameleon.Migrations
                     b.ToTable("UsersRoles");
                 });
 
-            modelBuilder.Entity("Chameleon.DataAccess.Entity.ContactDetails", b =>
+            modelBuilder.Entity("Chameleon.Application.Common.DataAccess.Entities.ContactDetails", b =>
                 {
-                    b.HasOne("Chameleon.DataAccess.Entity.Country", "Country")
+                    b.HasOne("Chameleon.Application.HumanSetting.DataAccess.Entities.Country", "Country")
                         .WithMany("ContactDetailsList")
                         .HasForeignKey("CountryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Chameleon.DataAccess.Entity.Locality", "Locality")
+                    b.HasOne("Chameleon.Application.HumanSetting.DataAccess.Entities.Locality", "Locality")
                         .WithMany("ContactDetailsList")
                         .HasForeignKey("LocalityId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -265,15 +329,64 @@ namespace Chameleon.Migrations
                     b.Navigation("Locality");
                 });
 
-            modelBuilder.Entity("Chameleon.DataAccess.Entity.UsersContactDetails", b =>
+            modelBuilder.Entity("Chameleon.Application.CompanySetting.DataAccess.Entities.Company", b =>
                 {
-                    b.HasOne("Chameleon.DataAccess.Entity.ContactDetails", "ContactDetails")
+                    b.HasOne("Chameleon.Application.Common.DataAccess.Entities.ContactDetails", "ContactDetails")
+                        .WithMany("Companies")
+                        .HasForeignKey("ContactDetailsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Chameleon.Application.HumanSetting.DataAccess.Entities.User", "Tutor")
+                        .WithMany()
+                        .HasForeignKey("TutorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ContactDetails");
+
+                    b.Navigation("Tutor");
+                });
+
+            modelBuilder.Entity("Chameleon.Application.CompanySetting.DataAccess.Entities.CompanyUser", b =>
+                {
+                    b.HasOne("Chameleon.Application.CompanySetting.DataAccess.Entities.Company", "Company")
+                        .WithMany("Users")
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Chameleon.Application.HumanSetting.DataAccess.Entities.User", "User")
+                        .WithMany("Companies")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Company");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Chameleon.Application.HumanSetting.DataAccess.Entities.Roles", b =>
+                {
+                    b.HasOne("Chameleon.Application.CompanySetting.DataAccess.Entities.Company", "Company")
+                        .WithMany()
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Company");
+                });
+
+            modelBuilder.Entity("Chameleon.Application.HumanSetting.DataAccess.Entities.UsersContactDetails", b =>
+                {
+                    b.HasOne("Chameleon.Application.Common.DataAccess.Entities.ContactDetails", "ContactDetails")
                         .WithMany()
                         .HasForeignKey("ContactDetailsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Chameleon.DataAccess.Entity.User", "User")
+                    b.HasOne("Chameleon.Application.HumanSetting.DataAccess.Entities.User", "User")
                         .WithMany("ContactDetails")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -284,15 +397,15 @@ namespace Chameleon.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Chameleon.DataAccess.Entity.UsersRoles", b =>
+            modelBuilder.Entity("Chameleon.Application.HumanSetting.DataAccess.Entities.UsersRoles", b =>
                 {
-                    b.HasOne("Chameleon.DataAccess.Entity.Roles", "Roles")
+                    b.HasOne("Chameleon.Application.HumanSetting.DataAccess.Entities.Roles", "Roles")
                         .WithMany("Users")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Chameleon.DataAccess.Entity.User", "User")
+                    b.HasOne("Chameleon.Application.HumanSetting.DataAccess.Entities.User", "User")
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -303,23 +416,35 @@ namespace Chameleon.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Chameleon.DataAccess.Entity.Country", b =>
+            modelBuilder.Entity("Chameleon.Application.Common.DataAccess.Entities.ContactDetails", b =>
                 {
-                    b.Navigation("ContactDetailsList");
+                    b.Navigation("Companies");
                 });
 
-            modelBuilder.Entity("Chameleon.DataAccess.Entity.Locality", b =>
-                {
-                    b.Navigation("ContactDetailsList");
-                });
-
-            modelBuilder.Entity("Chameleon.DataAccess.Entity.Roles", b =>
+            modelBuilder.Entity("Chameleon.Application.CompanySetting.DataAccess.Entities.Company", b =>
                 {
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("Chameleon.DataAccess.Entity.User", b =>
+            modelBuilder.Entity("Chameleon.Application.HumanSetting.DataAccess.Entities.Country", b =>
                 {
+                    b.Navigation("ContactDetailsList");
+                });
+
+            modelBuilder.Entity("Chameleon.Application.HumanSetting.DataAccess.Entities.Locality", b =>
+                {
+                    b.Navigation("ContactDetailsList");
+                });
+
+            modelBuilder.Entity("Chameleon.Application.HumanSetting.DataAccess.Entities.Roles", b =>
+                {
+                    b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("Chameleon.Application.HumanSetting.DataAccess.Entities.User", b =>
+                {
+                    b.Navigation("Companies");
+
                     b.Navigation("ContactDetails");
 
                     b.Navigation("Roles");

@@ -1,3 +1,6 @@
+using Chameleon.Application.Common.DataAccess.Entities;
+using Chameleon.Application.CompanySetting.DataAccess.Entities;
+
 namespace Chameleon.Application.HumanSetting.DataAccess.Entities;
 
 public class User : BaseEntity
@@ -11,4 +14,5 @@ public class User : BaseEntity
     public string PassWord { get; set; }
     public ICollection<UsersRoles> Roles { get; set; }
     public ICollection<UsersContactDetails> ContactDetails { get; set; }
+    public ICollection<CompanyUser> Companies { get; set; }
 }
