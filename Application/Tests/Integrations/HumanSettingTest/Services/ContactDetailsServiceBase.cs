@@ -1,16 +1,14 @@
 using System.Runtime;
-using Chameleon.Application.HumanSetting.Business.Dtos;
-using Chameleon.Application.HumanSetting.Business.Services;
 using Xunit;
 
 namespace Chameleon.Application.Tests.Integrations.HumanSettingTest.Services;
 
-public class ContactDetailsServiceBaseTest : BaseTestContext
+public class ContactDetailsServiceBase : BaseModelsForTests
 {
     [Fact]
     public void CrudServiceTest()
     {
-        var contactDetailsService = new ContactDetailsServiceBase(CreateDbContext());
+        var contactDetailsService = new HumanSetting.Business.Services.ContactDetailsServiceBase(CreateDbContext());
 
         // CreateEntity
         Assert.Throws<AmbiguousImplementationException>(() => contactDetailsService.CreateEntity1(AddBadContactDetailsDto()));
@@ -50,56 +48,5 @@ public class ContactDetailsServiceBaseTest : BaseTestContext
         contactDetailsService.DeleteEntity(entityContactDetails.Id);
         Assert.Throws<KeyNotFoundException>(() => contactDetailsService.ReadEntity(entityContactDetails.Id));
         Assert.Empty(contactDetailsService.ReadAllEntity());
-    }
-
-    private static ContactDetailsDto AddContactDetailsDto()
-    {
-        return new ContactDetailsDto
-        {
-            Address = "Peace street",
-            Number = "44",
-            Locality = new LocalityDto
-            {
-                Name = "1000 Bruxelles"
-            },
-            Country = new CountryDto
-            {
-                Name = "Belgique"
-            }
-        };
-    }
-
-    private static ContactDetailsDto UpdateContactDetailsDto()
-    {
-        return new ContactDetailsDto
-        {
-            Address = "Peace street",
-            Number = "10",
-            Locality = new LocalityDto
-            {
-                Name = "1065 Rome"
-            },
-            Country = new CountryDto
-            {
-                Name = "Italie"
-            }
-        };
-    }
-
-    private static ContactDetailsDto AddBadContactDetailsDto()
-    {
-        return new ContactDetailsDto
-        {
-            Address = "",
-            Number = "",
-            Locality = new LocalityDto
-            {
-                Name = "1000 Bruxelles"
-            },
-            Country = new CountryDto
-            {
-                Name = "Belgique"
-            }
-        };
     }
 }

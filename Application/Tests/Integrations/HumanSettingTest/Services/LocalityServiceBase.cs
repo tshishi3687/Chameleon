@@ -1,16 +1,15 @@
 using System.Runtime;
 using Chameleon.Application.HumanSetting.Business.Dtos;
-using Chameleon.Application.HumanSetting.Business.Services;
 using Xunit;
 
 namespace Chameleon.Application.Tests.Integrations.HumanSettingTest.Services
 {
-    public class LocalityServiceBaseTest: BaseTestContext
+    public class LocalityServiceBase: BaseModelsForTests
     {
         [Fact]
         public void CrudServiceTest()
         {
-            var localityService = new LocalityServiceBase(CreateDbContext());
+            var localityService = new HumanSetting.Business.Services.LocalityServiceBase(CreateDbContext());
 
             var badDto1 = new LocalityDto();
             Assert.Throws<AmbiguousImplementationException>(() => localityService.CreateEntity1(badDto1));
@@ -21,7 +20,7 @@ namespace Chameleon.Application.Tests.Integrations.HumanSettingTest.Services
             var badDto3 = new LocalityDto { Name = " "};
             Assert.Throws<AmbiguousImplementationException>(() => localityService.CreateEntity1(badDto3));
             
-            var localityDto = new LocalityDto { Name = "test" };
+            var localityDto = AddLocalityDto();
 
             // CreateEntity
             var createdLocalityDto = localityService.CreateEntity1(localityDto);
@@ -42,7 +41,7 @@ namespace Chameleon.Application.Tests.Integrations.HumanSettingTest.Services
             Assert.Equal(dto.Name, readLocalityDto.Name);
             
             // UpdateEntity
-            var updateDto = new LocalityDto { Name = "test 2" };
+            var updateDto = UpdateLocalityDto();
             var updateEntity = localityService.UpdateEntity(updateDto, readLocalityDto.Id);
             Assert.NotEqual(readLocalityDto.Name, updateEntity.Name);
             Assert.NotEqual(readLocalityDto.Id, updateEntity.Id);

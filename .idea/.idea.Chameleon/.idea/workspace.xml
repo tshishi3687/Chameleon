@@ -8,36 +8,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="File restructuring">
-      <change afterPath="$PROJECT_DIR$/Application/Tests/Integrations/Models.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Dtos/ContactDetailsDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Dtos/ContactDetailsDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Dtos/CountryDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Dtos/CountryDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Dtos/CreationUserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Dtos/CreationUserDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Dtos/LocalityDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Dtos/LocalityDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Dtos/RolesDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Dtos/RolesDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Dtos/UserVueDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Dtos/UserVueDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/ContactDetailsMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/ContactDetailsMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/CountryMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/CountryMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/CreationUserMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/CreationUserMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/LocalityMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/LocalityMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/Mappers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/Mappers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/RoleMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/RoleMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/UserMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/UserMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/ContactDetailsServiceBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/ContactDetailsServiceBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/CountryServiceBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/CountryServiceBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/CreationUserServiceBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/CreationUserServiceBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/IContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/IContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/IService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/IService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/LocalityServiceBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/LocalityServiceBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserVueServiceBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserVueServiceBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Controller/UserControllerTest/UserControllerTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Controller/UserControllerTest/UserControllerTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/BaseTestContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Tests/Integrations/BaseTestContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/Services/ContactDetailsServiceBaseTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Tests/Integrations/HumanSettingTest/Services/ContactDetailsServiceBaseTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/Services/CountryServiceBaseTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Tests/Integrations/HumanSettingTest/Services/CountryServiceBaseTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/Services/LocalityServiceBaseTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Tests/Integrations/HumanSettingTest/Services/LocalityServiceBaseTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/Services/UserServiceBaseTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Tests/Integrations/HumanSettingTest/Services/UserServiceBaseTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chameleon.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Chameleon.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+    <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="restructuring files part two">
+      <change afterPath="$PROJECT_DIR$/Application/Tests/Integrations/BaseModelsForTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Tests/Integrations/HumanSettingTest/Services/UserServiceBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/BaseTestContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Tests/Integrations/BaseContextForTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/HumanSettingTest/Services/ContactDetailsServiceBaseTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Tests/Integrations/HumanSettingTest/Services/ContactDetailsServiceBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/HumanSettingTest/Services/CountryServiceBaseTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Tests/Integrations/HumanSettingTest/Services/CountryServiceBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/HumanSettingTest/Services/LocalityServiceBaseTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Tests/Integrations/HumanSettingTest/Services/LocalityServiceBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/HumanSettingTest/Services/UserServiceBaseTest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chameleon.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Chameleon.sln.DotSettings.user" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,8 +36,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0c53ee5c91f047f387400d094b3581c4267420/df/e0f44768/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1ff7927ee88947b1a5b31f536853b58f2e400/20/c8430508/Queryable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/53fca94d28e641638e74febf9e7ddda8d7ae00/c1/79104a05/Activator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a6ca83fd68634bcf88b36fa07a3599b426a020/f0/fe8b6706/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e330c7cf8aae4be3a5d948c8cc05a2de7a00/85/9918d021/HttpsPolicyBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Business/Services/CreationUserServiceBase.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -201,7 +181,7 @@
       <workItem from="1711876558970" duration="10552000" />
       <workItem from="1711888019328" duration="1105000" />
       <workItem from="1711889131152" duration="356000" />
-      <workItem from="1711967628348" duration="968000" />
+      <workItem from="1711967628348" duration="5004000" />
     </task>
     <task id="LOCAL-00001" summary="base">
       <option name="closed" value="true" />
@@ -347,7 +327,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711968059010</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="restructuring files part two">
+      <option name="closed" value="true" />
+      <created>1711968845858</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1711968845858</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -384,7 +372,8 @@
     <MESSAGE value="Rebase init migration" />
     <MESSAGE value="clean code" />
     <MESSAGE value="File restructuring" />
-    <option name="LAST_COMMIT_MESSAGE" value="File restructuring" />
+    <MESSAGE value="restructuring files part two" />
+    <option name="LAST_COMMIT_MESSAGE" value="restructuring files part two" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -394,10 +383,10 @@
           <line>20</line>
           <properties documentPath="$PROJECT_DIR$/Business/Services/ContactDetailsServiceBase.cs" initialLine="20" containingFunctionPresentation="Method 'CreateEntity'">
             <startOffsets>
-              <option value="872" />
+              <option value="899" />
             </startOffsets>
             <endOffsets>
-              <option value="915" />
+              <option value="942" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
@@ -407,10 +396,10 @@
           <line>20</line>
           <properties documentPath="$PROJECT_DIR$/Business/Services/CreationUserServiceBase.cs" initialLine="20" containingFunctionPresentation="Method 'CreateEntity'">
             <startOffsets>
-              <option value="736" />
+              <option value="763" />
             </startOffsets>
             <endOffsets>
-              <option value="788" />
+              <option value="815" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />

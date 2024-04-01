@@ -5,12 +5,12 @@ using Xunit;
 
 namespace Chameleon.Application.Tests.Integrations.HumanSettingTest.Services;
 
-public class CountryServiceBaseTest : BaseTestContext
+public class CountryServiceBase : BaseModelsForTests
 {
     [Fact]
     public void CrudServiceTest()
     {
-        var countryService = new CountryServiceBase(CreateDbContext());
+        var countryService = new HumanSetting.Business.Services.CountryServiceBase(CreateDbContext());
 
         var badDto1 = new CountryDto();
         Assert.Throws<AmbiguousImplementationException>(() => countryService.CreateEntity1(badDto1));
@@ -21,7 +21,7 @@ public class CountryServiceBaseTest : BaseTestContext
         var badDto3 = new CountryDto { Name = " " };
         Assert.Throws<AmbiguousImplementationException>(() => countryService.CreateEntity1(badDto3));
 
-        var countryDto = new CountryDto { Name = "test" };
+        var countryDto = AddCountryDto();
 
         // CreateEntity
         var createdCountryDto = countryService.CreateEntity1(countryDto);
@@ -42,7 +42,7 @@ public class CountryServiceBaseTest : BaseTestContext
         Assert.Equal(dto.Name, readCountryDto.Name);
 
         // UpdateEntity
-        var updateDto = new CountryDto { Name = "test 2" };
+        var updateDto = UpdateCountryDto();
         var updateEntity = countryService.UpdateEntity(updateDto, readCountryDto.Id);
         Assert.NotEqual(readCountryDto.Name, updateEntity.Name);
         Assert.NotEqual(readCountryDto.Id, updateEntity.Id);
