@@ -1,10 +1,9 @@
 using System.Globalization;
-using Chameleon.Business.Dto;
-using Chameleon.Business.Dtos;
-using Chameleon.Business.Services;
+using Chameleon.Application.HumanSetting.Business.Dtos;
+using Chameleon.Application.HumanSetting.Business.Services;
 using Xunit;
 
-namespace Chameleon.Tests.Integrations.Services;
+namespace Chameleon.Application.Tests.Integrations.HumanSettingTest.Services;
 
 public class UserServiceBaseTest : BaseTestContext
 {

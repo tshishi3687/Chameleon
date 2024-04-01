@@ -1,5 +1,5 @@
-using Chameleon.DataAccess.Entity;
-using Chameleon.DataAccess.EntityConfig;
+using Chameleon.Application.HumanSetting.DataAccess.Entities;
+using Chameleon.Application.HumanSetting.DataAccess.EntityConfig;
 using Microsoft.EntityFrameworkCore;
 
 namespace Chameleon;

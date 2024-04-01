@@ -1,8 +1,8 @@
-using Chameleon.Business.Dto;
-using Chameleon.DataAccess.Entity;
+using Chameleon.Application.HumanSetting.Business.Dtos;
+using Chameleon.Application.HumanSetting.DataAccess.Entities;
 using Chameleon.Securities;
 
-namespace Chameleon.Business.Mappers;
+namespace Chameleon.Application.HumanSetting.Business.Mappers;
 
 public class CreationUserMapper: Mappers<CreationUserDto, User>
 {

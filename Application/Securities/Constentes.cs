@@ -1,7 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Chameleon.DataAccess.Entity;
+using Chameleon.Application.HumanSetting.DataAccess.Entities;
 using Microsoft.IdentityModel.Tokens;
 
 namespace Chameleon.Securities;

@@ -1,4 +1,4 @@
-namespace Chameleon.Business.Dtos;
+namespace Chameleon.Application.HumanSetting.Business.Dtos;
 
 public class ContactDetailsDto
 {

@@ -1,7 +1,7 @@
-using Chameleon.Business.Dtos;
-using Chameleon.Business.Mappers;
+using Chameleon.Application.HumanSetting.Business.Dtos;
+using Chameleon.Application.HumanSetting.Business.Mappers;
 
-namespace Chameleon.Business.Services;
+namespace Chameleon.Application.HumanSetting.Business.Services;
 
 public class UserVueServiceBase(Context context) : IContext(context), IService<UserVueDto, Guid>
 {

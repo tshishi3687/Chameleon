@@ -33,6 +33,7 @@
 
     <ItemGroup>
       <Folder Include="Application\CompanySetting\" />
+      <Folder Include="Application\Tests\Integrations\HumanSettingTest\" />
       <Folder Include="Migrations\" />
     </ItemGroup>
 

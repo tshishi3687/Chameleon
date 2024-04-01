@@ -1,7 +1,6 @@
 using System.ComponentModel.DataAnnotations;
-using Chameleon.Business.Dtos;
 
-namespace Chameleon.Business.Dto;
+namespace Chameleon.Application.HumanSetting.Business.Dtos;
 
 public class CreationUserDto
 {

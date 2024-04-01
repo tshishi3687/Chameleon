@@ -1,9 +1,8 @@
-using Chameleon.Business.Dto;
-using Chameleon.Business.Dtos;
-using Chameleon.Business.Services;
+using Chameleon.Application.HumanSetting.Business.Dtos;
+using Chameleon.Application.HumanSetting.Business.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Chameleon.Controller.UserControllerTest
+namespace Chameleon.Application.HumanSetting.Controller.UserControllerTest
 {
     [ApiController]
     [Route("[controller]")]

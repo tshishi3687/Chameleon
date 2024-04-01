@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Chameleon.Business.Dto;
+namespace Chameleon.Application.HumanSetting.Business.Dtos;
 
 public class RolesDto
 {

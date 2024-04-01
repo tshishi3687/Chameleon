@@ -1,9 +1,8 @@
-using Chameleon.Business.Dto;
-using Chameleon.Business.Dtos;
-using Chameleon.Business.Mappers;
-using Chameleon.DataAccess.Entity;
+using Chameleon.Application.HumanSetting.Business.Dtos;
+using Chameleon.Application.HumanSetting.Business.Mappers;
+using Chameleon.Application.HumanSetting.DataAccess.Entities;
 
-namespace Chameleon.Business.Services;
+namespace Chameleon.Application.HumanSetting.Business.Services;
 
 public class CreationUserServiceBase(Context context) : IContext(context),IService<CreationUserDto, Guid>
 {

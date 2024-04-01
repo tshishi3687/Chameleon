@@ -1,7 +1,7 @@
-using Chameleon.Business.Dto;
-using Chameleon.DataAccess.Entity;
+using Chameleon.Application.HumanSetting.Business.Dtos;
+using Chameleon.Application.HumanSetting.DataAccess.Entities;
 
-namespace Chameleon.Business.Mappers;
+namespace Chameleon.Application.HumanSetting.Business.Mappers;
 
 public class RoleMapper: Mappers<RolesDto, Roles>
 {

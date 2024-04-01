@@ -1,4 +1,4 @@
-namespace Chameleon.Business.Mappers;
+namespace Chameleon.Application.HumanSetting.Business.Mappers;
 
 public interface Mappers<Dto, Entity>
 {

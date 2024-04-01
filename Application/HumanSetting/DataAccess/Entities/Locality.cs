@@ -1,4 +1,4 @@
-namespace Chameleon.DataAccess.Entity;
+namespace Chameleon.Application.HumanSetting.DataAccess.Entities;
 
 public class Locality: BaseEntity
 {

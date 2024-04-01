@@ -1,4 +1,4 @@
-namespace Chameleon.Business.Services;
+namespace Chameleon.Application.HumanSetting.Business.Services;
 
 public abstract class IContext(Context context)
 {

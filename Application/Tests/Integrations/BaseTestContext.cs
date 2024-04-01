@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace Chameleon.Tests.Integrations;
+namespace Chameleon.Application.Tests.Integrations;
 
 public abstract class BaseTestContext : DbContext
 {

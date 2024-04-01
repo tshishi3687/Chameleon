@@ -1,8 +1,7 @@
-namespace Chameleon.DataAccess.Entity;
-
-using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Chameleon.Application.HumanSetting.DataAccess.Entities;
 
 public abstract class BaseEntity
 {

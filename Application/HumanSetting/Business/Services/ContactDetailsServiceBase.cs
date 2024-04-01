@@ -1,9 +1,9 @@
 using System.Runtime;
-using Chameleon.Business.Dtos;
-using Chameleon.Business.Mappers;
-using Chameleon.DataAccess.Entity;
+using Chameleon.Application.HumanSetting.Business.Dtos;
+using Chameleon.Application.HumanSetting.Business.Mappers;
+using Chameleon.Application.HumanSetting.DataAccess.Entities;
 
-namespace Chameleon.Business.Services;
+namespace Chameleon.Application.HumanSetting.Business.Services;
 
 public class ContactDetailsServiceBase(Context context) : IContext(context), IService<ContactDetailsDto, Guid>
 {

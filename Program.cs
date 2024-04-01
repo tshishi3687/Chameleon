@@ -1,8 +1,7 @@
 using System.Text;
 using Chameleon;
-using Chameleon.Business.Dto;
-using Chameleon.Business.Dtos;
-using Chameleon.Business.Services;
+using Chameleon.Application.HumanSetting.Business.Dtos;
+using Chameleon.Application.HumanSetting.Business.Services;
 using Chameleon.Securities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;

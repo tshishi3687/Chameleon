@@ -1,9 +1,9 @@
-using Chameleon.DataAccess.Entity;
+using Chameleon.Application.HumanSetting.DataAccess.Entities;
 using Chameleon.Securities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Chameleon.DataAccess.EntityConfig;
+namespace Chameleon.Application.HumanSetting.DataAccess.EntityConfig;
 
 public class RoleConfig: IEntityTypeConfiguration<Roles>
 {
