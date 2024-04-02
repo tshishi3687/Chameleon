@@ -4,7 +4,7 @@ using Chameleon.Application.HumanSetting.Business.Dtos;
 
 namespace Chameleon.Application.CompanySetting.Business.Dtos;
 
-public class CreationCompanyDto
+public class CreationCompanyAndUserDto
 {
     [Required]
     public string Name { get; set; }

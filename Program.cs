@@ -2,7 +2,7 @@ using System.Text;
 using Chameleon;
 using Chameleon.Application.HumanSetting.Business.Dtos;
 using Chameleon.Application.HumanSetting.Business.Services;
-using Chameleon.Securities;
+using Chameleon.Application.Securities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using MySql.EntityFrameworkCore.Extensions;
@@ -15,6 +15,7 @@ builder.Services.
     .AddDbContext<Context>();
 
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<IConstente, Constentes>();
 builder.Services.AddScoped<IService<ContactDetailsDto, Guid >, ContactDetailsServiceBase>();
 builder.Services.AddScoped<IService<CountryDto, Guid >, CountryServiceBase>();
 builder.Services.AddScoped<IService<LocalityDto, Guid >, LocalityServiceBase>();

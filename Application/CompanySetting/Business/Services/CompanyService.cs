@@ -15,13 +15,13 @@ public class CompanyService(Context context) : IContext(context)
     private readonly ContactDetailsServiceBase _contactDetailsServiceBase = new(context);
     private readonly CompanyEasyVueMapper _companyEasyVueMapper = new();
 
-    public CompanyEasyVueDto CreateEntity(CreationCompanyDto dto)
+    public CompanyEasyVueDto CreateEntity(CreationCompanyAndUserDto andUserDto)
     {
-        CheckIsNullOrWhiteSpace(dto);
+        CheckIsNullOrWhiteSpace(andUserDto);
 
         var contactDetails = Context.ContactDetails.SingleOrDefault(c =>
-            c.Id.Equals(_contactDetailsServiceBase.CreateEntity1(dto.ContactDetail).Id));
-        var user = AddUser(dto);
+            c.Id.Equals(_contactDetailsServiceBase.CreateEntity1(andUserDto.ContactDetail).Id));
+        var user = AddUser(andUserDto);
 
         if (contactDetails == null)
         {
@@ -31,8 +31,8 @@ public class CompanyService(Context context) : IContext(context)
         // Add in table Company
         var lastEntity = Context.Companies.Add(new Company
         {
-            Name = dto.Name,
-            BusinessNumber = dto.BusinessNumber,
+            Name = andUserDto.Name,
+            BusinessNumber = andUserDto.BusinessNumber,
             ContactDetails = contactDetails,
             Tutor = user,
             Users = new List<CompanyUser>()
@@ -62,19 +62,19 @@ public class CompanyService(Context context) : IContext(context)
         return _companyEasyVueMapper.ToDto(Context.Companies.Last());
     }
 
-    private void CheckIsNullOrWhiteSpace(CreationCompanyDto dto)
+    private void CheckIsNullOrWhiteSpace(CreationCompanyAndUserDto andUserDto)
     {
-        if (string.IsNullOrWhiteSpace(dto.Name))
+        if (string.IsNullOrWhiteSpace(andUserDto.Name))
         {
             throw new AmbiguousImplementationException("Dto name's can't be null!");
         }
 
-        if (string.IsNullOrWhiteSpace(dto.BusinessNumber))
+        if (string.IsNullOrWhiteSpace(andUserDto.BusinessNumber))
         {
             throw new AmbiguousImplementationException("Dto business number's can't be null!");
         }
 
-        if (dto.UserId == null && dto.Tutor == null)
+        if (andUserDto.UserId == null && andUserDto.Tutor == null)
         {
             throw new AmbiguousImplementationException("Can't create or found user");
         }
@@ -103,13 +103,13 @@ public class CompanyService(Context context) : IContext(context)
         return userEntity;
     }
 
-    private User AddUser(CreationCompanyDto dto)
+    private User AddUser(CreationCompanyAndUserDto andUserDto)
     {
-        return dto switch
+        return andUserDto switch
         {
-            { UserId: not null, Tutor: not null } => TakeUserInContext(dto.UserId.Value),
-            { UserId: not null } => TakeUserInContext(dto.UserId.Value),
-            _ => TakeUserThroughCreation(dto.Tutor!)
+            { UserId: not null, Tutor: not null } => TakeUserInContext(andUserDto.UserId.Value),
+            { UserId: not null } => TakeUserInContext(andUserDto.UserId.Value),
+            _ => TakeUserThroughCreation(andUserDto.Tutor!)
         };
     }
 }

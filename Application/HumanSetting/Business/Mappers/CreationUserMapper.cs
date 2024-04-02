@@ -1,18 +1,19 @@
 using Chameleon.Application.HumanSetting.Business.Dtos;
 using Chameleon.Application.HumanSetting.DataAccess.Entities;
-using Chameleon.Securities;
+using Chameleon.Application.Securities;
 
 namespace Chameleon.Application.HumanSetting.Business.Mappers;
 
 public class CreationUserMapper: Mappers<CreationUserDto, User>
 {
-    private MdpCrypte Crypte = new MdpCrypte();
+    private readonly MdpCrypte _crypto = new();
 
     public CreationUserDto ToDto(User entity)
     {
         return new CreationUserDto();
     }
 
+    [Obsolete("Obsolete")]
     public User toEntity(CreationUserDto dto)
     {
         return new User
@@ -23,7 +24,7 @@ public class CreationUserMapper: Mappers<CreationUserDto, User>
             BursDateTime = dto.BursDateTime,
             Email = dto.Email,
             Phone = dto.Phone,
-            PassWord = Crypte.CryptMdp(dto.PassWord),
+            PassWord = _crypto.CryptMdp(dto.PassWord),
             Roles = new List<UsersRoles>(),
             ContactDetails = new List<UsersContactDetails>()
         };

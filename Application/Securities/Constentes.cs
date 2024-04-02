@@ -4,9 +4,9 @@ using System.Text;
 using Chameleon.Application.HumanSetting.DataAccess.Entities;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Chameleon.Securities;
+namespace Chameleon.Application.Securities;
 
-public class Constentes
+public class Constentes: IConstente
 {
     public User Connected { get; set; }
     public static String RoleAd { get { return "Admin"; } }
@@ -16,12 +16,12 @@ public class Constentes
     public static string SecretToken { get { return "je kifais trop le manga Sakura Card Captor"; } }
     private Context Context = new Context();
 
-    public string GenerateToken(List<Claim> cleams)
+    public string GenerateToken(List<Claim> claims)
     {
         var Key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Constentes.SecretToken));
         var tokenDescriptor = new SecurityTokenDescriptor
         {
-            Subject = new ClaimsIdentity(cleams),
+            Subject = new ClaimsIdentity(claims),
             Expires = DateTime.UtcNow.AddDays(1),
             SigningCredentials = new SigningCredentials(
                 Key,
@@ -43,7 +43,7 @@ public class Constentes
         return jti;
     }
 
-    public void Mapersonne(string accessToken)
+    public void UserConnected(string accessToken)
     {
         Connected = Context.User.FirstOrDefault(p => p.Email == GetMail(accessToken));
     }
