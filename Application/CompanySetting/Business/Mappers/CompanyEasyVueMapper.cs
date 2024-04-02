@@ -10,6 +10,7 @@ public class CompanyEasyVueMapper: Mappers<CompanyEasyVueDto, Company>
     {
         return new CompanyEasyVueDto
         {
+            Id = entity.Id,
             Name = entity.Name,
             BusinessNumber = entity.BusinessNumber
         };

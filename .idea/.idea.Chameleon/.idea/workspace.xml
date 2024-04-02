@@ -8,8 +8,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="Add CompanyController.cs">
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Controller/UserControllerTest/UserControllerTest.cs" beforeDir="false" />
+    <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/RoleMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/RoleMapper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/UserVueMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/UserVueMapper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/CreationUserServiceBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/CreationUserServiceBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserVueServiceBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserVueServiceBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/Roles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/Roles.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/EntityConfig/RoleConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/EntityConfig/RoleConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/EntityConfig/UserRoleConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/EntityConfig/UserRoleConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chameleon.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Chameleon.sln.DotSettings.user" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,19 +39,11 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a6ca83fd68634bcf88b36fa07a3599b426a020/02/1e4f6ed1/IEntityTypeConfiguration`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a6ca83fd68634bcf88b36fa07a3599b426a020/f0/fe8b6706/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e330c7cf8aae4be3a5d948c8cc05a2de7a00/85/9918d021/HttpsPolicyBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/Common/DataAccess/Entities/BaseEntity.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/Common/DataAccess/Entities/ContactDetails.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/Common/DataAccess/Entities/ContactDetails.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/CompanySetting/DataAccess/EntityConfig/CompanyConfig.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/CompanySetting/DataAccess/EntityConfig/CompanyConfig.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/HumanSetting/Business/Dtos/RolesDto.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/CompanySetting/Business/Services/CompanyServiceBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/CreationUserServiceBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/HumanSetting/DataAccess/Entities/Roles.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/HumanSetting/DataAccess/Entities/Roles.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/HumanSetting/DataAccess/Entities/User.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/HumanSetting/DataAccess/Entities/User.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/HumanSetting/DataAccess/EntityConfig/UserRoleConfig.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Context.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Context.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/Tests/Integrations/CompanySettingTest/Services/CompanyServiceBaseTest.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -63,39 +63,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.Chameleon: http.executor": "Run",
-    ".NET Launch Settings Profile.Chameleon: https.executor": "Run",
-    "333e729f-07b6-45ff-b44b-e261e1907e05.executor": "Debug",
-    "3b27ae94-f945-4518-b49a-d2020fbd6daf.executor": "Debug",
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Docker.Docker: Compose Deployment.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "da4d22a8-5028-4dea-a22d-ed3d73257239.executor": "Run",
-    "daea3169-1b0c-4393-adb1-842030a4021b.executor": "Debug",
-    "fb27a40c-d8a5-4583-a206-930a31eadf14.executor": "Debug",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.Chameleon: http.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.Chameleon: https.executor&quot;: &quot;Run&quot;,
+    &quot;05203120-d369-4e45-a685-145184c4e85e.executor&quot;: &quot;Debug&quot;,
+    &quot;333e729f-07b6-45ff-b44b-e261e1907e05.executor&quot;: &quot;Debug&quot;,
+    &quot;3b27ae94-f945-4518-b49a-d2020fbd6daf.executor&quot;: &quot;Debug&quot;,
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Docker.Docker: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;da4d22a8-5028-4dea-a22d-ed3d73257239.executor&quot;: &quot;Run&quot;,
+    &quot;daea3169-1b0c-4393-adb1-842030a4021b.executor&quot;: &quot;Debug&quot;,
+    &quot;fb27a40c-d8a5-4583-a206-930a31eadf14.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ],
-    "rider.external.source.directories": [
-      "/Users/cedricktshibangu/Library/Application Support/JetBrains/Rider2023.3/resharper-host/DecompilerCache",
-      "/Users/cedricktshibangu/Library/Application Support/JetBrains/Rider2023.3/resharper-host/SourcesCache",
-      "/Users/cedricktshibangu/.local/share/Symbols/src"
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/Users/cedricktshibangu/Library/Application Support/JetBrains/Rider2023.3/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/cedricktshibangu/Library/Application Support/JetBrains/Rider2023.3/resharper-host/SourcesCache&quot;,
+      &quot;/Users/cedricktshibangu/.local/share/Symbols/src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Chameleon: http">
     <configuration name="Chameleon: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Chameleon.csproj" />
@@ -188,7 +189,10 @@
       <workItem from="1711888019328" duration="1105000" />
       <workItem from="1711889131152" duration="356000" />
       <workItem from="1711967628348" duration="5856000" />
-      <workItem from="1712041526629" duration="3299000" />
+      <workItem from="1712041526629" duration="6129000" />
+      <workItem from="1712051179687" duration="11330000" />
+      <workItem from="1712078111708" duration="9286000" />
+      <workItem from="1712128309362" duration="1270000" />
     </task>
     <task id="LOCAL-00001" summary="base">
       <option name="closed" value="true" />
@@ -390,7 +394,23 @@
       <option name="project" value="LOCAL" />
       <updated>1712044771066</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Delete UserControllerTest.cs">
+      <option name="closed" value="true" />
+      <created>1712045125978</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1712045125978</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Add CompanyServiceBaseTest.cs">
+      <option name="closed" value="true" />
+      <created>1712087303429</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1712087303429</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -433,7 +453,9 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/.idea.Chameleon/.idea/workspace.xml&#10;#&#9;Application/Common/DataAccess/Entities/ContactDetails.cs&#10;#&#9;Application/CompanySetting/DataAccess/EntityConfig/CompanyConfig.cs&#10;#&#9;Application/HumanSetting/DataAccess/Entities/Roles.cs&#10;#&#9;Application/HumanSetting/DataAccess/Entities/User.cs&#10;#&#9;Context.cs" />
     <MESSAGE value="Add CompanyService.cs" />
     <MESSAGE value="Add CompanyController.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add CompanyController.cs" />
+    <MESSAGE value="Delete UserControllerTest.cs" />
+    <MESSAGE value="Add CompanyServiceBaseTest.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add CompanyServiceBaseTest.cs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -443,12 +465,6 @@
           <line>20</line>
           <properties documentPath="$PROJECT_DIR$/Business/Services/ContactDetailsServiceBase.cs" initialLine="20" containingFunctionPresentation="Method 'CreateEntity'" />
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/CreationUserServiceBase.cs</url>
-          <line>20</line>
-          <properties documentPath="$PROJECT_DIR$/Business/Services/CreationUserServiceBase.cs" initialLine="20" containingFunctionPresentation="Method 'CreateEntity'" />
-          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

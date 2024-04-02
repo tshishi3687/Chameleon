@@ -9,8 +9,5 @@ public class UserContactDetailsConfig: IEntityTypeConfiguration<UsersContactDeta
     public void Configure(EntityTypeBuilder<UsersContactDetails> builder)
     {
         builder.HasKey(x => new { x.ContactDetailsId, x.UserId });
-        builder.HasOne(uc => uc.User)
-            .WithMany(u => u.ContactDetails)
-            .HasForeignKey(uc => uc.UserId);
     }
 }

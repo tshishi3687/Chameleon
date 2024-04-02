@@ -12,6 +12,6 @@ public class CompanyController(IHttpContextAccessor cc, IConstente iContent, Con
     [HttpPost]
     public IActionResult CreateCompanyAndUser([FromBody] CreationCompanyAndUserDto dto)
     {
-        return Ok(new CompanyService(context).CreateEntity(dto));
+        return Ok(new CompanyServiceBase(context).CreateEntity(dto));
     }
 }
