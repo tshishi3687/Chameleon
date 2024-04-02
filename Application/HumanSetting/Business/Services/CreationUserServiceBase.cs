@@ -4,47 +4,37 @@ using Chameleon.Application.HumanSetting.DataAccess.Entities;
 
 namespace Chameleon.Application.HumanSetting.Business.Services;
 
-public class CreationUserServiceBase(Context context) : IContext(context),IService<CreationUserDto, Guid>
+public class CreationUserServiceBase(Context context) : IContext(context), IService<CreationUserDto, Guid>
 {
     private readonly UserVueMapper _userVueMapper = new();
-    private readonly CreationUserMapper _creationUserMapper = new();
+    private readonly CreationUserMapper _creationUserMapper = new(context);
     private readonly ContactDetailsMapper _contactDetailsMapper = new();
 
     private readonly ContactDetailsServiceBase _contactDetailsServiceBase = new(context);
 
+    [Obsolete("Obsolete")]
     public UserVueDto CreateEntity1(CreationUserDto dto)
     {
         PasswordMatch(dto);
         UniqueUser(dto);
 
-        Context.User.Add(_creationUserMapper.toEntity(dto));
-        Context.SaveChanges();
-        var user = Context.User.FirstOrDefault(u => u.Email.Equals(dto.Email));
-        if (user == null)
-        {
-            throw new Exception(); // TODO
-        }
-
+        var userEntity = Context.User.Add(_creationUserMapper.toEntity(dto)).Entity;
         var uc = new UsersContactDetails();
-        uc.UserId = user.Id;
+        uc.UserId = userEntity.Id;
+
         foreach (var contactDetailsDto in dto.ContactDetails)
         {
-            var contactDetails = _contactDetailsServiceBase.CreateEntity1(contactDetailsDto);
-            uc.ContactDetailsId = contactDetails.Id;
+            uc.ContactDetailsId = _contactDetailsServiceBase.CreateEntity1(contactDetailsDto).Id;
+            Context.UsersContactDetails.Add(uc);
         }
-
-        Context.UsersContactDetails.Add(uc);
 
         Context.SaveChanges();
-        
-        var lastUserCreated = Context.User.Last();
-        var userDto = _userVueMapper.ToDto(lastUserCreated);
-        foreach (var usersContactDetails in lastUserCreated.ContactDetails)
+
+        var userDto = _userVueMapper.ToDto(userEntity);
+        foreach (var usersContactDetails in userEntity.UserContactDetails())
         {
-            Context.ContactDetails.FirstOrDefault(c => c.Id.Equals(usersContactDetails.ContactDetailsId));
             userDto.ContactDetails.Add(_contactDetailsMapper.ToDto(usersContactDetails.ContactDetails));
         }
-        
         
         return userDto;
     }

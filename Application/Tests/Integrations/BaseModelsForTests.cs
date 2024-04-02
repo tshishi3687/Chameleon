@@ -1,4 +1,5 @@
 using System.Globalization;
+using Chameleon.Application.CompanySetting.Business.Dtos;
 using Chameleon.Application.HumanSetting.Business.Dtos;
 
 namespace Chameleon.Application.Tests.Integrations;
@@ -102,6 +103,45 @@ public abstract class BaseModelsForTests: BaseContextForTests
             Number = "",
             Locality = AddLocalityDto(),
             Country = AddCountryDto()
+        };
+    }
+
+    protected static CreationCompanyAndUserDto AddBadCreationCompanyAndUserDtoName()
+    {
+        return new CreationCompanyAndUserDto
+        {
+            Name = ""
+        };
+    }
+
+    protected static CreationCompanyAndUserDto AddBadCreationCompanyAndUserDtoBusinessNumber()
+    {
+        return new CreationCompanyAndUserDto
+        {
+            Name = "Test",
+            BusinessNumber = ""
+        };
+    }
+
+    protected static CreationCompanyAndUserDto AddBadCreationCompanyAndUserDtoUserIdAndTutor()
+    {
+        return new CreationCompanyAndUserDto
+        {
+            Name = "Name",
+            BusinessNumber = "Business Number"
+            // User null
+            // tutor null
+        };
+    }
+
+    protected static CreationCompanyAndUserDto AddValidCreationCompanyAndUserDto()
+    {
+        return new CreationCompanyAndUserDto
+        {
+            Name = "Name",
+            BusinessNumber = "Business Number",
+            Tutor = AddCreationUserDto(),
+            ContactDetail = AddContactDetailsDto()
         };
     }
 }

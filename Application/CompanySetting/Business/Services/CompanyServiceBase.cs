@@ -9,7 +9,7 @@ using Chameleon.Application.HumanSetting.DataAccess.Entities;
 
 namespace Chameleon.Application.CompanySetting.Business.Services;
 
-public class CompanyService(Context context) : IContext(context)
+public class CompanyServiceBase(Context context) : IContext(context)
 {
     private readonly CreationUserServiceBase _creationUserServiceBase = new(context);
     private readonly ContactDetailsServiceBase _contactDetailsServiceBase = new(context);
@@ -49,11 +49,12 @@ public class CompanyService(Context context) : IContext(context)
         Context.UsersRoles.Add(new UsersRoles
         {
             UserId = user.Id,
-            RoleId = new Roles
+            RoleId = Context.Roles.Add(new Roles
             {
                 Name = EnumUsersRoles.SUPER_ADMIN.ToString(),
-                Company = lastEntity.Entity
-            }.Id
+                Company = lastEntity.Entity,
+                Users = new List<UsersRoles>()
+            }).Entity.Id
         });
 
         // Save All insert.
@@ -62,19 +63,19 @@ public class CompanyService(Context context) : IContext(context)
         return _companyEasyVueMapper.ToDto(Context.Companies.Last());
     }
 
-    private void CheckIsNullOrWhiteSpace(CreationCompanyAndUserDto andUserDto)
+    private static void CheckIsNullOrWhiteSpace(CreationCompanyAndUserDto dto)
     {
-        if (string.IsNullOrWhiteSpace(andUserDto.Name))
+        if (string.IsNullOrWhiteSpace(dto.Name))
         {
             throw new AmbiguousImplementationException("Dto name's can't be null!");
         }
 
-        if (string.IsNullOrWhiteSpace(andUserDto.BusinessNumber))
+        if (string.IsNullOrWhiteSpace(dto.BusinessNumber))
         {
             throw new AmbiguousImplementationException("Dto business number's can't be null!");
         }
 
-        if (andUserDto.UserId == null && andUserDto.Tutor == null)
+        if (dto.UserId == null && dto.Tutor == null)
         {
             throw new AmbiguousImplementationException("Can't create or found user");
         }

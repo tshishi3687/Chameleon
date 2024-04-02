@@ -4,7 +4,7 @@ using Chameleon.Application.Securities;
 
 namespace Chameleon.Application.HumanSetting.Business.Mappers;
 
-public class CreationUserMapper: Mappers<CreationUserDto, User>
+public class CreationUserMapper(Context context): Mappers<CreationUserDto, User>
 {
     private readonly MdpCrypte _crypto = new();
 
@@ -16,7 +16,7 @@ public class CreationUserMapper: Mappers<CreationUserDto, User>
     [Obsolete("Obsolete")]
     public User toEntity(CreationUserDto dto)
     {
-        return new User
+        return new User(context)
         {
             ReferenceCode = Guid.NewGuid(),
             FirstName = dto.FirstName,
@@ -24,9 +24,7 @@ public class CreationUserMapper: Mappers<CreationUserDto, User>
             BursDateTime = dto.BursDateTime,
             Email = dto.Email,
             Phone = dto.Phone,
-            PassWord = _crypto.CryptMdp(dto.PassWord),
-            Roles = new List<UsersRoles>(),
-            ContactDetails = new List<UsersContactDetails>()
+            PassWord = _crypto.CryptMdp(dto.PassWord)
         };
     }
 

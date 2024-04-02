@@ -15,7 +15,7 @@ public class LocalityServiceBase(Context context) : IContext(context), IService<
             throw new AmbiguousImplementationException("Dto name's can't be null!");
         }
 
-        var locality = Context.Localities.SingleOrDefault(l => l.Name.ToUpper().Equals(dto.Name.ToUpper()));
+        var locality = Context.Localities.FirstOrDefault(l => l.Name.ToUpper().Equals(dto.Name.ToUpper()));
 
         if (locality != null)
         {

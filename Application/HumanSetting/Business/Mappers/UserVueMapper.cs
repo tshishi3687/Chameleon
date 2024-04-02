@@ -15,7 +15,8 @@ public class UserVueMapper : Mappers<UserVueDto, User>
             FirstName = entity.FirstName,
             LastName = entity.LastName,
             BursDateTime = entity.BursDateTime,
-            ContactDetails = new List<ContactDetailsDto>()
+            ContactDetails = entity.UserContactDetails().Select(uc => new ContactDetailsMapper().ToDto(uc.ContactDetails)).ToList(),
+            Roles = entity.UserRoles().Select(ur => new RoleMapper().ToDto(ur.Roles)).ToList()
         };
     }
 

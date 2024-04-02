@@ -3,7 +3,7 @@ using Chameleon.Application.CompanySetting.DataAccess.Entities;
 
 namespace Chameleon.Application.HumanSetting.DataAccess.Entities;
 
-public class User : BaseEntity
+public class User(Context context) : BaseEntity
 {
     public Guid ReferenceCode { get; set; }
     public string FirstName { get; set; }
@@ -12,7 +12,19 @@ public class User : BaseEntity
     public string Email { get; set; }
     public string Phone { get; set; }
     public string PassWord { get; set; }
-    public ICollection<UsersRoles> Roles { get; set; }
-    public ICollection<UsersContactDetails> ContactDetails { get; set; }
-    public ICollection<CompanyUser> Companies { get; set; }
+    
+    public ICollection<UsersRoles> UserRoles()
+    {
+        return context.UsersRoles.Where(ur => ur.UserId.Equals(Id)).ToList();
+    }
+
+    public ICollection<UsersContactDetails> UserContactDetails()
+    {
+        return context.UsersContactDetails.Where(ur => ur.UserId.Equals(Id)).ToList();
+    }
+
+    public ICollection<CompanyUser> Companies()
+    {
+        return context.CompanyUsers.Where(ur => ur.UserId.Equals(Id)).ToList();
+    }
 }

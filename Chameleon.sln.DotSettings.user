@@ -1,29 +1,12 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=333e729f_002D07b6_002D45ff_002Db44b_002De261e1907e05/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CrudService" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=05203120_002Dd369_002D4e45_002Da685_002D145184c4e85e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CompanyServiceBaseTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::B665C91B-5702-4D06-B12D-8D054B63A2EC::net8.0::Chameleon.Application.Tests.Integrations.CompanySettingTest.Services.CompanyServiceBaseTest&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::B665C91B-5702-4D06-B12D-8D054B63A2EC::net8.0::Chameleon.Application.Tests.Integrations.HumanSettingTest.Services.UserServiceBaseTest&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::B665C91B-5702-4D06-B12D-8D054B63A2EC::net8.0::Chameleon.Application.Tests.Integrations.Common.Services.LocalityServiceBaseTest&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::B665C91B-5702-4D06-B12D-8D054B63A2EC::net8.0::Chameleon.Application.Tests.Integrations.Common.Services.CountryServiceBaseTest&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::B665C91B-5702-4D06-B12D-8D054B63A2EC::net8.0::Chameleon.Application.Tests.Integrations.Common.Services.ContactDetailsServiceBaseTest&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3b27ae94_002Df945_002D4518_002Db49a_002Dd2020fbd6daf/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CrudService #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=78fc9d19_002Da54d_002D4c94_002D8c7f_002D180200aa6be3/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CompanyServiceBaseTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
-    &lt;TestId&gt;xUnit::B665C91B-5702-4D06-B12D-8D054B63A2EC::net8.0::Chameleon.Tests.Integrations.Services.UserServiceBaseTest.CrudService&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::B665C91B-5702-4D06-B12D-8D054B63A2EC::net8.0::Chameleon.Tests.Integrations.Services.ContactDetailsServiceBaseTest&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::B665C91B-5702-4D06-B12D-8D054B63A2EC::net8.0::Chameleon.Tests.Integrations.Services.CountryServiceBaseTest&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::B665C91B-5702-4D06-B12D-8D054B63A2EC::net8.0::Chameleon.Tests.Integrations.Services.LocalityServiceBaseTest&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::B665C91B-5702-4D06-B12D-8D054B63A2EC::net8.0::Chameleon.Tests.Integrations.Services.UserServiceBaseTest&lt;/TestId&gt;
-  &lt;/TestAncestor&gt;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4bac9f57_002D5b79_002D453d_002D83bc_002D45a43d42e764/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="True" ContinuousTestingMode="1" Name="ContactDetailsServiceBaseTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;TestAncestor&gt;
-    &lt;TestId&gt;xUnit::B665C91B-5702-4D06-B12D-8D054B63A2EC::net8.0::Chameleon.Tests.Integrations.Services.ContactDetailsServiceBaseTest&lt;/TestId&gt;
-  &lt;/TestAncestor&gt;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f250ad7f_002Dfa58_002D42df_002Da811_002Dfcb49f15cb26/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CountryServiceBaseTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;TestAncestor&gt;
-    &lt;TestId&gt;xUnit::B665C91B-5702-4D06-B12D-8D054B63A2EC::net8.0::Chameleon.Tests.Integrations.Services.CountryServiceBaseTest&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::B665C91B-5702-4D06-B12D-8D054B63A2EC::net8.0::Chameleon.Tests.Integrations.Services.LocalityServiceBaseTest&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::B665C91B-5702-4D06-B12D-8D054B63A2EC::net8.0::Chameleon.Application.Tests.Integrations.CompanySettingTest.Services.CompanyServiceBaseTest&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
