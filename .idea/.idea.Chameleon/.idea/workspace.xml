@@ -8,17 +8,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Application/ApiInput/AbstractController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/ApiInput/AllowAll/CompanyController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/Securities/IConstente.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/CreationCompanyDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/CreationCompanyAndUserDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/CreationUserMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/CreationUserMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Securities/Constentes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Securities/Constentes.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Securities/MdpCrypte.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Securities/MdpCrypte.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+    <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="Add CompanyController.cs">
+      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Controller/UserControllerTest/UserControllerTest.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +188,7 @@
       <workItem from="1711888019328" duration="1105000" />
       <workItem from="1711889131152" duration="356000" />
       <workItem from="1711967628348" duration="5856000" />
-      <workItem from="1712041526629" duration="2988000" />
+      <workItem from="1712041526629" duration="3299000" />
     </task>
     <task id="LOCAL-00001" summary="base">
       <option name="closed" value="true" />
@@ -391,7 +382,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711997250884</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Add CompanyController.cs">
+      <option name="closed" value="true" />
+      <created>1712044771066</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1712044771066</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -433,7 +432,8 @@
     <MESSAGE value="Add Company.cs" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/.idea.Chameleon/.idea/workspace.xml&#10;#&#9;Application/Common/DataAccess/Entities/ContactDetails.cs&#10;#&#9;Application/CompanySetting/DataAccess/EntityConfig/CompanyConfig.cs&#10;#&#9;Application/HumanSetting/DataAccess/Entities/Roles.cs&#10;#&#9;Application/HumanSetting/DataAccess/Entities/User.cs&#10;#&#9;Context.cs" />
     <MESSAGE value="Add CompanyService.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add CompanyService.cs" />
+    <MESSAGE value="Add CompanyController.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add CompanyController.cs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -7,8 +7,7 @@ namespace Chameleon.Application.ApiInput.AllowAll;
 
 [ApiController]
 [Route("[controller]")]
-public class CompanyController(IHttpContextAccessor cc, IConstente iContent, Context context)
-    : AbstractController(cc, iContent)
+public class CompanyController(IHttpContextAccessor cc, IConstente iContent, Context context) : AbstractController(cc, iContent)
 {
     [HttpPost]
     public IActionResult CreateCompanyAndUser([FromBody] CreationCompanyAndUserDto dto)
