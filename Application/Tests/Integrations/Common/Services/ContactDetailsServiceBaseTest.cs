@@ -1,4 +1,5 @@
 using System.Runtime;
+using Chameleon.Application.Common.Business.Services;
 using Xunit;
 
 namespace Chameleon.Application.Tests.Integrations.Common.Services;
@@ -8,12 +9,12 @@ public class ContactDetailsServiceBaseTest : BaseModelsForTests
     [Fact]
     public void CrudServiceTest()
     {
-        var contactDetailsService = new HumanSetting.Business.Services.ContactDetailsServiceBase(CreateDbContext());
+        var contactDetailsService = new ContactDetailsServiceBase(CreateDbContext());
 
         // CreateEntity
-        Assert.Throws<AmbiguousImplementationException>(() => contactDetailsService.CreateEntity1(AddBadContactDetailsDto()));
+        Assert.Throws<AmbiguousImplementationException>(() => contactDetailsService.CreateEntity(AddBadContactDetailsDto()));
         
-        var createContactDetailsDto = contactDetailsService.CreateEntity1(AddContactDetailsDto());
+        var createContactDetailsDto = contactDetailsService.CreateEntity(AddContactDetailsDto());
         Assert.NotNull(createContactDetailsDto);
         Assert.Equal(createContactDetailsDto.Address, AddContactDetailsDto().Address);
         Assert.Equal(createContactDetailsDto.Number, AddContactDetailsDto().Number);

@@ -1,8 +1,9 @@
 using Chameleon.Application.Common.DataAccess.Entities;
 using Chameleon.Application.HumanSetting.Business.Dtos;
+using Chameleon.Application.HumanSetting.Business.Mappers;
 using Chameleon.Application.HumanSetting.DataAccess.Entities;
 
-namespace Chameleon.Application.HumanSetting.Business.Mappers;
+namespace Chameleon.Application.Common.Business.Mappers;
 
 public class CountryMapper: Mappers<CountryDto, Country>
 {
@@ -15,7 +16,7 @@ public class CountryMapper: Mappers<CountryDto, Country>
         };
     }
 
-    public Country toEntity(CountryDto dto)
+    public Country ToEntity(CountryDto dto)
     {
         return new Country
         {

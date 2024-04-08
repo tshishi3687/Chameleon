@@ -16,11 +16,6 @@ public class CompanyConfig : IEntityTypeConfiguration<Company>
         builder.Property(x => x.Name).IsRequired(); 
         builder.Property(x => x.BusinessNumber).IsRequired(); 
 
-        builder.HasMany(c => c.Users)
-            .WithOne(cw => cw.Company)
-            .HasForeignKey(cw => cw.CompanyId)
-            .OnDelete(DeleteBehavior.Cascade);
-
         builder.HasOne(c => c.ContactDetails)
             .WithMany(cd => cd.Companies);
 

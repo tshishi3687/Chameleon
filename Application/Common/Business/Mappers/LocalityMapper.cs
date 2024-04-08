@@ -14,7 +14,7 @@ public class LocalityMapper: Mappers<LocalityDto, Locality>
         };
     }
 
-    public Locality toEntity(LocalityDto dto)
+    public Locality ToEntity(LocalityDto dto)
     {
         return new Locality
         {

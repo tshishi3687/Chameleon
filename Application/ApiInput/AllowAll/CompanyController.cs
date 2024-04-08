@@ -10,8 +10,12 @@ namespace Chameleon.Application.ApiInput.AllowAll;
 public class CompanyController(IHttpContextAccessor cc, IConstente iContent, Context context) : AbstractController(cc, iContent)
 {
     [HttpPost]
-    public IActionResult CreateCompanyAndUser([FromBody] CreationCompanyAndUserDto dto)
+    public IActionResult CreateCompany([FromBody] CreationCompanyAndUserDto dto)
     {
-        return Ok(new CompanyServiceBase(context).CreateEntity(dto));
+        var result = new CompanyServiceBase(context).CreateEntity(dto);
+        return new ObjectResult(result)
+        {
+            StatusCode = (int)result.StatusCode
+        };
     }
 }

@@ -1,3 +1,4 @@
+using Chameleon.Application.Common.Business.Mappers;
 using Chameleon.Application.Common.DataAccess.Entities;
 using Chameleon.Application.HumanSetting.Business.Dtos;
 using Chameleon.Application.HumanSetting.DataAccess.Entities;
@@ -22,7 +23,7 @@ public class ContactDetailsMapper: Mappers<ContactDetailsDto, ContactDetails>
         };
     }
 
-    public ContactDetails toEntity(ContactDetailsDto dto)
+    public ContactDetails ToEntity(ContactDetailsDto dto)
     {
         return new ContactDetails
         {

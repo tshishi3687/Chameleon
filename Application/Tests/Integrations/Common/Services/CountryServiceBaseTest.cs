@@ -12,18 +12,18 @@ public class CountryServiceBaseTest : BaseModelsForTests
         var countryService = new HumanSetting.Business.Services.CountryServiceBase(CreateDbContext());
 
         var badDto1 = new CountryDto();
-        Assert.Throws<AmbiguousImplementationException>(() => countryService.CreateEntity1(badDto1));
+        Assert.Throws<AmbiguousImplementationException>(() => countryService.CreateEntity(badDto1));
 
         var badDto2 = new CountryDto { Name = "" };
-        Assert.Throws<AmbiguousImplementationException>(() => countryService.CreateEntity1(badDto2));
+        Assert.Throws<AmbiguousImplementationException>(() => countryService.CreateEntity(badDto2));
 
         var badDto3 = new CountryDto { Name = " " };
-        Assert.Throws<AmbiguousImplementationException>(() => countryService.CreateEntity1(badDto3));
+        Assert.Throws<AmbiguousImplementationException>(() => countryService.CreateEntity(badDto3));
 
         var countryDto = AddCountryDto();
 
         // CreateEntity
-        var createdCountryDto = countryService.CreateEntity1(countryDto);
+        var createdCountryDto = countryService.CreateEntity(countryDto);
         Assert.NotNull(createdCountryDto);
         Assert.Equal(createdCountryDto.Name, countryDto.Name.ToUpper());
 

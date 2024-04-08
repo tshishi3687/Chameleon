@@ -20,7 +20,7 @@ public class UserVueMapper : Mappers<UserVueDto, User>
         };
     }
 
-    public User toEntity(UserVueDto vueDto)
+    public User ToEntity(UserVueDto vueDto)
     {
         throw new NotImplementedException();
     }

@@ -1,3 +1,4 @@
+using Chameleon.Application.Common.Business.Services;
 using Chameleon.Application.HumanSetting.Business.Dtos;
 using Chameleon.Application.HumanSetting.Business.Mappers;
 using Chameleon.Application.HumanSetting.DataAccess.Entities;
@@ -16,15 +17,19 @@ public class CreationUserServiceBase(Context context) : IContext(context), IServ
     public UserVueDto CreateEntity1(CreationUserDto dto)
     {
         PasswordMatch(dto);
+        if (!IsAdult(dto.BursDateTime))
+        {
+            throw new ArgumentException("You are not an adult");
+        }
         UniqueUser(dto);
-
-        var userEntity = Context.User.Add(_creationUserMapper.toEntity(dto)).Entity;
+        
+        var userEntity = Context.User.Add(_creationUserMapper.ToEntity(dto)).Entity;
         var uc = new UsersContactDetails();
         uc.UserId = userEntity.Id;
 
         foreach (var contactDetailsDto in dto.ContactDetails)
         {
-            uc.ContactDetailsId = _contactDetailsServiceBase.CreateEntity1(contactDetailsDto).Id;
+            uc.ContactDetailsId = _contactDetailsServiceBase.CreateEntity(contactDetailsDto).Id;
             Context.UsersContactDetails.Add(uc);
         }
 
@@ -59,7 +64,7 @@ public class CreationUserServiceBase(Context context) : IContext(context), IServ
         throw new NotImplementedException();
     }
 
-    CreationUserDto IService<CreationUserDto, Guid>.CreateEntity1(CreationUserDto dto)
+    CreationUserDto IService<CreationUserDto, Guid>.CreateEntity(CreationUserDto dto)
     {
         throw new NotImplementedException();
     }
@@ -91,5 +96,10 @@ public class CreationUserServiceBase(Context context) : IContext(context), IServ
         {
             throw new ArgumentException("Passwords do not match.");
         }
+    }
+    
+    private bool IsAdult(DateTime dateTime)
+    {
+        return (DateTime.Now.Year - dateTime.Year) >= 18;
     }
 }

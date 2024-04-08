@@ -9,7 +9,7 @@ public class AbstractController: ControllerBase
         
     public AbstractController(IHttpContextAccessor cc, IConstente iContent)
     {
-        iContent.UserConnected(cc.HttpContext.GetTokenAsync("access_token").Result);
+        iContent.UseThisUserConnected(cc.HttpContext.GetTokenAsync("access_token").Result);
     }
 
 }

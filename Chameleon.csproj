@@ -32,7 +32,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Application\CompanySetting\Business\Dtos\" />
+      <Folder Include="Application\ApiInput\PermissionRequested\" />
+      <Folder Include="Application\ApiInput\PermissionRequested_Super_Admin\" />
       <Folder Include="Application\CompanySetting\Business\Mappers\" />
       <Folder Include="Application\CompanySetting\Business\Services\" />
       <Folder Include="Application\Tests\Integrations\HumanSettingTest\" />

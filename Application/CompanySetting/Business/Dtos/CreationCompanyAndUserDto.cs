@@ -11,8 +11,7 @@ public class CreationCompanyAndUserDto
     [Required]
     public string BusinessNumber { get; set; }
     
-    public Guid? UserId { get; set; }
-    public CreationUserDto? Tutor { get; set; }
+    public AddCompanyUser AddCompanyUser { get; set; }
     
     [Required]
     public ContactDetailsDto ContactDetail { get; set; }

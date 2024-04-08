@@ -10,7 +10,7 @@ public class RoleMapper: Mappers<RolesDto, Roles>
         return new RolesDto { Id = entity.Id, Name = entity.Name };
     }
 
-    public Roles toEntity(RolesDto dto)
+    public Roles ToEntity(RolesDto dto)
     {
         return new Roles { Name = dto.Name };
     }

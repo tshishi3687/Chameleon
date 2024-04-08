@@ -1,11 +1,16 @@
 using System.Globalization;
+using System.Security.Claims;
 using Chameleon.Application.CompanySetting.Business.Dtos;
+using Chameleon.Application.HumanSetting;
 using Chameleon.Application.HumanSetting.Business.Dtos;
+using Chameleon.Application.Securities;
 
 namespace Chameleon.Application.Tests.Integrations;
 
 public abstract class BaseModelsForTests: BaseContextForTests
 {
+
+    private readonly Constantes _iContent = new(CreateDbContext());
     protected static CreationUserDto NoMatchPassword()
     {
         return new CreationUserDto
@@ -14,23 +19,38 @@ public abstract class BaseModelsForTests: BaseContextForTests
             PassWordCheck = "678910"
         };
     }
+    protected static CreationUserDto IsNotAdult()
+    {
+        return new CreationUserDto
+        {
+            PassWord = "12345678",
+            PassWordCheck = "12345678",
+            BursDateTime = DateTime.Now
+        };
+    }
     
     protected static CreationUserDto UpdateCreationUserDtoChangePasswordAndLocalityNAme()
     {
         return new CreationUserDto
         {
-            FirstName = "Jean-Claude",
-            LastName = "Van Damme",
+            FirstName = "Tshishi",
+            LastName = "Ced",
             BursDateTime = DateTime.ParseExact("18-10-1987", "dd-MM-yyyy", CultureInfo.InvariantCulture),
-            Email = "Jean-Claude.Van-Damme@JCVD.com",
-            Phone = "078555555",
+            Email = "Jean-Claude.Van_Damme@JCVD.com",
+            Phone = "078555557",
             PassWord = "JCVD.12345678",
             PassWordCheck = "JCVD.12345678",
             ContactDetails = new()
             {
                 UpdateContactDetailsDto()
-            }
+            },
+            Roles = [AddRoles()]
         };
+    }
+
+    private static EnumUsersRoles AddRoles()
+    {
+        return EnumUsersRoles.ADMIN;
     }
     
     protected static CreationUserDto AddCreationUserDto()
@@ -140,8 +160,27 @@ public abstract class BaseModelsForTests: BaseContextForTests
         {
             Name = "Name",
             BusinessNumber = "Business Number",
-            Tutor = AddCreationUserDto(),
+            AddCompanyUser = new AddCompanyUser
+            {
+                CreationUserDto = AddCreationUserDto()
+            },
             ContactDetail = AddContactDetailsDto()
         };
+    }
+
+    protected static AddCompanyUser AddCompanyUser(Guid guid)
+    {
+        return new AddCompanyUser
+        {
+            UserId = guid,
+            CreationUserDto = UpdateCreationUserDtoChangePasswordAndLocalityNAme()
+        };
+    }
+
+    protected void InitTokenUserNoRolesClaims(string email)
+    {
+        List<Claim> claims = new List<Claim>();
+        claims.Add(new Claim(ClaimTypes.Email, email));
+        _iContent.UseThisUserConnected(_iContent.GenerateToken(claims));
     }
 }

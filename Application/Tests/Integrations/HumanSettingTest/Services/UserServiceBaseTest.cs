@@ -14,6 +14,7 @@ public class UserServiceBaseTest : BaseModelsForTests
 
         // CreateEntity (exception) : password no match
         Assert.Throws<ArgumentException>(() => creationUserService.CreateEntity1(NoMatchPassword()));
+        Assert.Throws<ArgumentException>(() => creationUserService.CreateEntity1(IsNotAdult()));
 
         var creationUserDto = creationUserService.CreateEntity1(AddCreationUserDto());
         Assert.NotNull(creationUserDto);

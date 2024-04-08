@@ -6,19 +6,40 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace Chameleon.Application.Securities;
 
-public class Constentes: IConstente
+public class Constantes(Context context) : IConstente
 {
     public User Connected { get; set; }
-    public static String RoleAd { get { return "Admin"; } }
-    public static String RoleCl { get { return "Client"; } }
-    public static String Log { get { return "AS%54_!t"; } }
-    public static long Expires { get { return 1 * 24 * 3600 * 1000; } } // 1 jour
-    public static string SecretToken { get { return "je kifais trop le manga Sakura Card Captor"; } }
+
+    public static String RoleAd
+    {
+        get { return "Admin"; }
+    }
+
+    public static String RoleCl
+    {
+        get { return "Client"; }
+    }
+
+    public static String Log
+    {
+        get { return "AS%54_!t"; }
+    }
+
+    public static long Expires
+    {
+        get { return 1 * 24 * 3600 * 1000; }
+    } // 1 jour
+
+    public static string SecretToken
+    {
+        get { return "je kifais trop le manga Sakura Card Captor"; }
+    }
+
     private Context Context = new Context();
 
     public string GenerateToken(List<Claim> claims)
     {
-        var Key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Constentes.SecretToken));
+        var Key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Constantes.SecretToken));
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Subject = new ClaimsIdentity(claims),
@@ -35,16 +56,28 @@ public class Constentes: IConstente
 
     private string GetMail(string accessToken)
     {
+        if (string.IsNullOrWhiteSpace(accessToken))
+        {
+            return null;
+        }
+
         string token = accessToken;
         JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
         JwtSecurityToken jwtSecurityToken = handler.ReadJwtToken(token);
         string jti = jwtSecurityToken.Claims.First(claim => claim.Type == "email").Value;
 
+
         return jti;
     }
 
-    public void UserConnected(string accessToken)
+    public void UseThisUserConnected(string accessToken)
     {
-        Connected = Context.User.FirstOrDefault(p => p.Email == GetMail(accessToken));
+        if (context.IsTesting)
+        {
+            Connected = Context.User.FirstOrDefault(p => p.Email.Equals(accessToken) || p.Phone.Equals(accessToken));
+        }
+
+        Connected = Context.User.FirstOrDefault(p =>
+            p.Email.Equals(GetMail(accessToken)) || p.Phone.Equals(GetMail(accessToken)));
     }
 }

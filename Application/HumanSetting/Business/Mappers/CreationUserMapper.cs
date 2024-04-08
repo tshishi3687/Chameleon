@@ -14,7 +14,7 @@ public class CreationUserMapper(Context context): Mappers<CreationUserDto, User>
     }
 
     [Obsolete("Obsolete")]
-    public User toEntity(CreationUserDto dto)
+    public User ToEntity(CreationUserDto dto)
     {
         return new User(context)
         {

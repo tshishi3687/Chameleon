@@ -1,5 +1,6 @@
 using System.Text;
 using Chameleon;
+using Chameleon.Application.Common.Business.Services;
 using Chameleon.Application.HumanSetting.Business.Dtos;
 using Chameleon.Application.HumanSetting.Business.Services;
 using Chameleon.Application.Securities;
@@ -14,8 +15,11 @@ builder.Services.
     AddEntityFrameworkMySQL()
     .AddDbContext<Context>();
 
+builder.Services
+    .AddHttpContextAccessor();
+
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IConstente, Constentes>();
+builder.Services.AddScoped<IConstente, Constantes>();
 builder.Services.AddScoped<IService<ContactDetailsDto, Guid >, ContactDetailsServiceBase>();
 builder.Services.AddScoped<IService<CountryDto, Guid >, CountryServiceBase>();
 builder.Services.AddScoped<IService<LocalityDto, Guid >, LocalityServiceBase>();
@@ -36,7 +40,7 @@ builder.Services.AddAuthentication(options =>
             ValidateIssuer = false,
             ValidateAudience = false,
             ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Constentes.SecretToken))
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Constantes.SecretToken))
         };
     });
 
@@ -54,6 +58,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
+app.MapControllers();
 
 
 app.Run();

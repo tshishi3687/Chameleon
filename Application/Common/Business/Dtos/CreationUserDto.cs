@@ -37,5 +37,5 @@ public class CreationUserDto
     
     public List<ContactDetailsDto> ContactDetails { get; set; }
     
-    public List<RolesDto> Roles { get; set; }
+    public List<EnumUsersRoles> Roles { get; set; }
 }

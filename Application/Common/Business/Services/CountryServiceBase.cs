@@ -1,4 +1,5 @@
 using System.Runtime;
+using Chameleon.Application.Common.Business.Mappers;
 using Chameleon.Application.HumanSetting.Business.Dtos;
 using Chameleon.Application.HumanSetting.Business.Mappers;
 
@@ -8,7 +9,7 @@ public class CountryServiceBase(Context context) : IContext(context), IService<C
 {
     private readonly CountryMapper _countryMapper = new();
 
-    public CountryDto CreateEntity1(CountryDto dto)
+    public CountryDto CreateEntity(CountryDto dto)
     {
         if (string.IsNullOrWhiteSpace(dto.Name))
         {
@@ -22,7 +23,7 @@ public class CountryServiceBase(Context context) : IContext(context), IService<C
             return _countryMapper.ToDto(country);
         }
 
-        var data = _countryMapper.toEntity(dto);
+        var data = _countryMapper.ToEntity(dto);
         Context.Countries.Add(data);
         Context.SaveChanges();
 
@@ -57,7 +58,7 @@ public class CountryServiceBase(Context context) : IContext(context), IService<C
 
         Context.Countries.Remove(countryToRemove);
         Context.SaveChanges();
-        return CreateEntity1(dto);
+        return CreateEntity(dto);
     }
 
     public void DeleteEntity(Guid guid)

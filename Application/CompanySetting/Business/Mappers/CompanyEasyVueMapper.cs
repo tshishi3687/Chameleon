@@ -16,7 +16,7 @@ public class CompanyEasyVueMapper: Mappers<CompanyEasyVueDto, Company>
         };
     }
 
-    public Company toEntity(CompanyEasyVueDto dto)
+    public Company ToEntity(CompanyEasyVueDto dto)
     {
         throw new NotImplementedException();
     }

@@ -7,5 +7,5 @@ public interface IConstente
 {
     User Connected { get; set; }
     string GenerateToken(List<Claim> claims);
-    void UserConnected(string accessToken);
+    void UseThisUserConnected(string accessToken);
 }

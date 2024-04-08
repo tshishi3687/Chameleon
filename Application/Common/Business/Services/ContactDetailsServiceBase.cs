@@ -1,10 +1,11 @@
 using System.Runtime;
+using Chameleon.Application.Common.Business.Mappers;
 using Chameleon.Application.Common.DataAccess.Entities;
 using Chameleon.Application.HumanSetting.Business.Dtos;
 using Chameleon.Application.HumanSetting.Business.Mappers;
-using Chameleon.Application.HumanSetting.DataAccess.Entities;
+using Chameleon.Application.HumanSetting.Business.Services;
 
-namespace Chameleon.Application.HumanSetting.Business.Services;
+namespace Chameleon.Application.Common.Business.Services;
 
 public class ContactDetailsServiceBase(Context context) : IContext(context), IService<ContactDetailsDto, Guid>
 {
@@ -14,7 +15,7 @@ public class ContactDetailsServiceBase(Context context) : IContext(context), ISe
     private readonly LocalityServiceBase _localityServiceBase = new(context);
     private readonly CountryServiceBase _countryServiceBase = new(context);
 
-    public ContactDetailsDto CreateEntity1(ContactDetailsDto dto)
+    public ContactDetailsDto CreateEntity(ContactDetailsDto dto)
     {
         CheckAddressAndNumber(dto);
         var contactDetails = CreateContactDetails(dto);
@@ -22,8 +23,9 @@ public class ContactDetailsServiceBase(Context context) : IContext(context), ISe
         Context.ContactDetails.Add(contactDetails);
         Context.SaveChanges();
 
-        return _contactDetailsMapper.ToDto(Context.ContactDetails.Last());
+        return _contactDetailsMapper.ToDto(Context.ContactDetails.OrderByDescending(cd => cd.CreatedAt).First());
     }
+
 
     public ContactDetailsDto ReadEntity(Guid guid)
     {
@@ -51,7 +53,7 @@ public class ContactDetailsServiceBase(Context context) : IContext(context), ISe
 
         Context.ContactDetails.Remove(contactDetails);
         Context.SaveChanges();
-        return CreateEntity1(dto);
+        return CreateEntity(dto);
     }
 
     public void DeleteEntity(Guid guid)
@@ -80,9 +82,9 @@ public class ContactDetailsServiceBase(Context context) : IContext(context), ISe
 
     private ContactDetails CreateContactDetails(ContactDetailsDto dto)
     {
-        var contactDetails = _contactDetailsMapper.toEntity(dto);
-        contactDetails.Locality = _localityMapper.toEntity(_localityServiceBase.CreateEntity1(dto.Locality));
-        contactDetails.Country = _countryMapper.toEntity(_countryServiceBase.CreateEntity1(dto.Country));
+        var contactDetails = _contactDetailsMapper.ToEntity(dto);
+        contactDetails.Locality = context.Localities.FirstOrDefault(l => l.Id.Equals(_localityServiceBase.CreateEntity(dto.Locality).Id));
+        contactDetails.Country = context.Countries.FirstOrDefault(c => c.Id.Equals(_countryServiceBase.CreateEntity(dto.Country).Id));
         return contactDetails;
     }
 }
