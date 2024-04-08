@@ -21,7 +21,8 @@ public class UserVueServiceBase(Context context) : IContext(context), IService<U
     {
         if (CheckLogin(dto).StatusCode == HttpStatusCode.BadRequest)
         {
-            return CheckLogger(dto);
+            new CancellationTokenSource().CancelAfter(TimeSpan.FromSeconds(5));
+            return CheckLogin(dto);
         }
         
         List<Claim> claims = [new Claim(ClaimTypes.Email, dto.Identification)];
@@ -41,7 +42,6 @@ public class UserVueServiceBase(Context context) : IContext(context), IService<U
         
         if (CheckAuthentication(dto).StatusCode == HttpStatusCode.BadRequest)
         {
-            new CancellationTokenSource().CancelAfter(TimeSpan.FromSeconds(5));
             return CheckAuthentication(dto);
         }
 
@@ -63,7 +63,7 @@ public class UserVueServiceBase(Context context) : IContext(context), IService<U
             };
         }
                            
-        if (new MdpCrypte().Compart(user.PassWord, dto.Password))
+        if (!new MdpCrypte().Compart(user.PassWord, dto.Password))
         {
             return new HttpResponseMessage(HttpStatusCode.BadRequest)
             {

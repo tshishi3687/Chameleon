@@ -7,8 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Chameleon.Application.ApiInput.PermissionRequested_Super_Admin_and_Admin;
 
 [ApiController]
-[Route("[controller]")]
-[Authorize(Roles = "SUPER_ADMIN, ADMIN")] 
+[Route("companyJC")]
 public class CompanyJcController(IHttpContextAccessor cc, IConstente iContent, Context context) : AbstractController(cc, iContent)
 {
     [HttpPut("/{companyGuid}")]
