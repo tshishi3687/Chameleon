@@ -32,10 +32,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Application\ApiInput\PermissionRequested\" />
       <Folder Include="Application\ApiInput\PermissionRequested_Super_Admin\" />
+      <Folder Include="Application\ApiInput\PermissionRequested_Super_Admin_and_Admin\" />
       <Folder Include="Application\CompanySetting\Business\Mappers\" />
-      <Folder Include="Application\CompanySetting\Business\Services\" />
       <Folder Include="Application\Tests\Integrations\HumanSettingTest\" />
       <Folder Include="Migrations\" />
     </ItemGroup>

@@ -20,22 +20,14 @@ public class Context : DbContext
     public DbSet<Company> Companies { get; set; }
     public DbSet<CompanyUser> CompanyUsers { get; set; }
 
-    public bool IsTesting { get; set; } = false;
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        if (IsTesting)
-        {
-            optionsBuilder.UseInMemoryDatabase("TestDatabase");
-        }
-        else
-        {
-            optionsBuilder.UseMySql(
-                "server=localhost;user id=root;password=tshishi;database=Chameleons",
-                new MariaDbServerVersion(new Version(10, 5, 4)),
-                mySqlOptions => { }
-            );
-        }
+        optionsBuilder.UseMySql(
+            "server=localhost;user id=root;password=tshishi;database=Chameleons",
+            new MariaDbServerVersion(new Version(10, 5, 4)),
+            mySqlOptions => { }
+        );
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

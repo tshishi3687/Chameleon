@@ -20,10 +20,6 @@ builder.Services
 
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IConstente, Constantes>();
-builder.Services.AddScoped<IService<ContactDetailsDto, Guid>, ContactDetailsServiceBase>();
-builder.Services.AddScoped<IService<CountryDto, Guid>, CountryServiceBase>();
-builder.Services.AddScoped<IService<LocalityDto, Guid>, LocalityServiceBase>();
-builder.Services.AddScoped<IService<CreationUserDto, Guid>, CreationUserServiceBase>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

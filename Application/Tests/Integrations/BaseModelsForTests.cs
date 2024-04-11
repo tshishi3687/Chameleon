@@ -3,6 +3,7 @@ using System.Security.Claims;
 using Chameleon.Application.CompanySetting.Business.Dtos;
 using Chameleon.Application.HumanSetting;
 using Chameleon.Application.HumanSetting.Business.Dtos;
+using Chameleon.Application.HumanSetting.DataAccess.Entities;
 using Chameleon.Application.Securities;
 
 namespace Chameleon.Application.Tests.Integrations;
@@ -38,6 +39,25 @@ public abstract class BaseModelsForTests: BaseContextForTests
             BursDateTime = DateTime.ParseExact("18-10-1987", "dd-MM-yyyy", CultureInfo.InvariantCulture),
             Email = "Jean-Claude.Van_Damme@JCVD.com",
             Phone = "078555557",
+            PassWord = "JCVD.12345678",
+            PassWordCheck = "JCVD.12345678",
+            ContactDetails = new()
+            {
+                UpdateContactDetailsDto()
+            },
+            Roles = [AddRoles()]
+        };
+    }
+    
+    protected static CreationUserDto NewCreationUserDto()
+    {
+        return new CreationUserDto
+        {
+            FirstName = "Tshishi",
+            LastName = "Ced",
+            BursDateTime = DateTime.ParseExact("18-10-1987", "dd-MM-yyyy", CultureInfo.InvariantCulture),
+            Email = "Jean-Claude.VanDamme@JCVD1.com",
+            Phone = "07855555877",
             PassWord = "JCVD.12345678",
             PassWordCheck = "JCVD.12345678",
             ContactDetails = new()
@@ -130,7 +150,8 @@ public abstract class BaseModelsForTests: BaseContextForTests
     {
         return new CreationCompanyAndUserDto
         {
-            Name = ""
+            Name = "",
+            BusinessNumber = ""
         };
     }
 
@@ -138,7 +159,7 @@ public abstract class BaseModelsForTests: BaseContextForTests
     {
         return new CreationCompanyAndUserDto
         {
-            Name = "Test",
+            Name = "test",
             BusinessNumber = ""
         };
     }
@@ -182,5 +203,47 @@ public abstract class BaseModelsForTests: BaseContextForTests
         List<Claim> claims = new List<Claim>();
         claims.Add(new Claim(ClaimTypes.Email, email));
         _iContent.UseThisUserConnected(_iContent.GenerateToken(claims));
+    }
+
+    protected static LocalityDto AddBadLocalityEmptyNAme()
+    {
+        return new LocalityDto();
+    }
+
+    protected static LocalityDto AddBadLocalityNameLength0()
+    {
+        return new LocalityDto()
+        {
+            Name = ""
+        };
+    }
+
+    protected static LocalityDto AddBadLocalityNameWithSpace()
+    {
+        return new LocalityDto
+        {
+            Name = " "
+        };
+    }
+
+    protected static CountryDto AddBadCountryEmptyNAme()
+    {
+        return new CountryDto();
+    }
+
+    protected static CountryDto AddBadCountryNameLength0()
+    {
+        return new CountryDto()
+        {
+            Name = ""
+        };
+    }
+
+    protected static CountryDto AddBadCountryNameWithSpace()
+    {
+        return new CountryDto
+        {
+            Name = " "
+        };
     }
 }

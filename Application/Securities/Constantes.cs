@@ -72,11 +72,6 @@ public class Constantes(Context context) : IConstente
 
     public void UseThisUserConnected(string accessToken)
     {
-        if (context.IsTesting)
-        {
-            Connected = Context.User.FirstOrDefault(p => p.Email.Equals(accessToken) || p.Phone.Equals(accessToken));
-        }
-
         Connected = Context.User.FirstOrDefault(p =>
             p.Email.Equals(GetMail(accessToken)) || p.Phone.Equals(GetMail(accessToken)));
     }

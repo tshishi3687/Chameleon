@@ -6,9 +6,7 @@ public abstract class BaseContextForTests : DbContext
 {
     protected static Context CreateDbContext()
     {
-        var context = new Context();
-        context.IsTesting = true;
-        return context;
+        return new MockContext();
     }
 }
 
