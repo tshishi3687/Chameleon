@@ -1,6 +1,5 @@
 using Chameleon.Application.CompanySetting.Business.Dtos;
 using Chameleon.Application.CompanySetting.DataAccess.Entities;
-using Chameleon.Application.HumanSetting.DataAccess.Entities;
 
 namespace Chameleon.Application.CompanySetting.Business.Services;
 

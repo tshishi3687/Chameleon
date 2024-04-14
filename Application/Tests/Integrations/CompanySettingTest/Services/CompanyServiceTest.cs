@@ -30,7 +30,7 @@ public class CompanyServiceTest : BaseModelsForTests
     }
 
     [Fact]
-    public void AddUserTest()
+    public void AddCompanyAndUserTest()
     {
         var company = GetCompany();
         Assert.Equal(company.Tutor.FirstName,
@@ -54,6 +54,11 @@ public class CompanyServiceTest : BaseModelsForTests
         Assert.Equal(company.Tutor.UserContactDetails().First().ContactDetails.Country.Name.ToUpper(),
             AddValidCreationCompanyAndUserDto().AddCompanyUser.CreationUserDto.ContactDetails.FirstOrDefault()!.Country
                 .Name.ToUpper());
+
+        var isActiveUser = _context.IsActiveUserInCompanies
+            .Where(i => i.CompanyId.Equals(company.Id) && i.UserId.Equals(company.Tutor.Id)).First();
+        Assert.NotNull(isActiveUser);
+        Assert.True(isActiveUser.IsActive);
     }
     
     [Fact]
@@ -71,39 +76,11 @@ public class CompanyServiceTest : BaseModelsForTests
         Assert.NotNull(companyImplemented);
         Assert.NotNull(companyImplemented.CompanyUser());
         Assert.True(companyImplemented.CompanyUser().Count == 2);
-        var companyUser = companyImplemented.CompanyUser();
+        var companyUser = companyImplemented.CompanyUser().First();
         Assert.NotNull(companyUser);
-        // Assert.Equal(
-        //     companyUser.FirstOrDefault(cu => cu.User.Email.Equals(NewCreationUserDto().Email)).User
-        //         .FirstName, NewCreationUserDto().FirstName);
-        // Assert.Equal(
-        //     companyUser.FirstOrDefault(cu => cu.User.Email.Equals(NewCreationUserDto().Email)).User
-        //         .LastName, NewCreationUserDto().LastName);
-        // Assert.Equal(
-        //     companyUser.FirstOrDefault(cu => cu.User.Email.Equals(NewCreationUserDto().Email)).User
-        //         .BursDateTime, NewCreationUserDto().BursDateTime);
-        // Assert.Equal(
-        //     companyUser.FirstOrDefault(cu => cu.User.Email.Equals(NewCreationUserDto().Email)).User
-        //         .Email, NewCreationUserDto().Email);
-        // Assert.Equal(
-        //     companyUser.FirstOrDefault(cu => cu.User.Email.Equals(NewCreationUserDto().Email)).User
-        //         .Phone, NewCreationUserDto().Phone);
-        // Assert.Equal(
-        //     companyUser.FirstOrDefault(cu => cu.User.Email.Equals(NewCreationUserDto().Email)).User
-        //         .UserContactDetails().First().ContactDetails.Address,
-        //     NewCreationUserDto().ContactDetails.First().Address);
-        // Assert.Equal(
-        //     companyUser.FirstOrDefault(cu => cu.User.Email.Equals(NewCreationUserDto().Email)).User
-        //         .UserContactDetails().First().ContactDetails.Number,
-        //     NewCreationUserDto().ContactDetails.First().Number);
-        // Assert.Equal(
-        //     companyUser.FirstOrDefault(cu => cu.User.Email.Equals(NewCreationUserDto().Email)).User
-        //         .UserContactDetails().First().ContactDetails.Locality.Name,
-        //     NewCreationUserDto().ContactDetails.First().Locality.Name);
-        // Assert.Equal(
-        //     companyUser.FirstOrDefault(cu => cu.User.Email.Equals(NewCreationUserDto().Email)).User
-        //         .UserContactDetails().First().ContactDetails.Country.Name,
-        //     NewCreationUserDto().ContactDetails.First().Country.Name);
+        //
+        // var isActiveUser = _context.IsActiveUserInCompanies
+        //     .Where(i => i.CompanyId.Equals(company.Id) && i.UserId.Equals(companyUser.User.Id)).First();
     }
 
     [Fact]

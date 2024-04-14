@@ -64,6 +64,14 @@ public class CompanyService(Context context) : CheckServiceBase(context)
                 Users = new List<UsersRoles>()
             }).Entity.Id
         });
+        
+        //Add in table Is Active User
+        context.IsActiveUserInCompanies.Add(new IsActiveUserInCompany
+        {
+            IsActive = true,
+            CompanyId = company.Entity.Id,
+            UserId = user.Id
+        });
 
         // Save All insert.
         context.SaveChanges();
