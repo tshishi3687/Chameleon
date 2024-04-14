@@ -18,6 +18,5 @@ public class CompanyConfig : IEntityTypeConfiguration<Company>
 
         builder.HasOne(c => c.ContactDetails)
             .WithMany(cd => cd.Companies);
-
     }
 }

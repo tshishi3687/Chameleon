@@ -64,6 +64,87 @@ namespace Chameleon.Migrations
                     b.ToTable("ContactDetails", (string)null);
                 });
 
+            modelBuilder.Entity("Chameleon.Application.CompanySetting.DataAccess.Entities.Absent", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime(6)");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlComputedColumn(b.Property<DateTime>("CreatedAt"));
+
+                    b.Property<Guid>("MadeById")
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime(6)");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlComputedColumn(b.Property<DateTime>("UpdatedAt"));
+
+                    b.HasKey("Id")
+                        .HasName("PK_company");
+
+                    b.HasIndex("MadeById")
+                        .IsUnique();
+
+                    b.ToTable("Absent", (string)null);
+                });
+
+            modelBuilder.Entity("Chameleon.Application.CompanySetting.DataAccess.Entities.Card", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid>("AbsentDetailsId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime(6)");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlComputedColumn(b.Property<DateTime>("CreatedAt"));
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<bool?>("IsEnd")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("IsMadeIt")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<Guid>("MemoryDetailsId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid>("TaskOrEventDetailsId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime(6)");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlComputedColumn(b.Property<DateTime>("UpdatedAt"));
+
+                    b.HasKey("Id")
+                        .HasName("PK_company");
+
+                    b.HasIndex("AbsentDetailsId")
+                        .IsUnique();
+
+                    b.HasIndex("MemoryDetailsId")
+                        .IsUnique();
+
+                    b.HasIndex("TaskOrEventDetailsId")
+                        .IsUnique();
+
+                    b.ToTable("Card", (string)null);
+                });
+
             modelBuilder.Entity("Chameleon.Application.CompanySetting.DataAccess.Entities.Company", b =>
                 {
                     b.Property<Guid>("Id")
@@ -119,6 +200,105 @@ namespace Chameleon.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("CompanyUsers");
+                });
+
+            modelBuilder.Entity("Chameleon.Application.CompanySetting.DataAccess.Entities.Memory", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime(6)");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlComputedColumn(b.Property<DateTime>("CreatedAt"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<Guid>("MadeById")
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime(6)");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlComputedColumn(b.Property<DateTime>("UpdatedAt"));
+
+                    b.HasKey("Id")
+                        .HasName("PK_company");
+
+                    b.HasIndex("MadeById")
+                        .IsUnique();
+
+                    b.ToTable("Memory", (string)null);
+                });
+
+            modelBuilder.Entity("Chameleon.Application.CompanySetting.DataAccess.Entities.TaskOrEvent", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime(6)");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlComputedColumn(b.Property<DateTime>("CreatedAt"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<Guid>("MadeById")
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime(6)");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlComputedColumn(b.Property<DateTime>("UpdatedAt"));
+
+                    b.HasKey("Id")
+                        .HasName("PK_company");
+
+                    b.HasIndex("MadeById")
+                        .IsUnique();
+
+                    b.ToTable("TaskOrEvent", (string)null);
+                });
+
+            modelBuilder.Entity("Chameleon.Application.CompanySetting.DataAccess.Entities.TaskOrEventUser", b =>
+                {
+                    b.Property<Guid>("TaskOrEventGuid")
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid>("UserGuid")
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid>("TaskOrEvenId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("char(36)");
+
+                    b.HasKey("TaskOrEventGuid", "UserGuid");
+
+                    b.HasIndex("TaskOrEvenId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("TaskOrEventUsers");
                 });
 
             modelBuilder.Entity("Chameleon.Application.HumanSetting.DataAccess.Entities.Country", b =>
@@ -329,6 +509,44 @@ namespace Chameleon.Migrations
                     b.Navigation("Locality");
                 });
 
+            modelBuilder.Entity("Chameleon.Application.CompanySetting.DataAccess.Entities.Absent", b =>
+                {
+                    b.HasOne("Chameleon.Application.HumanSetting.DataAccess.Entities.User", "MadeBy")
+                        .WithOne()
+                        .HasForeignKey("Chameleon.Application.CompanySetting.DataAccess.Entities.Absent", "MadeById")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MadeBy");
+                });
+
+            modelBuilder.Entity("Chameleon.Application.CompanySetting.DataAccess.Entities.Card", b =>
+                {
+                    b.HasOne("Chameleon.Application.CompanySetting.DataAccess.Entities.Absent", "AbsentDetails")
+                        .WithOne()
+                        .HasForeignKey("Chameleon.Application.CompanySetting.DataAccess.Entities.Card", "AbsentDetailsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Chameleon.Application.CompanySetting.DataAccess.Entities.Memory", "MemoryDetails")
+                        .WithOne()
+                        .HasForeignKey("Chameleon.Application.CompanySetting.DataAccess.Entities.Card", "MemoryDetailsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Chameleon.Application.CompanySetting.DataAccess.Entities.TaskOrEvent", "TaskOrEventDetails")
+                        .WithOne()
+                        .HasForeignKey("Chameleon.Application.CompanySetting.DataAccess.Entities.Card", "TaskOrEventDetailsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AbsentDetails");
+
+                    b.Navigation("MemoryDetails");
+
+                    b.Navigation("TaskOrEventDetails");
+                });
+
             modelBuilder.Entity("Chameleon.Application.CompanySetting.DataAccess.Entities.Company", b =>
                 {
                     b.HasOne("Chameleon.Application.Common.DataAccess.Entities.ContactDetails", "ContactDetails")
@@ -363,6 +581,47 @@ namespace Chameleon.Migrations
                         .IsRequired();
 
                     b.Navigation("Company");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Chameleon.Application.CompanySetting.DataAccess.Entities.Memory", b =>
+                {
+                    b.HasOne("Chameleon.Application.HumanSetting.DataAccess.Entities.User", "MadeBy")
+                        .WithOne()
+                        .HasForeignKey("Chameleon.Application.CompanySetting.DataAccess.Entities.Memory", "MadeById")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MadeBy");
+                });
+
+            modelBuilder.Entity("Chameleon.Application.CompanySetting.DataAccess.Entities.TaskOrEvent", b =>
+                {
+                    b.HasOne("Chameleon.Application.HumanSetting.DataAccess.Entities.User", "MadeBy")
+                        .WithOne()
+                        .HasForeignKey("Chameleon.Application.CompanySetting.DataAccess.Entities.TaskOrEvent", "MadeById")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MadeBy");
+                });
+
+            modelBuilder.Entity("Chameleon.Application.CompanySetting.DataAccess.Entities.TaskOrEventUser", b =>
+                {
+                    b.HasOne("Chameleon.Application.CompanySetting.DataAccess.Entities.TaskOrEvent", "TaskOrEven")
+                        .WithMany()
+                        .HasForeignKey("TaskOrEvenId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Chameleon.Application.HumanSetting.DataAccess.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TaskOrEven");
 
                     b.Navigation("User");
                 });

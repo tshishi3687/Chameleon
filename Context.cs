@@ -19,6 +19,11 @@ public class Context : DbContext
     public DbSet<UsersContactDetails> UsersContactDetails { get; set; }
     public DbSet<Company> Companies { get; set; }
     public DbSet<CompanyUser> CompanyUsers { get; set; }
+    public DbSet<Absent> Absents { get; set; }
+    public DbSet<Memory> Memories { get; set; }
+    public DbSet<TaskOrEvent> TaskOrEvents { get; set; }
+    public DbSet<TaskOrEventUser> TaskOrEventUsers { get; set; }
+    public DbSet<Card> Cards { get; set; }
 
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -26,7 +31,7 @@ public class Context : DbContext
         optionsBuilder.UseMySql(
             "server=localhost;user id=root;password=tshishi;database=Chameleons",
             new MariaDbServerVersion(new Version(10, 5, 4)),
-            mySqlOptions => { }
+            _ => { }
         );
     }
 
@@ -42,6 +47,11 @@ public class Context : DbContext
         modelBuilder.ApplyConfiguration(new UserContactDetailsConfig());
         modelBuilder.ApplyConfiguration(new CompanyConfig());
         modelBuilder.ApplyConfiguration(new CompanyUserConfig());
+        modelBuilder.ApplyConfiguration(new AbsentConfig());
+        modelBuilder.ApplyConfiguration(new MemoryConfig());
+        modelBuilder.ApplyConfiguration(new TaskOrEventConfig());
+        modelBuilder.ApplyConfiguration(new TaskOrEventUserConfig());
+        modelBuilder.ApplyConfiguration(new CardConfig());
 
         // Allimenter la DB
 

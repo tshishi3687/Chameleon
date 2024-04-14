@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Chameleon.Migrations
 {
     /// <inheritdoc />
-    public partial class AddPriorityEntities : Migration
+    public partial class AddAbsentMemoryTaskOrEventAndCard : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -114,6 +114,83 @@ namespace Chameleon.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "Absent",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    MadeById = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.ComputedColumn),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.ComputedColumn)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_company", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Absent_User_MadeById",
+                        column: x => x.MadeById,
+                        principalTable: "User",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Memory",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    MadeById = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    Title = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Description = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.ComputedColumn),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.ComputedColumn)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_company", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Memory_User_MadeById",
+                        column: x => x.MadeById,
+                        principalTable: "User",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "TaskOrEvent",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    MadeById = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    Title = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Description = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.ComputedColumn),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.ComputedColumn)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_company", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TaskOrEvent_User_MadeById",
+                        column: x => x.MadeById,
+                        principalTable: "User",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "Company",
                 columns: table => new
                 {
@@ -165,6 +242,73 @@ namespace Chameleon.Migrations
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_UsersContactDetails_User_UserId",
+                        column: x => x.UserId,
+                        principalTable: "User",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Card",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    DateTime = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    AbsentDetailsId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    MemoryDetailsId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    TaskOrEventDetailsId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    IsEnd = table.Column<bool>(type: "tinyint(1)", nullable: true),
+                    IsMadeIt = table.Column<bool>(type: "tinyint(1)", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.ComputedColumn),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.ComputedColumn)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_company", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Card_Absent_AbsentDetailsId",
+                        column: x => x.AbsentDetailsId,
+                        principalTable: "Absent",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Card_Memory_MemoryDetailsId",
+                        column: x => x.MemoryDetailsId,
+                        principalTable: "Memory",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Card_TaskOrEvent_TaskOrEventDetailsId",
+                        column: x => x.TaskOrEventDetailsId,
+                        principalTable: "TaskOrEvent",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "TaskOrEventUsers",
+                columns: table => new
+                {
+                    TaskOrEventGuid = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    UserGuid = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    TaskOrEvenId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    UserId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TaskOrEventUsers", x => new { x.TaskOrEventGuid, x.UserGuid });
+                    table.ForeignKey(
+                        name: "FK_TaskOrEventUsers_TaskOrEvent_TaskOrEvenId",
+                        column: x => x.TaskOrEvenId,
+                        principalTable: "TaskOrEvent",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_TaskOrEventUsers_User_UserId",
                         column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "Id",
@@ -248,6 +392,30 @@ namespace Chameleon.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Absent_MadeById",
+                table: "Absent",
+                column: "MadeById",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Card_AbsentDetailsId",
+                table: "Card",
+                column: "AbsentDetailsId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Card_MemoryDetailsId",
+                table: "Card",
+                column: "MemoryDetailsId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Card_TaskOrEventDetailsId",
+                table: "Card",
+                column: "TaskOrEventDetailsId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Company_ContactDetailsId",
                 table: "Company",
                 column: "ContactDetailsId");
@@ -285,6 +453,12 @@ namespace Chameleon.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Memory_MadeById",
+                table: "Memory",
+                column: "MadeById",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Roles_CompanyId",
                 table: "Roles",
                 column: "CompanyId");
@@ -294,6 +468,22 @@ namespace Chameleon.Migrations
                 table: "Roles",
                 column: "Name",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TaskOrEvent_MadeById",
+                table: "TaskOrEvent",
+                column: "MadeById",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TaskOrEventUsers_TaskOrEvenId",
+                table: "TaskOrEventUsers",
+                column: "TaskOrEvenId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TaskOrEventUsers_UserId",
+                table: "TaskOrEventUsers",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_User_Email",
@@ -322,13 +512,28 @@ namespace Chameleon.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Card");
+
+            migrationBuilder.DropTable(
                 name: "CompanyUsers");
+
+            migrationBuilder.DropTable(
+                name: "TaskOrEventUsers");
 
             migrationBuilder.DropTable(
                 name: "UsersContactDetails");
 
             migrationBuilder.DropTable(
                 name: "UsersRoles");
+
+            migrationBuilder.DropTable(
+                name: "Absent");
+
+            migrationBuilder.DropTable(
+                name: "Memory");
+
+            migrationBuilder.DropTable(
+                name: "TaskOrEvent");
 
             migrationBuilder.DropTable(
                 name: "Roles");
