@@ -6,6 +6,6 @@ namespace Chameleon.Application.CompanySetting.DataAccess.Entities;
 
 public class Absent: BaseEntity, ICardType
 {
-    public User MadeBy { get; }
+    public User MadeBy { get; set; }
     public Guid MadeById { get; set; }
 }

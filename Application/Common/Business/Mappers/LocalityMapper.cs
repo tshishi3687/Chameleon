@@ -22,7 +22,7 @@ public class LocalityMapper: Mappers<LocalityDto, Locality>
         };
     }
 
-    public ICollection<LocalityDto> toDtos(ICollection<Locality> entities)
+    public ICollection<LocalityDto> ToDtos(ICollection<Locality> entities)
     {
         return entities.Select(entity => ToDto(entity)).ToList();
     }

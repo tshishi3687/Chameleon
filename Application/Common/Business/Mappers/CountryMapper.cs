@@ -25,7 +25,7 @@ public class CountryMapper: Mappers<CountryDto, Country>
         };
     }
 
-    public ICollection<CountryDto> toDtos(ICollection<Country> entities)
+    public ICollection<CountryDto> ToDtos(ICollection<Country> entities)
     {
         return entities.Select(entity => ToDto(entity)).ToList();
     }

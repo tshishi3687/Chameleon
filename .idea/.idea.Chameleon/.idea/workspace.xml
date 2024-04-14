@@ -8,27 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Application/CompanySetting/Common/Enumeration/CardType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/CompanySetting/Common/Interface/ICardType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/CompanySetting/Common/Interface/ITitleDescription.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/Absent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/Card.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/Memory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/TaskOrEvent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/TaskOrEventUser.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/EntityConfig/AbsentConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/EntityConfig/CardConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/EntityConfig/MemoryConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/EntityConfig/TaskOrEventConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/EntityConfig/TaskOrEventUserConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20240414141933_AddAbsentMemoryTaskOrEventAndCard.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20240414141933_AddAbsentMemoryTaskOrEventAndCard.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/EntityConfig/CompanyConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/EntityConfig/CompanyConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Context.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Context.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/ContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/ContextModelSnapshot.cs" afterDir="false" />
-    </list>
+    <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,9 +38,6 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/20d4931b866e4bec9405d67fe9dcc9c654e00/ab/2630b2a7/IHttpContextAccessor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40f65a6b341c4182a5cc5b04d38972ad1d8e00/2c/c8c90350/HttpResponseMessage.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8a41cc45f62a443ca308618d192fd6e4c800/ed/c5c1b10c/AuthenticationHttpContextExtensions.cs" root0="SKIP_HIGHLIGHTING" />
@@ -70,7 +47,9 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3b92f859131bde25d0f7a63de08963e995d1e1426e584dfd4b8e833d2d3dba/ExecutionTimer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/48e4a7badf1bb8b35dabf8b698861aa8a5c3be6abe9fa574657cd526bca915/ExceptionAsserts.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8e61dc8599d59e5cb39724e1dcba8ceed91d70c4af6d3459e18f6fed5282f6c/Record.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/af7e3b2da4b134194622c74726eda571c0bb4fac6fa886df92289bca8ff859/EmptyException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/eac217589439673846d1695b6e3ca1dba9490abb03c35edb0f189479c7e77af/JwtSecurityTokenHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/CompanySetting/DataAccess/Entities/Absent.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -239,7 +218,12 @@
       <workItem from="1712924393253" duration="7449000" />
       <workItem from="1712988155913" duration="4214000" />
       <workItem from="1713072668781" duration="16442000" />
-      <workItem from="1713103610831" duration="911000" />
+      <workItem from="1713103610831" duration="1857000" />
+      <workItem from="1713114268291" duration="2734000" />
+      <workItem from="1713118112156" duration="3000" />
+      <workItem from="1713118153534" duration="3567000" />
+      <workItem from="1713122160780" duration="1821000" />
+      <workItem from="1713124424181" duration="7000" />
     </task>
     <task id="LOCAL-00001" summary="base">
       <option name="closed" value="true" />
@@ -497,7 +481,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713078641874</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Add Absent.cs, Memory.cs, TaskOrEvent.cs and Card.cs">
+      <option name="closed" value="true" />
+      <created>1713105433144</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1713105433144</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Add Absent.cs and Memory.cs">
+      <option name="closed" value="true" />
+      <created>1713124010646</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1713124010646</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -519,8 +519,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="add Locality.cs, Country.cs and ContactDetails.cs" />
-    <MESSAGE value="Add ContactDetails in Users" />
     <MESSAGE value="Add LocalityService.cs" />
     <MESSAGE value="Clean LocalityService.cs" />
     <MESSAGE value="Add BaseContext.cs" />
@@ -544,7 +542,9 @@
     <MESSAGE value="Update swagger" />
     <MESSAGE value="Cleab code: return class int to service. And readapt the tests code" />
     <MESSAGE value="Finish Add user in company root" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finish Add user in company root" />
+    <MESSAGE value="Add Absent.cs, Memory.cs, TaskOrEvent.cs and Card.cs" />
+    <MESSAGE value="Add Absent.cs and Memory.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Absent.cs and Memory.cs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

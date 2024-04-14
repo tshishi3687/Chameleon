@@ -21,7 +21,7 @@ public class CompanyEasyVueMapper: Mappers<CompanyEasyVueDto, Company>
         throw new NotImplementedException();
     }
 
-    public ICollection<CompanyEasyVueDto> toDtos(ICollection<Company> entities)
+    public ICollection<CompanyEasyVueDto> ToDtos(ICollection<Company> entities)
     {
         throw new NotImplementedException();
     }

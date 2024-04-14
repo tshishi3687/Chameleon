@@ -33,7 +33,7 @@ public class ContactDetailsMapper: Mappers<ContactDetailsDto, ContactDetails>
         };
     }
 
-    public ICollection<ContactDetailsDto> toDtos(ICollection<ContactDetails> entities)
+    public ICollection<ContactDetailsDto> ToDtos(ICollection<ContactDetails> entities)
     {
         return entities.Select(entity => ToDto(entity)).ToList();
     }

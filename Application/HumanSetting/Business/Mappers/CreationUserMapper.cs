@@ -28,7 +28,7 @@ public class CreationUserMapper(Context context): Mappers<CreationUserDto, User>
         };
     }
 
-    public ICollection<CreationUserDto> toDtos(ICollection<User> entities)
+    public ICollection<CreationUserDto> ToDtos(ICollection<User> entities)
     {
         return entities.Select(entity => ToDto(entity)).ToList();
     }

@@ -6,7 +6,7 @@ namespace Chameleon.Application.CompanySetting.DataAccess.Entities;
 
 public class Memory: BaseEntity, ICardType, ITitleDescription
 {
-    public User MadeBy { get; }
+    public User MadeBy { get; set; }
     public Guid MadeById { get; set; }
     public string Title { get; set; }
     public string Description { get; set; }

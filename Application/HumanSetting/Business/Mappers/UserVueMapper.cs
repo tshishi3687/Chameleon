@@ -26,7 +26,7 @@ public class UserVueMapper : Mappers<UserVueDto, User>
         throw new NotImplementedException();
     }
 
-    public ICollection<UserVueDto> toDtos(ICollection<User> entities)
+    public ICollection<UserVueDto> ToDtos(ICollection<User> entities)
     {
         return entities.Select(ToDto).ToList();
     }
