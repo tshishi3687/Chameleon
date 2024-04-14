@@ -75,13 +75,13 @@ public class CompanyService(Context context) : CheckServiceBase(context)
     {
         var companyUser = AddCompanyUser(context.Companies.SingleOrDefault(c => c.Id.Equals(companyGuid)),
             _userService.CreateEntity(dto.CreationUserDto));
-        AddUserRoles(context.User.FirstOrDefault(u => u.Id.Equals(companyUser.User.Id)), dto);
+        AddUserRoles(context.User.FirstOrDefault(u => u.Id.Equals(companyUser.User.Id)), dto, companyUser.Company);
 
         context.SaveChanges();
         return companyUser.Company;
     }
 
-    private void AddUserRoles(User user, AddCompanyUser dto)
+    private void AddUserRoles(User user, AddCompanyUser dto, Company company)
     {
         foreach (var enumUsersRoles in dto.CreationUserDto.Roles)
         {
@@ -90,6 +90,7 @@ public class CompanyService(Context context) : CheckServiceBase(context)
                 UserId = user.Id,
                 RoleId = context.Roles.Add(new Roles
                 {
+                    Company = company,
                     Name = enumUsersRoles.ToString()
                 }).Entity.Id
             });

@@ -1,8 +1,5 @@
 using System.Text;
 using Chameleon;
-using Chameleon.Application.Common.Business.Services;
-using Chameleon.Application.HumanSetting.Business.Dtos;
-using Chameleon.Application.HumanSetting.Business.Services;
 using Chameleon.Application.Securities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -46,16 +43,18 @@ builder.Services.AddSwaggerGen(c =>
         Version = "v1",
     });
 
-    c.AddSecurityDefinition("Bearer ", new OpenApiSecurityScheme()
+    // Ajout de la définition de sécurité pour le token JWT
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
     {
         Name = "Authorization",
         Type = SecuritySchemeType.ApiKey,
-        Scheme = "Bearer ",
+        Scheme = "bearer ",
         BearerFormat = "JWT",
         In = ParameterLocation.Header,
         Description = "JWT Authorization header using the Bearer scheme."
     });
 
+    // Ajout de la sécurité requise pour les opérations Swagger
     c.AddSecurityRequirement(new OpenApiSecurityRequirement()
     {
         {
@@ -64,13 +63,14 @@ builder.Services.AddSwaggerGen(c =>
                 Reference = new OpenApiReference
                 {
                     Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
+                    Id = "Bearer "
                 }
             },
             new string[] { }
         }
     });
 });
+
 
 var app = builder.Build();
 

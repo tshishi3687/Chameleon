@@ -33,7 +33,7 @@ public abstract class CheckServiceBase(Context context)
         }
     }
 
-    protected void CheckAddressAndNumber(ContactDetailsDto dto)
+    protected static void CheckAddressAndNumber(ContactDetailsDto dto)
     {
         if (string.IsNullOrWhiteSpace(dto.Address))
         {

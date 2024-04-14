@@ -2,6 +2,7 @@ using Chameleon.Application.Common.Business.Services;
 using Chameleon.Application.HumanSetting.Business.Dtos;
 using Chameleon.Application.HumanSetting.DataAccess.Entities;
 using Chameleon.Application.Securities;
+using Org.BouncyCastle.Security;
 
 namespace Chameleon.Application.HumanSetting.Business.Services;
 
@@ -19,7 +20,7 @@ public class UserService(Context context) : CheckServiceBase(context)
         IsAdult(dto.BursDateTime);
         UniqueUser(dto);
 
-        var user = Context.User.Add(new User(context)
+        var user = Context.User.Add(new User(Context)
         {
             FirstName = dto.FirstName,
             LastName = dto.LastName,
@@ -64,5 +65,51 @@ public class UserService(Context context) : CheckServiceBase(context)
 
         Context.User.Remove(userRemove);
         return CreateEntity(dto);
+    }
+
+    public User Login(LoggerDto dto)
+    {
+        try
+        {
+            CheckLogger(dto);
+            CheckAuthentication(dto);
+        }
+        catch (Exception)
+        {
+            new CancellationTokenSource().CancelAfter(TimeSpan.FromSeconds(5));
+            throw;
+        }
+
+        return Context.User.FirstOrDefault(u => u.Email.Equals(dto.Identification) || u.Phone.Equals(dto.Identification))!;
+    }
+
+    private void CheckAuthentication(LoggerDto dto)
+    {
+        if (dto == null) throw new ArgumentException("Logger cannot be null!");
+
+        var user = Context.User.SingleOrDefault(u =>
+            u.Email.Equals(dto.Identification) || u.Phone.Equals(dto.Identification));
+        if (user == null)
+        {
+            throw new FileNotFoundException("User not found!");
+        }
+
+        if (!new MdpCrypte().Compart(user.PassWord, dto.Password!))
+        {
+            throw new PasswordException("Password no match!");
+        }
+    }
+
+    private static void CheckLogger(LoggerDto dto)
+    {
+        if (string.IsNullOrWhiteSpace(dto.Identification))
+        {
+            throw new ArgumentException("Identification cannot be null!");
+        }
+
+        if (string.IsNullOrWhiteSpace(dto.Password))
+        {
+            throw new ArgumentException("Password cannot be null!");
+        }
     }
 }

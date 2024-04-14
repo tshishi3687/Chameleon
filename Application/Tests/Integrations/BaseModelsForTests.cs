@@ -198,13 +198,6 @@ public abstract class BaseModelsForTests: BaseContextForTests
         };
     }
 
-    protected void InitTokenUserNoRolesClaims(string email)
-    {
-        List<Claim> claims = new List<Claim>();
-        claims.Add(new Claim(ClaimTypes.Email, email));
-        _iContent.UseThisUserConnected(_iContent.GenerateToken(claims));
-    }
-
     protected static LocalityDto AddBadLocalityEmptyNAme()
     {
         return new LocalityDto();

@@ -3,16 +3,17 @@ using Chameleon.Application.CompanySetting.Business.Dtos;
 using Chameleon.Application.CompanySetting.Business.Services;
 using Chameleon.Application.HumanSetting;
 using Chameleon.Application.Securities;
-using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Chameleon.Application.ApiInput.PermissionRequested_Super_Admin_and_Admin;
+namespace Chameleon.Application.ApiInput.PermissionRequested;
 
 [ApiController]
+
 [Route("companyApostle")]
-public class CompanyApostleController(IHttpContextAccessor cc, IConstente iContent, Context context) : AbstractController(cc, iContent)
+public class CompanyApostleController(IHttpContextAccessor cc, Context context): Controller
 {
-    private readonly IConstente _constente;
+    private readonly Constantes _constente = new(context);
     
     [HttpPut("/{companyGuid}")]
     public IActionResult AddUserInCompany(Guid companyGuid, [FromBody] AddCompanyUser dto)
@@ -38,15 +39,15 @@ public class CompanyApostleController(IHttpContextAccessor cc, IConstente iConte
                 Content = new StringContent("Company not found")
             };
         }
-        
-        if (!_constente.Connected.UserRoles()
-                .Any(ur => ur.Roles.Company.Id.Equals(companyGuid) &&
-                           (ur.Roles.Name.Equals(EnumUsersRoles.SUPER_ADMIN) ||
-                            ur.Roles.Name.Equals(EnumUsersRoles.ADMIN))))
+
+        var jwt = cc.HttpContext.GetTokenAsync("access_token").Result;
+        _constente.UseThisUserConnected(jwt);
+        var user = _constente.Connected;
+        if (user == null)
         {
-            return new HttpResponseMessage(HttpStatusCode.Unauthorized)
+            return new HttpResponseMessage(HttpStatusCode.NotFound)
             {
-                Content = new StringContent("You are not allowed to do this!")
+                Content = new StringContent("user not found")
             };
         }
 

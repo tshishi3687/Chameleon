@@ -53,18 +53,19 @@ public class Constantes(Context context) : IConstente
         var token = tokenHandler.CreateToken(tokenDescriptor);
         return tokenHandler.WriteToken(token);
     }
+    
 
-    private string GetMail(string accessToken)
+    private static string GetReference(string accessToken)
     {
         if (string.IsNullOrWhiteSpace(accessToken))
         {
             return null;
         }
 
-        string token = accessToken;
-        JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
-        JwtSecurityToken jwtSecurityToken = handler.ReadJwtToken(token);
-        string jti = jwtSecurityToken.Claims.First(claim => claim.Type == "email").Value;
+        var token = accessToken;
+        var handler = new JwtSecurityTokenHandler();
+        var jwtSecurityToken = handler.ReadJwtToken(token);
+        var jti = jwtSecurityToken.Claims.First(claim => claim.Type == "email").Value;
 
 
         return jti;
@@ -73,6 +74,6 @@ public class Constantes(Context context) : IConstente
     public void UseThisUserConnected(string accessToken)
     {
         Connected = Context.User.FirstOrDefault(p =>
-            p.Email.Equals(GetMail(accessToken)) || p.Phone.Equals(GetMail(accessToken)));
+            p.Email.Equals(GetReference(accessToken)))!;
     }
 }
