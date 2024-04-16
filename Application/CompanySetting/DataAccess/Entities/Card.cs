@@ -4,6 +4,7 @@ namespace Chameleon.Application.CompanySetting.DataAccess.Entities;
 
 public class Card: BaseEntity
 {
+    public Guid CompanyIGuid { get; set; }
     public DateTime DateTime { get; set; }
     public Absent AbsentDetails { get; set; }
     public Guid AbsentDetailsId { get; set; }

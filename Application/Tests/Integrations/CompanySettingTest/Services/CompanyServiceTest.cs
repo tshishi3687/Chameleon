@@ -70,17 +70,17 @@ public class CompanyServiceTest : BaseModelsForTests
         _service.AddUserInCompany(new AddCompanyUser
         {
             CreationUserDto = NewCreationUserDto()
-        }, company.Id);
+        }, company);
 
         var companyImplemented = context.Companies.FirstOrDefault(c => c.Id.Equals(company.Id));
         Assert.NotNull(companyImplemented);
         Assert.NotNull(companyImplemented.CompanyUser());
         Assert.True(companyImplemented.CompanyUser().Count == 2);
-        var companyUser = companyImplemented.CompanyUser().First();
-        Assert.NotNull(companyUser);
-        //
-        // var isActiveUser = _context.IsActiveUserInCompanies
-        //     .Where(i => i.CompanyId.Equals(company.Id) && i.UserId.Equals(companyUser.User.Id)).First();
+        var isActiveInCompany = context.User.FirstOrDefault(u => u.Id.Equals(companyImplemented.CompanyUser().Last().UserId)).IsActiveInCompanies(company.Id);
+        Assert.NotNull(isActiveInCompany);
+        Assert.True(isActiveInCompany.First().IsActive);
+        
+
     }
 
     [Fact]

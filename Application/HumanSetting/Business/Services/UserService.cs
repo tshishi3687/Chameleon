@@ -1,3 +1,5 @@
+using System.Net;
+using System.Security.Claims;
 using Chameleon.Application.Common.Business.Services;
 using Chameleon.Application.HumanSetting.Business.Dtos;
 using Chameleon.Application.HumanSetting.DataAccess.Entities;
@@ -67,20 +69,19 @@ public class UserService(Context context) : CheckServiceBase(context)
         return CreateEntity(dto);
     }
 
-    public User Login(LoggerDto dto)
+    public string Login(LoggerDto dto, Constantes constantes)
     {
-        try
-        {
-            CheckLogger(dto);
-            CheckAuthentication(dto);
-        }
-        catch (Exception)
-        {
-            new CancellationTokenSource().CancelAfter(TimeSpan.FromSeconds(5));
-            throw;
-        }
+        CheckLogger(dto);
+        CheckAuthentication(dto);
+        var user = Context.User.FirstOrDefault(u =>
+            u.Email.Equals(dto.Identification) || u.Phone.Equals(dto.Identification))!;
+        var claims = new List<Claim> { new(ClaimTypes.Email, user.Email) };
+        var response = new HttpResponseMessage(HttpStatusCode.Accepted);
+        response.Headers.Add("user", user.FirstName);
+        response.Headers.Add("Authorization", "Bearer " + constantes.GenerateToken(claims));
 
-        return Context.User.FirstOrDefault(u => u.Email.Equals(dto.Identification) || u.Phone.Equals(dto.Identification))!;
+
+        return "You are connected!";
     }
 
     private void CheckAuthentication(LoggerDto dto)

@@ -13,7 +13,7 @@ public class User(Context context) : BaseEntity
     public string Phone { get; set; }
     public string PassWord { get; set; }
 
-    public ICollection<IsActiveUserInCompany> InCompanies(Guid companyId)
+    public ICollection<IsActiveUserInCompany> IsActiveInCompanies(Guid companyId)
     {
         return context.IsActiveUserInCompanies.Where(i => i.CompanyId.Equals(companyId)).ToList();
     }

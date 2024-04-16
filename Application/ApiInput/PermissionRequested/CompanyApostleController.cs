@@ -1,56 +1,23 @@
 using System.Net;
 using Chameleon.Application.CompanySetting.Business.Dtos;
 using Chameleon.Application.CompanySetting.Business.Services;
-using Chameleon.Application.HumanSetting;
-using Chameleon.Application.Securities;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Chameleon.Application.ApiInput.PermissionRequested;
 
-[ApiController]
-
-[Route("companyApostle")]
-public class CompanyApostleController(IHttpContextAccessor cc, Context context): Controller
+public class CompanyApostleController(IHttpContextAccessor cc, Context context) : BaseController(cc, context)
 {
-    private readonly Constantes _constente = new(context);
-    
-    [HttpPut("/{companyGuid}")]
+    [HttpPut("/{companyGuid:guid}")]
     public IActionResult AddUserInCompany(Guid companyGuid, [FromBody] AddCompanyUser dto)
     {
-        if (!CanDoAction(companyGuid).StatusCode.Equals(HttpStatusCode.Accepted))
+        try
         {
-            return new ObjectResult(CanDoAction(companyGuid))
-            {
-                StatusCode = (int)CanDoAction(companyGuid).StatusCode
-            };
+            UserMatchCompany(companyGuid);
+            return Ok(new CompanyService(Context).AddUserInCompany(dto, Getcompany(companyGuid)));
         }
-
-        return Ok(new CompanyService(context).AddUserInCompany(dto, companyGuid));
-    }
-    
-    private HttpResponseMessage CanDoAction(Guid companyGuid)
-    {
-        var companyConcerned = context.Companies.FirstOrDefault(c => c.Id.Equals(companyGuid));
-        if (companyConcerned == null)
+        catch (Exception)
         {
-            return new HttpResponseMessage(HttpStatusCode.NotFound)
-            {
-                Content = new StringContent("Company not found")
-            };
+            return StatusCode(HttpStatusCode.NotAcceptable.GetHashCode(), $"Error {HttpStatusCode.NotAcceptable.GetHashCode()} {HttpStatusCode.NotAcceptable}: User has not been added to the company!");
         }
-
-        var jwt = cc.HttpContext.GetTokenAsync("access_token").Result;
-        _constente.UseThisUserConnected(jwt);
-        var user = _constente.Connected;
-        if (user == null)
-        {
-            return new HttpResponseMessage(HttpStatusCode.NotFound)
-            {
-                Content = new StringContent("user not found")
-            };
-        }
-
-        return new HttpResponseMessage(HttpStatusCode.Accepted);
     }
 }

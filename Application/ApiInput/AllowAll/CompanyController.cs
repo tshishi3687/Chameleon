@@ -2,20 +2,27 @@ using System.Net;
 using Chameleon.Application.CompanySetting.Business.Dtos;
 using Chameleon.Application.CompanySetting.Business.Mappers;
 using Chameleon.Application.CompanySetting.Business.Services;
-using Chameleon.Application.Securities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Chameleon.Application.ApiInput.AllowAll;
 
 [ApiController]
 [Route("[controller]")]
-public class CompanyController(IHttpContextAccessor cc, IConstente iContent, Context context) : Controller
+public class CompanyController(IHttpContextAccessor cc, Context context): BaseController(cc, context)
 {
     private readonly CompanyEasyVueMapper _mapper = new();
     
     [HttpPost]
-    public OkObjectResult CreateCompany([FromBody] CreationCompanyAndUserDto dto)
+    public IActionResult CreateCompany([FromBody] CreationCompanyAndUserDto dto)
     {
-            return Ok(_mapper.ToDto(new CompanyService(context).CreateCompanyAndUser(dto)));
+        try
+        {
+            return Ok(_mapper.ToDto(new CompanyService(Context).CreateCompanyAndUser(dto)));
+        }
+        catch (Exception)
+        {
+            return StatusCode(HttpStatusCode.BadRequest.GetHashCode(), $"Error {HttpStatusCode.BadRequest.GetHashCode()} {HttpStatusCode.BadRequest}: Your account and your business have not been created!");
+        }
+            
     }
 }

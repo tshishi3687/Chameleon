@@ -14,6 +14,7 @@ public class CardConfig : IEntityTypeConfiguration<Card>
         builder.Property(x => x.Id).ValueGeneratedOnAdd();
         
         builder.Property(c => c.DateTime).IsRequired();
+        builder.Property(c => c.CompanyIGuid).IsRequired();
 
         builder.HasOne(c => c.AbsentDetails)
             .WithOne()

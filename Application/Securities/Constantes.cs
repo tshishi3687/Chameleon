@@ -73,7 +73,9 @@ public class Constantes(Context context) : IConstente
 
     public void UseThisUserConnected(string accessToken)
     {
-        Connected = Context.User.FirstOrDefault(p =>
-            p.Email.Equals(GetReference(accessToken)))!;
+        var user = Context.User.FirstOrDefault(p =>
+                               p.Email.Equals(GetReference(accessToken)))!;
+
+        Connected = user ?? throw new Exception("Unable to define user!");
     }
 }
