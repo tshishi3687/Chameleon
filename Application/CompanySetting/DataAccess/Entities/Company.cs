@@ -14,4 +14,9 @@ public class Company(Context context): BaseEntity
     {
         return context.CompanyUsers.Where(cu => cu.CompanyId.Equals(Id)).ToList();
     }
+
+    public ICollection<CompanyCard> CompanyCards()
+    {
+        return context.CompanyCards.Where(cc => cc.Company.Id.Equals(Id)).ToList();
+    }
 }

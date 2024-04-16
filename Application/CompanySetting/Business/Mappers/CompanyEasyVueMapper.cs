@@ -23,6 +23,6 @@ public class CompanyEasyVueMapper: Mappers<CompanyEasyVueDto, Company>
 
     public ICollection<CompanyEasyVueDto> ToDtos(ICollection<Company> entities)
     {
-        throw new NotImplementedException();
+        return entities.Select(ToDto).ToList();
     }
 }

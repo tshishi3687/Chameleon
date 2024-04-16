@@ -25,6 +25,7 @@ public class Context : DbContext
     public DbSet<TaskOrEventUser> TaskOrEventUsers { get; set; }
     public DbSet<Card> Cards { get; set; }
     public DbSet<IsActiveUserInCompany> IsActiveUserInCompanies { get; set; }
+    public DbSet<CompanyCard> CompanyCards { get; set; }
 
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -54,6 +55,7 @@ public class Context : DbContext
         modelBuilder.ApplyConfiguration(new TaskOrEventUserConfig());
         modelBuilder.ApplyConfiguration(new CardConfig());
         modelBuilder.ApplyConfiguration(new IsActiveUserInCompanyConfig());
+        modelBuilder.ApplyConfiguration(new CompanyCardConfig());
 
         // Allimenter la DB
 

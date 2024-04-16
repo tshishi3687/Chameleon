@@ -1,56 +1,78 @@
 using System.Net;
 using Chameleon.Application.CompanySetting.Business.Dtos;
+using Chameleon.Application.CompanySetting.Business.Mappers;
 using Chameleon.Application.CompanySetting.Business.Services;
-using Chameleon.Application.HumanSetting;
-using Chameleon.Application.Securities;
-using Microsoft.AspNetCore.Authentication;
+using Chameleon.Application.HumanSetting.Business.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Chameleon.Application.ApiInput.PermissionRequested;
 
-[ApiController]
-
-[Route("companyApostle")]
-public class CompanyApostleController(IHttpContextAccessor cc, Context context): Controller
+public class CompanyApostleController(IHttpContextAccessor cc, Context context) : BaseController(cc, context)
 {
-    private readonly Constantes _constente = new(context);
-    
-    [HttpPut("/{companyGuid}")]
+    [HttpPut("/addUser/{companyGuid:guid}")]
     public IActionResult AddUserInCompany(Guid companyGuid, [FromBody] AddCompanyUser dto)
     {
-        if (!CanDoAction(companyGuid).StatusCode.Equals(HttpStatusCode.Accepted))
+        try
         {
-            return new ObjectResult(CanDoAction(companyGuid))
-            {
-                StatusCode = (int)CanDoAction(companyGuid).StatusCode
-            };
+            UserMatchCompany(companyGuid);
+            return Ok(new CompanyEasyVueMapper().ToDto(
+                new CompanyService(Context).AddUserInCompany(dto, Getcompany(companyGuid))));
         }
+        catch (Exception)
+        {
+            return StatusCode(HttpStatusCode.NotAcceptable.GetHashCode(),
+                $"Error {HttpStatusCode.NotAcceptable.GetHashCode()} {HttpStatusCode.NotAcceptable}: User has not been added to the company!");
+        }
+    }
 
-        return Ok(new CompanyService(context).AddUserInCompany(dto, companyGuid));
+    [HttpGet("/getMyCompanies")]
+    public IActionResult GetMyCompanies()
+    {
+        try
+        {
+            var user = Context.User.First(u => u.Id.Equals(Constantes.Connected.Id));
+            if (user == null) throw new Exception("User not found");
+            return Ok(new CompanyEasyVueMapper().ToDtos(new CompanyService(Context).GetMyCompanies(user)));
+        }
+        catch (Exception)
+        {
+            return StatusCode(HttpStatusCode.NotAcceptable.GetHashCode(),
+                $"Error {HttpStatusCode.NotAcceptable.GetHashCode()} {HttpStatusCode.NotAcceptable}: There was an authentication problem!");
+        }
+    }
+
+    [HttpGet("/connectMeWithThisCompany/{companyGuid:guid}")]
+    public IActionResult ConnectMeWithThisCompany(Guid companyGuid)
+    {
+        try
+        {
+            var company = Context.Companies.First(c => c.Id.Equals(companyGuid));
+            if (company == null)
+                return StatusCode(HttpStatusCode.BadRequest.GetHashCode(),
+                    $"Error {HttpStatusCode.BadRequest.GetHashCode()} {HttpStatusCode.BadRequest}: Company not found!");
+            if (!company.CompanyUser().Any(cu => cu.UserId.Equals(Constantes.Connected.Id)))
+                return StatusCode(HttpStatusCode.NotAcceptable.GetHashCode(),
+                    $"Error {HttpStatusCode.NotAcceptable.GetHashCode()} {HttpStatusCode.NotAcceptable}: You cannot interact with this company!");
+            return Ok(new UserService(Context).CreateJwtWithRoles(Constantes, companyGuid));
+        }
+        catch (Exception e)
+        {
+            return StatusCode(HttpStatusCode.NotAcceptable.GetHashCode(),
+                $"Error {HttpStatusCode.NotAcceptable.GetHashCode()} {HttpStatusCode.NotAcceptable}: There was an authentication problem!");
+        }
     }
     
-    private HttpResponseMessage CanDoAction(Guid companyGuid)
+    [HttpPost("/addCard/{companyGuid:guid}")]
+    public IActionResult CreateEntity(Guid companyGuid, [FromBody] CardDto dto)
     {
-        var companyConcerned = context.Companies.FirstOrDefault(c => c.Id.Equals(companyGuid));
-        if (companyConcerned == null)
+        try
         {
-            return new HttpResponseMessage(HttpStatusCode.NotFound)
-            {
-                Content = new StringContent("Company not found")
-            };
+            UserMatchCompany(companyGuid);
+            return Ok(new CardMapper().ToDto(new CardService(Context).CreateEntity(Getcompany(companyGuid), dto)));
         }
-
-        var jwt = cc.HttpContext.GetTokenAsync("access_token").Result;
-        _constente.UseThisUserConnected(jwt);
-        var user = _constente.Connected;
-        if (user == null)
+        catch (Exception)
         {
-            return new HttpResponseMessage(HttpStatusCode.NotFound)
-            {
-                Content = new StringContent("user not found")
-            };
+            return StatusCode(HttpStatusCode.NotAcceptable.GetHashCode(), $"Error {HttpStatusCode.NotAcceptable.GetHashCode()} {HttpStatusCode.NotAcceptable}: Card has not been created!");
         }
-
-        return new HttpResponseMessage(HttpStatusCode.Accepted);
     }
 }

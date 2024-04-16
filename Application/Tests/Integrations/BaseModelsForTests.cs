@@ -1,17 +1,12 @@
 using System.Globalization;
-using System.Security.Claims;
 using Chameleon.Application.CompanySetting.Business.Dtos;
 using Chameleon.Application.HumanSetting;
 using Chameleon.Application.HumanSetting.Business.Dtos;
-using Chameleon.Application.HumanSetting.DataAccess.Entities;
-using Chameleon.Application.Securities;
 
 namespace Chameleon.Application.Tests.Integrations;
 
 public abstract class BaseModelsForTests: BaseContextForTests
 {
-
-    private readonly Constantes _iContent = new(CreateDbContext());
     protected static CreationUserDto NoMatchPassword()
     {
         return new CreationUserDto

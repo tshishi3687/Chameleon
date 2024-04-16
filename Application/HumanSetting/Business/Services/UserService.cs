@@ -1,3 +1,5 @@
+using System.Net;
+using System.Security.Claims;
 using Chameleon.Application.Common.Business.Services;
 using Chameleon.Application.HumanSetting.Business.Dtos;
 using Chameleon.Application.HumanSetting.DataAccess.Entities;
@@ -39,8 +41,6 @@ public class UserService(Context context) : CheckServiceBase(context)
             Context.UsersContactDetails.Add(uc);
         }
 
-        Context.SaveChanges();
-
         return user;
     }
 
@@ -67,21 +67,51 @@ public class UserService(Context context) : CheckServiceBase(context)
         return CreateEntity(dto);
     }
 
-    public User Login(LoggerDto dto)
+    public HttpResponseMessage Login(LoggerDto dto, Constantes constantes)
     {
-        try
+        CheckLogger(dto);
+        CheckAuthentication(dto);
+        var user = Context.User.FirstOrDefault(u =>
+            u.Email.Equals(dto.Identification) || u.Phone.Equals(dto.Identification))!;
+        
+        return GenerateClams(user, constantes, false, null);
+    }
+
+    public HttpResponseMessage CreateJwtWithRoles(Constantes constantes, Guid companyGuid)
+    {
+        return GenerateClams(constantes.Connected, constantes, true, companyGuid);
+    }
+
+    private HttpResponseMessage GenerateClams(User user, Constantes constantes, bool isChoseCompany, Guid? companyGuid)
+    {
+        var claims = new List<Claim> 
+        { 
+            new(ClaimTypes.Email, user.Email),
+        };
+
+        if (isChoseCompany)
         {
-            CheckLogger(dto);
-            CheckAuthentication(dto);
-        }
-        catch (Exception)
-        {
-            new CancellationTokenSource().CancelAfter(TimeSpan.FromSeconds(5));
-            throw;
+            var roles = Context.UsersRoles
+                .Where(ur => ur.UserId.Equals(user.Id) && ur.Roles.Company.Id.Equals(companyGuid))
+                .Select(ur => ur.Roles.Name)
+                .ToList();
+
+            foreach (var role in roles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
         }
 
-        return Context.User.FirstOrDefault(u => u.Email.Equals(dto.Identification) || u.Phone.Equals(dto.Identification))!;
+        var token = constantes.GenerateToken(claims);
+
+        var response = new HttpResponseMessage(HttpStatusCode.Accepted);
+        response.Headers.Add("Authorization", "Bearer " + token);
+    
+        response.Headers.Add("user", user.FirstName);
+
+        return response;
     }
+
 
     private void CheckAuthentication(LoggerDto dto)
     {
