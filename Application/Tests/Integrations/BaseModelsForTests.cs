@@ -234,4 +234,115 @@ public abstract class BaseModelsForTests: BaseContextForTests
             Name = " "
         };
     }
+
+    protected CardDto GetBadCardWithAbsentMemory(SimpleUserDto madeBy)
+    {
+        return new CardDto
+        {
+            DateTime = DateTime.Now,
+            AbsentDetails = GetAbsentDto(madeBy),
+            MemoryDetails = GetMemoryDto(madeBy),
+            IsEnd = false,
+            IsMade = false
+        };
+    }
+
+    protected CardDto GetBadCardWithEmptyAbsentMemoryAndTaskOrEvent(SimpleUserDto madeBy)
+    {
+        return new CardDto
+        {
+            DateTime = DateTime.Now,
+            IsEnd = false,
+            IsMade = false
+        };
+    }
+
+    protected CardDto GetBadCardWithAbsentTaskOrEvent(SimpleUserDto madeBy, SimpleUserDto simpleUserDto)
+    {
+        return new CardDto
+        {
+            DateTime = DateTime.Now,
+            AbsentDetails = GetAbsentDto(madeBy),
+            TaskOrEventDetails = GetTaskOrEventDto(madeBy, simpleUserDto),
+            IsEnd = false,
+            IsMade = false
+        };
+    }
+
+    protected CardDto GetBadCardWithAbsentMemoryAndTaskOrEvent(SimpleUserDto madeBy, SimpleUserDto simpleUserDto)
+    {
+        return new CardDto
+        {
+            DateTime = DateTime.Now,
+            AbsentDetails = GetAbsentDto(madeBy),
+            MemoryDetails = GetMemoryDto(madeBy),
+            TaskOrEventDetails = GetTaskOrEventDto(madeBy, simpleUserDto),
+            IsEnd = false,
+            IsMade = false
+        };
+    }
+
+    protected CardDto GetValidCardWithTaskOrEvent(SimpleUserDto madeBy, SimpleUserDto simpleUserDto)
+    {
+        return new CardDto
+        {
+            DateTime = DateTime.Now,
+            TaskOrEventDetails = GetTaskOrEventDto(madeBy, simpleUserDto),
+            IsEnd = false,
+            IsMade = false
+        };
+    }
+
+    protected CardDto GetValidCardWithMemory(SimpleUserDto madeBy)
+    {
+        return new CardDto
+        {
+            DateTime = DateTime.Now,
+            MemoryDetails = GetMemoryDto(madeBy),
+            IsEnd = false,
+            IsMade = false
+        };
+    }
+
+    protected CardDto GetValidCardWithAbsent(SimpleUserDto madeBy)
+    {
+        return new CardDto
+        {
+            DateTime = DateTime.Now,
+            AbsentDetails = GetAbsentDto(madeBy),
+            IsEnd = false,
+            IsMade = false
+        };
+    }
+
+    protected TaskOrEventDto GetTaskOrEventDto(SimpleUserDto madeBy, SimpleUserDto simpleUserDto)
+    {
+        return new TaskOrEventDto
+        {
+            MadeBy = madeBy,
+            MadeById = madeBy.Id,
+            Title = "Add controllers: Project EEG",
+            Description = "All service's ok, now we need access root for frondEnd",
+            Participant = new List<SimpleUserDto>([simpleUserDto])
+        };
+    }
+
+    protected MemoryDto GetMemoryDto(SimpleUserDto madeBy)
+    {
+        return new MemoryDto
+        {
+            MadeBy = madeBy,
+            Title = "Meeting with new worker",
+            Description = "Cédrick is the best person for me. " +
+                          "I think he's the best solution for our company."
+        };
+    }
+
+    protected AbsentDto GetAbsentDto(SimpleUserDto madeBy)
+    {
+        return new AbsentDto
+        {
+            MadeBy =  madeBy
+        };
+    }
 }

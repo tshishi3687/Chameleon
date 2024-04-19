@@ -53,20 +53,25 @@ public class CompanyService(Context context) : CheckServiceBase(context)
             UserId = user.Id
         });
 
+        var role = Context.Roles.Add(new Roles
+        {
+            Name = EnumUsersRoles.SUPER_ADMIN.ToString(),
+            Company = company.Entity,
+            Users = new List<UsersRoles>()
+        }).Entity;
+        
         // Add in table UserRoles
         Context.UsersRoles.Add(new UsersRoles
         {
             UserId = user.Id,
-            RoleId = Context.Roles.Add(new Roles
-            {
-                Name = EnumUsersRoles.SUPER_ADMIN.ToString(),
-                Company = company.Entity,
-                Users = new List<UsersRoles>()
-            }).Entity.Id
+            User = user,
+            RoleId = role.Id,
+            Roles = role
         });
         Context.UsersRoles.Add(new UsersRoles
         {
             UserId = user.Id,
+            User = user,
             RoleId = Context.Roles.Add(new Roles
             {
                 Name = EnumUsersRoles.ADMIN.ToString(),
@@ -111,8 +116,10 @@ public class CompanyService(Context context) : CheckServiceBase(context)
 
     public Company AddUserInCompany(AddCompanyUser dto, Company company)
     {
-        var companyUser = AddCompanyUser(company, _userService.CreateEntity(dto.CreationUserDto));
-        AddUserRoles(Context.User.FirstOrDefault(u => u.Id.Equals(companyUser.User.Id)), dto, companyUser.Company);
+        if (company == null || dto == null) throw new Exception(); //TODO
+        var companyUser = AddCompanyUser(company, _userService.CreateEntity(dto.CreationUserDto!));
+
+        AddUserRoles(companyUser.User, dto, companyUser.Company);
 
         Context.SaveChanges();
         return companyUser.Company;
@@ -133,14 +140,17 @@ public class CompanyService(Context context) : CheckServiceBase(context)
     {
         foreach (var enumUsersRoles in dto.CreationUserDto.Roles)
         {
+            var role = Context.Roles.Add(new Roles
+            {
+                Company = company,
+                Name = enumUsersRoles.ToString()
+            }).Entity;
             Context.UsersRoles.Add(new UsersRoles
             {
                 UserId = user.Id,
-                RoleId = Context.Roles.Add(new Roles
-                {
-                    Company = company,
-                    Name = enumUsersRoles.ToString()
-                }).Entity.Id
+                User = user,
+                RoleId = role.Id,
+                Roles = role
             });
         }
     }
@@ -176,6 +186,8 @@ public class CompanyService(Context context) : CheckServiceBase(context)
         return Context.CompanyUsers.Add(new CompanyUser
         {
             CompanyId = companyConcerned.Id,
+            Company = companyConcerned,
+            User = user,
             UserId = user.Id
         }).Entity;
     }

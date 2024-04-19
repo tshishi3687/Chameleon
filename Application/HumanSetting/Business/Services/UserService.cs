@@ -32,12 +32,16 @@ public class UserService(Context context) : CheckServiceBase(context)
             PassWord = _crypto.CryptMdp(dto.PassWord)
         }).Entity;
 
-        var uc = new UsersContactDetails();
-        uc.UserId = user.Id;
-
-        foreach (var contactDetailsDto in dto.ContactDetails)
+        var uc = new UsersContactDetails
         {
-            uc.ContactDetailsId = _contactDetailsService.CreateEntity(contactDetailsDto).Id;
+            UserId = user.Id,
+            User = user
+        };
+
+        foreach (var cd in dto.ContactDetails.Select(contactDetailsDto => _contactDetailsService.CreateEntity(contactDetailsDto)))
+        {
+            uc.ContactDetailsId = cd.Id;
+            uc.ContactDetails = cd;
             Context.UsersContactDetails.Add(uc);
         }
 

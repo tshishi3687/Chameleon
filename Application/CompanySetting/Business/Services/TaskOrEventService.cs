@@ -16,16 +16,17 @@ public class TaskOrEventService(Context context)
             Title = dto.Title,
             Description = dto.Description
         });
-
-        var user = context.User.FirstOrDefault(u => u.Id.Equals(dto.MadeById));
-        context.TaskOrEventUsers.Add(new TaskOrEventUser
+        
+        foreach (var simpleUserDto in dto.Participant)
         {
-            TaskOrEven = taskOrEvent.Entity,
-            TaskOrEventGuid = taskOrEvent.Entity.Id,
-            User = user!,
-            UserGuid = user!.Id
-        });
-
+            context.TaskOrEventUsers.Add(new TaskOrEventUser
+            {
+                TaskOrEven = taskOrEvent.Entity,
+                TaskOrEventGuid = taskOrEvent.Entity.Id,
+                User = context.User.FirstOrDefault(u => u.Id.Equals(simpleUserDto.Id)),
+                UserGuid = simpleUserDto.Id
+            });
+        }
         return taskOrEvent.Entity;
     }
 
