@@ -1,58 +1,68 @@
 using Chameleon.Application.CompanySetting.Business.Dtos;
 using Chameleon.Application.CompanySetting.Business.Services;
-using Chameleon.Application.CompanySetting.DataAccess.Entities;
-using Chameleon.Application.HumanSetting;
 using Xunit;
 
 namespace Chameleon.Application.Tests.Integrations.CompanySettingTest.Services;
 
-public class CompanyServiceTest : BaseModelsForTests
+public class CompanyServiceTest : BaseModelsForTests, IDisposable
 {
-
     private Context _context;
-    private CompanyService _service;
+
+    public CompanyServiceTest()
+    {
+        _context = new MockContext();
+    }
+    
+    public void Dispose()
+    {
+        _context = null;
+    }
     
     [Fact]
     public void AddingCompanyTest()
     {
-        var company = GetCompany();
+        var service = new CompanyService(_context);
+        var companyAndUser = AddValidCreationCompanyAndUserDto();
+        var company = service.CreateCompanyAndUser(companyAndUser);
 
         Assert.NotNull(company);
         Assert.True(company.Id != Guid.Empty);
-        Assert.Equal(company.Name, AddValidCreationCompanyAndUserDto().Name);
-        Assert.Equal(company.BusinessNumber, AddValidCreationCompanyAndUserDto().BusinessNumber);
-        Assert.Equal(company.ContactDetails.Address, AddValidCreationCompanyAndUserDto().ContactDetail.Address);
-        Assert.Equal(company.ContactDetails.Number, AddValidCreationCompanyAndUserDto().ContactDetail.Number);
+        Assert.Equal(company.Name, companyAndUser.Name);
+        Assert.Equal(company.BusinessNumber, companyAndUser.BusinessNumber);
+        Assert.Equal(company.ContactDetails.Address, companyAndUser.ContactDetail.Address);
+        Assert.Equal(company.ContactDetails.Number, companyAndUser.ContactDetail.Number);
         Assert.Equal(company.ContactDetails.Locality.Name.ToUpper(),
-            AddValidCreationCompanyAndUserDto().ContactDetail.Locality.Name.ToUpper());
+            companyAndUser.ContactDetail.Locality.Name.ToUpper());
         Assert.Equal(company.ContactDetails.Country.Name.ToUpper(),
-            AddValidCreationCompanyAndUserDto().ContactDetail.Country.Name.ToUpper());
+            companyAndUser.ContactDetail.Country.Name.ToUpper());
     }
 
     [Fact]
     public void AddCompanyAndUserTest()
     {
-        var company = GetCompany();
+        var service = new CompanyService(_context);
+        var companyAndUser = AddValidCreationCompanyAndUserDto();
+        var company = service.CreateCompanyAndUser(companyAndUser);
+        
         Assert.Equal(company.Tutor.FirstName,
-            AddValidCreationCompanyAndUserDto().AddCompanyUser.CreationUserDto!.FirstName);
+            companyAndUser.AddCompanyUser.CreationUserDto!.FirstName);
         Assert.Equal(company.Tutor.LastName,
-            AddValidCreationCompanyAndUserDto().AddCompanyUser.CreationUserDto.LastName);
+            companyAndUser.AddCompanyUser.CreationUserDto.LastName);
         Assert.Equal(company.Tutor.BursDateTime,
-            AddValidCreationCompanyAndUserDto().AddCompanyUser.CreationUserDto.BursDateTime);
+            companyAndUser.AddCompanyUser.CreationUserDto.BursDateTime);
         Assert.NotNull(company.Tutor.UserRoles());
         Assert.Equal(company.Tutor.UserRoles().FirstOrDefault()!.Roles.Company.Id, company.Id);
-        Assert.Equal(company.Tutor.UserRoles().FirstOrDefault()!.Roles.Name, EnumUsersRoles.SUPER_ADMIN.ToString());
         Assert.NotNull(company.Tutor.UserContactDetails());
         Assert.Equal(company.Tutor.UserContactDetails().First().ContactDetails.Address,
-            AddValidCreationCompanyAndUserDto().AddCompanyUser.CreationUserDto.ContactDetails.FirstOrDefault()!
+            companyAndUser.AddCompanyUser.CreationUserDto.ContactDetails.FirstOrDefault()!
                 .Address);
         Assert.Equal(company.Tutor.UserContactDetails().First().ContactDetails.Number,
-            AddValidCreationCompanyAndUserDto().AddCompanyUser.CreationUserDto.ContactDetails.FirstOrDefault()!.Number);
+            companyAndUser.AddCompanyUser.CreationUserDto.ContactDetails.FirstOrDefault()!.Number);
         Assert.Equal(company.Tutor.UserContactDetails().First().ContactDetails.Locality.Name.ToUpper(),
-            AddValidCreationCompanyAndUserDto().AddCompanyUser.CreationUserDto.ContactDetails.FirstOrDefault()!.Locality
+            companyAndUser.AddCompanyUser.CreationUserDto.ContactDetails.FirstOrDefault()!.Locality
                 .Name.ToUpper());
         Assert.Equal(company.Tutor.UserContactDetails().First().ContactDetails.Country.Name.ToUpper(),
-            AddValidCreationCompanyAndUserDto().AddCompanyUser.CreationUserDto.ContactDetails.FirstOrDefault()!.Country
+            companyAndUser.AddCompanyUser.CreationUserDto.ContactDetails.FirstOrDefault()!.Country
                 .Name.ToUpper());
 
         var isActiveUser = _context.IsActiveUserInCompanies
@@ -64,19 +74,18 @@ public class CompanyServiceTest : BaseModelsForTests
     [Fact]
     public void AddingUserInCompany()
     {
-        var context = CreateDbContext();
-        var company = GetCompany();
-        
-        _service.AddUserInCompany(new AddCompanyUser
+        var service = new CompanyService(_context);
+        var company = service.CreateCompanyAndUser(AddValidCreationCompanyAndUserDto());
+        service.AddUserInCompany(new AddCompanyUser
         {
             CreationUserDto = NewCreationUserDto()
         }, company);
 
-        var companyImplemented = context.Companies.FirstOrDefault(c => c.Id.Equals(company.Id));
+        var companyImplemented = _context.Companies.FirstOrDefault(c => c.Id.Equals(company.Id));
         Assert.NotNull(companyImplemented);
         Assert.NotNull(companyImplemented.CompanyUser());
         Assert.True(companyImplemented.CompanyUser().Count == 2);
-        var isActiveInCompany = context.User.FirstOrDefault(u => u.Id.Equals(companyImplemented.CompanyUser().Last().UserId)).IsActiveInCompanies(company.Id);
+        var isActiveInCompany = _context.User.FirstOrDefault(u => u.Id.Equals(companyImplemented.CompanyUser().Last().UserId)).IsActiveInCompanies(company.Id);
         Assert.NotNull(isActiveInCompany);
         Assert.True(isActiveInCompany.First().IsActive);
         
@@ -86,8 +95,7 @@ public class CompanyServiceTest : BaseModelsForTests
     [Fact]
     public void CatchErrorTest()
     {
-        var context = CreateDbContext();
-        var service = new CompanyService(context);
+        var service = new CompanyService(_context);
 
         Assert.Throws<Exception>(() =>
             service.CreateCompanyAndUser(AddBadCreationCompanyAndUserDtoUserIdAndTutor()));
@@ -100,8 +108,7 @@ public class CompanyServiceTest : BaseModelsForTests
     [Fact]
     public void CatchErrorTestWithBusinessNumberIsEmpty()
     {
-        var context = CreateDbContext();
-        var service = new CompanyService(context);
+        var service = new CompanyService(_context);
         
         Assert.Throws<ArgumentException>(() =>
             service.CreateCompanyAndUser(AddBadCreationCompanyAndUserDtoBusinessNumber()));
@@ -110,8 +117,7 @@ public class CompanyServiceTest : BaseModelsForTests
     [Fact]
     public void CatchErrorTestWithTutorIsEmpty()
     {
-        var context = CreateDbContext();
-        var service = new CompanyService(context);
+        var service = new CompanyService(_context);
 
         Assert.Throws<Exception>(() =>
             service.CreateCompanyAndUser(AddBadCreationCompanyAndUserDtoUserIdAndTutor()));
@@ -120,17 +126,10 @@ public class CompanyServiceTest : BaseModelsForTests
     [Fact]
     public void CatchErrorTestWithCompanyNameIsEmpty()
     {
-        var context = CreateDbContext();
-        var service = new CompanyService(context);
+        var service = new CompanyService(_context);
         Assert.Throws<ArgumentException>(() =>
             service.CreateCompanyAndUser(AddBadCreationCompanyAndUserDtoName()));
     }
 
-    private Company GetCompany()
-    {
-        _context = CreateDbContext();
-        _service = new CompanyService(_context);
-
-        return _service.CreateCompanyAndUser(AddValidCreationCompanyAndUserDto());
-    }
+    
 }

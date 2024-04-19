@@ -6,11 +6,18 @@ namespace Chameleon.Application.Tests.Integrations.Common.Services;
 
 public class LocalityServiceTest: BaseModelsForTests
 {
+    
+    private readonly Context _context;
+
+    public LocalityServiceTest()
+    {
+        _context = new MockContext();
+    }
+    
     [Fact]
     public void CrudServiceTest()
     {
-        var context = CreateDbContext();
-        var service = new LocalityService(context);
+        var service = new LocalityService(_context);
 
         Assert.Throws<AmbiguousImplementationException>(() =>
             service.AddOrCreateLocality(AddBadLocalityEmptyNAme()));

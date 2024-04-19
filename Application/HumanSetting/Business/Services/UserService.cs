@@ -22,7 +22,7 @@ public class UserService(Context context) : CheckServiceBase(context)
         IsAdult(dto.BursDateTime);
         UniqueUser(dto);
 
-        var user = Context.User.Add(new User(Context)
+        var user = context.User.Add(new User(context)
         {
             FirstName = dto.FirstName,
             LastName = dto.LastName,
@@ -32,13 +32,17 @@ public class UserService(Context context) : CheckServiceBase(context)
             PassWord = _crypto.CryptMdp(dto.PassWord)
         }).Entity;
 
-        var uc = new UsersContactDetails();
-        uc.UserId = user.Id;
-
-        foreach (var contactDetailsDto in dto.ContactDetails)
+        var uc = new UsersContactDetails
         {
-            uc.ContactDetailsId = _contactDetailsService.CreateEntity(contactDetailsDto).Id;
-            Context.UsersContactDetails.Add(uc);
+            UserId = user.Id,
+            User = user
+        };
+
+        foreach (var cd in dto.ContactDetails.Select(contactDetailsDto => _contactDetailsService.CreateEntity(contactDetailsDto)))
+        {
+            uc.ContactDetailsId = cd.Id;
+            uc.ContactDetails = cd;
+            context.UsersContactDetails.Add(uc);
         }
 
         return user;
@@ -46,7 +50,7 @@ public class UserService(Context context) : CheckServiceBase(context)
 
     public User ReadEntity(Guid guid)
     {
-        var user = Context.User.SingleOrDefault(u => u.Id.Equals(guid));
+        var user = context.User.SingleOrDefault(u => u.Id.Equals(guid));
         if (user == null)
         {
             throw new KeyNotFoundException("Unable to find entity with this key");
@@ -57,13 +61,13 @@ public class UserService(Context context) : CheckServiceBase(context)
 
     public User UpdateEntity(CreationUserDto dto, Guid userToModifyGuid)
     {
-        var userRemove = Context.User.FirstOrDefault(u => u.Id.Equals(userToModifyGuid));
+        var userRemove = context.User.FirstOrDefault(u => u.Id.Equals(userToModifyGuid));
         if (userRemove == null)
         {
             throw new DllNotFoundException("Entity not found!");
         }
 
-        Context.User.Remove(userRemove);
+        context.User.Remove(userRemove);
         return CreateEntity(dto);
     }
 
@@ -71,7 +75,7 @@ public class UserService(Context context) : CheckServiceBase(context)
     {
         CheckLogger(dto);
         CheckAuthentication(dto);
-        var user = Context.User.FirstOrDefault(u =>
+        var user = context.User.FirstOrDefault(u =>
             u.Email.Equals(dto.Identification) || u.Phone.Equals(dto.Identification))!;
         
         return GenerateClams(user, constantes, false, null);
@@ -91,7 +95,7 @@ public class UserService(Context context) : CheckServiceBase(context)
 
         if (isChoseCompany)
         {
-            var roles = Context.UsersRoles
+            var roles = context.UsersRoles
                 .Where(ur => ur.UserId.Equals(user.Id) && ur.Roles.Company.Id.Equals(companyGuid))
                 .Select(ur => ur.Roles.Name)
                 .ToList();
@@ -117,7 +121,7 @@ public class UserService(Context context) : CheckServiceBase(context)
     {
         if (dto == null) throw new ArgumentException("Logger cannot be null!");
 
-        var user = Context.User.SingleOrDefault(u =>
+        var user = context.User.SingleOrDefault(u =>
             u.Email.Equals(dto.Identification) || u.Phone.Equals(dto.Identification));
         if (user == null)
         {

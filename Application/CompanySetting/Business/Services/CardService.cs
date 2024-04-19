@@ -86,6 +86,7 @@ public class CardService(Context context)
                 var taskOrEvent = _taskOrEventService.CreateEntity(dto.TaskOrEventDetails!);
                 card.TaskOrEventDetails = taskOrEvent;
                 card.TaskOrEventDetailsId = taskOrEvent.Id;
+                
                 break;
         }
     }

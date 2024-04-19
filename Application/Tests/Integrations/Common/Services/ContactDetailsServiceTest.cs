@@ -6,11 +6,17 @@ namespace Chameleon.Application.Tests.Integrations.Common.Services;
 
 public class ContactDetailsServiceTest: BaseModelsForTests
 {
+    private readonly Context _context;
+
+    public ContactDetailsServiceTest()
+    {
+        _context = new MockContext();
+    }
+    
     [Fact]
     public void CrudServiceTest()
     {
-        var context = CreateDbContext();
-        var service = new ContactDetailsService(context);
+        var service = new ContactDetailsService(_context);
         
         
         // CreateEntity

@@ -33,6 +33,7 @@ public class CreationUserDto
     public string PassWord { get; set; }
     
     [Required]
+    [Compare(nameof(PassWord))]
     public string PassWordCheck { get; set; }
     
     public List<ContactDetailsDto> ContactDetails { get; set; }

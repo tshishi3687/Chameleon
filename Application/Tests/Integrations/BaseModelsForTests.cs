@@ -5,7 +5,7 @@ using Chameleon.Application.HumanSetting.Business.Dtos;
 
 namespace Chameleon.Application.Tests.Integrations;
 
-public abstract class BaseModelsForTests: BaseContextForTests
+public abstract class BaseModelsForTests
 {
     protected static CreationUserDto NoMatchPassword()
     {
@@ -32,14 +32,11 @@ public abstract class BaseModelsForTests: BaseContextForTests
             FirstName = "Tshishi",
             LastName = "Ced",
             BursDateTime = DateTime.ParseExact("18-10-1987", "dd-MM-yyyy", CultureInfo.InvariantCulture),
-            Email = "Jean-Claude.Van_Damme@JCVD.com",
+            Email = "Jean-Claude.Van_Dame@JVD.com",
             Phone = "078555557",
-            PassWord = "JCVD.12345678",
-            PassWordCheck = "JCVD.12345678",
-            ContactDetails = new()
-            {
-                UpdateContactDetailsDto()
-            },
+            PassWord = "JVD.12345678",
+            PassWordCheck = "JVD.12345678",
+            ContactDetails = [UpdateContactDetailsDto()],
             Roles = [AddRoles()]
         };
     }
@@ -51,14 +48,11 @@ public abstract class BaseModelsForTests: BaseContextForTests
             FirstName = "Tshishi",
             LastName = "Ced",
             BursDateTime = DateTime.ParseExact("18-10-1987", "dd-MM-yyyy", CultureInfo.InvariantCulture),
-            Email = "Jean-Claude.VanDamme@JCVD1.com",
+            Email = "Jean-Claude.VanDame@JVD1.com",
             Phone = "07855555877",
-            PassWord = "JCVD.12345678",
-            PassWordCheck = "JCVD.12345678",
-            ContactDetails = new()
-            {
-                UpdateContactDetailsDto()
-            },
+            PassWord = "JVD.12345678",
+            PassWordCheck = "JVD.12345678",
+            ContactDetails = [UpdateContactDetailsDto()],
             Roles = [AddRoles()]
         };
     }
@@ -73,40 +67,35 @@ public abstract class BaseModelsForTests: BaseContextForTests
         return new CreationUserDto
         {
             FirstName = "Jean-Claude",
-            LastName = "Van Damme",
+            LastName = "Van Dame",
             BursDateTime = DateTime.ParseExact("18-10-1987", "dd-MM-yyyy", CultureInfo.InvariantCulture),
-            Email = "Jean-Claude.Van-Damme@JCVD.com",
+            Email = "Jean-Claude.Van-Dame@JVD.com",
             Phone = "078555555",
             PassWord = "12345678",
             PassWordCheck = "12345678",
-            ContactDetails = new()
-            {
-                AddContactDetailsDto()
-            }
+            ContactDetails = [AddContactDetailsDto()]
         };
     }
 
     protected static LocalityDto AddLocalityDto()
     {
-        return new LocalityDto { Name = "1000 Bruxelles" };
+        return new LocalityDto { Name = "1000 Brulees" };
     }
 
-    protected static LocalityDto UpdateLocalityDto()
+    private static LocalityDto UpdateLocalityDto()
     {
-        return new LocalityDto { Name = "5000 Namur" };
+        return new LocalityDto { Name = "5000 Naur" };
     }
 
     protected static CountryDto AddCountryDto()
     {
-        return new CountryDto { Name = "Belgique" };
+        return new CountryDto { Name = "Belgium" };
     }
 
-    protected static CountryDto UpdateCountryDto()
+    private static CountryDto UpdateCountryDto()
     {
         return new CountryDto { Name = "France" };
     }
-    
-    
 
     protected static ContactDetailsDto AddContactDetailsDto()
     {
@@ -119,7 +108,7 @@ public abstract class BaseModelsForTests: BaseContextForTests
         };
     }
 
-    protected static ContactDetailsDto UpdateContactDetailsDto()
+    private static ContactDetailsDto UpdateContactDetailsDto()
     {
         return new ContactDetailsDto
         {
@@ -184,15 +173,6 @@ public abstract class BaseModelsForTests: BaseContextForTests
         };
     }
 
-    protected static AddCompanyUser AddCompanyUser(Guid guid)
-    {
-        return new AddCompanyUser
-        {
-            UserId = guid,
-            CreationUserDto = UpdateCreationUserDtoChangePasswordAndLocalityNAme()
-        };
-    }
-
     protected static LocalityDto AddBadLocalityEmptyNAme()
     {
         return new LocalityDto();
@@ -200,7 +180,7 @@ public abstract class BaseModelsForTests: BaseContextForTests
 
     protected static LocalityDto AddBadLocalityNameLength0()
     {
-        return new LocalityDto()
+        return new LocalityDto
         {
             Name = ""
         };
@@ -221,7 +201,7 @@ public abstract class BaseModelsForTests: BaseContextForTests
 
     protected static CountryDto AddBadCountryNameLength0()
     {
-        return new CountryDto()
+        return new CountryDto
         {
             Name = ""
         };
@@ -232,6 +212,117 @@ public abstract class BaseModelsForTests: BaseContextForTests
         return new CountryDto
         {
             Name = " "
+        };
+    }
+
+    protected CardDto GetBadCardWithAbsentMemory(SimpleUserDto madeBy)
+    {
+        return new CardDto
+        {
+            DateTime = DateTime.Now,
+            AbsentDetails = GetAbsentDto(madeBy),
+            MemoryDetails = GetMemoryDto(madeBy),
+            IsEnd = false,
+            IsMade = false
+        };
+    }
+
+    protected CardDto GetBadCardWithEmptyAbsentMemoryAndTaskOrEvent()
+    {
+        return new CardDto
+        {
+            DateTime = DateTime.Now,
+            IsEnd = false,
+            IsMade = false
+        };
+    }
+
+    protected CardDto GetBadCardWithAbsentTaskOrEvent(SimpleUserDto madeBy, SimpleUserDto simpleUserDto)
+    {
+        return new CardDto
+        {
+            DateTime = DateTime.Now,
+            AbsentDetails = GetAbsentDto(madeBy),
+            TaskOrEventDetails = GetTaskOrEventDto(madeBy, simpleUserDto),
+            IsEnd = false,
+            IsMade = false
+        };
+    }
+
+    protected CardDto GetBadCardWithAbsentMemoryAndTaskOrEvent(SimpleUserDto madeBy, SimpleUserDto simpleUserDto)
+    {
+        return new CardDto
+        {
+            DateTime = DateTime.Now,
+            AbsentDetails = GetAbsentDto(madeBy),
+            MemoryDetails = GetMemoryDto(madeBy),
+            TaskOrEventDetails = GetTaskOrEventDto(madeBy, simpleUserDto),
+            IsEnd = false,
+            IsMade = false
+        };
+    }
+
+    protected CardDto GetValidCardWithTaskOrEvent(SimpleUserDto madeBy, SimpleUserDto simpleUserDto)
+    {
+        return new CardDto
+        {
+            DateTime = DateTime.Now,
+            TaskOrEventDetails = GetTaskOrEventDto(madeBy, simpleUserDto),
+            IsEnd = false,
+            IsMade = false
+        };
+    }
+
+    protected CardDto GetValidCardWithMemory(SimpleUserDto madeBy)
+    {
+        return new CardDto
+        {
+            DateTime = DateTime.Now,
+            MemoryDetails = GetMemoryDto(madeBy),
+            IsEnd = false,
+            IsMade = false
+        };
+    }
+
+    protected CardDto GetValidCardWithAbsent(SimpleUserDto madeBy)
+    {
+        return new CardDto
+        {
+            DateTime = DateTime.Now,
+            AbsentDetails = GetAbsentDto(madeBy),
+            IsEnd = false,
+            IsMade = false
+        };
+    }
+
+    private static TaskOrEventDto GetTaskOrEventDto(SimpleUserDto madeBy, SimpleUserDto simpleUserDto)
+    {
+        return new TaskOrEventDto
+        {
+            MadeBy = madeBy,
+            MadeById = madeBy.Id,
+            Title = "Add controllers: Project EEG",
+            Description = "All service's ok, now we need access root for frondEnd",
+            Participant = new List<SimpleUserDto>([simpleUserDto])
+        };
+    }
+
+    private static MemoryDto GetMemoryDto(SimpleUserDto madeBy)
+    {
+        return new MemoryDto
+        {
+            MadeBy = madeBy,
+            Title = "Meeting with new worker",
+            Description = "Cédrick is the best person for me. " +
+                          "I think he's the best solution for our company."
+        };
+    }
+
+    private static AbsentDto GetAbsentDto(SimpleUserDto madeBy)
+    {
+        return new AbsentDto
+        {
+            MadeBy =  madeBy
         };
     }
 }

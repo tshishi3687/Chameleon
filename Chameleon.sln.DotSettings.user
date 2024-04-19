@@ -1,28 +1,4 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	
-	
-	
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=1e455e0b_002D2bd1_002D406b_002Dbc80_002D4c6499b2bdbc/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CrudServiceTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;TestAncestor&gt;
-    &lt;TestId&gt;xUnit::B665C91B-5702-4D06-B12D-8D054B63A2EC::net8.0::Chameleon.Application.Tests.Integrations.CompanySettingTest.Services.CompanyServiceTest.CrudServiceTest&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::B665C91B-5702-4D06-B12D-8D054B63A2EC::net8.0::Chameleon.Application.Tests.Integrations.HumanSettingTest.Services.UserServiceTest&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::B665C91B-5702-4D06-B12D-8D054B63A2EC::net8.0::Chameleon.Application.Tests.Integrations.CompanySettingTest.Services.CompanyServiceTest&lt;/TestId&gt;
-  &lt;/TestAncestor&gt;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=62b0a5b2_002D1ac7_002D4114_002D99a3_002D15210658d4b0/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="AddingUserInCompany" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;TestAncestor&gt;
-    &lt;TestId&gt;xUnit::B665C91B-5702-4D06-B12D-8D054B63A2EC::net8.0::Chameleon.Application.Tests.Integrations.CompanySettingTest.Services.CompanyServiceTest&lt;/TestId&gt;
-  &lt;/TestAncestor&gt;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ef2f2e7b_002Dcb1f_002D4439_002D863a_002D86ee47badcbe/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="True" ContinuousTestingMode="1" IsActive="True" Name="CrudService" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;TestAncestor&gt;
-    &lt;TestId&gt;xUnit::B665C91B-5702-4D06-B12D-8D054B63A2EC::net8.0::Chameleon.Application.Tests.Integrations.HumanSettingTest.Services.UserServiceTest.CrudService&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::B665C91B-5702-4D06-B12D-8D054B63A2EC::net8.0::Chameleon.Application.Tests.Integrations.Common.Services.LocalityServiceTest.CrudServiceTest&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::B665C91B-5702-4D06-B12D-8D054B63A2EC::net8.0::Chameleon.Application.Tests.Integrations.Common.Services.LocalityServiceTest&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::B665C91B-5702-4D06-B12D-8D054B63A2EC::net8.0::Chameleon.Application.Tests.Integrations.Common.Services.CountryServiceTest.CrudServiceTest&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::B665C91B-5702-4D06-B12D-8D054B63A2EC::net8.0::Chameleon.Application.Tests.Integrations.Common.Services.ContactDetailsServiceTest.CrudServiceTest&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::B665C91B-5702-4D06-B12D-8D054B63A2EC::net8.0::Chameleon.Application.Tests.Integrations.CompanySettingTest.Services.CompanyServiceTest.CrudServiceTest&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::B665C91B-5702-4D06-B12D-8D054B63A2EC::net8.0::Chameleon.Application.Tests.Integrations.CompanySettingTest.Services.CompanyServiceTest&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::B665C91B-5702-4D06-B12D-8D054B63A2EC::net8.0::Chameleon.Application.Tests.Integrations.HumanSettingTest.Services.UserServiceTest&lt;/TestId&gt;
-  &lt;/TestAncestor&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8d0d6bbd_002D7d2e_002D4c0c_002D808b_002Dae41a48688d2/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Integrations" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;ProjectFolder&gt;B665C91B-5702-4D06-B12D-8D054B63A2EC/d:Application/d:Tests/d:Integrations&lt;/ProjectFolder&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

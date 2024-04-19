@@ -6,11 +6,17 @@ namespace Chameleon.Application.Tests.Integrations.Common.Services;
 
 public class CountryServiceTest: BaseModelsForTests
 {
+    private readonly Context _context;
+
+    public CountryServiceTest()
+    {
+        _context = new MockContext();
+    }
+    
     [Fact]
     public void CrudServiceTest()
     {
-        var context = CreateDbContext();
-        var service = new CountryService(context);
+        var service = new CountryService(_context);
 
         Assert.Throws<AmbiguousImplementationException>(() =>
             service.AddOrCreateCountry(AddBadCountryEmptyNAme()));

@@ -18,7 +18,7 @@ public class CreationUserMapper(Context context): Mappers<CreationUserDto, User>
     {
         return new User(context)
         {
-            ReferenceCode = Guid.NewGuid(),
+            ValidationCode = Guid.NewGuid(),
             FirstName = dto.FirstName,
             LastName = dto.LastName,
             BursDateTime = dto.BursDateTime,

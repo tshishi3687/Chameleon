@@ -5,7 +5,7 @@ namespace Chameleon.Application.HumanSetting.DataAccess.Entities;
 
 public class User(Context context) : BaseEntity
 {
-    public Guid ReferenceCode { get; set; }
+    public Guid ValidationCode { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public DateTime BursDateTime { get; set; }

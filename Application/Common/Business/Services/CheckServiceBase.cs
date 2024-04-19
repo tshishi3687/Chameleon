@@ -6,8 +6,6 @@ namespace Chameleon.Application.Common.Business.Services;
 
 public abstract class CheckServiceBase(Context context)
 {
-    protected readonly Context Context = context ?? throw new ArgumentNullException(nameof(context));
-
     protected static void PasswordMatch(CreationUserDto dto)
     {
         if (!dto.PassWord.Equals(dto.PassWordCheck))
@@ -27,7 +25,7 @@ public abstract class CheckServiceBase(Context context)
 
     protected void UniqueUser(CreationUserDto dto)
     {
-        if (Context.User.Any(u => u.Email.Equals(dto.Email) || u.Phone.Equals(dto.Phone)))
+        if (context.User.Any(u => u.Email.Equals(dto.Email) || u.Phone.Equals(dto.Phone)))
         {
             throw new Exception($"There already exists a user with this email: {dto.Email} or this phone {dto.Phone}!");
         }
