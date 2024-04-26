@@ -158,7 +158,7 @@ namespace Chameleon.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<Guid>("ContactDetailsId")
+                    b.Property<Guid?>("ContactDetailsId")
                         .HasColumnType("char(36)");
 
                     b.Property<DateTime>("CreatedAt")
@@ -220,6 +220,9 @@ namespace Chameleon.Migrations
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("char(36)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("tinyint(1)");
 
                     b.HasKey("CompanyId", "UserId");
 
@@ -358,22 +361,6 @@ namespace Chameleon.Migrations
                     b.ToTable("Country", (string)null);
                 });
 
-            modelBuilder.Entity("Chameleon.Application.HumanSetting.DataAccess.Entities.IsActiveUserInCompany", b =>
-                {
-                    b.Property<Guid>("CompanyId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("tinyint(1)");
-
-                    b.HasKey("CompanyId", "UserId");
-
-                    b.ToTable("IsActiveUserInCompanies");
-                });
-
             modelBuilder.Entity("Chameleon.Application.HumanSetting.DataAccess.Entities.Locality", b =>
                 {
                     b.Property<Guid>("Id")
@@ -481,14 +468,14 @@ namespace Chameleon.Migrations
                         .HasColumnType("varchar(255)")
                         .HasAnnotation("RegularExpression", "^(\\\\+|00)\\\\d{1,4}[\\\\s/0-9]*$");
 
-                    b.Property<Guid>("ReferenceCode")
-                        .HasColumnType("char(36)");
-
                     b.Property<DateTime>("UpdatedAt")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime(6)");
 
                     MySqlPropertyBuilderExtensions.UseMySqlComputedColumn(b.Property<DateTime>("UpdatedAt"));
+
+                    b.Property<Guid>("ValidationCode")
+                        .HasColumnType("char(36)");
 
                     b.HasKey("Id")
                         .HasName("PK_user");
@@ -591,19 +578,15 @@ namespace Chameleon.Migrations
 
             modelBuilder.Entity("Chameleon.Application.CompanySetting.DataAccess.Entities.Company", b =>
                 {
-                    b.HasOne("Chameleon.Application.Common.DataAccess.Entities.ContactDetails", "ContactDetails")
+                    b.HasOne("Chameleon.Application.Common.DataAccess.Entities.ContactDetails", null)
                         .WithMany("Companies")
-                        .HasForeignKey("ContactDetailsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ContactDetailsId");
 
                     b.HasOne("Chameleon.Application.HumanSetting.DataAccess.Entities.User", "Tutor")
                         .WithMany()
                         .HasForeignKey("TutorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("ContactDetails");
 
                     b.Navigation("Tutor");
                 });

@@ -11,55 +11,41 @@ namespace Chameleon.Application.CompanySetting.Business.Services;
 public class CompanyService(Context context) : CheckServiceBase(context)
 {
     private readonly UserService _userService = new(context);
-    private readonly ContactDetailsService _contactDetailsService = new(context);
 
     public Company CreateCompanyAndUser(CreationCompanyAndUserDto dto)
     {
         if (dto == null) throw new Exception(); //TODO
 
-        CheckCreationCompanyAndUser(dto);
+        CheckCreationCompanyAndUserDto(dto);
 
-        var contactDetails = _contactDetailsService.CreateEntity(dto.ContactDetail);
-
-
-        if (contactDetails == null)
-        {
-            throw new ArgumentException("ContactDetails no create and no found!");
-        }
-
-        User user;
-        try
-        {
-            user = AddUser(dto.AddCompanyUser);
-        }
-        catch (Exception e)
-        {
-            throw new ArgumentException("User no create and no found", e);
-        }
+        var user = AddUser(dto.AddCompanyUser);
+        if (user == null) throw new ArgumentException("User no create and no found");
 
         // Add in table Company
         var company = context.Companies.Add(new Company(context)
         {
             Name = dto.Name,
             BusinessNumber = dto.BusinessNumber,
-            ContactDetails = contactDetails,
             Tutor = user
-        });
+        }).Entity;
 
         // Add in table CompanyUser
         context.CompanyUsers.Add(new CompanyUser
         {
-            CompanyId = company.Entity.Id,
-            UserId = user.Id
+            Company = company,
+            CompanyId = company.Id,
+            User = user,
+            UserId = user.Id,
+            IsActive = true
         });
 
         var role = context.Roles.Add(new Roles
         {
             Name = EnumUsersRoles.SUPER_ADMIN.ToString(),
-            Company = company.Entity,
+            Company = company,
             Users = new List<UsersRoles>()
         }).Entity;
-        
+
         // Add in table UserRoles
         context.UsersRoles.Add(new UsersRoles
         {
@@ -75,7 +61,7 @@ public class CompanyService(Context context) : CheckServiceBase(context)
             RoleId = context.Roles.Add(new Roles
             {
                 Name = EnumUsersRoles.ADMIN.ToString(),
-                Company = company.Entity,
+                Company = company,
                 Users = new List<UsersRoles>()
             }).Entity.Id
         });
@@ -85,7 +71,7 @@ public class CompanyService(Context context) : CheckServiceBase(context)
             RoleId = context.Roles.Add(new Roles
             {
                 Name = EnumUsersRoles.CUSTOMER.ToString(),
-                Company = company.Entity,
+                Company = company,
                 Users = new List<UsersRoles>()
             }).Entity.Id
         });
@@ -95,23 +81,15 @@ public class CompanyService(Context context) : CheckServiceBase(context)
             RoleId = context.Roles.Add(new Roles
             {
                 Name = EnumUsersRoles.WORKER.ToString(),
-                Company = company.Entity,
+                Company = company,
                 Users = new List<UsersRoles>()
             }).Entity.Id
-        });
-        
-        //Add in table Is Active User
-        context.IsActiveUserInCompanies.Add(new IsActiveUserInCompany
-        {
-            IsActive = true,
-            CompanyId = company.Entity.Id,
-            UserId = user.Id
         });
 
         // Save All insert.
         context.SaveChanges();
 
-        return company.Entity;
+        return company;
     }
 
     public Company AddUserInCompany(AddCompanyUser dto, Company company)
@@ -135,23 +113,42 @@ public class CompanyService(Context context) : CheckServiceBase(context)
 
         return list;
     }
-    
+
     private void AddUserRoles(User user, AddCompanyUser dto, Company company)
     {
-        foreach (var enumUsersRoles in dto.CreationUserDto.Roles)
+        foreach (var role in dto.CreationUserDto.Roles)
         {
-            var role = context.Roles.Add(new Roles
+            if (role.Equals(EnumUsersRoles.SUPER_ADMIN))
             {
-                Company = company,
-                Name = enumUsersRoles.ToString()
-            }).Entity;
-            context.UsersRoles.Add(new UsersRoles
+                throw new Exception($"This roles with number 0, not exist!!");
+            }
+
+            var roles = context.Roles.FirstOrDefault(r => r.Name.Equals(EnumUsersRoles.SUPER_ADMIN.ToString()));
+            if (roles == null)
             {
-                UserId = user.Id,
-                User = user,
-                RoleId = role.Id,
-                Roles = role
-            });
+                var newRole = context.Roles.Add(new Roles
+                {
+                    Name = role.ToString(),
+                    Company = company
+                }).Entity;
+                context.UsersRoles.Add(new UsersRoles
+                {
+                    UserId = user.Id,
+                    User = user,
+                    RoleId = newRole.Id,
+                    Roles = newRole
+                });
+            }
+            else
+            {
+                context.UsersRoles.Add(new UsersRoles
+                {
+                    UserId = user.Id,
+                    User = user,
+                    RoleId = roles.Id,
+                    Roles = roles
+                });
+            }
         }
     }
 
@@ -188,7 +185,8 @@ public class CompanyService(Context context) : CheckServiceBase(context)
             CompanyId = companyConcerned.Id,
             Company = companyConcerned,
             User = user,
-            UserId = user.Id
+            UserId = user.Id,
+            IsActive = true
         }).Entity;
     }
 }

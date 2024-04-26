@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Chameleon.Migrations
 {
     /// <inheritdoc />
-    public partial class AddAbsentMemoryTaskOrEventAndCard : Migration
+    public partial class InitDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -56,7 +56,7 @@ namespace Chameleon.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    ReferenceCode = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    ValidationCode = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     FirstName = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     LastName = table.Column<string>(type: "longtext", nullable: false)
@@ -199,8 +199,8 @@ namespace Chameleon.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     BusinessNumber = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    ContactDetailsId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     TutorId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    ContactDetailsId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.ComputedColumn),
                     UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false)
@@ -213,8 +213,7 @@ namespace Chameleon.Migrations
                         name: "FK_Company_ContactDetails_ContactDetailsId",
                         column: x => x.ContactDetailsId,
                         principalTable: "ContactDetails",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Company_User_TutorId",
                         column: x => x.TutorId,
@@ -254,6 +253,7 @@ namespace Chameleon.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    CompanyIGuid = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     DateTime = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     AbsentDetailsId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     MemoryDetailsId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
@@ -321,7 +321,8 @@ namespace Chameleon.Migrations
                 columns: table => new
                 {
                     CompanyId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    UserId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci")
+                    UserId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    IsActive = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -359,6 +360,33 @@ namespace Chameleon.Migrations
                     table.PrimaryKey("PK_Roles", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Roles_Company_CompanyId",
+                        column: x => x.CompanyId,
+                        principalTable: "Company",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "CompanyCards",
+                columns: table => new
+                {
+                    CompanyGuid = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    CardGuid = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    CompanyId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    CardId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CompanyCards", x => new { x.CompanyGuid, x.CardGuid });
+                    table.ForeignKey(
+                        name: "FK_CompanyCards_Card_CardId",
+                        column: x => x.CardId,
+                        principalTable: "Card",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CompanyCards_Company_CompanyId",
                         column: x => x.CompanyId,
                         principalTable: "Company",
                         principalColumn: "Id",
@@ -424,6 +452,16 @@ namespace Chameleon.Migrations
                 name: "IX_Company_TutorId",
                 table: "Company",
                 column: "TutorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CompanyCards_CardId",
+                table: "CompanyCards",
+                column: "CardId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CompanyCards_CompanyId",
+                table: "CompanyCards",
+                column: "CompanyId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CompanyUsers_UserId",
@@ -512,7 +550,7 @@ namespace Chameleon.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Card");
+                name: "CompanyCards");
 
             migrationBuilder.DropTable(
                 name: "CompanyUsers");
@@ -527,6 +565,12 @@ namespace Chameleon.Migrations
                 name: "UsersRoles");
 
             migrationBuilder.DropTable(
+                name: "Card");
+
+            migrationBuilder.DropTable(
+                name: "Roles");
+
+            migrationBuilder.DropTable(
                 name: "Absent");
 
             migrationBuilder.DropTable(
@@ -534,9 +578,6 @@ namespace Chameleon.Migrations
 
             migrationBuilder.DropTable(
                 name: "TaskOrEvent");
-
-            migrationBuilder.DropTable(
-                name: "Roles");
 
             migrationBuilder.DropTable(
                 name: "Company");

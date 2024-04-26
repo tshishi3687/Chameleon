@@ -14,9 +14,6 @@ public class CompanyConfig : IEntityTypeConfiguration<Company>
         builder.Property(x => x.Id).ValueGeneratedOnAdd();
 
         builder.Property(x => x.Name).IsRequired(); 
-        builder.Property(x => x.BusinessNumber).IsRequired(); 
-
-        builder.HasOne(c => c.ContactDetails)
-            .WithMany(cd => cd.Companies);
+        builder.Property(x => x.BusinessNumber).IsRequired();
     }
 }

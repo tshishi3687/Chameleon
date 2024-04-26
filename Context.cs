@@ -24,7 +24,6 @@ public class Context : DbContext
     public DbSet<TaskOrEvent> TaskOrEvents { get; set; }
     public DbSet<TaskOrEventUser> TaskOrEventUsers { get; set; }
     public DbSet<Card> Cards { get; set; }
-    public DbSet<IsActiveUserInCompany> IsActiveUserInCompanies { get; set; }
     public DbSet<CompanyCard> CompanyCards { get; set; }
 
 
@@ -54,7 +53,6 @@ public class Context : DbContext
         modelBuilder.ApplyConfiguration(new TaskOrEventConfig());
         modelBuilder.ApplyConfiguration(new TaskOrEventUserConfig());
         modelBuilder.ApplyConfiguration(new CardConfig());
-        modelBuilder.ApplyConfiguration(new IsActiveUserInCompanyConfig());
         modelBuilder.ApplyConfiguration(new CompanyCardConfig());
 
         // Allimenter la DB

@@ -93,6 +93,8 @@ public class UserService(Context context) : CheckServiceBase(context)
             new(ClaimTypes.Email, user.Email),
         };
 
+        var response = new HttpResponseMessage(HttpStatusCode.Accepted);
+
         if (isChoseCompany)
         {
             var roles = context.UsersRoles
@@ -103,15 +105,14 @@ public class UserService(Context context) : CheckServiceBase(context)
             foreach (var role in roles)
             {
                 claims.Add(new Claim(ClaimTypes.Role, role));
+                response.Headers.Add("Roles", role);
             }
         }
 
         var token = constantes.GenerateToken(claims);
-
-        var response = new HttpResponseMessage(HttpStatusCode.Accepted);
         response.Headers.Add("Authorization", "Bearer " + token);
     
-        response.Headers.Add("user", user.FirstName);
+        response.Headers.Add("user", user.LastName[0] + ". " + user.FirstName);
 
         return response;
     }

@@ -1,5 +1,4 @@
 using System.Net;
-using Chameleon.Application.CompanySetting.Business.Dtos;
 using Chameleon.Application.CompanySetting.Business.Mappers;
 using Chameleon.Application.CompanySetting.Business.Services;
 using Chameleon.Application.HumanSetting.Business.Services;
@@ -9,21 +8,6 @@ namespace Chameleon.Application.ApiInput.PermissionRequested;
 
 public class CompanyApostleController(IHttpContextAccessor cc, Context context) : BaseController(cc, context)
 {
-    [HttpPut("/addUser/{companyGuid:guid}")]
-    public IActionResult AddUserInCompany(Guid companyGuid, [FromBody] AddCompanyUser dto)
-    {
-        try
-        {
-            UserMatchCompany(companyGuid);
-            return Ok(new CompanyEasyVueMapper().ToDto(
-                new CompanyService(Context).AddUserInCompany(dto, Getcompany(companyGuid))));
-        }
-        catch (Exception)
-        {
-            return StatusCode(HttpStatusCode.NotAcceptable.GetHashCode(),
-                $"Error {HttpStatusCode.NotAcceptable.GetHashCode()} {HttpStatusCode.NotAcceptable}: User has not been added to the company!");
-        }
-    }
 
     [HttpGet("/getMyCompanies")]
     public IActionResult GetMyCompanies()
@@ -58,21 +42,7 @@ public class CompanyApostleController(IHttpContextAccessor cc, Context context) 
         catch (Exception e)
         {
             return StatusCode(HttpStatusCode.NotAcceptable.GetHashCode(),
-                $"Error {HttpStatusCode.NotAcceptable.GetHashCode()} {HttpStatusCode.NotAcceptable}: There was an authentication problem!");
-        }
-    }
-    
-    [HttpPost("/addCard/{companyGuid:guid}")]
-    public IActionResult CreateEntity(Guid companyGuid, [FromBody] CardDto dto)
-    {
-        try
-        {
-            UserMatchCompany(companyGuid);
-            return Ok(new CardMapper().ToDto(new CardService(Context).CreateEntity(Getcompany(companyGuid), dto)));
-        }
-        catch (Exception)
-        {
-            return StatusCode(HttpStatusCode.NotAcceptable.GetHashCode(), $"Error {HttpStatusCode.NotAcceptable.GetHashCode()} {HttpStatusCode.NotAcceptable}: Card has not been created!");
+                $"Error {HttpStatusCode.NotAcceptable.GetHashCode()} {HttpStatusCode.NotAcceptable}: {e.Message}");
         }
     }
 }

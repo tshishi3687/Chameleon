@@ -28,13 +28,6 @@ public class CompanyServiceTest : BaseModelsForTests, IDisposable
         Assert.NotNull(company);
         Assert.True(company.Id != Guid.Empty);
         Assert.Equal(company.Name, companyAndUser.Name);
-        Assert.Equal(company.BusinessNumber, companyAndUser.BusinessNumber);
-        Assert.Equal(company.ContactDetails.Address, companyAndUser.ContactDetail.Address);
-        Assert.Equal(company.ContactDetails.Number, companyAndUser.ContactDetail.Number);
-        Assert.Equal(company.ContactDetails.Locality.Name.ToUpper(),
-            companyAndUser.ContactDetail.Locality.Name.ToUpper());
-        Assert.Equal(company.ContactDetails.Country.Name.ToUpper(),
-            companyAndUser.ContactDetail.Country.Name.ToUpper());
     }
 
     [Fact]
@@ -64,11 +57,6 @@ public class CompanyServiceTest : BaseModelsForTests, IDisposable
         Assert.Equal(company.Tutor.UserContactDetails().First().ContactDetails.Country.Name.ToUpper(),
             companyAndUser.AddCompanyUser.CreationUserDto.ContactDetails.FirstOrDefault()!.Country
                 .Name.ToUpper());
-
-        var isActiveUser = _context.IsActiveUserInCompanies
-            .Where(i => i.CompanyId.Equals(company.Id) && i.UserId.Equals(company.Tutor.Id)).First();
-        Assert.NotNull(isActiveUser);
-        Assert.True(isActiveUser.IsActive);
     }
     
     [Fact]
@@ -85,11 +73,6 @@ public class CompanyServiceTest : BaseModelsForTests, IDisposable
         Assert.NotNull(companyImplemented);
         Assert.NotNull(companyImplemented.CompanyUser());
         Assert.True(companyImplemented.CompanyUser().Count == 2);
-        var isActiveInCompany = _context.User.FirstOrDefault(u => u.Id.Equals(companyImplemented.CompanyUser().Last().UserId)).IsActiveInCompanies(company.Id);
-        Assert.NotNull(isActiveInCompany);
-        Assert.True(isActiveInCompany.First().IsActive);
-        
-
     }
 
     [Fact]

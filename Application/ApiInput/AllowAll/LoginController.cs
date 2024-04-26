@@ -5,8 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Chameleon.Application.ApiInput.AllowAll;
 
-[ApiController]
-[Route("[Controller]")]
 public class LoginController(IHttpContextAccessor cc, Context context): BaseController(cc, context)
     
 {
@@ -18,10 +16,10 @@ public class LoginController(IHttpContextAccessor cc, Context context): BaseCont
         {
             return Ok(new UserService(Context).Login(dto, Constantes));
         }
-        catch (Exception)
+        catch (Exception e)
         {
             await Task.Delay(5000);
-            return StatusCode(HttpStatusCode.BadRequest.GetHashCode(), $"Error {HttpStatusCode.BadRequest.GetHashCode()} {HttpStatusCode.BadRequest}: Identified or password does not match!");
+            return StatusCode(HttpStatusCode.BadRequest.GetHashCode(), $"Error {HttpStatusCode.BadRequest.GetHashCode()} {HttpStatusCode.BadRequest}: {e.Message}!");
         }
     }
 }

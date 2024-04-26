@@ -44,7 +44,7 @@ public abstract class CheckServiceBase(Context context)
         }
     }
 
-    protected static void CheckCreationCompanyAndUser(CreationCompanyAndUserDto dto)
+    protected static void CheckCreationCompanyAndUserDto(CreationCompanyAndUserDto dto)
     {
         if (dto == null || (dto.AddCompanyUser != null && dto.AddCompanyUser.UserId == null &&
                             dto.AddCompanyUser.CreationUserDto == null))

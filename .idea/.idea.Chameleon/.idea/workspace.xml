@@ -9,23 +9,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Chameleon.sln.DotSettings.user" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/ApiInput/PermissionRequested_Super_Admin_and_Admin/CompanyJcController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Common/Business/Dtos/CreationUserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Business/Dtos/CreationUserDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/ApiInput/AllowAll/CompanyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/ApiInput/AllowAll/CompanyController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/ApiInput/AllowAll/LoginController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/ApiInput/AllowAll/LoginController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/ApiInput/PermissionRequested/CompanyApostleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/ApiInput/PermissionRequested/CompanyApostleController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Common/Business/Services/CheckServiceBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Business/Services/CheckServiceBase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Common/Business/Services/CountryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Business/Services/CountryService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Common/Business/Services/LocalityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Business/Services/LocalityService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/AbsentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/AbsentService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/CompanyEasyVueDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/CompanyEasyVueDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/CreationCompanyAndUserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/CreationCompanyAndUserDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/Company.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/Company.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/CompanyUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/CompanyUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/EntityConfig/CompanyConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/EntityConfig/CompanyConfig.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/BaseContextForTests.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/IsActiveUserInCompany.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/EntityConfig/IsActiveUserInCompanyConfig.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/BaseModelsForTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Tests/Integrations/BaseModelsForTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/Common/Services/ContactDetailsServiceTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Tests/Integrations/Common/Services/ContactDetailsServiceTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/Common/Services/CountryServiceTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Tests/Integrations/Common/Services/CountryServiceTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/Common/Services/LocalityServiceTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Tests/Integrations/Common/Services/LocalityServiceTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/CompanySettingTest/Services/CardServiceTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Tests/Integrations/CompanySettingTest/Services/CardServiceTest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/CompanySettingTest/Services/CompanyServiceTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Tests/Integrations/CompanySettingTest/Services/CompanyServiceTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/HumanSettingTest/Services/UserServiceTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Tests/Integrations/HumanSettingTest/Services/UserServiceTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chameleon.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Chameleon.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Context.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Context.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20240414143523_AddAbsentMemoryTaskOrEventAndCard.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20240414143523_AddAbsentMemoryTaskOrEventAndCard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/20240424181325_InitDb.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20240414212746_AddIsActiveUser.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20240414212746_AddIsActiveUser.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20240416081837_AddCompanyCard.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/20240424181325_InitDb.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20240416081837_AddCompanyCard.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/ContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/ContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +93,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8e61dc8599d59e5cb39724e1dcba8ceed91d70c4af6d3459e18f6fed5282f6c/Record.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/af7e3b2da4b134194622c74726eda571c0bb4fac6fa886df92289bca8ff859/EmptyException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/eac217589439673846d1695b6e3ca1dba9490abb03c35edb0f189479c7e77af/JwtSecurityTokenHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/CompanySetting/Business/Services/AbsentService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
@@ -112,48 +126,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.Chameleon: http.executor": "Debug",
-    ".NET Launch Settings Profile.Chameleon: https.executor": "Run",
-    "05203120-d369-4e45-a685-145184c4e85e.executor": "Debug",
-    "1e455e0b-2bd1-406b-bc80-4c6499b2bdbc.executor": "Debug",
-    "333e729f-07b6-45ff-b44b-e261e1907e05.executor": "Debug",
-    "3b27ae94-f945-4518-b49a-d2020fbd6daf.executor": "Debug",
-    "417e87ae-c0e4-4155-aa57-eaafc436c2d0.executor": "Debug",
-    "4a0982ee-c7ab-4af9-8070-c926ca28d1f9.executor": "Debug",
-    "62b0a5b2-1ac7-4114-99a3-15210658d4b0.executor": "Debug",
-    "78fc9d19-a54d-4c94-8c7f-180200aa6be3.executor": "Debug",
-    "8d0d6bbd-7d2e-4c0c-808b-ae41a48688d2.executor": "Debug",
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Docker.Docker: Compose Deployment.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "b323ea10-506f-4568-bd74-0c7517428d2d.executor": "Debug",
-    "da4d22a8-5028-4dea-a22d-ed3d73257239.executor": "Run",
-    "daea3169-1b0c-4393-adb1-842030a4021b.executor": "Debug",
-    "ef2f2e7b-cb1f-4439-863a-86ee47badcbe.executor": "Debug",
-    "fb27a40c-d8a5-4583-a206-930a31eadf14.executor": "Debug",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "IdeDpaMemoryAllocationsPageId",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.Chameleon: http.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.Chameleon: https.executor&quot;: &quot;Run&quot;,
+    &quot;05203120-d369-4e45-a685-145184c4e85e.executor&quot;: &quot;Debug&quot;,
+    &quot;1e455e0b-2bd1-406b-bc80-4c6499b2bdbc.executor&quot;: &quot;Debug&quot;,
+    &quot;333e729f-07b6-45ff-b44b-e261e1907e05.executor&quot;: &quot;Debug&quot;,
+    &quot;3b27ae94-f945-4518-b49a-d2020fbd6daf.executor&quot;: &quot;Debug&quot;,
+    &quot;417e87ae-c0e4-4155-aa57-eaafc436c2d0.executor&quot;: &quot;Debug&quot;,
+    &quot;4a0982ee-c7ab-4af9-8070-c926ca28d1f9.executor&quot;: &quot;Debug&quot;,
+    &quot;62b0a5b2-1ac7-4114-99a3-15210658d4b0.executor&quot;: &quot;Debug&quot;,
+    &quot;78fc9d19-a54d-4c94-8c7f-180200aa6be3.executor&quot;: &quot;Debug&quot;,
+    &quot;8d0d6bbd-7d2e-4c0c-808b-ae41a48688d2.executor&quot;: &quot;Debug&quot;,
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Docker.Docker: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;b323ea10-506f-4568-bd74-0c7517428d2d.executor&quot;: &quot;Debug&quot;,
+    &quot;da4d22a8-5028-4dea-a22d-ed3d73257239.executor&quot;: &quot;Run&quot;,
+    &quot;daea3169-1b0c-4393-adb1-842030a4021b.executor&quot;: &quot;Debug&quot;,
+    &quot;ef2f2e7b-cb1f-4439-863a-86ee47badcbe.executor&quot;: &quot;Debug&quot;,
+    &quot;fb27a40c-d8a5-4583-a206-930a31eadf14.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;IdeDpaMemoryAllocationsPageId&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ],
-    "rider.external.source.directories": [
-      "/Users/cedricktshibangu/Library/Application Support/JetBrains/Rider2024.1/resharper-host/DecompilerCache",
-      "/Users/cedricktshibangu/Library/Application Support/JetBrains/Rider2024.1/resharper-host/SourcesCache",
-      "/Users/cedricktshibangu/Library/Application Support/Symbols/src"
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/Users/cedricktshibangu/Library/Application Support/JetBrains/Rider2024.1/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/cedricktshibangu/Library/Application Support/JetBrains/Rider2024.1/resharper-host/SourcesCache&quot;,
+      &quot;/Users/cedricktshibangu/Library/Application Support/Symbols/src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Chameleon: http">
     <configuration name="Chameleon: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Chameleon.csproj" />
@@ -291,7 +305,10 @@
       <workItem from="1713424454263" duration="12762000" />
       <workItem from="1713441023679" duration="8067000" />
       <workItem from="1713541623763" duration="632000" />
-      <workItem from="1713867994698" duration="11954000" />
+      <workItem from="1713867994698" duration="12159000" />
+      <workItem from="1713942902775" duration="29857000" />
+      <workItem from="1714029180067" duration="8677000" />
+      <workItem from="1714121834168" duration="1061000" />
     </task>
     <task id="LOCAL-00001" summary="base">
       <option name="closed" value="true" />
@@ -597,7 +614,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713425644936</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Clean tests">
+      <option name="closed" value="true" />
+      <created>1713882205916</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1713882205916</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -619,9 +644,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Try to add test" />
-    <MESSAGE value="Add LocalityServiceTest.cs" />
-    <MESSAGE value="Add CountryService.cs and CountryServiceTest.cs" />
     <MESSAGE value="Add ContactDetailsServiceBase.cs and ContactDetailsServiceBaseTest.cs" />
     <MESSAGE value="Add UserVueServiceBase.cs, CreationUserServiceBase.cs and UserServiceBaseTest.cs" />
     <MESSAGE value="Rebase init migration" />
@@ -644,7 +666,10 @@
     <MESSAGE value="Add IsActiveUserInCompany.cs" />
     <MESSAGE value="Add Card.cs, TaskOrEvent.cs and CompanyCard.cs" />
     <MESSAGE value="Add CardService and Controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add CardService and Controller" />
+    <MESSAGE value="cle" />
+    <MESSAGE value="Add CardServiceTest.cs" />
+    <MESSAGE value="Clean tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clean tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -664,13 +689,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Application/Tests/Integrations/CompanySettingTest/Services/CompanyServiceTest.cs</url>
-          <line>101</line>
+          <line>84</line>
           <properties documentPath="$PROJECT_DIR$/Application/Tests/Integrations/CompanySettingTest/Services/CompanyServiceTest.cs" containingFunctionPresentation="Method 'CatchErrorTest'">
             <startOffsets>
-              <option value="4433" />
+              <option value="3389" />
             </startOffsets>
             <endOffsets>
-              <option value="4553" />
+              <option value="3509" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="44" />
@@ -689,56 +714,43 @@
           <option name="timeStamp" value="70" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs</url>
-          <line>47</line>
-          <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'CreateEntity'">
+          <url>file://$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs</url>
+          <line>118</line>
+          <properties documentPath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs" containingFunctionPresentation="Method 'AddUserRoles'">
             <startOffsets>
-              <option value="1488" />
+              <option value="3700" />
             </startOffsets>
             <endOffsets>
-              <option value="1500" />
+              <option value="3747" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="125" />
+          <option name="timeStamp" value="118" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs</url>
-          <line>29</line>
-          <properties documentPath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs" containingFunctionPresentation="Method 'CreateCompanyAndUser'">
+          <line>120</line>
+          <properties documentPath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs" containingFunctionPresentation="Method 'AddUserRoles'">
             <startOffsets>
-              <option value="1095" />
+              <option value="3770" />
             </startOffsets>
             <endOffsets>
-              <option value="1105" />
+              <option value="3814" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="134" />
+          <option name="timeStamp" value="119" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs</url>
-          <line>32</line>
-          <properties documentPath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs" containingFunctionPresentation="Method 'CreateCompanyAndUser'">
+          <line>122</line>
+          <properties documentPath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs" containingFunctionPresentation="Method 'AddUserRoles'">
             <startOffsets>
-              <option value="1140" />
+              <option value="3845" />
             </startOffsets>
             <endOffsets>
-              <option value="1175" />
+              <option value="3907" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="135" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs</url>
-          <line>36</line>
-          <properties documentPath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs" containingFunctionPresentation="Method 'CreateCompanyAndUser'">
-            <startOffsets>
-              <option value="1236" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1298" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="144" />
+          <option name="timeStamp" value="120" />
         </line-breakpoint>
         <breakpoint enabled="true" type="DotNet Exception Breakpoints">
           <properties exception="System.InvalidOperationException" isInternal="false" displayValue="InvalidOperationException" namespaceName="System">

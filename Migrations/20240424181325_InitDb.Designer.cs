@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Chameleon.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20240414212746_AddIsActiveUser")]
-    partial class AddIsActiveUser
+    [Migration("20240424181325_InitDb")]
+    partial class InitDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -106,6 +106,9 @@ namespace Chameleon.Migrations
                     b.Property<Guid>("AbsentDetailsId")
                         .HasColumnType("char(36)");
 
+                    b.Property<Guid>("CompanyIGuid")
+                        .HasColumnType("char(36)");
+
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime(6)");
@@ -158,7 +161,7 @@ namespace Chameleon.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<Guid>("ContactDetailsId")
+                    b.Property<Guid?>("ContactDetailsId")
                         .HasColumnType("char(36)");
 
                     b.Property<DateTime>("CreatedAt")
@@ -190,6 +193,29 @@ namespace Chameleon.Migrations
                     b.ToTable("Company", (string)null);
                 });
 
+            modelBuilder.Entity("Chameleon.Application.CompanySetting.DataAccess.Entities.CompanyCard", b =>
+                {
+                    b.Property<Guid>("CompanyGuid")
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid>("CardGuid")
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid>("CardId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid>("CompanyId")
+                        .HasColumnType("char(36)");
+
+                    b.HasKey("CompanyGuid", "CardGuid");
+
+                    b.HasIndex("CardId");
+
+                    b.HasIndex("CompanyId");
+
+                    b.ToTable("CompanyCards");
+                });
+
             modelBuilder.Entity("Chameleon.Application.CompanySetting.DataAccess.Entities.CompanyUser", b =>
                 {
                     b.Property<Guid>("CompanyId")
@@ -197,6 +223,9 @@ namespace Chameleon.Migrations
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("char(36)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("tinyint(1)");
 
                     b.HasKey("CompanyId", "UserId");
 
@@ -335,22 +364,6 @@ namespace Chameleon.Migrations
                     b.ToTable("Country", (string)null);
                 });
 
-            modelBuilder.Entity("Chameleon.Application.HumanSetting.DataAccess.Entities.IsActiveUserInCompany", b =>
-                {
-                    b.Property<Guid>("CompanyId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("tinyint(1)");
-
-                    b.HasKey("CompanyId", "UserId");
-
-                    b.ToTable("IsActiveUserInCompanies");
-                });
-
             modelBuilder.Entity("Chameleon.Application.HumanSetting.DataAccess.Entities.Locality", b =>
                 {
                     b.Property<Guid>("Id")
@@ -458,14 +471,14 @@ namespace Chameleon.Migrations
                         .HasColumnType("varchar(255)")
                         .HasAnnotation("RegularExpression", "^(\\\\+|00)\\\\d{1,4}[\\\\s/0-9]*$");
 
-                    b.Property<Guid>("ReferenceCode")
-                        .HasColumnType("char(36)");
-
                     b.Property<DateTime>("UpdatedAt")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime(6)");
 
                     MySqlPropertyBuilderExtensions.UseMySqlComputedColumn(b.Property<DateTime>("UpdatedAt"));
+
+                    b.Property<Guid>("ValidationCode")
+                        .HasColumnType("char(36)");
 
                     b.HasKey("Id")
                         .HasName("PK_user");
@@ -568,11 +581,9 @@ namespace Chameleon.Migrations
 
             modelBuilder.Entity("Chameleon.Application.CompanySetting.DataAccess.Entities.Company", b =>
                 {
-                    b.HasOne("Chameleon.Application.Common.DataAccess.Entities.ContactDetails", "ContactDetails")
+                    b.HasOne("Chameleon.Application.Common.DataAccess.Entities.ContactDetails", null)
                         .WithMany("Companies")
-                        .HasForeignKey("ContactDetailsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ContactDetailsId");
 
                     b.HasOne("Chameleon.Application.HumanSetting.DataAccess.Entities.User", "Tutor")
                         .WithMany()
@@ -580,9 +591,26 @@ namespace Chameleon.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("ContactDetails");
-
                     b.Navigation("Tutor");
+                });
+
+            modelBuilder.Entity("Chameleon.Application.CompanySetting.DataAccess.Entities.CompanyCard", b =>
+                {
+                    b.HasOne("Chameleon.Application.CompanySetting.DataAccess.Entities.Card", "Card")
+                        .WithMany()
+                        .HasForeignKey("CardId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Chameleon.Application.CompanySetting.DataAccess.Entities.Company", "Company")
+                        .WithMany()
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Card");
+
+                    b.Navigation("Company");
                 });
 
             modelBuilder.Entity("Chameleon.Application.CompanySetting.DataAccess.Entities.CompanyUser", b =>

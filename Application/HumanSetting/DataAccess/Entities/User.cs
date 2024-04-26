@@ -12,11 +12,6 @@ public class User(Context context) : BaseEntity
     public string Email { get; set; }
     public string Phone { get; set; }
     public string PassWord { get; set; }
-
-    public ICollection<IsActiveUserInCompany> IsActiveInCompanies(Guid companyId)
-    {
-        return context.IsActiveUserInCompanies.Where(i => i.CompanyId.Equals(companyId)).ToList();
-    }
     
     public ICollection<UsersRoles> UserRoles()
     {

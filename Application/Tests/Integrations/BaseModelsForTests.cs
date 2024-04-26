@@ -168,8 +168,7 @@ public abstract class BaseModelsForTests
             AddCompanyUser = new AddCompanyUser
             {
                 CreationUserDto = AddCreationUserDto()
-            },
-            ContactDetail = AddContactDetailsDto()
+            }
         };
     }
 

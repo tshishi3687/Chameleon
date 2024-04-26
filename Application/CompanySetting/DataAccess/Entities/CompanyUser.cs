@@ -8,4 +8,5 @@ public class CompanyUser
     public Company Company { get; set; }
     public Guid UserId { get; set; }
     public User User { get; set; }
+    public bool IsActive { get; set; }
 }

@@ -16,7 +16,7 @@ public class CountryService(Context context) : CheckServiceBase(context)
             throw new AmbiguousImplementationException("Dto name's can't be null!");
         }
 
-        var country = context.Countries.FirstOrDefault(l => l.Name.ToUpper().Equals(dto.Name.ToUpper()));
+        var country = context.Countries.FirstOrDefault(c => c.Name.ToUpper().Equals(dto.Name.ToUpper()));
 
         if (country != null)
         {

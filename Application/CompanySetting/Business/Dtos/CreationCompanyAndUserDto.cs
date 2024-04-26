@@ -12,7 +12,4 @@ public class CreationCompanyAndUserDto
     public string BusinessNumber { get; set; }
     
     public AddCompanyUser AddCompanyUser { get; set; }
-    
-    [Required]
-    public ContactDetailsDto ContactDetail { get; set; }
 }
