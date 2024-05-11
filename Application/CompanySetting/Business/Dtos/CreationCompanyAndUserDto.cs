@@ -7,9 +7,9 @@ namespace Chameleon.Application.CompanySetting.Business.Dtos;
 public class CreationCompanyAndUserDto
 {
     [Required]
-    public string Name { get; set; }
+    public string? Name { get; set; }
     [Required]
-    public string BusinessNumber { get; set; }
+    public string? BusinessNumber { get; set; }
     
-    public AddCompanyUser AddCompanyUser { get; set; }
+    public CreationUserDto? UserDto { get; set; }
 }

@@ -1,6 +1,7 @@
 using System.Runtime;
 using Chameleon.Application.CompanySetting.Business.Dtos;
 using Chameleon.Application.HumanSetting.Business.Dtos;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Chameleon.Application.Common.Business.Services;
 
@@ -44,23 +45,29 @@ public abstract class CheckServiceBase(Context context)
         }
     }
 
-    protected static void CheckCreationCompanyAndUserDto(CreationCompanyAndUserDto dto)
+    protected void CheckCompanyDtoAndUserDto(CreationCompanyAndUserDto dto)
     {
-        if (dto == null || (dto.AddCompanyUser != null && dto.AddCompanyUser.UserId == null &&
-                            dto.AddCompanyUser.CreationUserDto == null))
-        {
-            throw new ArgumentException(
-                "The User Id or the AddCompanyUser object cannot both be empty at the same time. One or the other!");
-        }
+        if (dto == null) throw new Exception("Dto can't be null!!");
+        CheckCompany(dto);
+        if (dto.UserDto == null) throw new Exception("User dto can't be null");
+        CheckUserDto(dto.UserDto);
+    }
 
-        if (string.IsNullOrWhiteSpace(dto.Name))
-        {
-            throw new ArgumentException("Company name can't be null!");
-        }
+    protected void CheckCompany(CreationCompanyAndUserDto dto)
+    {
+        if (string.IsNullOrWhiteSpace(dto.Name)) throw new ArgumentException("Company name can't be null!");
+        if (string.IsNullOrWhiteSpace(dto.BusinessNumber)) throw new ArgumentException("Company business number can't be null!");
+        if (context.Companies.Any(c => c.BusinessNumber.Equals(dto.BusinessNumber))) throw new Exception("There already exists a company with this business number");
+    }
 
-        if (string.IsNullOrWhiteSpace(dto.BusinessNumber))
-        {
-            throw new ArgumentException("Company business number can't be null!");
-        }
+    protected static void CheckUserDto(CreationUserDto dto)
+    {
+        if (string.IsNullOrWhiteSpace(dto.FirstName)) throw new ArgumentException("User firstName can't be null!");
+        if (string.IsNullOrWhiteSpace(dto.LastName)) throw new ArgumentException("User lastName can't be null!");
+        if (string.IsNullOrWhiteSpace(dto.Email)) throw new ArgumentException("User email can't be null!");
+        if (string.IsNullOrWhiteSpace(dto.Phone)) throw new ArgumentException("User phone can't be null!");
+        if (string.IsNullOrWhiteSpace(dto.PassWord)) throw new ArgumentException("User password can't be null!");
+        if (!dto.PassWord.Equals(dto.PassWordCheck)) throw new ArgumentException("Password and CheckPassword no match!");
+        
     }
 }

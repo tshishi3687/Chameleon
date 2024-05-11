@@ -8,13 +8,13 @@ public class CreationUserDto
     [RegularExpression(@"^[^\d]+$", ErrorMessage = "The FirstName must not contain numbers.")]
     [MinLength(2)]
     [MaxLength(50)]
-    public string FirstName { get; set; }
+    public string? FirstName { get; set; }
     
     [Required(ErrorMessage = "The LastName is required.")]
     [RegularExpression(@"^[^\d]+$", ErrorMessage = "The LastNAme must not contain numbers.")]
     [MinLength(2)]
     [MaxLength(50)]
-    public string LastName { get; set; }
+    public string? LastName { get; set; }
     
     [Required]
     public DateTime BursDateTime { get; set; }
@@ -36,7 +36,7 @@ public class CreationUserDto
     [Compare(nameof(PassWord))]
     public string PassWordCheck { get; set; }
     
-    public List<ContactDetailsDto> ContactDetails { get; set; }
+    public List<ContactDetailsDto>? ContactDetails { get; set; }
     
-    public List<EnumUsersRoles> Roles { get; set; }
+    public List<EnumUsersRoles>? Roles { get; set; }
 }

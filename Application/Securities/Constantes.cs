@@ -53,7 +53,7 @@ public class Constantes(Context context) : IConstente
         var token = tokenHandler.CreateToken(tokenDescriptor);
         return tokenHandler.WriteToken(token);
     }
-    
+
 
     private static string GetReference(string accessToken)
     {
@@ -74,8 +74,11 @@ public class Constantes(Context context) : IConstente
     public void UseThisUserConnected(string accessToken)
     {
         var user = Context.User.FirstOrDefault(p =>
-                               p.Email.Equals(GetReference(accessToken)))!;
+            p.Email.Equals(GetReference(accessToken)))!;
 
-        Connected = user ?? throw new Exception("Unable to define user!");
+        if (user != null)
+        {
+            Connected = user;
+        }
     }
 }

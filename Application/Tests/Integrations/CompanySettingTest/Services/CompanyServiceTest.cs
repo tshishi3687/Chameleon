@@ -1,4 +1,3 @@
-using Chameleon.Application.CompanySetting.Business.Dtos;
 using Chameleon.Application.CompanySetting.Business.Services;
 using Xunit;
 
@@ -38,24 +37,24 @@ public class CompanyServiceTest : BaseModelsForTests, IDisposable
         var company = service.CreateCompanyAndUser(companyAndUser);
         
         Assert.Equal(company.Tutor.FirstName,
-            companyAndUser.AddCompanyUser.CreationUserDto!.FirstName);
+            companyAndUser.UserDto!.FirstName);
         Assert.Equal(company.Tutor.LastName,
-            companyAndUser.AddCompanyUser.CreationUserDto.LastName);
+            companyAndUser.UserDto.LastName);
         Assert.Equal(company.Tutor.BursDateTime,
-            companyAndUser.AddCompanyUser.CreationUserDto.BursDateTime);
+            companyAndUser.UserDto.BursDateTime);
         Assert.NotNull(company.Tutor.UserRoles());
         Assert.Equal(company.Tutor.UserRoles().FirstOrDefault()!.Roles.Company.Id, company.Id);
         Assert.NotNull(company.Tutor.UserContactDetails());
         Assert.Equal(company.Tutor.UserContactDetails().First().ContactDetails.Address,
-            companyAndUser.AddCompanyUser.CreationUserDto.ContactDetails.FirstOrDefault()!
+            companyAndUser.UserDto.ContactDetails.FirstOrDefault()!
                 .Address);
         Assert.Equal(company.Tutor.UserContactDetails().First().ContactDetails.Number,
-            companyAndUser.AddCompanyUser.CreationUserDto.ContactDetails.FirstOrDefault()!.Number);
+            companyAndUser.UserDto.ContactDetails.FirstOrDefault()!.Number);
         Assert.Equal(company.Tutor.UserContactDetails().First().ContactDetails.Locality.Name.ToUpper(),
-            companyAndUser.AddCompanyUser.CreationUserDto.ContactDetails.FirstOrDefault()!.Locality
+            companyAndUser.UserDto.ContactDetails.FirstOrDefault()!.Locality
                 .Name.ToUpper());
         Assert.Equal(company.Tutor.UserContactDetails().First().ContactDetails.Country.Name.ToUpper(),
-            companyAndUser.AddCompanyUser.CreationUserDto.ContactDetails.FirstOrDefault()!.Country
+            companyAndUser.UserDto.ContactDetails.FirstOrDefault()!.Country
                 .Name.ToUpper());
     }
     
@@ -64,10 +63,7 @@ public class CompanyServiceTest : BaseModelsForTests, IDisposable
     {
         var service = new CompanyService(_context);
         var company = service.CreateCompanyAndUser(AddValidCreationCompanyAndUserDto());
-        service.AddUserInCompany(new AddCompanyUser
-        {
-            CreationUserDto = NewCreationUserDto()
-        }, company);
+        service.AddUserInCompany(NewCreationUserDto(), company);
 
         var companyImplemented = _context.Companies.FirstOrDefault(c => c.Id.Equals(company.Id));
         Assert.NotNull(companyImplemented);
@@ -80,7 +76,7 @@ public class CompanyServiceTest : BaseModelsForTests, IDisposable
     {
         var service = new CompanyService(_context);
 
-        Assert.Throws<Exception>(() =>
+        Assert.Throws<NullReferenceException>(() =>
             service.CreateCompanyAndUser(AddBadCreationCompanyAndUserDtoUserIdAndTutor()));
         Assert.Throws<ArgumentException>(() =>
             service.CreateCompanyAndUser(AddBadCreationCompanyAndUserDtoName()));
@@ -102,7 +98,7 @@ public class CompanyServiceTest : BaseModelsForTests, IDisposable
     {
         var service = new CompanyService(_context);
 
-        Assert.Throws<Exception>(() =>
+        Assert.Throws<NullReferenceException>(() =>
             service.CreateCompanyAndUser(AddBadCreationCompanyAndUserDtoUserIdAndTutor()));
     }
 

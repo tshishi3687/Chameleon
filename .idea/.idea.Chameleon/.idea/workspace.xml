@@ -9,33 +9,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Application/ApiInput/PermissionRequested_Super_Admin_and_Admin/CompanyJcController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/ApiInput/PermissionRequested_Super_Admin_and_Admin/UserJcController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Migrations/20240429185229_RemoveUniqueRoleName.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Migrations/20240429185229_RemoveUniqueRoleName.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/ApiInput/AllowAll/CompanyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/ApiInput/AllowAll/CompanyController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/ApiInput/AllowAll/LoginController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/ApiInput/AllowAll/LoginController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/ApiInput/BaseController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/ApiInput/BaseController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/ApiInput/PermissionRequested/CompanyApostleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/ApiInput/PermissionRequested/CompanyApostleController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/ApiInput/PermissionRequested_Super_Admin_and_Admin/CompanyJcController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/ApiInput/PermissionRequested_Super_Admin_and_Admin/CompanyJcController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Common/Business/Dtos/CreationUserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Business/Dtos/CreationUserDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Common/Business/Services/CheckServiceBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Business/Services/CheckServiceBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Common/Business/Services/CountryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Business/Services/CountryService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/CompanyEasyVueDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/CompanyEasyVueDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/AddCompanyUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/AddCompanyUser.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/CreationCompanyAndUserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/CreationCompanyAndUserDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/Company.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/Company.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/CompanyUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/CompanyUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/EntityConfig/CompanyConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/EntityConfig/CompanyConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Dtos/UserVueDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Dtos/UserVueDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/RoleMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/RoleMapper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/UserVueMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/UserVueMapper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/IsActiveUserInCompany.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/EntityConfig/IsActiveUserInCompanyConfig.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/EntityConfig/RoleConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/EntityConfig/RoleConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Securities/Constantes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Securities/Constantes.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/BaseModelsForTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Tests/Integrations/BaseModelsForTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/CompanySettingTest/Services/CardServiceTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Tests/Integrations/CompanySettingTest/Services/CardServiceTest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/CompanySettingTest/Services/CompanyServiceTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Tests/Integrations/CompanySettingTest/Services/CompanyServiceTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chameleon.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Chameleon.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Context.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Context.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20240414143523_AddAbsentMemoryTaskOrEventAndCard.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20240414143523_AddAbsentMemoryTaskOrEventAndCard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/20240424181325_InitDb.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20240414212746_AddIsActiveUser.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20240414212746_AddIsActiveUser.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20240416081837_AddCompanyCard.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/20240424181325_InitDb.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20240416081837_AddCompanyCard.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Migrations/ContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/ContextModelSnapshot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
     </list>
@@ -69,21 +64,17 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/05bc3e2f770e4433bee60dcb0ad127be90200/9b/f7d2b363/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1d16877762624e96864c872a2991fc241e4fb0/4a/4692affe/RelationalSqlTranslatingExpressionVisitor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/20d4931b866e4bec9405d67fe9dcc9c654e00/ab/2630b2a7/IHttpContextAccessor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40f65a6b341c4182a5cc5b04d38972ad1d8e00/2c/c8c90350/HttpResponseMessage.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/53fca94d28e641638e74febf9e7ddda8d7ae00/b0/bafce351/IDisposable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/53fca94d28e641638e74febf9e7ddda8d7ae00/db/2b9856d8/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/53fca94d28e641638e74febf9e7ddda8d7ae00/e6/62c20083/NullReferenceException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/80bf7e6f5a1b4d898d573b82fcbed02c33620/0a/8ba0260a/InMemoryShapedQueryCompilingExpressionVisitor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8a41cc45f62a443ca308618d192fd6e4c800/ed/c5c1b10c/AuthenticationHttpContextExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a6ca83fd68634bcf88b36fa07a3599b426a020/09/bd319e44/EntityGraphAttacher.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a6ca83fd68634bcf88b36fa07a3599b426a020/10/59a52ebf/QueryableMethodTranslatingExpressionVisitor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a6ca83fd68634bcf88b36fa07a3599b426a020/9c/5dc94b56/ParameterExtractingExpressionVisitor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a6ca83fd68634bcf88b36fa07a3599b426a020/f0/fe8b6706/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2532c812356b7d5448418be580b9c7afbc61d9f577df866acfb87950ef277b/TestInvoker.cs" root0="SKIP_HIGHLIGHTING" />
@@ -93,16 +84,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8e61dc8599d59e5cb39724e1dcba8ceed91d70c4af6d3459e18f6fed5282f6c/Record.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/af7e3b2da4b134194622c74726eda571c0bb4fac6fa886df92289bca8ff859/EmptyException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/eac217589439673846d1695b6e3ca1dba9490abb03c35edb0f189479c7e77af/JwtSecurityTokenHandler.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/CompanySetting/Business/Services/AbsentService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/cedricktshibangu/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -154,7 +135,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;IdeDpaMemoryAllocationsPageId&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -309,6 +290,21 @@
       <workItem from="1713942902775" duration="29857000" />
       <workItem from="1714029180067" duration="8677000" />
       <workItem from="1714121834168" duration="1061000" />
+      <workItem from="1714125565480" duration="7168000" />
+      <workItem from="1714290855358" duration="4601000" />
+      <workItem from="1714322689401" duration="1222000" />
+      <workItem from="1714373049983" duration="21065000" />
+      <workItem from="1714460333801" duration="13355000" />
+      <workItem from="1714498162131" duration="6955000" />
+      <workItem from="1714572245313" duration="4356000" />
+      <workItem from="1714632719109" duration="13818000" />
+      <workItem from="1714720079401" duration="8828000" />
+      <workItem from="1714757576378" duration="2368000" />
+      <workItem from="1714829439167" duration="1319000" />
+      <workItem from="1714837388735" duration="1000" />
+      <workItem from="1714978224519" duration="3498000" />
+      <workItem from="1715079373687" duration="8652000" />
+      <workItem from="1715328946518" duration="3149000" />
     </task>
     <task id="LOCAL-00001" summary="base">
       <option name="closed" value="true" />
@@ -622,7 +618,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713882205916</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="init migration">
+      <option name="closed" value="true" />
+      <created>1714128438054</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1714128438054</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -644,7 +648,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Add ContactDetailsServiceBase.cs and ContactDetailsServiceBaseTest.cs" />
     <MESSAGE value="Add UserVueServiceBase.cs, CreationUserServiceBase.cs and UserServiceBaseTest.cs" />
     <MESSAGE value="Rebase init migration" />
     <MESSAGE value="clean code" />
@@ -669,7 +672,8 @@
     <MESSAGE value="cle" />
     <MESSAGE value="Add CardServiceTest.cs" />
     <MESSAGE value="Clean tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean tests" />
+    <MESSAGE value="init migration" />
+    <option name="LAST_COMMIT_MESSAGE" value="init migration" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -689,13 +693,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Application/Tests/Integrations/CompanySettingTest/Services/CompanyServiceTest.cs</url>
-          <line>84</line>
+          <line>80</line>
           <properties documentPath="$PROJECT_DIR$/Application/Tests/Integrations/CompanySettingTest/Services/CompanyServiceTest.cs" containingFunctionPresentation="Method 'CatchErrorTest'">
             <startOffsets>
-              <option value="3389" />
+              <option value="3114" />
             </startOffsets>
             <endOffsets>
-              <option value="3509" />
+              <option value="3234" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="44" />
@@ -714,43 +718,69 @@
           <option name="timeStamp" value="70" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs</url>
-          <line>118</line>
-          <properties documentPath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs" containingFunctionPresentation="Method 'AddUserRoles'">
+          <url>file://$PROJECT_DIR$/Application/ApiInput/AllowAll/LoginController.cs</url>
+          <line>21</line>
+          <properties documentPath="$PROJECT_DIR$/Application/ApiInput/AllowAll/LoginController.cs" containingFunctionPresentation="Method 'Login'">
             <startOffsets>
-              <option value="3700" />
+              <option value="607" />
             </startOffsets>
             <endOffsets>
-              <option value="3747" />
+              <option value="760" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="118" />
+          <option name="timeStamp" value="122" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs</url>
-          <line>120</line>
-          <properties documentPath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs" containingFunctionPresentation="Method 'AddUserRoles'">
+          <url>file://$PROJECT_DIR$/Application/ApiInput/AllowAll/LoginController.cs</url>
+          <line>20</line>
+          <properties documentPath="$PROJECT_DIR$/Application/ApiInput/AllowAll/LoginController.cs" containingFunctionPresentation="Method 'Login'">
             <startOffsets>
-              <option value="3770" />
+              <option value="571" />
             </startOffsets>
             <endOffsets>
-              <option value="3814" />
+              <option value="594" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="119" />
+          <option name="timeStamp" value="123" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs</url>
-          <line>122</line>
-          <properties documentPath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs" containingFunctionPresentation="Method 'AddUserRoles'">
+          <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/UserVueMapper.cs</url>
+          <line>14</line>
+          <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/UserVueMapper.cs" containingFunctionPresentation="Method 'ToDto'">
             <startOffsets>
-              <option value="3845" />
+              <option value="511" />
             </startOffsets>
             <endOffsets>
-              <option value="3907" />
+              <option value="1228" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="120" />
+          <option name="timeStamp" value="134" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/User.cs</url>
+          <line>43</line>
+          <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/User.cs" containingFunctionPresentation="Method 'TaskOrEvents'">
+            <startOffsets>
+              <option value="1384" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1432" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="135" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/RoleMapper.cs</url>
+          <line>9</line>
+          <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/RoleMapper.cs" containingFunctionPresentation="Method 'ToDto'">
+            <startOffsets>
+              <option value="289" />
+            </startOffsets>
+            <endOffsets>
+              <option value="413" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="136" />
         </line-breakpoint>
         <breakpoint enabled="true" type="DotNet Exception Breakpoints">
           <properties exception="System.InvalidOperationException" isInternal="false" displayValue="InvalidOperationException" namespaceName="System">

@@ -2,6 +2,7 @@ using System.Net;
 using Chameleon.Application.CompanySetting.Business.Dtos;
 using Chameleon.Application.CompanySetting.Business.Mappers;
 using Chameleon.Application.CompanySetting.Business.Services;
+using Chameleon.Application.HumanSetting.Business.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,7 +14,7 @@ public class CompanyJcController(IHttpContextAccessor cc, Context context) : Bas
 {
     
     [HttpPut("/addUser/{companyGuid:guid}")]
-    public async Task<IActionResult> AddUserInCompany(Guid companyGuid, [FromBody] AddCompanyUser dto)
+    public async Task<IActionResult> AddUserInCompany(Guid companyGuid, [FromBody] CreationUserDto dto)
     {
         try
         {

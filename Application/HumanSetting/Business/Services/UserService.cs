@@ -1,7 +1,9 @@
 using System.Net;
 using System.Security.Claims;
 using Chameleon.Application.Common.Business.Services;
+using Chameleon.Application.CompanySetting.DataAccess.Entities;
 using Chameleon.Application.HumanSetting.Business.Dtos;
+using Chameleon.Application.HumanSetting.Business.Mappers;
 using Chameleon.Application.HumanSetting.DataAccess.Entities;
 using Chameleon.Application.Securities;
 using Org.BouncyCastle.Security;
@@ -12,6 +14,7 @@ public class UserService(Context context) : CheckServiceBase(context)
 {
     private readonly ContactDetailsService _contactDetailsService = new(context);
     private readonly MdpCrypte _crypto = new();
+    protected readonly Constantes Constantes;
 
     public User CreateEntity(CreationUserDto dto)
     {
@@ -38,7 +41,8 @@ public class UserService(Context context) : CheckServiceBase(context)
             User = user
         };
 
-        foreach (var cd in dto.ContactDetails.Select(contactDetailsDto => _contactDetailsService.CreateEntity(contactDetailsDto)))
+        foreach (var cd in dto.ContactDetails.Select(contactDetailsDto =>
+                     _contactDetailsService.CreateEntity(contactDetailsDto)))
         {
             uc.ContactDetailsId = cd.Id;
             uc.ContactDetails = cd;
@@ -77,7 +81,7 @@ public class UserService(Context context) : CheckServiceBase(context)
         CheckAuthentication(dto);
         var user = context.User.FirstOrDefault(u =>
             u.Email.Equals(dto.Identification) || u.Phone.Equals(dto.Identification))!;
-        
+
         return GenerateClams(user, constantes, false, null);
     }
 
@@ -88,19 +92,22 @@ public class UserService(Context context) : CheckServiceBase(context)
 
     private HttpResponseMessage GenerateClams(User user, Constantes constantes, bool isChoseCompany, Guid? companyGuid)
     {
-        var claims = new List<Claim> 
-        { 
+        var claims = new List<Claim>
+        {
             new(ClaimTypes.Email, user.Email),
         };
 
         var response = new HttpResponseMessage(HttpStatusCode.Accepted);
 
+        var companyName = context.Companies.FirstOrDefault(c => c.Id.Equals(companyGuid))?.Name;
         if (isChoseCompany)
         {
             var roles = context.UsersRoles
                 .Where(ur => ur.UserId.Equals(user.Id) && ur.Roles.Company.Id.Equals(companyGuid))
                 .Select(ur => ur.Roles.Name)
                 .ToList();
+            response.Headers.Add("CompanyName", companyName);
+            response.Headers.Add("Reference", companyGuid.ToString());
 
             foreach (var role in roles)
             {
@@ -111,8 +118,7 @@ public class UserService(Context context) : CheckServiceBase(context)
 
         var token = constantes.GenerateToken(claims);
         response.Headers.Add("Authorization", "Bearer " + token);
-    
-        response.Headers.Add("user", user.LastName[0] + ". " + user.FirstName);
+        response.Headers.Add("User", user.LastName[0] + ". " + user.FirstName);
 
         return response;
     }
@@ -146,5 +152,22 @@ public class UserService(Context context) : CheckServiceBase(context)
         {
             throw new ArgumentException("Password cannot be null!");
         }
+    }
+
+    public ICollection<User> GetCompanyUser(Company company)
+    {
+        var cu = company.CompanyUser();
+        return cu.Select(companyUser => context.User.FirstOrDefault(u => u.Id.Equals(companyUser.UserId))).ToList();
+    }
+
+    public bool isKnown(Company company, string identification)
+    {
+        var companyUser = company.CompanyUser();
+        var users = new List<User?>();
+        foreach (var user in companyUser)
+        {
+            users.Add(context.User.FirstOrDefault(u => u.Id.Equals(user.UserId)));
+        }
+        return users.Any(u => u.Email.Equals(identification) || u.Phone.Equals(identification));
     }
 }

@@ -5,6 +5,7 @@ using Chameleon.Application.HumanSetting;
 using Chameleon.Application.HumanSetting.Business.Dtos;
 using Chameleon.Application.HumanSetting.Business.Services;
 using Chameleon.Application.HumanSetting.DataAccess.Entities;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Chameleon.Application.CompanySetting.Business.Services;
 
@@ -14,11 +15,9 @@ public class CompanyService(Context context) : CheckServiceBase(context)
 
     public Company CreateCompanyAndUser(CreationCompanyAndUserDto dto)
     {
-        if (dto == null) throw new Exception(); //TODO
-
-        CheckCreationCompanyAndUserDto(dto);
-
-        var user = AddUser(dto.AddCompanyUser);
+        CheckCompanyDtoAndUserDto(dto);
+        
+        var user = AddUser(dto.UserDto!);
         if (user == null) throw new ArgumentException("User no create and no found");
 
         // Add in table Company
@@ -92,10 +91,11 @@ public class CompanyService(Context context) : CheckServiceBase(context)
         return company;
     }
 
-    public Company AddUserInCompany(AddCompanyUser dto, Company company)
+    public Company AddUserInCompany(CreationUserDto dto, Company company)
     {
-        if (company == null || dto == null) throw new Exception(); //TODO
-        var companyUser = AddCompanyUser(company, _userService.CreateEntity(dto.CreationUserDto!));
+        CheckUserDto(dto);
+        if (dto.Roles.IsNullOrEmpty()) throw new Exception("USer role can't be null!!");
+        var companyUser = AddCompanyUser(company, AddUser(dto));
 
         AddUserRoles(companyUser.User, dto, companyUser.Company);
 
@@ -114,68 +114,35 @@ public class CompanyService(Context context) : CheckServiceBase(context)
         return list;
     }
 
-    private void AddUserRoles(User user, AddCompanyUser dto, Company company)
+    private void AddUserRoles(User user, CreationUserDto dto, Company company)
     {
-        foreach (var role in dto.CreationUserDto.Roles)
+        foreach (var role in dto.Roles)
         {
             if (role.Equals(EnumUsersRoles.SUPER_ADMIN))
             {
                 throw new Exception($"This roles with number 0, not exist!!");
             }
 
-            var roles = context.Roles.FirstOrDefault(r => r.Name.Equals(EnumUsersRoles.SUPER_ADMIN.ToString()));
-            if (roles == null)
-            {
-                var newRole = context.Roles.Add(new Roles
+            var r = context.Roles.Add(
+                new Roles
                 {
                     Name = role.ToString(),
                     Company = company
                 }).Entity;
-                context.UsersRoles.Add(new UsersRoles
-                {
-                    UserId = user.Id,
-                    User = user,
-                    RoleId = newRole.Id,
-                    Roles = newRole
-                });
-            }
-            else
+            context.UsersRoles.Add(new UsersRoles
             {
-                context.UsersRoles.Add(new UsersRoles
-                {
-                    UserId = user.Id,
-                    User = user,
-                    RoleId = roles.Id,
-                    Roles = roles
-                });
-            }
+                UserId = user.Id,
+                User = user,
+                RoleId = r.Id,
+                Roles = r
+            });
         }
     }
 
-    private User TakeUserInContext(Guid guid)
+    private User AddUser(CreationUserDto dto)
     {
-        var user = context.User.FirstOrDefault(u => u.Id.Equals(guid));
-        if (user == null)
-        {
-            throw new FileNotFoundException("User not found!");
-        }
-
-        return user;
-    }
-
-    private User TakeUserThroughCreation(CreationUserDto dto)
-    {
-        return _userService.CreateEntity(dto);
-    }
-
-    private User AddUser(AddCompanyUser dto)
-    {
-        return dto switch
-        {
-            { UserId: not null, CreationUserDto: not null } => TakeUserInContext(dto.UserId.Value),
-            { UserId: not null } => TakeUserInContext(dto.UserId.Value),
-            _ => TakeUserThroughCreation(dto.CreationUserDto!)
-        };
+        var user = context.User.FirstOrDefault(u => u.Email.Equals(dto.Email));
+        return user ?? _userService.CreateEntity(dto);
     }
 
     private CompanyUser AddCompanyUser(Company companyConcerned, User user)

@@ -13,7 +13,6 @@ public class RoleConfig: IEntityTypeConfiguration<Roles>
         builder.HasKey(x => x.Id).HasName("PK_Roles");
         
         builder.Property(x => x.Id).ValueGeneratedOnAdd();
-        builder.HasIndex(x => x.Name).IsUnique();
         
         builder.HasMany(r => r.Users)
             .WithOne(p => p.Roles);

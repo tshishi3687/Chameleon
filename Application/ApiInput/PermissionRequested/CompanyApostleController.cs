@@ -18,10 +18,10 @@ public class CompanyApostleController(IHttpContextAccessor cc, Context context) 
             if (user == null) throw new Exception("User not found");
             return Ok(new CompanyEasyVueMapper().ToDtos(new CompanyService(Context).GetMyCompanies(user)));
         }
-        catch (Exception)
+        catch (Exception e)
         {
             return StatusCode(HttpStatusCode.NotAcceptable.GetHashCode(),
-                $"Error {HttpStatusCode.NotAcceptable.GetHashCode()} {HttpStatusCode.NotAcceptable}: There was an authentication problem!");
+                $"Error {HttpStatusCode.NotAcceptable.GetHashCode()} {HttpStatusCode.NotAcceptable}: {e.Message}!");
         }
     }
 

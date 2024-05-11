@@ -4,6 +4,6 @@ namespace Chameleon.Application.CompanySetting.Business.Dtos;
 
 public class AddCompanyUser
 {
-    public Guid? UserId { get; set; }
+    public string? Identification { get; set; }
     public CreationUserDto? CreationUserDto { get; set; }
 }

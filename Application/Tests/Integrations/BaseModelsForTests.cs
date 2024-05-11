@@ -165,10 +165,6 @@ public abstract class BaseModelsForTests
         {
             Name = "Name",
             BusinessNumber = "Business Number",
-            AddCompanyUser = new AddCompanyUser
-            {
-                CreationUserDto = AddCreationUserDto()
-            }
         };
     }
 

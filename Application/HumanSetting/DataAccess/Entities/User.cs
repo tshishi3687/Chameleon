@@ -27,4 +27,20 @@ public class User(Context context) : BaseEntity
     {
         return context.CompanyUsers.Where(ur => ur.UserId.Equals(Id)).ToList();
     }
+
+    public ICollection<Absent> Absents()
+    {
+        return context.Absents.Where(a => a.MadeById.Equals(Id)).ToList();
+    }
+
+    public ICollection<Memory> Memories()
+    {
+        return context.Memories.Where(m => m.MadeById.Equals(Id)).ToList();
+    }
+
+    public ICollection<TaskOrEvent> TaskOrEvents()
+    {
+        var tes = context.TaskOrEventUsers.Where(te => te.UserGuid.Equals(Id));
+        return tes.Select(te => te.TaskOrEven).ToList();
+    }
 }

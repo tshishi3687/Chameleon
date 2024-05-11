@@ -11,8 +11,7 @@ public abstract class BaseController: Controller
 {
     protected readonly Context Context;
     protected readonly Constantes Constantes;
-
-
+    
     protected BaseController(IHttpContextAccessor cc, Context context)
     {
         Constantes = new Constantes(context);

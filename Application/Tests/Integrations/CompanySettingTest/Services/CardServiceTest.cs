@@ -23,13 +23,10 @@ public class CardServiceTest: BaseModelsForTests
         var company = companyService.CreateCompanyAndUser(AddValidCreationCompanyAndUserDto());
         Assert.NotNull(company);
         
-        companyService.AddUserInCompany(new AddCompanyUser
-        {
-            CreationUserDto = NewCreationUserDto()
-        }, company);
+        companyService.AddUserInCompany(NewCreationUserDto(), company);
         
-        var userMadeBy = new SimpleUserMapper().ToDto(_context.User.First(u =>
-            u.Email.Equals(AddValidCreationCompanyAndUserDto().AddCompanyUser.CreationUserDto!.Email)));
+        var userMadeBy = new SimpleUserMapper().ToDto(_context.User.FirstOrDefault(u =>
+            u.Email.Equals(AddValidCreationCompanyAndUserDto())));
         Assert.NotNull(userMadeBy);
         
         var addSimplifedUser = new SimpleUserMapper().ToDto(_context.User.First(u =>
