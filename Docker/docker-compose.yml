@@ -8,4 +8,4 @@ services:
       MYSQL_DATABASE: Chameleons
       MYSQL_ROOT_PASSWORD: tshishi
     ports: 
-      - '3306:3306'
+      - '4001:3306'

@@ -57,7 +57,7 @@ public class UserService(Context context) : CheckServiceBase(context)
         var user = context.User.SingleOrDefault(u => u.Id.Equals(guid));
         if (user == null)
         {
-            throw new KeyNotFoundException("Unable to find entity with this key");
+            throw new KeyNotFoundException(Error.EntityKeyNotFound.ToString());
         }
 
         return user;
@@ -68,7 +68,7 @@ public class UserService(Context context) : CheckServiceBase(context)
         var userRemove = context.User.FirstOrDefault(u => u.Id.Equals(userToModifyGuid));
         if (userRemove == null)
         {
-            throw new DllNotFoundException("Entity not found!");
+            throw new DllNotFoundException(Error.EntityNotFound.ToString());
         }
 
         context.User.Remove(userRemove);
@@ -126,18 +126,18 @@ public class UserService(Context context) : CheckServiceBase(context)
 
     private void CheckAuthentication(LoggerDto dto)
     {
-        if (dto == null) throw new ArgumentException("Logger cannot be null!");
+        if (dto == null) throw new ArgumentException(Error.LoggerNull.ToString());
 
         var user = context.User.SingleOrDefault(u =>
             u.Email.Equals(dto.Identification) || u.Phone.Equals(dto.Identification));
         if (user == null)
         {
-            throw new FileNotFoundException("User not found!");
+            throw new FileNotFoundException(Error.NotFound.ToString());
         }
 
         if (!new MdpCrypte().Compart(user.PassWord, dto.Password!))
         {
-            throw new PasswordException("Password no match!");
+            throw new PasswordException(Error.NotFound.ToString());
         }
     }
 
@@ -145,12 +145,12 @@ public class UserService(Context context) : CheckServiceBase(context)
     {
         if (string.IsNullOrWhiteSpace(dto.Identification))
         {
-            throw new ArgumentException("Identification cannot be null!");
+            throw new ArgumentException(Error.IdentificationRequired.ToString());
         }
 
         if (string.IsNullOrWhiteSpace(dto.Password))
         {
-            throw new ArgumentException("Password cannot be null!");
+            throw new ArgumentException(Error.PasswordRequired.ToString());
         }
     }
 

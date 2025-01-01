@@ -19,7 +19,7 @@ public class LoginController(IHttpContextAccessor cc, Context context): BaseCont
         catch (Exception e)
         {
             await Task.Delay(5000);
-            return StatusCode(HttpStatusCode.BadRequest.GetHashCode(), $"Error {HttpStatusCode.BadRequest.GetHashCode()} {HttpStatusCode.BadRequest}: {e.Message}!");
+            return StatusCode(HttpStatusCode.BadRequest.GetHashCode(), $"{e.Message}");
         }
     }
 }

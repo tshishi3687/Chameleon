@@ -30,7 +30,7 @@ public class Context : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseMySql(
-            "server=localhost;user id=root;password=tshishi;database=Chameleons",
+            "server=localhost; port=4001;user id=root;password=tshishi;database=Chameleons",
             new MariaDbServerVersion(new Version(10, 5, 4)),
             _ => { }
         );
