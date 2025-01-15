@@ -11,7 +11,7 @@ public class CompanyController(IHttpContextAccessor cc, Context context): BaseCo
 {
     private readonly CompanyEasyVueMapper _mapper = new();
     
-    [HttpPost("/create")]
+    [HttpPost()]
     public async Task<IActionResult> CreateCompany([FromBody] CreationCompanyAndUserDto dto)
     {
         try
@@ -21,7 +21,7 @@ public class CompanyController(IHttpContextAccessor cc, Context context): BaseCo
         catch (Exception e)
         {
             await Task.Delay(5000);
-            return StatusCode(HttpStatusCode.BadRequest.GetHashCode(), $"Error {HttpStatusCode.BadRequest.GetHashCode()} {HttpStatusCode.BadRequest}: {e.Message}!");
+            return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
         }
             
     }

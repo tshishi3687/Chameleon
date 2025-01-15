@@ -9,14 +9,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Application/Common/enum/Error.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/projectSettingsUpdater.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/ApiInput/AllowAll/LoginController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/ApiInput/AllowAll/LoginController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Context.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Context.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docker/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Docker/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/ApiInput/AllowAll/CompanyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/ApiInput/AllowAll/CompanyController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/CreationCompanyAndUserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/CreationCompanyAndUserDto.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,12 +35,12 @@
     &quot;assignee&quot;: &quot;tshishi3687&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/tshishi3687/Chameleon.git",
-    "accountId": "a80b2b07-4193-4085-87c6-37c254b91c9e"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/tshishi3687/Chameleon.git&quot;,
+    &quot;accountId&quot;: &quot;a80b2b07-4193-4085-87c6-37c254b91c9e&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/05bc3e2f770e4433bee60dcb0ad127be90200/9b/f7d2b363/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
@@ -91,44 +86,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.Chameleon: http.executor": "Run",
-    ".NET Launch Settings Profile.Chameleon: https.executor": "Run",
-    "05203120-d369-4e45-a685-145184c4e85e.executor": "Debug",
-    "1e455e0b-2bd1-406b-bc80-4c6499b2bdbc.executor": "Debug",
-    "333e729f-07b6-45ff-b44b-e261e1907e05.executor": "Debug",
-    "3b27ae94-f945-4518-b49a-d2020fbd6daf.executor": "Debug",
-    "417e87ae-c0e4-4155-aa57-eaafc436c2d0.executor": "Debug",
-    "4a0982ee-c7ab-4af9-8070-c926ca28d1f9.executor": "Debug",
-    "62b0a5b2-1ac7-4114-99a3-15210658d4b0.executor": "Debug",
-    "78fc9d19-a54d-4c94-8c7f-180200aa6be3.executor": "Debug",
-    "8d0d6bbd-7d2e-4c0c-808b-ae41a48688d2.executor": "Debug",
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Docker.Docker: Compose Deployment.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "b323ea10-506f-4568-bd74-0c7517428d2d.executor": "Debug",
-    "da4d22a8-5028-4dea-a22d-ed3d73257239.executor": "Run",
-    "daea3169-1b0c-4393-adb1-842030a4021b.executor": "Debug",
-    "ef2f2e7b-cb1f-4439-863a-86ee47badcbe.executor": "Debug",
-    "fb27a40c-d8a5-4583-a206-930a31eadf14.executor": "Debug",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.Chameleon: http.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.Chameleon: https.executor&quot;: &quot;Run&quot;,
+    &quot;05203120-d369-4e45-a685-145184c4e85e.executor&quot;: &quot;Debug&quot;,
+    &quot;1e455e0b-2bd1-406b-bc80-4c6499b2bdbc.executor&quot;: &quot;Debug&quot;,
+    &quot;333e729f-07b6-45ff-b44b-e261e1907e05.executor&quot;: &quot;Debug&quot;,
+    &quot;3b27ae94-f945-4518-b49a-d2020fbd6daf.executor&quot;: &quot;Debug&quot;,
+    &quot;417e87ae-c0e4-4155-aa57-eaafc436c2d0.executor&quot;: &quot;Debug&quot;,
+    &quot;4a0982ee-c7ab-4af9-8070-c926ca28d1f9.executor&quot;: &quot;Debug&quot;,
+    &quot;62b0a5b2-1ac7-4114-99a3-15210658d4b0.executor&quot;: &quot;Debug&quot;,
+    &quot;78fc9d19-a54d-4c94-8c7f-180200aa6be3.executor&quot;: &quot;Debug&quot;,
+    &quot;8d0d6bbd-7d2e-4c0c-808b-ae41a48688d2.executor&quot;: &quot;Debug&quot;,
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Docker.Docker: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;b323ea10-506f-4568-bd74-0c7517428d2d.executor&quot;: &quot;Debug&quot;,
+    &quot;da4d22a8-5028-4dea-a22d-ed3d73257239.executor&quot;: &quot;Run&quot;,
+    &quot;daea3169-1b0c-4393-adb1-842030a4021b.executor&quot;: &quot;Debug&quot;,
+    &quot;ef2f2e7b-cb1f-4439-863a-86ee47badcbe.executor&quot;: &quot;Debug&quot;,
+    &quot;fb27a40c-d8a5-4583-a206-930a31eadf14.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Chameleon: http">
     <configuration name="Chameleon: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Chameleon.csproj" />
@@ -285,7 +280,11 @@
       <workItem from="1714978224519" duration="3498000" />
       <workItem from="1715079373687" duration="8652000" />
       <workItem from="1715328946518" duration="3149000" />
-      <workItem from="1735633224228" duration="7578000" />
+      <workItem from="1735633224228" duration="11544000" />
+      <workItem from="1736076879343" duration="9706000" />
+      <workItem from="1736417923847" duration="160000" />
+      <workItem from="1736446084918" duration="3036000" />
+      <workItem from="1736895180198" duration="932000" />
     </task>
     <task id="LOCAL-00001" summary="base">
       <option name="closed" value="true" />
@@ -607,7 +606,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714128438054</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="updtae Context.cs">
+      <option name="closed" value="true" />
+      <created>1735741266972</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1735741266972</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -629,7 +636,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Add UserVueServiceBase.cs, CreationUserServiceBase.cs and UserServiceBaseTest.cs" />
     <MESSAGE value="Rebase init migration" />
     <MESSAGE value="clean code" />
     <MESSAGE value="File restructuring" />
@@ -654,7 +660,8 @@
     <MESSAGE value="Add CardServiceTest.cs" />
     <MESSAGE value="Clean tests" />
     <MESSAGE value="init migration" />
-    <option name="LAST_COMMIT_MESSAGE" value="init migration" />
+    <MESSAGE value="updtae Context.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="updtae Context.cs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
