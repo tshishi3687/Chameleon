@@ -18,7 +18,7 @@ public class CompanyService(Context context) : CheckServiceBase(context)
         CheckCompanyDtoAndUserDto(dto);
         
         var user = AddUser(dto.UserDto!);
-        if (user == null) throw new ArgumentException("User no create and no found");
+        if (user == null) throw new ArgumentException("NotFound");
 
         // Add in table Company
         var company = context.Companies.Add(new Company(context)
@@ -94,7 +94,7 @@ public class CompanyService(Context context) : CheckServiceBase(context)
     public Company AddUserInCompany(CreationUserDto dto, Company company)
     {
         CheckUserDto(dto);
-        if (dto.Roles.IsNullOrEmpty()) throw new Exception("USer role can't be null!!");
+        if (dto.Roles.IsNullOrEmpty()) throw new Exception("Roles");
         var companyUser = AddCompanyUser(company, AddUser(dto));
 
         AddUserRoles(companyUser.User, dto, companyUser.Company);

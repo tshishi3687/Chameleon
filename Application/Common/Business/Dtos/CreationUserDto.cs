@@ -4,14 +4,14 @@ namespace Chameleon.Application.HumanSetting.Business.Dtos;
 
 public class CreationUserDto
 {
-    [Required(ErrorMessage = "The FirstName is required.")]
-    [RegularExpression(@"^[^\d]+$", ErrorMessage = "The FirstName must not contain numbers.")]
+    [Required(ErrorMessage = "FirstName")]
+    [RegularExpression(@"^[^\d]+$", ErrorMessage = "FirstName")]
     [MinLength(2)]
     [MaxLength(50)]
     public string? FirstName { get; set; }
     
-    [Required(ErrorMessage = "The LastName is required.")]
-    [RegularExpression(@"^[^\d]+$", ErrorMessage = "The LastNAme must not contain numbers.")]
+    [Required(ErrorMessage = "LastName")]
+    [RegularExpression(@"^[^\d]+$", ErrorMessage = "LastName")]
     [MinLength(2)]
     [MaxLength(50)]
     public string? LastName { get; set; }
@@ -19,21 +19,21 @@ public class CreationUserDto
     [Required]
     public DateTime BursDateTime { get; set; }
     
-    [Required(ErrorMessage = "The Email is required")]
-    [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "The email address is not in a valid format.")]
+    [Required(ErrorMessage = "Email")]
+    [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "Email")]
     public string Email { get; set; }
     
-    [Required(ErrorMessage = "The phone number is required.")]
-    [RegularExpression(@"^\+32\d{9}$", ErrorMessage = "The telephone number must be Belgian.")]
+    [Required(ErrorMessage = "Phone")]
+    [RegularExpression(@"^\+32\d{9}$", ErrorMessage = "Phone")]
     public string Phone { get; set; }
     
-    [Required]
-    [MinLength(8)]
-    [MaxLength(32)]
+    [Required(ErrorMessage = "PassWord")]
+    [MinLength(8, ErrorMessage = "PassWord")]
+    [MaxLength(32, ErrorMessage = "PassWord")]
     public string PassWord { get; set; }
-    
-    [Required]
-    [Compare(nameof(PassWord))]
+
+    [Required(ErrorMessage = "PassWordCheck")]
+    [Compare(nameof(PassWord), ErrorMessage = "PassWordCheck")]
     public string PassWordCheck { get; set; }
     
     public List<ContactDetailsDto>? ContactDetails { get; set; }
