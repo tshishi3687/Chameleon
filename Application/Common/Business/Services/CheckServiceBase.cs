@@ -1,6 +1,7 @@
 using System.Runtime;
 using Chameleon.Application.CompanySetting.Business.Dtos;
 using Chameleon.Application.HumanSetting.Business.Dtos;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 namespace Chameleon.Application.Common.Business.Services;
@@ -26,7 +27,15 @@ public abstract class CheckServiceBase(Context context)
 
     protected void UniqueUser(CreationUserDto dto)
     {
-        if (context.User.Any(u => u.Email.Equals(dto.Email) || u.Phone.Equals(dto.Phone)))
+        if ( context.User.Any(u => u.Email.Equals(dto.Email) || u.Phone.Equals(dto.Phone)))
+        {
+            throw new Exception($"There already exists a user with this email: {dto.Email} or this phone {dto.Phone}!");
+        }
+    }
+
+    protected async Task UniqueUserAsync(CreationUserDto dto)
+    {
+        if (await context.User.AnyAsync(u => u.Email.Equals(dto.Email) || u.Phone.Equals(dto.Phone)))
         {
             throw new Exception($"There already exists a user with this email: {dto.Email} or this phone {dto.Phone}!");
         }
@@ -53,7 +62,7 @@ public abstract class CheckServiceBase(Context context)
         CheckUserDto(dto.UserDto);
     }
 
-    protected void CheckCompany(CreationCompanyAndUserDto dto)
+    private void CheckCompany(CreationCompanyAndUserDto dto)
     {
         if (string.IsNullOrWhiteSpace(dto.Name)) throw new ArgumentException("Company name can't be null!");
         if (string.IsNullOrWhiteSpace(dto.BusinessNumber)) throw new ArgumentException("Company business number can't be null!");

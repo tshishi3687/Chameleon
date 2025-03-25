@@ -2,21 +2,23 @@ using System.Net;
 using Chameleon.Application.CompanySetting.Business.Dtos;
 using Chameleon.Application.CompanySetting.Business.Mappers;
 using Chameleon.Application.CompanySetting.Business.Services;
+using Chameleon.Application.HumanSetting.Business.Dtos;
+using Chameleon.Application.HumanSetting.Business.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Chameleon.Application.ApiInput.AllowAll;
 
 
-public class CompanyController(IHttpContextAccessor cc, Context context): BaseController(cc, context)
+public class CreationCompanyAndUserController(IHttpContextAccessor cc, Context context): BaseController(cc, context)
 {
     private readonly CompanyEasyVueMapper _mapper = new();
     
     [HttpPost()]
-    public async Task<IActionResult> CreateCompany([FromBody] CreationCompanyAndUserDto dto)
+    public async Task<ActionResult<Data>> CreationCompanyAndUser([FromBody] CreationCompanyAndUserDto dto)
     {
         try
         {
-            return Ok(_mapper.ToDto(new CompanyService(Context).CreateCompanyAndUser(dto)));
+            return Ok(new UserService(Context).CreateCompanyAndUser(dto, Constantes));
         }
         catch (Exception e)
         {

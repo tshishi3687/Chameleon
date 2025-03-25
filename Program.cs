@@ -1,7 +1,9 @@
 using System.Text;
 using Chameleon;
+using Chameleon.Application.HumanSetting.Business.Services;
 using Chameleon.Application.Securities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MySql.EntityFrameworkCore.Extensions;
@@ -14,6 +16,9 @@ builder.Services.AddEntityFrameworkMySQL()
 
 builder.Services
     .AddHttpContextAccessor();
+
+
+builder.Services.AddScoped<UserService>(); 
 
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IConstente, Constantes>();

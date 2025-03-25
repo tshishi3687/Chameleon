@@ -1,4 +1,6 @@
 using System.Net;
+using Chameleon.Application.Common.Business.Dtos;
+using Chameleon.Application.HumanSetting.Business.Dtos;
 using Chameleon.Application.HumanSetting.Business.Mappers;
 using Chameleon.Application.HumanSetting.Business.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -40,4 +42,11 @@ public class UserJcController(IHttpContextAccessor cc, Context context) : BaseCo
                 $"Error {HttpStatusCode.NotFound.GetHashCode()} {HttpStatusCode.NotFound}: {e.Message}!");
         }
     }
+
+    [HttpGet("/dto")]
+    public IActionResult GetDto([FromBody] AllDto dto)
+    {
+        return Ok(new AllDto());
+    }
+
 }

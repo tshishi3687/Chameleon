@@ -1,9 +1,12 @@
 using System.Net;
 using System.Security.Claims;
+using System.Text;
+using System.Text.Json;
+using System.Text.RegularExpressions;
 using Chameleon.Application.Common.Business.Services;
+using Chameleon.Application.CompanySetting.Business.Dtos;
 using Chameleon.Application.CompanySetting.DataAccess.Entities;
 using Chameleon.Application.HumanSetting.Business.Dtos;
-using Chameleon.Application.HumanSetting.Business.Mappers;
 using Chameleon.Application.HumanSetting.DataAccess.Entities;
 using Chameleon.Application.Securities;
 using Org.BouncyCastle.Security;
@@ -14,7 +17,6 @@ public class UserService(Context context) : CheckServiceBase(context)
 {
     private readonly ContactDetailsService _contactDetailsService = new(context);
     private readonly MdpCrypte _crypto = new();
-    protected readonly Constantes Constantes;
 
     public User CreateEntity(CreationUserDto dto)
     {
@@ -75,7 +77,7 @@ public class UserService(Context context) : CheckServiceBase(context)
         return CreateEntity(dto);
     }
 
-    public HttpResponseMessage Login(LoggerDto dto, Constantes constantes)
+    public Data Login(LoggerDto dto, Constantes constantes)
     {
         CheckLogger(dto);
         CheckAuthentication(dto);
@@ -85,19 +87,97 @@ public class UserService(Context context) : CheckServiceBase(context)
         return GenerateClams(user, constantes, false, null);
     }
 
-    public HttpResponseMessage CreateJwtWithRoles(Constantes constantes, Guid companyGuid)
+    public Data CreateJwtWithRoles(Constantes constantes, Guid companyGuid)
     {
         return GenerateClams(constantes.Connected, constantes, true, companyGuid);
     }
 
-    private HttpResponseMessage GenerateClams(User user, Constantes constantes, bool isChoseCompany, Guid? companyGuid)
+    public Data CreateCompanyAndUser(CreationCompanyAndUserDto dto, Constantes constantes)
+    {
+        CheckCompanyDtoAndUserDto(dto);
+
+        var user = AddUser(dto.UserDto!);
+        if (user == null) throw new ArgumentException("NotFound");
+
+        // Add in table Company
+        var company = context.Companies.Add(new Company(context)
+        {
+            Name = dto.Name!,
+            BusinessNumber = dto.BusinessNumber!,
+            Tutor = user
+        }).Entity;
+
+        // Add in table CompanyUser
+        context.CompanyUsers.Add(new CompanyUser
+        {
+            Company = company,
+            CompanyId = company.Id,
+            User = user,
+            UserId = user.Id,
+            IsActive = true
+        });
+
+        var role = context.Roles.Add(new Roles
+        {
+            Name = EnumUsersRoles.SUPER_ADMIN.ToString(),
+            Company = company,
+            Users = new List<UsersRoles>()
+        }).Entity;
+
+        // Add in table UserRoles
+        context.UsersRoles.Add(new UsersRoles
+        {
+            UserId = user.Id,
+            User = user,
+            RoleId = role.Id,
+            Roles = role
+        });
+        context.UsersRoles.Add(new UsersRoles
+        {
+            UserId = user.Id,
+            User = user,
+            RoleId = context.Roles.Add(new Roles
+            {
+                Name = EnumUsersRoles.ADMIN.ToString(),
+                Company = company,
+                Users = new List<UsersRoles>()
+            }).Entity.Id
+        });
+        context.UsersRoles.Add(new UsersRoles
+        {
+            UserId = user.Id,
+            RoleId = context.Roles.Add(new Roles
+            {
+                Name = EnumUsersRoles.CUSTOMER.ToString(),
+                Company = company,
+                Users = new List<UsersRoles>()
+            }).Entity.Id
+        });
+        context.UsersRoles.Add(new UsersRoles
+        {
+            UserId = user.Id,
+            RoleId = context.Roles.Add(new Roles
+            {
+                Name = EnumUsersRoles.WORKER.ToString(),
+                Company = company,
+                Users = new List<UsersRoles>()
+            }).Entity.Id
+        });
+
+        // Save All insert.
+        context.SaveChanges();
+
+        return GenerateClams(user, constantes, false, null);
+    }
+
+    private Data GenerateClams(User user, Constantes constantes, bool isChoseCompany, Guid? companyGuid)
     {
         var claims = new List<Claim>
         {
             new(ClaimTypes.Email, user.Email),
         };
 
-        var response = new HttpResponseMessage(HttpStatusCode.Accepted);
+        var response = new Data();
 
         var companyName = context.Companies.FirstOrDefault(c => c.Id.Equals(companyGuid))?.Name;
         if (isChoseCompany)
@@ -106,19 +186,20 @@ public class UserService(Context context) : CheckServiceBase(context)
                 .Where(ur => ur.UserId.Equals(user.Id) && ur.Roles.Company.Id.Equals(companyGuid))
                 .Select(ur => ur.Roles.Name)
                 .ToList();
-            response.Headers.Add("CompanyName", companyName);
-            response.Headers.Add("Reference", companyGuid.ToString());
+            response.CompanyName = companyName!;
+            response.Reference = companyGuid!.Value!;
 
             foreach (var role in roles)
             {
                 claims.Add(new Claim(ClaimTypes.Role, role));
-                response.Headers.Add("Roles", role);
+                response.Roles = [];
+                response.Roles = roles;
             }
         }
 
         var token = constantes.GenerateToken(claims);
-        response.Headers.Add("Authorization", "Bearer " + token);
-        response.Headers.Add("User", user.LastName[0] + ". " + user.FirstName);
+        response.Token = "Bearer " + token;
+        response.UserName = user.LastName[0] + ". " + user.FirstName;
 
         return response;
     }
@@ -168,6 +249,14 @@ public class UserService(Context context) : CheckServiceBase(context)
         {
             users.Add(context.User.FirstOrDefault(u => u.Id.Equals(user.UserId)));
         }
+
         return users.Any(u => u.Email.Equals(identification) || u.Phone.Equals(identification));
     }
+
+    private User AddUser(CreationUserDto dto)
+    {
+        var user = context.User.FirstOrDefault(u => u.Email.Equals(dto.Email));
+        return user ?? CreateEntity(dto);
+    }
+
 }

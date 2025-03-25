@@ -9,9 +9,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Application/ApiInput/AllowAll/GetMe.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Common/Business/Dtos/AllDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Common/Business/Dtos/Data.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Common/Business/Dtos/CreationUserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Business/Dtos/CreationUserDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/ApiInput/AllowAll/CompanyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/ApiInput/AllowAll/CreationCompanyAndUserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/ApiInput/PermissionRequested_Super_Admin_and_Admin/UserJcController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/ApiInput/PermissionRequested_Super_Admin_and_Admin/UserJcController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Common/Business/Services/CheckServiceBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Business/Services/CheckServiceBase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/CompanySettingTest/Services/CardServiceTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Tests/Integrations/CompanySettingTest/Services/CardServiceTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/CompanySettingTest/Services/CompanyServiceTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Tests/Integrations/CompanySettingTest/Services/CompanyServiceTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,31 +47,32 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/tshishi3687/Chameleon.git&quot;,
-    &quot;accountId&quot;: &quot;b3beba86-e51c-438e-8bc5-e1ab9c11a167&quot;
+    &quot;accountId&quot;: &quot;77cf0411-8b12-4fce-9bdb-dfe152ae6241&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/05bc3e2f770e4433bee60dcb0ad127be90200/9b/f7d2b363/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1d16877762624e96864c872a2991fc241e4fb0/4a/4692affe/RelationalSqlTranslatingExpressionVisitor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/20d4931b866e4bec9405d67fe9dcc9c654e00/ab/2630b2a7/IHttpContextAccessor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40f65a6b341c4182a5cc5b04d38972ad1d8e00/2c/c8c90350/HttpResponseMessage.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/53fca94d28e641638e74febf9e7ddda8d7ae00/b0/bafce351/IDisposable.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/53fca94d28e641638e74febf9e7ddda8d7ae00/db/2b9856d8/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/53fca94d28e641638e74febf9e7ddda8d7ae00/e6/62c20083/NullReferenceException.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/80bf7e6f5a1b4d898d573b82fcbed02c33620/0a/8ba0260a/InMemoryShapedQueryCompilingExpressionVisitor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8a41cc45f62a443ca308618d192fd6e4c800/ed/c5c1b10c/AuthenticationHttpContextExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a6ca83fd68634bcf88b36fa07a3599b426a020/09/bd319e44/EntityGraphAttacher.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a6ca83fd68634bcf88b36fa07a3599b426a020/10/59a52ebf/QueryableMethodTranslatingExpressionVisitor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a6ca83fd68634bcf88b36fa07a3599b426a020/9c/5dc94b56/ParameterExtractingExpressionVisitor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a6ca83fd68634bcf88b36fa07a3599b426a020/f0/fe8b6706/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2532c812356b7d5448418be580b9c7afbc61d9f577df866acfb87950ef277b/TestInvoker.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3b92f859131bde25d0f7a63de08963e995d1e1426e584dfd4b8e833d2d3dba/ExecutionTimer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/48e4a7badf1bb8b35dabf8b698861aa8a5c3be6abe9fa574657cd526bca915/ExceptionAsserts.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6288167357664a2048f9f2a4a112fa7e1e78e77d571f3da129d5e826711c3ef/EqualityAsserts.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8e61dc8599d59e5cb39724e1dcba8ceed91d70c4af6d3459e18f6fed5282f6c/Record.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/af7e3b2da4b134194622c74726eda571c0bb4fac6fa886df92289bca8ff859/EmptyException.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/eac217589439673846d1695b6e3ca1dba9490abb03c35edb0f189479c7e77af/JwtSecurityTokenHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/tshishidev/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/tshishidev/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/tshishidev/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/tshishidev/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/tshishidev/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/tshishidev/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/tshishidev/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/tshishidev/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/tshishidev/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/tshishidev/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/tshishidev/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/tshishidev/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/tshishidev/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/tshishidev/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/tshishidev/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/tshishidev/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/tshishidev/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/tshishidev/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/tshishidev/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/tshishidev/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/tshishidev/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/tshishidev/RiderProjects/Chameleon/Application/HumanSetting/Business/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -86,44 +96,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.Chameleon: http.executor": "Run",
-    ".NET Launch Settings Profile.Chameleon: https.executor": "Run",
-    "05203120-d369-4e45-a685-145184c4e85e.executor": "Debug",
-    "1e455e0b-2bd1-406b-bc80-4c6499b2bdbc.executor": "Debug",
-    "333e729f-07b6-45ff-b44b-e261e1907e05.executor": "Debug",
-    "3b27ae94-f945-4518-b49a-d2020fbd6daf.executor": "Debug",
-    "417e87ae-c0e4-4155-aa57-eaafc436c2d0.executor": "Debug",
-    "4a0982ee-c7ab-4af9-8070-c926ca28d1f9.executor": "Debug",
-    "62b0a5b2-1ac7-4114-99a3-15210658d4b0.executor": "Debug",
-    "78fc9d19-a54d-4c94-8c7f-180200aa6be3.executor": "Debug",
-    "8d0d6bbd-7d2e-4c0c-808b-ae41a48688d2.executor": "Debug",
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Docker.Docker: Compose Deployment.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "b323ea10-506f-4568-bd74-0c7517428d2d.executor": "Debug",
-    "da4d22a8-5028-4dea-a22d-ed3d73257239.executor": "Run",
-    "daea3169-1b0c-4393-adb1-842030a4021b.executor": "Debug",
-    "ef2f2e7b-cb1f-4439-863a-86ee47badcbe.executor": "Debug",
-    "fb27a40c-d8a5-4583-a206-930a31eadf14.executor": "Debug",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.Chameleon: http.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.Chameleon: https.executor&quot;: &quot;Run&quot;,
+    &quot;05203120-d369-4e45-a685-145184c4e85e.executor&quot;: &quot;Debug&quot;,
+    &quot;1e455e0b-2bd1-406b-bc80-4c6499b2bdbc.executor&quot;: &quot;Debug&quot;,
+    &quot;333e729f-07b6-45ff-b44b-e261e1907e05.executor&quot;: &quot;Debug&quot;,
+    &quot;3b27ae94-f945-4518-b49a-d2020fbd6daf.executor&quot;: &quot;Debug&quot;,
+    &quot;417e87ae-c0e4-4155-aa57-eaafc436c2d0.executor&quot;: &quot;Debug&quot;,
+    &quot;4a0982ee-c7ab-4af9-8070-c926ca28d1f9.executor&quot;: &quot;Debug&quot;,
+    &quot;62b0a5b2-1ac7-4114-99a3-15210658d4b0.executor&quot;: &quot;Debug&quot;,
+    &quot;78fc9d19-a54d-4c94-8c7f-180200aa6be3.executor&quot;: &quot;Debug&quot;,
+    &quot;8d0d6bbd-7d2e-4c0c-808b-ae41a48688d2.executor&quot;: &quot;Debug&quot;,
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Docker.Docker.database: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.Docker: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;b323ea10-506f-4568-bd74-0c7517428d2d.executor&quot;: &quot;Debug&quot;,
+    &quot;da4d22a8-5028-4dea-a22d-ed3d73257239.executor&quot;: &quot;Run&quot;,
+    &quot;daea3169-1b0c-4393-adb1-842030a4021b.executor&quot;: &quot;Debug&quot;,
+    &quot;ef2f2e7b-cb1f-4439-863a-86ee47badcbe.executor&quot;: &quot;Debug&quot;,
+    &quot;fb27a40c-d8a5-4583-a206-930a31eadf14.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.smartKeys_rider&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Chameleon: http">
     <configuration name="Chameleon: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Chameleon.csproj" />
@@ -164,6 +175,20 @@
       <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
       <method v="2" />
     </configuration>
+    <configuration name="Docker.database: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="database" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="Docker/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
@@ -173,6 +198,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.Docker.database: Compose Deployment" />
         <item itemvalue="Docker.Docker: Compose Deployment" />
         <item itemvalue="Docker.Docker: Compose Deployment" />
       </list>
@@ -287,6 +313,13 @@
       <workItem from="1736895180198" duration="932000" />
       <workItem from="1737149766301" duration="759000" />
       <workItem from="1737197213094" duration="6070000" />
+      <workItem from="1742729919529" duration="1592000" />
+      <workItem from="1742731552460" duration="382000" />
+      <workItem from="1742731974808" duration="7855000" />
+      <workItem from="1742741186002" duration="55000" />
+      <workItem from="1742741304548" duration="12972000" />
+      <workItem from="1742835990709" duration="8389000" />
+      <workItem from="1742929058014" duration="437000" />
     </task>
     <task id="LOCAL-00001" summary="base">
       <option name="closed" value="true" />
@@ -680,19 +713,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/Tests/Integrations/CompanySettingTest/Services/CompanyServiceTest.cs</url>
-          <line>80</line>
-          <properties documentPath="$PROJECT_DIR$/Application/Tests/Integrations/CompanySettingTest/Services/CompanyServiceTest.cs" containingFunctionPresentation="Method 'CatchErrorTest'">
-            <startOffsets>
-              <option value="3114" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3234" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Application/Common/Business/Mappers/ContactDetailsMapper.cs</url>
