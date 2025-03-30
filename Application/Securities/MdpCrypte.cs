@@ -5,29 +5,15 @@ namespace Chameleon.Application.Securities;
 
 public class MdpCrypte
 {
-    [Obsolete("Obsolete")]
+    // Hacher le mot de passe avec BCrypt
     public string CryptMdp(string mdp)
     {
-        byte[] mdpByte = Encoding.UTF8.GetBytes(mdp);
-        byte[] hashKey = Encoding.UTF8.GetBytes(Constantes.Log);
-
-        using DESCryptoServiceProvider crypto = new DESCryptoServiceProvider();
-        crypto.Key = hashKey;
-        crypto.IV = hashKey;
-
-        ICryptoTransform iCrypto = crypto.CreateEncryptor();
-
-        byte[] result = iCrypto.TransformFinalBlock(mdpByte, 0, mdpByte.Length);
-
-        return Convert.ToBase64String(result);
+        return BCrypt.Net.BCrypt.HashPassword(mdp);
     }
 
-    [Obsolete("Obsolete")]
+    // Vérifier si un mot de passe correspond au hash stocké
     public bool Compart(string mdpA, string mdpB)
     {
-        if (mdpA == CryptMdp(mdpB))
-            return true;
-
-        return false;
+        return BCrypt.Net.BCrypt.Verify(mdpB, mdpA);
     }
 }

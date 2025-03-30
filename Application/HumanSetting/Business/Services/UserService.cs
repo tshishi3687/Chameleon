@@ -80,9 +80,7 @@ public class UserService(Context context) : CheckServiceBase(context)
     public Data Login(LoggerDto dto, Constantes constantes)
     {
         CheckLogger(dto);
-        CheckAuthentication(dto);
-        var user = context.User.FirstOrDefault(u =>
-            u.Email.Equals(dto.Identification) || u.Phone.Equals(dto.Identification))!;
+        var user = CheckAuthentication(dto);
 
         return GenerateClams(user, constantes, false, null);
     }
@@ -205,7 +203,7 @@ public class UserService(Context context) : CheckServiceBase(context)
     }
 
 
-    private void CheckAuthentication(LoggerDto dto)
+    private User CheckAuthentication(LoggerDto dto)
     {
         if (dto == null) throw new ArgumentException(Error.LoggerNull.ToString());
 
@@ -216,10 +214,14 @@ public class UserService(Context context) : CheckServiceBase(context)
             throw new FileNotFoundException(Error.NotFound.ToString());
         }
 
-        if (!new MdpCrypte().Compart(user.PassWord, dto.Password!))
+        if (!_crypto.Compart(user.PassWord, dto.Password!))
         {
+            Console.WriteLine(user.PassWord);
+            Console.WriteLine(dto.Password);
             throw new PasswordException(Error.NotFound.ToString());
         }
+        
+        return user;
     }
 
     private static void CheckLogger(LoggerDto dto)

@@ -19,6 +19,7 @@ builder.Services
 
 
 builder.Services.AddScoped<UserService>(); 
+builder.Services.AddScoped<MdpCrypte>(); 
 
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IConstente, Constantes>();

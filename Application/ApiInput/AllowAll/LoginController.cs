@@ -5,16 +5,16 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Chameleon.Application.ApiInput.AllowAll;
 
-public class LoginController(IHttpContextAccessor cc, Context context): BaseController(cc, context)
+public class LoginController(IHttpContextAccessor cc, Context context, UserService userService): BaseController(cc, context)
     
 {
 
     [HttpPost]
-    public async Task<IActionResult> Login([FromBody] LoggerDto dto)
+    public async Task<ActionResult<Data>> Login([FromBody] LoggerDto dto)
     {
         try
         {
-            return Ok(new UserService(Context).Login(dto, Constantes));
+            return Ok(userService.Login(dto, Constantes));
         }
         catch (Exception e)
         {
