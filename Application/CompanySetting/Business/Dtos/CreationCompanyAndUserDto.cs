@@ -1,15 +1,12 @@
 using System.ComponentModel.DataAnnotations;
-using System.Runtime.CompilerServices;
 using Chameleon.Application.HumanSetting.Business.Dtos;
 
 namespace Chameleon.Application.CompanySetting.Business.Dtos;
 
 public class CreationCompanyAndUserDto
 {
-   
-    public string? Name { get; set; }
- 
-    public string? BusinessNumber { get; set; }
-    
-    public CreationUserDto? UserDto { get; set; }
+    [Required] public string Name { get; set; }
+    [Required] public string BusinessNumber { get; set; }
+    [Required] public bool isVisible { get; set; }
+    [Required] public CreationUserDto UserDto { get; set; }
 }

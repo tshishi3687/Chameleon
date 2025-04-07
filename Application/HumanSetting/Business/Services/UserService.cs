@@ -1,14 +1,13 @@
-using System.Net;
 using System.Security.Claims;
-using System.Text;
-using System.Text.Json;
-using System.Text.RegularExpressions;
+using Chameleon.Application.Common.Business.Dtos;
 using Chameleon.Application.Common.Business.Services;
 using Chameleon.Application.CompanySetting.Business.Dtos;
 using Chameleon.Application.CompanySetting.DataAccess.Entities;
 using Chameleon.Application.HumanSetting.Business.Dtos;
+using Chameleon.Application.HumanSetting.Business.Mappers;
 using Chameleon.Application.HumanSetting.DataAccess.Entities;
 using Chameleon.Application.Securities;
+using Microsoft.EntityFrameworkCore;
 using Org.BouncyCastle.Security;
 
 namespace Chameleon.Application.HumanSetting.Business.Services;
@@ -17,20 +16,22 @@ public class UserService(Context context) : CheckServiceBase(context)
 {
     private readonly ContactDetailsService _contactDetailsService = new(context);
     private readonly MdpCrypte _crypto = new();
+    private readonly long _maxFileSizeInBytes = 5 * 1024 * 1024;
+    private SimpleUserMapper simpleUserMapper = new();
 
-    public User CreateEntity(CreationUserDto dto)
+
+    public async Task<Users> CreateEntity(CreationUserDto dto)
     {
         if (dto == null) throw new Exception(); //TODO
-
-
+        
         PasswordMatch(dto);
         IsAdult(dto.BursDateTime);
-        UniqueUser(dto);
+        await UniqueUser(dto);
 
-        var user = context.User.Add(new User(context)
+        var user = context.User.Add(new Users(context)
         {
-            FirstName = dto.FirstName,
-            LastName = dto.LastName,
+            FirstName = dto.FirstName!,
+            LastName = dto.LastName!,
             BursDateTime = dto.BursDateTime,
             Email = dto.Email,
             Phone = dto.Phone,
@@ -40,10 +41,10 @@ public class UserService(Context context) : CheckServiceBase(context)
         var uc = new UsersContactDetails
         {
             UserId = user.Id,
-            User = user
+            Users = user
         };
 
-        foreach (var cd in dto.ContactDetails.Select(contactDetailsDto =>
+        foreach (var cd in dto.ContactDetails!.Select(contactDetailsDto =>
                      _contactDetailsService.CreateEntity(contactDetailsDto)))
         {
             uc.ContactDetailsId = cd.Id;
@@ -54,7 +55,7 @@ public class UserService(Context context) : CheckServiceBase(context)
         return user;
     }
 
-    public User ReadEntity(Guid guid)
+    public async Task<Users> ReadEntity(Guid guid)
     {
         var user = context.User.SingleOrDefault(u => u.Id.Equals(guid));
         if (user == null)
@@ -65,36 +66,44 @@ public class UserService(Context context) : CheckServiceBase(context)
         return user;
     }
 
-    public User UpdateEntity(CreationUserDto dto, Guid userToModifyGuid)
+    public async Task<Users> UpdateEntity(CreationUserDto dto, Guid userToModifyGuid)
     {
-        var userRemove = context.User.FirstOrDefault(u => u.Id.Equals(userToModifyGuid));
+        var userRemove = await context.User.FirstOrDefaultAsync(u => u.Id.Equals(userToModifyGuid));
         if (userRemove == null)
         {
             throw new DllNotFoundException(Error.EntityNotFound.ToString());
         }
 
         context.User.Remove(userRemove);
-        return CreateEntity(dto);
+        return await CreateEntity(dto);
     }
 
-    public Data Login(LoggerDto dto, Constantes constantes)
+    public async Task<Passport> Login(LoggerDto dto)
     {
         CheckLogger(dto);
-        var user = CheckAuthentication(dto);
+        var user = await CheckAuthentication(dto);
 
-        return GenerateClams(user, constantes, false, null);
+        return await GenerateClams(user,false, null);
     }
 
-    public Data CreateJwtWithRoles(Constantes constantes, Guid companyGuid)
+    public async Task<Passport> CreateJwtWithRoles(Users users,Company company)
     {
-        return GenerateClams(constantes.Connected, constantes, true, companyGuid);
+        return await GenerateClams(users,true, company);
     }
 
-    public Data CreateCompanyAndUser(CreationCompanyAndUserDto dto, Constantes constantes)
+    private void AddCompanyPicture(Users users, Company company, IFormFile file)
     {
-        CheckCompanyDtoAndUserDto(dto);
+        if (file == null) throw new Exception("File is null");
+        ProcessProfilePicture(file, company);
+    }
+    
+    public async Task<Passport> CreateCompanyAndUser(CreationCompanyAndUserDto dto)
+    {
+        // var check = await context.Companies.FirstOrDefaultAsync(c => c.BusinessNumber.Equals(dto.BusinessNumber));
+        // if (check != null) throw new Exception("There already exists a company with this business number");
+        await CheckCompanyDtoAndUserDto(dto);
 
-        var user = AddUser(dto.UserDto!);
+        var user = await AddUser(dto.UserDto!);
         if (user == null) throw new ArgumentException("NotFound");
 
         // Add in table Company
@@ -102,7 +111,11 @@ public class UserService(Context context) : CheckServiceBase(context)
         {
             Name = dto.Name!,
             BusinessNumber = dto.BusinessNumber!,
-            Tutor = user
+            Tutor = user,
+            ContentType = "null",
+            FileContent = [],
+            FileName = "null",
+            IsActive = dto.isVisible
         }).Entity;
 
         // Add in table CompanyUser
@@ -110,7 +123,7 @@ public class UserService(Context context) : CheckServiceBase(context)
         {
             Company = company,
             CompanyId = company.Id,
-            User = user,
+            Users = user,
             UserId = user.Id,
             IsActive = true
         });
@@ -126,14 +139,14 @@ public class UserService(Context context) : CheckServiceBase(context)
         context.UsersRoles.Add(new UsersRoles
         {
             UserId = user.Id,
-            User = user,
+            Users = user,
             RoleId = role.Id,
             Roles = role
         });
         context.UsersRoles.Add(new UsersRoles
         {
             UserId = user.Id,
-            User = user,
+            Users = user,
             RoleId = context.Roles.Add(new Roles
             {
                 Name = EnumUsersRoles.ADMIN.ToString(),
@@ -151,6 +164,7 @@ public class UserService(Context context) : CheckServiceBase(context)
                 Users = new List<UsersRoles>()
             }).Entity.Id
         });
+        
         context.UsersRoles.Add(new UsersRoles
         {
             UserId = user.Id,
@@ -161,31 +175,28 @@ public class UserService(Context context) : CheckServiceBase(context)
                 Users = new List<UsersRoles>()
             }).Entity.Id
         });
+        await context.SaveChangesAsync();
 
-        // Save All insert.
-        context.SaveChanges();
-
-        return GenerateClams(user, constantes, false, null);
+        return await GenerateClams(user, true, company);
     }
 
-    private Data GenerateClams(User user, Constantes constantes, bool isChoseCompany, Guid? companyGuid)
+    private async Task<Passport> GenerateClams(Users users, bool isChoseCompany, Company company)
     {
         var claims = new List<Claim>
         {
-            new(ClaimTypes.Email, user.Email),
+            new(ClaimTypes.Email, users.Email),
         };
 
-        var response = new Data();
+        var response = new Passport();
 
-        var companyName = context.Companies.FirstOrDefault(c => c.Id.Equals(companyGuid))?.Name;
         if (isChoseCompany)
         {
-            var roles = context.UsersRoles
-                .Where(ur => ur.UserId.Equals(user.Id) && ur.Roles.Company.Id.Equals(companyGuid))
+            var roles = await context.UsersRoles
+                .Where(ur => ur.UserId.Equals(users.Id) && ur.Roles.Company.Id.Equals(company.Id))
                 .Select(ur => ur.Roles.Name)
-                .ToList();
-            response.CompanyName = companyName!;
-            response.Reference = companyGuid!.Value!;
+                .ToListAsync();
+            response.CompanyName = company.Name;
+            response.Reference = company.Id;
 
             foreach (var role in roles)
             {
@@ -195,33 +206,27 @@ public class UserService(Context context) : CheckServiceBase(context)
             }
         }
 
-        var token = constantes.GenerateToken(claims);
-        response.Token = "Bearer " + token;
-        response.UserName = user.LastName[0] + ". " + user.FirstName;
+        var token = _crypto.GenerateToken(claims);
+        response.Token = token;
+        response.UserName = users.LastName[0] + ". " + users.FirstName;
 
         return response;
     }
-
-
-    private User CheckAuthentication(LoggerDto dto)
+    
+    private async Task<Users> CheckAuthentication(LoggerDto dto)
     {
         if (dto == null) throw new ArgumentException(Error.LoggerNull.ToString());
 
-        var user = context.User.SingleOrDefault(u =>
+        var user = await context.User.FirstOrDefaultAsync(u =>
             u.Email.Equals(dto.Identification) || u.Phone.Equals(dto.Identification));
         if (user == null)
         {
             throw new FileNotFoundException(Error.NotFound.ToString());
         }
 
-        if (!_crypto.Compart(user.PassWord, dto.Password!))
-        {
-            Console.WriteLine(user.PassWord);
-            Console.WriteLine(dto.Password);
-            throw new PasswordException(Error.NotFound.ToString());
-        }
+        if (_crypto.Compart(user.PassWord, dto.Password!)) return user;
         
-        return user;
+        throw new PasswordException(Error.NotFound.ToString());
     }
 
     private static void CheckLogger(LoggerDto dto)
@@ -237,28 +242,81 @@ public class UserService(Context context) : CheckServiceBase(context)
         }
     }
 
-    public ICollection<User> GetCompanyUser(Company company)
+    public async Task<ICollection<SimpleUserDto>> GetCompanyUser(Users users, Guid companyId)
     {
-        var cu = company.CompanyUser();
-        return cu.Select(companyUser => context.User.FirstOrDefault(u => u.Id.Equals(companyUser.UserId))).ToList();
+        var companyUser = await context.CompanyUsers.FirstOrDefaultAsync(c => c.CompanyId.Equals(companyId) && c.UserId.Equals(users.Id));
+        if (companyUser == null) throw new ApplicationException("Company not found");
+        
+        var company = await context.Companies.FirstOrDefaultAsync(c => c.Id.Equals(companyUser.CompanyId));
+        if (company == null) throw new ApplicationException("Company not found");
+        var cu = await company.CompanyUser();
+        return cu.Select(companyUser => context.User.FirstOrDefault(u => u.Id.Equals(companyUser.UserId)))
+            .Select(u => simpleUserMapper.ToDto(u))
+            .ToList();
     }
 
-    public bool isKnown(Company company, string identification)
+    // public bool isKnown(Company company, string identification)
+    // {
+    //     var companyUser = company.CompanyUser();
+    //     var users = new List<User?>();
+    //     foreach (var user in companyUser)
+    //     {
+    //         users.Add(context.User.FirstOrDefault(u => u.Id.Equals(user.UserId)));
+    //     }
+    //
+    //     return users.Any(u => u.Email.Equals(identification) || u.Phone.Equals(identification));
+    // }
+
+    public async Task<CompanyPictureDto> GetCompanyPictureDto(Guid companyId, Users users)
     {
-        var companyUser = company.CompanyUser();
-        var users = new List<User?>();
-        foreach (var user in companyUser)
+        var company = context.Companies.FirstOrDefault(c => c.Id == companyId );
+        if (company == null) throw new FileNotFoundException(Error.NotFound.ToString());
+        
+        return new CompanyPictureDto
         {
-            users.Add(context.User.FirstOrDefault(u => u.Id.Equals(user.UserId)));
+            FileContent = company.FileContent,
+            FileName = company.FileName,
+            ContentType = company.ContentType,
+        };
+    }
+    
+    
+    private async Task<Users> AddUser(CreationUserDto dto)
+    {
+        var user = await context.User.FirstOrDefaultAsync(u => u.Email.Equals(dto.Email));
+        if (user != null) return user;
+        return  await CreateEntity(dto);
+    }
+    
+    private void ProcessProfilePicture(IFormFile? file, Company company)
+    {
+        ArgumentNullException.ThrowIfNull(file);
+
+        if (file.Length > _maxFileSizeInBytes)
+        {
+            throw new Exception("Ce fichier est trop lourd. Poid Max authorisé est de 5MB");
         }
 
-        return users.Any(u => u.Email.Equals(identification) || u.Phone.Equals(identification));
+        var allowedContentTypes = new List<string> { "image/jpeg", "image/png", "image/gif" };
+        if (!allowedContentTypes.Contains(file.ContentType))
+        {
+            throw new Exception("Ce type de fichier n'est pas authorisé.");
+        }
+
+        byte[] fileContent;
+        using (var memoryStream = new MemoryStream())
+        {
+            file.CopyTo(memoryStream);
+            fileContent = memoryStream.ToArray();
+        }
+
+        
+        company.FileName = file.FileName;
+        company.ContentType = file.ContentType;
+        company.FileContent = fileContent;
+        context.Companies.Update(company);
+        context.SaveChanges();
     }
 
-    private User AddUser(CreationUserDto dto)
-    {
-        var user = context.User.FirstOrDefault(u => u.Email.Equals(dto.Email));
-        return user ?? CreateEntity(dto);
-    }
 
 }

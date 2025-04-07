@@ -1,48 +1,84 @@
 using System.Net;
-using Chameleon.Application.CompanySetting.Business.Mappers;
+using Chameleon.Application.Common.Business.Dtos;
+using Chameleon.Application.CompanySetting.Business.Dtos;
 using Chameleon.Application.CompanySetting.Business.Services;
+using Chameleon.Application.HumanSetting.Business.Dtos;
 using Chameleon.Application.HumanSetting.Business.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Chameleon.Application.ApiInput.PermissionRequested;
 
-public class CompanyApostleController(IHttpContextAccessor cc, Context context) : BaseController(cc, context)
+public class CompanyApostleController(IHttpContextAccessor cc, Context context, CompanyService service, UserService userService) : BaseController(cc, context)
 {
 
     [HttpGet("/getMyCompanies")]
-    public IActionResult GetMyCompanies()
+    public async Task<ActionResult<CompanyEasyVueDto>> GetMyCompanies()
     {
         try
         {
-            var user = Context.User.First(u => u.Id.Equals(Constantes.Connected.Id));
+            var user = await GetUser();
             if (user == null) throw new Exception("User not found");
-            return Ok(new CompanyEasyVueMapper().ToDtos(new CompanyService(Context).GetMyCompanies(user)));
+            return Ok(await service.GetMyCompanies(user));
         }
         catch (Exception e)
         {
-            return StatusCode(HttpStatusCode.NotAcceptable.GetHashCode(),
-                $"Error {HttpStatusCode.NotAcceptable.GetHashCode()} {HttpStatusCode.NotAcceptable}: {e.Message}!");
+            await Task.Delay(5000);
+            return StatusCode(HttpStatusCode.BadRequest.GetHashCode(), $"{e.Message}");
         }
     }
 
     [HttpGet("/connectMeWithThisCompany/{companyGuid:guid}")]
-    public IActionResult ConnectMeWithThisCompany(Guid companyGuid)
+    public async Task<ActionResult<Passport>>ConnectMeWithThisCompany(Guid companyGuid)
     {
         try
         {
-            var company = Context.Companies.First(c => c.Id.Equals(companyGuid));
-            if (company == null)
-                return StatusCode(HttpStatusCode.BadRequest.GetHashCode(),
-                    $"Error {HttpStatusCode.BadRequest.GetHashCode()} {HttpStatusCode.BadRequest}: Company not found!");
-            if (!company.CompanyUser().Any(cu => cu.UserId.Equals(Constantes.Connected.Id)))
-                return StatusCode(HttpStatusCode.NotAcceptable.GetHashCode(),
+            var user = await GetUser();
+            if (user == null) throw new Exception("User not found");
+            var company = await context.Companies.FirstOrDefaultAsync(c => c.Id.Equals(companyGuid));
+            if (company == null) throw new Exception("Company not found");
+            
+            var companyUser = await company.CompanyUser();
+            if (!companyUser.Any(cu => cu.UserId.Equals(user.Id)))
+                throw new Exception(
                     $"Error {HttpStatusCode.NotAcceptable.GetHashCode()} {HttpStatusCode.NotAcceptable}: You cannot interact with this company!");
-            return Ok(new UserService(Context).CreateJwtWithRoles(Constantes, companyGuid));
+            return Ok(await userService.CreateJwtWithRoles(user, company));
         }
         catch (Exception e)
         {
-            return StatusCode(HttpStatusCode.NotAcceptable.GetHashCode(),
-                $"Error {HttpStatusCode.NotAcceptable.GetHashCode()} {HttpStatusCode.NotAcceptable}: {e.Message}");
+            await Task.Delay(5000);
+            return StatusCode(HttpStatusCode.BadRequest.GetHashCode(), $"{e.Message}");
         }
     }
+    
+    [HttpGet("/addCompanyPictur/{companyId:guid}")]
+    public async Task<ActionResult<CompanyPictureDto>> AddCompanyPictureAsync(Guid companyId)
+    {
+        try
+        {
+            var admin = await GetUser();
+            return Ok(await userService.GetCompanyPictureDto(companyId, admin));
+        }
+        catch (Exception e)
+        {
+            await Task.Delay(5000);
+            return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
+        }
+    }
+
+    [HttpGet("/getCards/{companyId:guid}/{date:datetime}")]
+    public async Task<ActionResult<CompanyEasyVueDto>> GetCards(Guid companyId, DateTime date)
+    {
+        try
+        {
+            var admin = await GetUser();
+            return Ok(await userService.GetCompanyPictureDto(companyId, admin));
+        }
+        catch (Exception e)
+        {
+            await Task.Delay(5000);
+            return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
+        }
+    }
+        
 }

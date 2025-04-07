@@ -1,8 +1,6 @@
-using Chameleon.Application.HumanSetting.DataAccess.Entities;
+namespace Chameleon.Application.Common.Business.Dtos;
 
-namespace Chameleon.Application.HumanSetting.Business.Dtos;
-
-public class Data
+public class Passport
 {
     public string Token { get; set; }
     public string UserName { get; set; }

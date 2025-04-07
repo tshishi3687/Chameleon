@@ -16,10 +16,10 @@ public class AllDto
     public CompanyEasyVueDto? CompanyEasyVue { get; set; }
     public CreationCompanyAndUserDto? CreationCompanyAndUser { get; set; }
     public MemoryDto? Memory { get; set; }
-    public TaskOrEventDto? TaskOrEvent { get; set; }
+    public TasDto? Task { get; set; }
     public LoggerDto? Logger { get; set; }
     public RolesDto? Roles { get; set; }
     public SimpleUserDto? SimpleUser { get; set; }
     public UserVueDto? UserVue { get; set; }
-    public Data? Data { get; set; }
+    public Passport? Data { get; set; }
 }

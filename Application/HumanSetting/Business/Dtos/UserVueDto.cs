@@ -13,5 +13,5 @@ public class UserVueDto
     public ICollection<ContactDetailsDto> ContactDetails { get; set; }
     public ICollection<AbsentDto> Absents { get; set; }
     public ICollection<MemoryDto> Memories { get; set; }
-    public ICollection<TaskOrEventDto> TaskOrEvents { get; set; }
+    public ICollection<TasDto> Tasks { get; set; }
 }

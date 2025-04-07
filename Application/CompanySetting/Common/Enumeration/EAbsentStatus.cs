@@ -1,8 +1,8 @@
 namespace Chameleon.Application.CompanySetting.Common.Enumeration;
 
-public enum CardType
+public enum EAbsentStatus
 {
-    Absent,
-    Memory,
-    Task 
+    PENDING,
+    ACCEPTED,
+    REJECTED,
 }

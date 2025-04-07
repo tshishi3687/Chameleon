@@ -4,19 +4,19 @@ using Chameleon.Application.Securities;
 
 namespace Chameleon.Application.HumanSetting.Business.Mappers;
 
-public class CreationUserMapper(Context context): Mappers<CreationUserDto, User>
+public class CreationUserMapper(Context context): Mappers<CreationUserDto, Users>
 {
     private readonly MdpCrypte _crypto = new();
 
-    public CreationUserDto ToDto(User entity)
+    public CreationUserDto ToDto(Users entity)
     {
         return new CreationUserDto();
     }
 
     [Obsolete("Obsolete")]
-    public User ToEntity(CreationUserDto dto)
+    public Users ToEntity(CreationUserDto dto)
     {
-        return new User(context)
+        return new Users(context)
         {
             ValidationCode = Guid.NewGuid(),
             FirstName = dto.FirstName,
@@ -28,7 +28,7 @@ public class CreationUserMapper(Context context): Mappers<CreationUserDto, User>
         };
     }
 
-    public ICollection<CreationUserDto> ToDtos(ICollection<User> entities)
+    public ICollection<CreationUserDto> ToDtos(ICollection<Users> entities)
     {
         return entities.Select(entity => ToDto(entity)).ToList();
     }

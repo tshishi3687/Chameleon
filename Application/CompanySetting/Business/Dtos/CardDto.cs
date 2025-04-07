@@ -6,7 +6,7 @@ public class CardDto
     public DateTime DateTime { get; set; }
     public AbsentDto? AbsentDetails { get; set; }
     public MemoryDto? MemoryDetails { get; set; }
-    public TaskOrEventDto? TaskOrEventDetails { get; set; }
+    public TasDto? Task { get; set; }
     public bool IsEnd { get; set; }
     public bool IsMade { get; set; }
 }

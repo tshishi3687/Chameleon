@@ -5,33 +5,20 @@ using Chameleon.Application.HumanSetting.DataAccess.Entities;
 
 namespace Chameleon.Application.HumanSetting.Business.Mappers;
 
-public class UserVueMapper : Mappers<UserVueDto, User>
+public class UserVueMapper : Mappers<UserVueDto, Users>
 {
     
-    public UserVueDto ToDto(User entity)
+    public UserVueDto ToDto(Users entity)
     {
-        var roles = entity.UserRoles().Select(ur => new RoleMapper().ToDto(ur.Roles)).ToList();
-
-        return new UserVueDto
-        {
-            Id = entity.Id,
-            FirstName = entity.FirstName,
-            LastName = entity.LastName,
-            BursDateTime = entity.BursDateTime,
-            ContactDetails = entity.UserContactDetails().Select(uc => new ContactDetailsMapper().ToDto(uc.ContactDetails)).ToList(),
-            Roles = entity.UserRoles().Select(ur => new RoleMapper().ToDto(ur.Roles)).ToList(),
-            Absents = entity.Absents().Select(a => new AbsentMapper().ToDto(a)).ToList(),
-            Memories = entity.Memories().Select(m => new MemoryMapper().ToDto(m)).ToList(),
-            TaskOrEvents = entity.TaskOrEvents().Select(te => new TaskOrEventMapper().ToDto(te)).ToList()
-        };
+        return null;
     }
 
-    public User ToEntity(UserVueDto vueDto)
+    public Users ToEntity(UserVueDto vueDto)
     {
         throw new NotImplementedException();
     }
 
-    public ICollection<UserVueDto> ToDtos(ICollection<User> entities)
+    public ICollection<UserVueDto> ToDtos(ICollection<Users> entities)
     {
         return entities.Select(ToDto).ToList();
     }

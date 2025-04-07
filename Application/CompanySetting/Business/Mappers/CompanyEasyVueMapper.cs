@@ -12,7 +12,10 @@ public class CompanyEasyVueMapper: Mappers<CompanyEasyVueDto, Company>
         {
             Id = entity.Id,
             Name = entity.Name,
-            BusinessNumber = entity.BusinessNumber
+            BusinessNumber = entity.BusinessNumber,
+            FileName = entity.FileName,
+            ContentType = entity.ContentType,
+            FileContent = entity.FileContent,
         };
     }
 

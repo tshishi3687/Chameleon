@@ -1,9 +1,9 @@
 using System.Text;
 using Chameleon;
+using Chameleon.Application.CompanySetting.Business.Services;
 using Chameleon.Application.HumanSetting.Business.Services;
 using Chameleon.Application.Securities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MySql.EntityFrameworkCore.Extensions;
@@ -19,10 +19,10 @@ builder.Services
 
 
 builder.Services.AddScoped<UserService>(); 
+builder.Services.AddScoped<CompanyService>(); 
 builder.Services.AddScoped<MdpCrypte>(); 
 
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IConstente, Constantes>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -33,12 +33,13 @@ builder.Services.AddAuthentication(options =>
     })
     .AddJwtBearer(options =>
     {
+        var crip = new MdpCrypte();
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = false,
             ValidateAudience = false,
             ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Constantes.SecretToken))
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(crip.SecretToken))
         };
     });
 builder.Services.AddSwaggerGen(c =>

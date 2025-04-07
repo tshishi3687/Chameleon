@@ -1,38 +1,31 @@
-using Chameleon.Application.CompanySetting.DataAccess.Entities;
+using Chameleon.Application.HumanSetting;
+using Chameleon.Application.HumanSetting.DataAccess.Entities;
 using Chameleon.Application.Securities;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Chameleon.Application.ApiInput;
 
 [ApiController]
 [Route("[controller]")]
-public abstract class BaseController: Controller
+public abstract class BaseController(IHttpContextAccessor cc, Context context): Controller
 {
-    protected readonly Context Context;
-    protected readonly Constantes Constantes;
     
-    protected BaseController(IHttpContextAccessor cc, Context context)
+    protected async Task<Users> GetUser()
     {
-        Constantes = new Constantes(context);
-        Context = context;
         var accessToken = cc.HttpContext?.GetTokenAsync("access_token").Result;
-        if (accessToken != null)
-        {
-            Constantes.UseThisUserConnected(accessToken);
-        }
+        var user = await context.User.FirstOrDefaultAsync(u => u.Email.Equals(accessToken) || u.Phone.Equals(accessToken));
+        if (user == null)throw new Exception("User not found");
+        return user;
     }
 
-    protected Company Getcompany(Guid companyGuid)
+    protected async Task<Users> GetAdmin(Guid companyId)
     {
-        var company = Context.Companies.First(c => c.Id.Equals(companyGuid));
-        if (company == null) throw new Exception("Impossible to define the company!");
-        return company;
-    }
-
-    protected void UserMatchCompany(Guid companyGuid)
-    {
-        if (!Getcompany(companyGuid).CompanyUser().Any(cu => cu.UserId.Equals(Constantes.Connected.Id)))
-            throw new Exception("User does not interfere in this company");
+        var user = await GetUser();
+        var roles  = await context.UsersRoles
+            .AnyAsync(ur => ur.UserId.Equals(user.Id) && ur.Roles.Company.Id.Equals(companyId) && (ur.Roles.Name.Equals(EnumUsersRoles.SUPER_ADMIN) || ur.Roles.Name.Equals(EnumUsersRoles.ADMIN)));
+        if (!roles) throw new Exception($"User {user.Email} is not an administrator");
+        return user;
     }
 }

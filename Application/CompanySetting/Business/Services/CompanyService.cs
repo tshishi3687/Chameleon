@@ -1,5 +1,6 @@
 using Chameleon.Application.Common.Business.Services;
 using Chameleon.Application.CompanySetting.Business.Dtos;
+using Chameleon.Application.CompanySetting.Business.Mappers;
 using Chameleon.Application.CompanySetting.DataAccess.Entities;
 using Chameleon.Application.HumanSetting;
 using Chameleon.Application.HumanSetting.Business.Dtos;
@@ -11,33 +12,33 @@ namespace Chameleon.Application.CompanySetting.Business.Services;
 
 public class CompanyService(Context context) : CheckServiceBase(context)
 {
-    private readonly UserService _userService = new(context);
+    
+    private CompanyEasyVueMapper _companyEasyVueMapper = new();
 
+    // public Company AddUserInCompany(CreationUserDto dto, Company company)
+    // {
+    //     CheckUserDto(dto);
+    //     if (dto.Roles.IsNullOrEmpty()) throw new Exception("Roles");
+    //     var companyUser = AddCompanyUser(company, AddUser(dto));
+    //
+    //     AddUserRoles(companyUser.User, dto, companyUser.Company);
+    //
+    //     context.SaveChanges();
+    //     return companyUser.Company;
+    // }
 
-    public Company AddUserInCompany(CreationUserDto dto, Company company)
-    {
-        CheckUserDto(dto);
-        if (dto.Roles.IsNullOrEmpty()) throw new Exception("Roles");
-        var companyUser = AddCompanyUser(company, AddUser(dto));
-
-        AddUserRoles(companyUser.User, dto, companyUser.Company);
-
-        context.SaveChanges();
-        return companyUser.Company;
-    }
-
-    public ICollection<Company> GetMyCompanies(User user)
+    public async Task<ICollection<CompanyEasyVueDto>> GetMyCompanies(Users users)
     {
         var list = new List<Company>();
-        foreach (var companyUser in user.Companies())
+        foreach (var companyUser in await users.Companies())
         {
             list.Add(context.Companies.First(c => c.Id.Equals(companyUser.CompanyId)));
         }
 
-        return list;
+        return _companyEasyVueMapper.ToDtos(list);
     }
 
-    private void AddUserRoles(User user, CreationUserDto dto, Company company)
+    private void AddUserRoles(Users users, CreationUserDto dto, Company company)
     {
         foreach (var role in dto.Roles)
         {
@@ -54,28 +55,28 @@ public class CompanyService(Context context) : CheckServiceBase(context)
                 }).Entity;
             context.UsersRoles.Add(new UsersRoles
             {
-                UserId = user.Id,
-                User = user,
+                UserId = users.Id,
+                Users = users,
                 RoleId = r.Id,
                 Roles = r
             });
         }
     }
 
-    private User AddUser(CreationUserDto dto)
-    {
-        var user = context.User.FirstOrDefault(u => u.Email.Equals(dto.Email));
-        return user ?? _userService.CreateEntity(dto);
-    }
+    // private User AddUser(CreationUserDto dto)
+    // {
+    //     var user = context.User.FirstOrDefault(u => u.Email.Equals(dto.Email));
+    //     return user ?? userService.CreateEntity(dto);
+    // }
 
-    private CompanyUser AddCompanyUser(Company companyConcerned, User user)
+    private CompanyUser AddCompanyUser(Company companyConcerned, Users users)
     {
         return context.CompanyUsers.Add(new CompanyUser
         {
             CompanyId = companyConcerned.Id,
             Company = companyConcerned,
-            User = user,
-            UserId = user.Id,
+            Users = users,
+            UserId = users.Id,
             IsActive = true
         }).Entity;
     }

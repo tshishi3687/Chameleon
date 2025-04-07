@@ -5,12 +5,13 @@ using Chameleon.Application.CompanySetting.DataAccess.EntityConfig;
 using Chameleon.Application.HumanSetting.DataAccess.Entities;
 using Chameleon.Application.HumanSetting.DataAccess.EntityConfig;
 using Microsoft.EntityFrameworkCore;
+using Task = Chameleon.Application.CompanySetting.DataAccess.Entities.Task;
 
 namespace Chameleon;
 
 public class Context : DbContext
 {
-    public DbSet<User> User { get; set; }
+    public DbSet<Users> User { get; set; }
     public DbSet<Roles> Roles { get; set; }
     public DbSet<UsersRoles> UsersRoles { get; set; }
     public DbSet<Locality> Localities { get; set; }
@@ -20,11 +21,8 @@ public class Context : DbContext
     public DbSet<Company> Companies { get; set; }
     public DbSet<CompanyUser> CompanyUsers { get; set; }
     public DbSet<Absent> Absents { get; set; }
-    public DbSet<Memory> Memories { get; set; }
-    public DbSet<TaskOrEvent> TaskOrEvents { get; set; }
-    public DbSet<TaskOrEventUser> TaskOrEventUsers { get; set; }
-    public DbSet<Card> Cards { get; set; }
-    public DbSet<CompanyCard> CompanyCards { get; set; }
+    public DbSet<Task> Tasks { get; set; }
+    public DbSet<TaskUser> TaskUsers { get; set; }
 
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -49,11 +47,8 @@ public class Context : DbContext
         modelBuilder.ApplyConfiguration(new CompanyConfig());
         modelBuilder.ApplyConfiguration(new CompanyUserConfig());
         modelBuilder.ApplyConfiguration(new AbsentConfig());
-        modelBuilder.ApplyConfiguration(new MemoryConfig());
-        modelBuilder.ApplyConfiguration(new TaskOrEventConfig());
-        modelBuilder.ApplyConfiguration(new TaskOrEventUserConfig());
-        modelBuilder.ApplyConfiguration(new CardConfig());
-        modelBuilder.ApplyConfiguration(new CompanyCardConfig());
+        modelBuilder.ApplyConfiguration(new TaskConfig());
+        modelBuilder.ApplyConfiguration(new TaskUserConfig());
 
         // Allimenter la DB
 

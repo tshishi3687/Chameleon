@@ -7,6 +7,6 @@ public class CompanyUser
     public Guid CompanyId { get; set; }
     public Company Company { get; set; }
     public Guid UserId { get; set; }
-    public User User { get; set; }
+    public Users Users { get; set; }
     public bool IsActive { get; set; }
 }

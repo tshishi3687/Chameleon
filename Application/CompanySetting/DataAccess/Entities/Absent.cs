@@ -1,11 +1,12 @@
-using Chameleon.Application.Common.DataAccess.Entities;
-using Chameleon.Application.CompanySetting.Common.Interface;
+
+using Chameleon.Application.CompanySetting.Common.Enumeration;
 using Chameleon.Application.HumanSetting.DataAccess.Entities;
 
 namespace Chameleon.Application.CompanySetting.DataAccess.Entities;
 
-public class Absent: BaseEntity, ICardType
+public class Absent:BaseCompanyCard
 {
-    public User MadeBy { get; set; }
-    public Guid MadeById { get; set; }
+    public Users? AcceptedBy { get; set; }
+    public Guid? AcceptedById { get; set; }
+    public EAbsentStatus Status { get; set; }
 }

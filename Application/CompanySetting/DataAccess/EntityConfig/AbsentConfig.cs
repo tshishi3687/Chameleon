@@ -10,11 +10,11 @@ public class AbsentConfig: IEntityTypeConfiguration<Absent>
     {
         builder.ToTable("Absent");
         
-        builder.HasKey(x => x.Id).HasName("PK_company");
+        builder.HasKey(x => x.Id).HasName("PK_Absent");
         builder.Property(x => x.Id).ValueGeneratedOnAdd();
       
-        builder.HasOne(c => c.MadeBy)
+        builder.HasOne(c => c.CreatedBy)
             .WithOne()
-            .HasForeignKey<Absent>(c => c.MadeById);
+            .HasForeignKey<Absent>(c => c.CreatedById);
     }
 }

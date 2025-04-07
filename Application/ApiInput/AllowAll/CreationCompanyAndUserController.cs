@@ -1,7 +1,6 @@
 using System.Net;
+using Chameleon.Application.Common.Business.Dtos;
 using Chameleon.Application.CompanySetting.Business.Dtos;
-using Chameleon.Application.CompanySetting.Business.Mappers;
-using Chameleon.Application.CompanySetting.Business.Services;
 using Chameleon.Application.HumanSetting.Business.Dtos;
 using Chameleon.Application.HumanSetting.Business.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -9,16 +8,14 @@ using Microsoft.AspNetCore.Mvc;
 namespace Chameleon.Application.ApiInput.AllowAll;
 
 
-public class CreationCompanyAndUserController(IHttpContextAccessor cc, Context context): BaseController(cc, context)
+public class CreationCompanyAndUserController(IHttpContextAccessor cc, Context context, UserService userService): BaseController(cc, context)
 {
-    private readonly CompanyEasyVueMapper _mapper = new();
-    
     [HttpPost()]
-    public async Task<ActionResult<Data>> CreationCompanyAndUser([FromBody] CreationCompanyAndUserDto dto)
+    public async Task<ActionResult<Passport>> CreationCompanyAndUser([FromBody] CreationCompanyAndUserDto dto)
     {
         try
         {
-            return Ok(new UserService(Context).CreateCompanyAndUser(dto, Constantes));
+            return Ok(await userService.CreateCompanyAndUser(dto));
         }
         catch (Exception e)
         {
@@ -27,4 +24,5 @@ public class CreationCompanyAndUserController(IHttpContextAccessor cc, Context c
         }
             
     }
+    
 }

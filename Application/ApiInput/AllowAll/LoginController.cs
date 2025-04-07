@@ -1,4 +1,5 @@
 using System.Net;
+using Chameleon.Application.Common.Business.Dtos;
 using Chameleon.Application.HumanSetting.Business.Dtos;
 using Chameleon.Application.HumanSetting.Business.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -10,11 +11,11 @@ public class LoginController(IHttpContextAccessor cc, Context context, UserServi
 {
 
     [HttpPost]
-    public async Task<ActionResult<Data>> Login([FromBody] LoggerDto dto)
+    public async Task<ActionResult<Passport>> Login([FromBody] LoggerDto dto)
     {
         try
         {
-            return Ok(userService.Login(dto, Constantes));
+            return Ok(await userService.Login(dto));
         }
         catch (Exception e)
         {

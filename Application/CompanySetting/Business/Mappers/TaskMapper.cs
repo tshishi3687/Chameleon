@@ -1,40 +1,37 @@
 using Chameleon.Application.CompanySetting.Business.Dtos;
-using Chameleon.Application.CompanySetting.DataAccess.Entities;
 using Chameleon.Application.HumanSetting.Business.Dtos;
 using Chameleon.Application.HumanSetting.Business.Mappers;
+using Task = Chameleon.Application.CompanySetting.DataAccess.Entities.Task;
 
 namespace Chameleon.Application.CompanySetting.Business.Mappers;
 
-public class TaskOrEventMapper: Mappers<TaskOrEventDto, TaskOrEvent>
+public class TaskMapper: Mappers<TasDto, Task>
 {
     private readonly SimpleUserMapper _simpleUserMapper = new();
     
-    public TaskOrEventDto ToDto(TaskOrEvent entity)
+    public TasDto ToDto(Task entity)
     {
-        var taskOrEvent = new TaskOrEventDto
+        var taskOrEvent = new TasDto
         {
             id = entity.Id,
-            MadeBy = _simpleUserMapper.ToDto(entity.MadeBy),
-            MadeById = entity.MadeById,
+            CardType = entity.CardType,
             Title = entity.Title,
             Description = entity.Description,
+            From = entity.From,
+            To = entity.To,
+            IsEnd = entity.IsEnd,
             Participant = new List<SimpleUserDto>()
         };
-
-        foreach (var taskOrEventUser in entity.Participant())
-        {
-            taskOrEvent.Participant.Add(_simpleUserMapper.ToDto(taskOrEventUser.User));
-        }
 
         return taskOrEvent;
     }
 
-    public TaskOrEvent ToEntity(TaskOrEventDto dto)
+    public Task ToEntity(TasDto dto)
     {
         throw new NotImplementedException();
     }
 
-    public ICollection<TaskOrEventDto> ToDtos(ICollection<TaskOrEvent> entities)
+    public ICollection<TasDto> ToDtos(ICollection<Task> entities)
     {
         return entities.Select(ToDto).ToList();
     }

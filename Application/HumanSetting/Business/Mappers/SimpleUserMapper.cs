@@ -3,9 +3,9 @@ using Chameleon.Application.HumanSetting.DataAccess.Entities;
 
 namespace Chameleon.Application.HumanSetting.Business.Mappers;
 
-public class SimpleUserMapper: Mappers<SimpleUserDto, User>
+public class SimpleUserMapper: Mappers<SimpleUserDto, Users>
 {
-    public SimpleUserDto ToDto(User entity)
+    public SimpleUserDto ToDto(Users entity)
     {
         return new SimpleUserDto
         {
@@ -15,12 +15,12 @@ public class SimpleUserMapper: Mappers<SimpleUserDto, User>
         };
     }
 
-    public User ToEntity(SimpleUserDto dto)
+    public Users ToEntity(SimpleUserDto dto)
     {
         throw new NotImplementedException();
     }
 
-    public ICollection<SimpleUserDto> ToDtos(ICollection<User> entities)
+    public ICollection<SimpleUserDto> ToDtos(ICollection<Users> entities)
     {
         return entities.Select(ToDto).ToList();
     }

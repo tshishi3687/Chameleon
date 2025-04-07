@@ -4,4 +4,5 @@ public interface ITitleDescription
 {
     string Title { get; set; }
     string Description { get; set; }
+    bool IsEnd { get; set; }
 }

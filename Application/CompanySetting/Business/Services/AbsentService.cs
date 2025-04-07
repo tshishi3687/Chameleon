@@ -1,4 +1,5 @@
 using Chameleon.Application.Common.Business.Services;
+using Chameleon.Application.CompanySetting.Common.Enumeration;
 using Chameleon.Application.CompanySetting.DataAccess.Entities;
 using Chameleon.Application.HumanSetting.DataAccess.Entities;
 
@@ -6,12 +7,13 @@ namespace Chameleon.Application.CompanySetting.Business.Services;
 
 public class AbsentService(Context context) : CheckServiceBase(context)
 {
-    public Absent CreateEntity(User user)
+    public Absent CreateEntity(Users users)
     {
         return context.Absents.Add(new Absent
         {
-            MadeBy = user,
-            MadeById = user.Id
+            AcceptedBy = users,
+            AcceptedById = users.Id,
+            Status = EAbsentStatus.PENDING
         }).Entity;
     }
 
@@ -27,12 +29,12 @@ public class AbsentService(Context context) : CheckServiceBase(context)
         return context.Absents.ToList();
     }
 
-    public Absent UpdateEntity(Guid guid, User user)
+    public Absent UpdateEntity(Guid guid, Users users)
     {
         var absent = context.Absents.First(a => a.Id.Equals(guid));
         if (absent == null) throw new FileNotFoundException($"Absent with id: {guid} not found");
         context.Absents.Remove(absent);
-        return CreateEntity(user);
+        return CreateEntity(users);
     }
 
     public void DeleteEntity(Guid guid)

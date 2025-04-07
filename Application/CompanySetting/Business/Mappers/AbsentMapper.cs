@@ -13,7 +13,10 @@ public class AbsentMapper: Mappers<AbsentDto, Absent>
         return new AbsentDto
         {
             Id = entity.Id,
-            MadeBy = _simpleUserMapper.ToDto(entity.MadeBy)
+            ForUsers = _simpleUserMapper.ToDto(entity.CreatedBy),
+            Status = entity.Status,
+            From = entity.From,
+            To = entity.To,
         };
     }
 

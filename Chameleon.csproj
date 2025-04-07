@@ -33,7 +33,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Application\ApiInput\PermissionRequested_Super_Admin\" />
+      <Folder Include="Application\Tests\Integrations\Common\Services\" />
       <Folder Include="Application\Tests\Integrations\HumanSettingTest\" />
       <Folder Include="FrontEnd\" />
       <Folder Include="Migrations\" />

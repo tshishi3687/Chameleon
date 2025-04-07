@@ -2,7 +2,6 @@ using System.Runtime;
 using Chameleon.Application.CompanySetting.Business.Dtos;
 using Chameleon.Application.HumanSetting.Business.Dtos;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 
 namespace Chameleon.Application.Common.Business.Services;
 
@@ -25,9 +24,9 @@ public abstract class CheckServiceBase(Context context)
         }
     }
 
-    protected void UniqueUser(CreationUserDto dto)
+    protected async Task UniqueUser(CreationUserDto dto)
     {
-        if ( context.User.Any(u => u.Email.Equals(dto.Email) || u.Phone.Equals(dto.Phone)))
+        if ( await context.User.AnyAsync(u => u.Email.Equals(dto.Email) || u.Phone.Equals(dto.Phone)))
         {
             throw new Exception($"There already exists a user with this email: {dto.Email} or this phone {dto.Phone}!");
         }
@@ -54,19 +53,20 @@ public abstract class CheckServiceBase(Context context)
         }
     }
 
-    protected void CheckCompanyDtoAndUserDto(CreationCompanyAndUserDto dto)
+    protected async Task  CheckCompanyDtoAndUserDto(CreationCompanyAndUserDto dto)
     {
         if (dto == null) throw new Exception("Dto can't be null!!");
-        CheckCompany(dto);
+        await CheckCompany(dto);
         if (dto.UserDto == null) throw new Exception("User dto can't be null");
         CheckUserDto(dto.UserDto);
     }
 
-    private void CheckCompany(CreationCompanyAndUserDto dto)
+    private async Task CheckCompany(CreationCompanyAndUserDto dto)
     {
         if (string.IsNullOrWhiteSpace(dto.Name)) throw new ArgumentException("Company name can't be null!");
         if (string.IsNullOrWhiteSpace(dto.BusinessNumber)) throw new ArgumentException("Company business number can't be null!");
-        if (context.Companies.Any(c => c.BusinessNumber.Equals(dto.BusinessNumber))) throw new Exception("There already exists a company with this business number");
+        var check = await context.Companies.FirstOrDefaultAsync(c => c.BusinessNumber.Equals(dto.BusinessNumber));
+        if (check != null) throw new Exception("There already exists a company with this business number");
     }
 
     protected static void CheckUserDto(CreationUserDto dto)

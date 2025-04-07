@@ -4,10 +4,10 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Chameleon.Application.CompanySetting.DataAccess.EntityConfig;
 
-public class TaskOrEventUserConfig : IEntityTypeConfiguration<TaskOrEventUser>
+public class TaskUserConfig : IEntityTypeConfiguration<TaskUser>
 {
-    public void Configure(EntityTypeBuilder<TaskOrEventUser> builder)
+    public void Configure(EntityTypeBuilder<TaskUser> builder)
     {
-        builder.HasKey(x => new { x.TaskOrEventGuid, x.UserGuid });
+        builder.HasKey(x => new { x.TaskId, x.UserId });
     }
 }
