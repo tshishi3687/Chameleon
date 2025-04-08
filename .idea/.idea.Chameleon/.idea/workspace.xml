@@ -8,81 +8,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/CompanyPicture.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/EventService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/CompanySetting/Common/Enumeration/EAbsentStatus.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/BaseCompanyCard.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/Users.cs" afterDir="false" />
+    <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="init 07/04">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/ApiInput/AllowAll/CreationCompanyAndUserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/ApiInput/AllowAll/CreationCompanyAndUserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/ApiInput/AllowAll/GetMe.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/ApiInput/AllowAll/LoginController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/ApiInput/AllowAll/LoginController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/ApiInput/BaseController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/ApiInput/BaseController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/ApiInput/PermissionRequested/CompanyApostleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/ApiInput/PermissionRequested/CompanyApostleController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/ApiInput/PermissionRequested_Super_Admin_and_Admin/CompanyJcController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/ApiInput/PermissionRequested_Super_Admin_and_Admin/UserJcController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/ApiInput/PermissionRequested_Super_Admin_and_Admin/UserJcController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Common/Business/Dtos/AllDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Business/Dtos/AllDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Common/Business/Dtos/Data.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Business/Dtos/Passport.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Common/Business/Services/CheckServiceBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Business/Services/CheckServiceBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/AbsentDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/AbsentDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/CardDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/CardDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/CompanyEasyVueDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/CompanyEasyVueDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/CreationCompanyAndUserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/CreationCompanyAndUserDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/TaskOrEventDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Dtos/TasDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Mappers/AbsentMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Mappers/AbsentMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Mappers/CardMapper.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Mappers/CompanyEasyVueMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Mappers/CompanyEasyVueMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Mappers/MemoryMapper.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Mappers/TaskOrEventMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Mappers/TaskMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/AbsentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/AbsentService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/CardService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/MemoryService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/TaskOrEventService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Common/Enumeration/CardType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/Common/Enumeration/CardType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Common/Interface/ICardType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/Common/Interface/ICardType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Common/Interface/ITitleDescription.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/Common/Interface/ITitleDescription.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/Absent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/Absent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/Card.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/Company.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/Company.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/CompanyCard.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/CompanyUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/CompanyUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/Memory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/Task.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/TaskOrEvent.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/TaskOrEventUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/Entities/TaskUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/EntityConfig/AbsentConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/EntityConfig/AbsentConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/EntityConfig/CardConfig.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/EntityConfig/CompanyCardConfig.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/EntityConfig/MemoryConfig.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/EntityConfig/TaskOrEventConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/EntityConfig/TaskConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/EntityConfig/TaskOrEventUserConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/DataAccess/EntityConfig/TaskUserConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Dtos/UserVueDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Dtos/UserVueDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/CreationUserMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/CreationUserMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/SimpleUserMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/SimpleUserMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/UserVueMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/UserVueMapper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/User.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/UsersContactDetails.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/UsersContactDetails.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/UsersRoles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/UsersRoles.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/EntityConfig/UserConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/EntityConfig/UserConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Securities/Constantes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Securities/IConstente.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Securities/IConstente.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/Users.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/Users.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/EntityConfig/UserRoleConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/EntityConfig/UserRoleConfig.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Securities/MdpCrypte.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Securities/MdpCrypte.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/BaseModelsForTests.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/Common/Services/ContactDetailsServiceTest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/Common/Services/CountryServiceTest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/Common/Services/LocalityServiceTest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Tests/Integrations/HumanSettingTest/Services/UserServiceTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Tests/Integrations/HumanSettingTest/Services/UserServiceTest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chameleon.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Chameleon.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chameleon.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Chameleon.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Context.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Context.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20240424181325_InitDb.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20240424181325_InitDb.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/20250407192146_InitDataBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20240429185229_RemoveUniqueRoleName.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/20250407192146_InitDataBase.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20240429185229_RemoveUniqueRoleName.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20250407192146_InitDataBase.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/20250408111130_InitDataBase.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20250407192146_InitDataBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/20250408111130_InitDataBase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Migrations/ContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/ContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -375,7 +313,7 @@
       <workItem from="1743674541855" duration="2238000" />
       <workItem from="1743789521978" duration="3460000" />
       <workItem from="1744016522586" duration="13452000" />
-      <workItem from="1744042469118" duration="10711000" />
+      <workItem from="1744042469118" duration="16695000" />
     </task>
     <task id="LOCAL-00001" summary="base">
       <option name="closed" value="true" />
@@ -713,7 +651,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742931476174</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="init 07/04">
+      <option name="closed" value="true" />
+      <created>1744059861319</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1744059861319</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -735,7 +681,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="clean code" />
     <MESSAGE value="File restructuring" />
     <MESSAGE value="restructuring files part two" />
     <MESSAGE value="restructuring of test files" />
@@ -760,7 +705,8 @@
     <MESSAGE value="init migration" />
     <MESSAGE value="updtae Context.cs" />
     <MESSAGE value="CreatetCompanyAndUsers" />
-    <option name="LAST_COMMIT_MESSAGE" value="CreatetCompanyAndUsers" />
+    <MESSAGE value="init 07/04" />
+    <option name="LAST_COMMIT_MESSAGE" value="init 07/04" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -792,32 +738,6 @@
           <option name="timeStamp" value="136" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/ApiInput/AllowAll/CreationCompanyAndUserController.cs</url>
-          <line>17</line>
-          <properties documentPath="$PROJECT_DIR$/Application/ApiInput/AllowAll/CreationCompanyAndUserController.cs" containingFunctionPresentation="Method 'CreationCompanyAndUser'">
-            <startOffsets>
-              <option value="640" />
-            </startOffsets>
-            <endOffsets>
-              <option value="695" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="148" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs</url>
-          <line>106</line>
-          <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'CreateCompanyAndUser'">
-            <startOffsets>
-              <option value="3556" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3595" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="149" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Application/Common/Business/Services/CheckServiceBase.cs</url>
           <line>58</line>
           <properties documentPath="$PROJECT_DIR$/Application/Common/Business/Services/CheckServiceBase.cs" containingFunctionPresentation="Method 'CheckCompanyDtoAndUserDto'">
@@ -832,159 +752,237 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs</url>
-          <line>110</line>
+          <line>165</line>
           <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'CreateCompanyAndUser'">
             <startOffsets>
-              <option value="3704" />
+              <option value="5208" />
             </startOffsets>
             <endOffsets>
-              <option value="4027" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="153" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs</url>
-          <line>122</line>
-          <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'CreateCompanyAndUser'">
-            <startOffsets>
-              <option value="4073" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4286" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="154" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs</url>
-          <line>131</line>
-          <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'CreateCompanyAndUser'">
-            <startOffsets>
-              <option value="4296" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4495" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="155" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs</url>
-          <line>139</line>
-          <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'CreateCompanyAndUser'">
-            <startOffsets>
-              <option value="4539" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4709" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="156" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs</url>
-          <line>146</line>
-          <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'CreateCompanyAndUser'">
-            <startOffsets>
-              <option value="4718" />
-            </startOffsets>
-            <endOffsets>
-              <option value="5059" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="157" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs</url>
-          <line>157</line>
-          <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'CreateCompanyAndUser'">
-            <startOffsets>
-              <option value="5068" />
-            </startOffsets>
-            <endOffsets>
-              <option value="5386" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="158" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs</url>
-          <line>168</line>
-          <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'CreateCompanyAndUser'">
-            <startOffsets>
-              <option value="5404" />
-            </startOffsets>
-            <endOffsets>
-              <option value="5720" />
+              <option value="5524" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="159" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs</url>
-          <line>178</line>
+          <line>175</line>
           <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'CreateCompanyAndUser'">
             <startOffsets>
-              <option value="5729" />
+              <option value="5533" />
             </startOffsets>
             <endOffsets>
-              <option value="5762" />
+              <option value="5566" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="160" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs</url>
-          <line>180</line>
+          <line>177</line>
           <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'CreateCompanyAndUser'">
             <startOffsets>
-              <option value="5772" />
+              <option value="5576" />
             </startOffsets>
             <endOffsets>
-              <option value="5820" />
+              <option value="5624" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="161" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs</url>
-          <line>209</line>
+          <line>206</line>
           <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'GenerateClams'">
             <startOffsets>
-              <option value="6663" />
+              <option value="6467" />
             </startOffsets>
             <endOffsets>
-              <option value="6705" />
+              <option value="6509" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="162" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs</url>
-          <line>104</line>
-          <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'CreateCompanyAndUser'">
+          <url>file://$PROJECT_DIR$/Application/ApiInput/AllowAll/LoginController.cs</url>
+          <line>17</line>
+          <properties documentPath="$PROJECT_DIR$/Application/ApiInput/AllowAll/LoginController.cs" containingFunctionPresentation="Method 'Login'">
             <startOffsets>
-              <option value="3515" />
+              <option value="535" />
             </startOffsets>
             <endOffsets>
-              <option value="3546" />
+              <option value="575" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="163" />
+          <option name="timeStamp" value="167" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs</url>
-          <line>101</line>
-          <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'CreateCompanyAndUser'">
+          <line>83</line>
+          <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'Login'">
             <startOffsets>
-              <option value="3283" />
+              <option value="2736" />
             </startOffsets>
             <endOffsets>
-              <option value="3389" />
+              <option value="2753" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="166" />
+          <option name="timeStamp" value="168" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs</url>
+          <line>84</line>
+          <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'Login'">
+            <startOffsets>
+              <option value="2762" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2804" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="169" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs</url>
+          <line>217</line>
+          <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'CheckAuthentication'">
+            <startOffsets>
+              <option value="6814" />
+            </startOffsets>
+            <endOffsets>
+              <option value="6955" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="170" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs</url>
+          <line>224</line>
+          <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'CheckAuthentication'">
+            <startOffsets>
+              <option value="7083" />
+            </startOffsets>
+            <endOffsets>
+              <option value="7133" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="171" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs</url>
+          <line>221</line>
+          <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'CheckAuthentication'">
+            <startOffsets>
+              <option value="7004" />
+            </startOffsets>
+            <endOffsets>
+              <option value="7063" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="172" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs</url>
+          <line>219</line>
+          <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'CheckAuthentication'">
+            <startOffsets>
+              <option value="6964" />
+            </startOffsets>
+            <endOffsets>
+              <option value="6981" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="173" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Application/Common/Business/Services/CheckServiceBase.cs</url>
+          <line>59</line>
+          <properties documentPath="$PROJECT_DIR$/Application/Common/Business/Services/CheckServiceBase.cs" containingFunctionPresentation="Method 'CheckCompanyDtoAndUserDto'">
+            <startOffsets>
+              <option value="1972" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1996" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="174" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Application/Common/Business/Services/CheckServiceBase.cs</url>
+          <line>60</line>
+          <properties documentPath="$PROJECT_DIR$/Application/Common/Business/Services/CheckServiceBase.cs" containingFunctionPresentation="Method 'CheckCompanyDtoAndUserDto'">
+            <startOffsets>
+              <option value="2052" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2078" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="175" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Application/ApiInput/PermissionRequested/CompanyApostleController.cs</url>
+          <line>59</line>
+          <properties documentPath="$PROJECT_DIR$/Application/ApiInput/PermissionRequested/CompanyApostleController.cs" containingFunctionPresentation="Method 'AddCompanyPictureAsync'">
+            <startOffsets>
+              <option value="2372" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2440" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="176" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs</url>
+          <line>270</line>
+          <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'GetCompanyPictureDto'">
+            <startOffsets>
+              <option value="8991" />
+            </startOffsets>
+            <endOffsets>
+              <option value="9011" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="177" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs</url>
+          <line>272</line>
+          <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'GetCompanyPictureDto'">
+            <startOffsets>
+              <option value="9089" />
+            </startOffsets>
+            <endOffsets>
+              <option value="9273" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="178" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Application/ApiInput/BaseController.cs</url>
+          <line>17</line>
+          <properties documentPath="$PROJECT_DIR$/Application/ApiInput/BaseController.cs" containingFunctionPresentation="Method 'GetUser'">
+            <startOffsets>
+              <option value="644" />
+            </startOffsets>
+            <endOffsets>
+              <option value="759" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="179" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Application/ApiInput/BaseController.cs</url>
+          <line>18</line>
+          <properties documentPath="$PROJECT_DIR$/Application/ApiInput/BaseController.cs" containingFunctionPresentation="Method 'GetUser'">
+            <startOffsets>
+              <option value="768" />
+            </startOffsets>
+            <endOffsets>
+              <option value="785" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="180" />
         </line-breakpoint>
         <breakpoint enabled="true" type="DotNet Exception Breakpoints">
           <properties exception="System.InvalidOperationException" isInternal="false" displayValue="InvalidOperationException" namespaceName="System">

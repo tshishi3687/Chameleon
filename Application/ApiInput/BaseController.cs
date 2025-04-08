@@ -11,10 +11,10 @@ namespace Chameleon.Application.ApiInput;
 [Route("[controller]")]
 public abstract class BaseController(IHttpContextAccessor cc, Context context): Controller
 {
-    
+    private MdpCrypte _mdpCrypte = new MdpCrypte();
     protected async Task<Users> GetUser()
     {
-        var accessToken = cc.HttpContext?.GetTokenAsync("access_token").Result;
+        var accessToken = _mdpCrypte.Identified(cc.HttpContext?.GetTokenAsync("access_token").Result);
         var user = await context.User.FirstOrDefaultAsync(u => u.Email.Equals(accessToken) || u.Phone.Equals(accessToken));
         if (user == null)throw new Exception("User not found");
         return user;

@@ -65,8 +65,8 @@ public abstract class CheckServiceBase(Context context)
     {
         if (string.IsNullOrWhiteSpace(dto.Name)) throw new ArgumentException("Company name can't be null!");
         if (string.IsNullOrWhiteSpace(dto.BusinessNumber)) throw new ArgumentException("Company business number can't be null!");
-        var check = await context.Companies.FirstOrDefaultAsync(c => c.BusinessNumber.Equals(dto.BusinessNumber));
-        if (check != null) throw new Exception("There already exists a company with this business number");
+        var check = await context.Companies.AnyAsync(c => c.BusinessNumber.Equals(dto.BusinessNumber));
+        if (check ) throw new Exception("There already exists a company with this business number");
     }
 
     protected static void CheckUserDto(CreationUserDto dto)

@@ -450,12 +450,9 @@ namespace Chameleon.Migrations
                     b.Property<Guid>("UserId")
                         .HasColumnType("char(36)");
 
-                    b.Property<Guid>("UsersId")
-                        .HasColumnType("char(36)");
-
                     b.HasKey("RoleId", "UserId");
 
-                    b.HasIndex("UsersId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("UsersRoles");
                 });
@@ -622,8 +619,8 @@ namespace Chameleon.Migrations
                         .IsRequired();
 
                     b.HasOne("Chameleon.Application.HumanSetting.DataAccess.Entities.Users", "Users")
-                        .WithMany()
-                        .HasForeignKey("UsersId")
+                        .WithMany("Roles")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -655,6 +652,11 @@ namespace Chameleon.Migrations
             modelBuilder.Entity("Chameleon.Application.HumanSetting.DataAccess.Entities.Roles", b =>
                 {
                     b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("Chameleon.Application.HumanSetting.DataAccess.Entities.Users", b =>
+                {
+                    b.Navigation("Roles");
                 });
 #pragma warning restore 612, 618
         }

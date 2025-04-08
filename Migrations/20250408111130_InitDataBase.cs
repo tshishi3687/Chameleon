@@ -309,8 +309,7 @@ namespace Chameleon.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    RoleId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    UsersId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci")
+                    RoleId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci")
                 },
                 constraints: table =>
                 {
@@ -322,8 +321,8 @@ namespace Chameleon.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_UsersRoles_User_UsersId",
-                        column: x => x.UsersId,
+                        name: "FK_UsersRoles_User_UserId",
+                        column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -427,9 +426,9 @@ namespace Chameleon.Migrations
                 column: "UsersId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UsersRoles_UsersId",
+                name: "IX_UsersRoles_UserId",
                 table: "UsersRoles",
-                column: "UsersId");
+                column: "UserId");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Absent_Company_CompanyId",

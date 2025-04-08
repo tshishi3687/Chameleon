@@ -13,6 +13,10 @@ public class UserRoleConfig: IEntityTypeConfiguration<UsersRoles>
         builder.HasOne(pr => pr.Roles)
             .WithMany(r => r.Users)
             .HasForeignKey(pr => pr.RoleId);
-        
+
+        builder.HasOne(pr => pr.Users)
+            .WithMany(u => u.Roles) // ajuste si besoin
+            .HasForeignKey(pr => pr.UserId);
     }
+
 }

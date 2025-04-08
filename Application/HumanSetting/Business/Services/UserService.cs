@@ -52,6 +52,7 @@ public class UserService(Context context) : CheckServiceBase(context)
             context.UsersContactDetails.Add(uc);
         }
 
+        await context.SaveChangesAsync();
         return user;
     }
 
@@ -99,13 +100,12 @@ public class UserService(Context context) : CheckServiceBase(context)
     
     public async Task<Passport> CreateCompanyAndUser(CreationCompanyAndUserDto dto)
     {
-        // var check = await context.Companies.FirstOrDefaultAsync(c => c.BusinessNumber.Equals(dto.BusinessNumber));
-        // if (check != null) throw new Exception("There already exists a company with this business number");
         await CheckCompanyDtoAndUserDto(dto);
 
         var user = await AddUser(dto.UserDto!);
         if (user == null) throw new ArgumentException("NotFound");
 
+        await context.SaveChangesAsync();
         // Add in table Company
         var company = context.Companies.Add(new Company(context)
         {
@@ -139,9 +139,7 @@ public class UserService(Context context) : CheckServiceBase(context)
         context.UsersRoles.Add(new UsersRoles
         {
             UserId = user.Id,
-            Users = user,
             RoleId = role.Id,
-            Roles = role
         });
         context.UsersRoles.Add(new UsersRoles
         {

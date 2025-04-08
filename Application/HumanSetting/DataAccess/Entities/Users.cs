@@ -14,7 +14,8 @@ public class Users(Context context) : BaseEntity
     public string Email { get; set; }
     public string Phone { get; set; }
     public string PassWord { get; set; }
-    
+    public ICollection<UsersRoles> Roles { get; set; }
+
     public async Task<ICollection<UsersRoles>> UserRoles()
     {
         return await context.UsersRoles.Where(ur => ur.UserId.Equals(Id)).ToListAsync();

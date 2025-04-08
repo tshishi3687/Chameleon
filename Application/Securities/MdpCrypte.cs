@@ -38,4 +38,13 @@ public class MdpCrypte
         var token = tokenHandler.CreateToken(tokenDescriptor);
         return tokenHandler.WriteToken(token);
     }
+    
+    public string? Identified(string accessToken)
+    {
+        //ValidateToken(accessToken);
+        var handler = new JwtSecurityTokenHandler();
+        var jwtSecurityToken = handler.ReadJwtToken(accessToken);
+        var emailClaim = jwtSecurityToken.Claims.FirstOrDefault(claim => claim.Type == "email");
+        return emailClaim?.Value;
+    }
 }
