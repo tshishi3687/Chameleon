@@ -13,9 +13,9 @@ public class CreationCompanyAndUserController(IHttpContextAccessor cc, Context c
     [HttpPost()]
     public async Task<ActionResult<Passport>> CreationCompanyAndUser([FromBody] CreationCompanyAndUserDto dto)
     {
-            return Ok(await userService.CreateCompanyAndUser(dto));
         try
         {
+            return Ok(await userService.CreateCompanyAndUser(dto));
         }
         catch (Exception e)
         {

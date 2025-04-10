@@ -6,6 +6,7 @@ using Chameleon.Application.HumanSetting;
 using Chameleon.Application.HumanSetting.Business.Dtos;
 using Chameleon.Application.HumanSetting.Business.Services;
 using Chameleon.Application.HumanSetting.DataAccess.Entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 namespace Chameleon.Application.CompanySetting.Business.Services;
@@ -29,13 +30,10 @@ public class CompanyService(Context context) : CheckServiceBase(context)
 
     public async Task<ICollection<CompanyEasyVueDto>> GetMyCompanies(Users users)
     {
-        var list = new List<Company>();
-        foreach (var companyUser in await users.Companies())
-        {
-            list.Add(context.Companies.First(c => c.Id.Equals(companyUser.CompanyId)));
-        }
-
-        return _companyEasyVueMapper.ToDtos(list);
+        var companiesList = new List<Company>();
+        var companiesId = await context.CompanyUsers.Where(u => u.UserId == users.Id).Select(u => u.CompanyId).ToListAsync();
+        var companies = await context.Companies.Where(c => companiesId.Contains(c.Id)).ToListAsync();
+        return _companyEasyVueMapper.ToDtos(companies);
     }
 
     private void AddUserRoles(Users users, CreationUserDto dto, Company company)

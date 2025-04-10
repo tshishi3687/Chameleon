@@ -8,19 +8,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="init 07/04">
+    <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/ApiInput/AllowAll/CreationCompanyAndUserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/ApiInput/AllowAll/CreationCompanyAndUserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/ApiInput/BaseController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/ApiInput/BaseController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Common/Business/Services/CheckServiceBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Business/Services/CheckServiceBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/Users.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/Users.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/EntityConfig/UserRoleConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/EntityConfig/UserRoleConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Securities/MdpCrypte.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Securities/MdpCrypte.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chameleon.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Chameleon.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20250407192146_InitDataBase.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/20250408111130_InitDataBase.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20250407192146_InitDataBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/20250408111130_InitDataBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/ContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/ContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/ApiInput/PermissionRequested/CompanyApostleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/ApiInput/PermissionRequested/CompanyApostleController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chameleon.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Chameleon.sln.DotSettings.user" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +44,7 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/213a9397436126a66775c7cd43be3e542d36dda992e6bbd74b414ab2df0d617/Enum.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/293fc8a56995b9410621bcae7798265ce3968d9fc974fc9dd4bd0ea5fe28/MySqlDataReader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/357b04bb21cfefd40d8bcb16cce0bb2492aed1a2394295a550514389f89688/MySqlConnection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3bd4df5aff92cabbc4d630be64227073db1b8539b3a1e47786b4b189d7cdb7/DbContext.cs" root0="FORCE_HIGHLIGHTING" />
@@ -313,7 +307,10 @@
       <workItem from="1743674541855" duration="2238000" />
       <workItem from="1743789521978" duration="3460000" />
       <workItem from="1744016522586" duration="13452000" />
-      <workItem from="1744042469118" duration="16695000" />
+      <workItem from="1744042469118" duration="21138000" />
+      <workItem from="1744182786481" duration="2869000" />
+      <workItem from="1744227362229" duration="4652000" />
+      <workItem from="1744268288954" duration="4743000" />
     </task>
     <task id="LOCAL-00001" summary="base">
       <option name="closed" value="true" />
@@ -659,7 +656,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744059861319</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Connection and register is ok">
+      <option name="closed" value="true" />
+      <created>1744128993662</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1744128993662</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -681,7 +686,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="File restructuring" />
     <MESSAGE value="restructuring files part two" />
     <MESSAGE value="restructuring of test files" />
     <MESSAGE value="Add Company.cs" />
@@ -706,7 +710,8 @@
     <MESSAGE value="updtae Context.cs" />
     <MESSAGE value="CreatetCompanyAndUsers" />
     <MESSAGE value="init 07/04" />
-    <option name="LAST_COMMIT_MESSAGE" value="init 07/04" />
+    <MESSAGE value="Connection and register is ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="Connection and register is ok" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -736,19 +741,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="136" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/Common/Business/Services/CheckServiceBase.cs</url>
-          <line>58</line>
-          <properties documentPath="$PROJECT_DIR$/Application/Common/Business/Services/CheckServiceBase.cs" containingFunctionPresentation="Method 'CheckCompanyDtoAndUserDto'">
-            <startOffsets>
-              <option value="1939" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1963" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="150" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs</url>
@@ -894,40 +886,14 @@
           <option name="timeStamp" value="173" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/Common/Business/Services/CheckServiceBase.cs</url>
-          <line>59</line>
-          <properties documentPath="$PROJECT_DIR$/Application/Common/Business/Services/CheckServiceBase.cs" containingFunctionPresentation="Method 'CheckCompanyDtoAndUserDto'">
-            <startOffsets>
-              <option value="1972" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1996" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="174" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/Common/Business/Services/CheckServiceBase.cs</url>
-          <line>60</line>
-          <properties documentPath="$PROJECT_DIR$/Application/Common/Business/Services/CheckServiceBase.cs" containingFunctionPresentation="Method 'CheckCompanyDtoAndUserDto'">
-            <startOffsets>
-              <option value="2052" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2078" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="175" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Application/ApiInput/PermissionRequested/CompanyApostleController.cs</url>
           <line>59</line>
           <properties documentPath="$PROJECT_DIR$/Application/ApiInput/PermissionRequested/CompanyApostleController.cs" containingFunctionPresentation="Method 'AddCompanyPictureAsync'">
             <startOffsets>
-              <option value="2372" />
+              <option value="2385" />
             </startOffsets>
             <endOffsets>
-              <option value="2440" />
+              <option value="2453" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="176" />
@@ -983,6 +949,32 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="180" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Application/Common/Business/Services/CheckServiceBase.cs</url>
+          <line>68</line>
+          <properties documentPath="$PROJECT_DIR$/Application/Common/Business/Services/CheckServiceBase.cs" containingFunctionPresentation="Method 'CheckCompany'">
+            <startOffsets>
+              <option value="2510" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2521" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="181" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs</url>
+          <line>35</line>
+          <properties documentPath="$PROJECT_DIR$/Application/CompanySetting/Business/Services/CompanyService.cs" containingFunctionPresentation="Method 'GetMyCompanies'">
+            <startOffsets>
+              <option value="1540" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1587" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="182" />
         </line-breakpoint>
         <breakpoint enabled="true" type="DotNet Exception Breakpoints">
           <properties exception="System.InvalidOperationException" isInternal="false" displayValue="InvalidOperationException" namespaceName="System">

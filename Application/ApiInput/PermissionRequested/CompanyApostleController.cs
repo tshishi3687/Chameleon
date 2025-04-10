@@ -13,7 +13,7 @@ public class CompanyApostleController(IHttpContextAccessor cc, Context context, 
 {
 
     [HttpGet("/getMyCompanies")]
-    public async Task<ActionResult<CompanyEasyVueDto>> GetMyCompanies()
+    public async Task<ActionResult<ICollection<CompanyEasyVueDto>>> GetMyCompanies()
     {
         try
         {
