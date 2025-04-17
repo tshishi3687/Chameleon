@@ -14,7 +14,8 @@ public class UserJcController(IHttpContextAccessor cc, Context context, UserServ
     {
         try
         {
-            return Ok(userService.GetCompanyUser(await GetAdmin(companyGuid), companyGuid));
+            await GetAdmin(companyGuid);
+            return Ok(await userService.GetCompanyUser(companyGuid));
         }
         catch (Exception e)
         {
@@ -22,7 +23,22 @@ public class UserJcController(IHttpContextAccessor cc, Context context, UserServ
                 $"Error {HttpStatusCode.Unauthorized.GetHashCode()} {HttpStatusCode.Unauthorized}: {e.Message}!");
         }
     }
-    
+
+    [HttpPost("/addUSer/{companyGuid:guid}")]
+    public async Task<ActionResult> AddUsers([FromBody] CreationUserDto dto, Guid companyGuid)
+    {
+        try
+        {
+            await GetAdmin(companyGuid);
+            await userService.CreateUsers(dto, companyGuid);
+            return Ok();
+        }
+        catch (Exception e)
+        {
+            return StatusCode(HttpStatusCode.Unauthorized.GetHashCode(),
+                $"Error {HttpStatusCode.Unauthorized.GetHashCode()} {HttpStatusCode.Unauthorized}: {e.Message}!");
+        }
+    }
     // [HttpGet(("/isKnown/{companyGuid:guid}/{isKnown}"))]
     // public IActionResult IsKnown(Guid companyGuid, string isKnown)
     // {

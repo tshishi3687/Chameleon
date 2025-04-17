@@ -9,6 +9,7 @@ using Chameleon.Application.HumanSetting.DataAccess.Entities;
 using Chameleon.Application.Securities;
 using Microsoft.EntityFrameworkCore;
 using Org.BouncyCastle.Security;
+using Task = System.Threading.Tasks.Task;
 
 namespace Chameleon.Application.HumanSetting.Business.Services;
 
@@ -20,10 +21,10 @@ public class UserService(Context context) : CheckServiceBase(context)
     private SimpleUserMapper simpleUserMapper = new();
 
 
-    public async Task<Users> CreateEntity(CreationUserDto dto)
+    private async Task<Users> CreateEntity(CreationUserDto dto)
     {
         if (dto == null) throw new Exception(); //TODO
-        
+
         PasswordMatch(dto);
         IsAdult(dto.BursDateTime);
         await UniqueUser(dto);
@@ -67,6 +68,44 @@ public class UserService(Context context) : CheckServiceBase(context)
         return user;
     }
 
+
+    public async Task CreateUsers(CreationUserDto dto, Guid companyGuid)
+    {
+        if (dto == null) throw new Exception();
+
+        var company = await context.Companies.FirstOrDefaultAsync(c => c.Id.Equals(companyGuid));
+        if (company == null) throw new Exception("Company not found");
+        var users = await CreateEntity(dto);
+
+        if (dto.Roles!.Count == 0) throw new Exception("Roles not found");
+        dto.Roles.ForEach(role =>
+        {
+            var roleAdding = context.Roles.Add(new Roles
+            {
+                Name = role.ToString(),
+                Company = company,
+                CompanyGuid = company.Id,
+            }).Entity;
+
+            context.UsersRoles.Add(new UsersRoles
+            {
+                UserId = users.Id,
+                RoleId = roleAdding.Id,
+                Users = users,
+                Roles = roleAdding
+            });
+        });
+        context.CompanyUsers.Add(new CompanyUser
+        {
+            Users = users,
+            UserId = users.Id,
+            Company = company,
+            CompanyId = company.Id
+        });
+
+        await context.SaveChangesAsync();
+    }
+
     public async Task<Users> UpdateEntity(CreationUserDto dto, Guid userToModifyGuid)
     {
         var userRemove = await context.User.FirstOrDefaultAsync(u => u.Id.Equals(userToModifyGuid));
@@ -84,12 +123,12 @@ public class UserService(Context context) : CheckServiceBase(context)
         CheckLogger(dto);
         var user = await CheckAuthentication(dto);
 
-        return await GenerateClams(user,false, null);
+        return await GenerateClams(user, false, null);
     }
 
-    public async Task<Passport> CreateJwtWithRoles(Users users,Company company)
+    public async Task<Passport> CreateJwtWithRoles(Users users, Company company)
     {
-        return await GenerateClams(users,true, company);
+        return await GenerateClams(users, true, company);
     }
 
     private void AddCompanyPicture(Users users, Company company, IFormFile file)
@@ -97,7 +136,7 @@ public class UserService(Context context) : CheckServiceBase(context)
         if (file == null) throw new Exception("File is null");
         ProcessProfilePicture(file, company);
     }
-    
+
     public async Task<Passport> CreateCompanyAndUser(CreationCompanyAndUserDto dto)
     {
         await CheckCompanyDtoAndUserDto(dto);
@@ -162,7 +201,7 @@ public class UserService(Context context) : CheckServiceBase(context)
                 Users = new List<UsersRoles>()
             }).Entity.Id
         });
-        
+
         context.UsersRoles.Add(new UsersRoles
         {
             UserId = user.Id,
@@ -210,7 +249,7 @@ public class UserService(Context context) : CheckServiceBase(context)
 
         return response;
     }
-    
+
     private async Task<Users> CheckAuthentication(LoggerDto dto)
     {
         if (dto == null) throw new ArgumentException(Error.LoggerNull.ToString());
@@ -223,7 +262,7 @@ public class UserService(Context context) : CheckServiceBase(context)
         }
 
         if (_crypto.Compart(user.PassWord, dto.Password!)) return user;
-        
+
         throw new PasswordException(Error.NotFound.ToString());
     }
 
@@ -240,36 +279,48 @@ public class UserService(Context context) : CheckServiceBase(context)
         }
     }
 
-    public async Task<ICollection<SimpleUserDto>> GetCompanyUser(Users users, Guid companyId)
+    public async Task<ICollection<SimpleUserDto>> GetCompanyUser(Guid companyId)
     {
-        var companyUser = await context.CompanyUsers.FirstOrDefaultAsync(c => c.CompanyId.Equals(companyId) && c.UserId.Equals(users.Id));
-        if (companyUser == null) throw new ApplicationException("Company not found");
-        
-        var company = await context.Companies.FirstOrDefaultAsync(c => c.Id.Equals(companyUser.CompanyId));
-        if (company == null) throw new ApplicationException("Company not found");
-        var cu = await company.CompanyUser();
-        return cu.Select(companyUser => context.User.FirstOrDefault(u => u.Id.Equals(companyUser.UserId)))
-            .Select(u => simpleUserMapper.ToDto(u))
-            .ToList();
+        return await context.CompanyUsers
+            .Where(cu => cu.CompanyId == companyId)
+            .Select(cu => new SimpleUserDto
+            {
+                Id = cu.Users.Id,
+                FirstName = cu.Users.FirstName,
+                LastName = cu.Users.LastName,
+                Email = cu.Users.Email,
+                Phone = cu.Users.Phone,
+                Roles = context.UsersRoles
+                    .Where(ur => ur.UserId == cu.UserId)
+                    .Join(context.Roles,
+                        ur => ur.RoleId,
+                        r => r.Id,
+                        (ur, r) => r)
+                    .Where(r => r.CompanyGuid == companyId || r.CompanyGuid == Guid.Empty)
+                    .Select(r => r.Name)
+                    .ToList()
+            })
+            .ToListAsync();
+
     }
 
-    // public bool isKnown(Company company, string identification)
-    // {
-    //     var companyUser = company.CompanyUser();
-    //     var users = new List<User?>();
-    //     foreach (var user in companyUser)
-    //     {
-    //         users.Add(context.User.FirstOrDefault(u => u.Id.Equals(user.UserId)));
-    //     }
-    //
-    //     return users.Any(u => u.Email.Equals(identification) || u.Phone.Equals(identification));
-    // }
+// public bool isKnown(Company company, string identification)
+// {
+//     var companyUser = company.CompanyUser();
+//     var users = new List<User?>();
+//     foreach (var user in companyUser)
+//     {
+//         users.Add(context.User.FirstOrDefault(u => u.Id.Equals(user.UserId)));
+//     }
+//
+//     return users.Any(u => u.Email.Equals(identification) || u.Phone.Equals(identification));
+// }
 
     public async Task<CompanyPictureDto> GetCompanyPictureDto(Guid companyId, Users users)
     {
-        var company = context.Companies.FirstOrDefault(c => c.Id == companyId );
+        var company = context.Companies.FirstOrDefault(c => c.Id == companyId);
         if (company == null) throw new FileNotFoundException(Error.NotFound.ToString());
-        
+
         return new CompanyPictureDto
         {
             FileContent = company.FileContent,
@@ -277,15 +328,15 @@ public class UserService(Context context) : CheckServiceBase(context)
             ContentType = company.ContentType,
         };
     }
-    
-    
+
+
     private async Task<Users> AddUser(CreationUserDto dto)
     {
         var user = await context.User.FirstOrDefaultAsync(u => u.Email.Equals(dto.Email));
         if (user != null) return user;
-        return  await CreateEntity(dto);
+        return await CreateEntity(dto);
     }
-    
+
     private void ProcessProfilePicture(IFormFile? file, Company company)
     {
         ArgumentNullException.ThrowIfNull(file);
@@ -308,13 +359,11 @@ public class UserService(Context context) : CheckServiceBase(context)
             fileContent = memoryStream.ToArray();
         }
 
-        
+
         company.FileName = file.FileName;
         company.ContentType = file.ContentType;
         company.FileContent = fileContent;
         context.Companies.Update(company);
         context.SaveChanges();
     }
-
-
 }

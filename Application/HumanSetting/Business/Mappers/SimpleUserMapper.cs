@@ -7,11 +7,17 @@ public class SimpleUserMapper: Mappers<SimpleUserDto, Users>
 {
     public SimpleUserDto ToDto(Users entity)
     {
+        if (entity == null) return null;
+
+        var roles = entity.Roles.Select(entityRole => entityRole.Roles.Name).ToList();
         return new SimpleUserDto
         {
             Id = entity.Id,
             FirstName = entity.FirstName,
-            LastName = entity.LastName
+            LastName = entity.LastName,
+            Email = entity.Email,
+            Phone = entity.Phone,
+            Roles = roles,
         };
     }
 
