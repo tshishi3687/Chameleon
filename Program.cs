@@ -4,6 +4,7 @@ using Chameleon.Application.CompanySetting.Business.Services;
 using Chameleon.Application.HumanSetting.Business.Services;
 using Chameleon.Application.Securities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MySql.EntityFrameworkCore.Extensions;
@@ -102,5 +103,10 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<Context>();
+    db.Database.Migrate(); // applique les migrations EF automatiquement
+}
 
 app.Run();

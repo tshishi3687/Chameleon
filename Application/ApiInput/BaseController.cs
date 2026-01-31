@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Chameleon.Application.ApiInput;
 
 [ApiController]
-[Route("[controller]")]
+[Route("chameleon-server/[controller]")]
 public abstract class BaseController(IHttpContextAccessor cc, Context context): Controller
 {
     private MdpCrypte _mdpCrypte = new MdpCrypte();

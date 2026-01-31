@@ -258,12 +258,12 @@ public class UserService(Context context) : CheckServiceBase(context)
             u.Email.Equals(dto.Identification) || u.Phone.Equals(dto.Identification));
         if (user == null)
         {
-            throw new FileNotFoundException(Error.NotFound.ToString());
+            throw new FileNotFoundException("passwordIdentifiedIncorrect");
         }
 
         if (_crypto.Compart(user.PassWord, dto.Password!)) return user;
 
-        throw new PasswordException(Error.NotFound.ToString());
+        throw new PasswordException("passwordIdentifiedIncorrect");
     }
 
     private static void CheckLogger(LoggerDto dto)

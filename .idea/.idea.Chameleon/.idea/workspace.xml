@@ -9,18 +9,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cf41283-4069-40b0-a1a4-176dde845fa7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Migrations/20250414101904_CompanyId.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20250414101904_CompanyId.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/projectSettingsUpdater.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chameleon/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/ApiInput/AllowAll/CreationCompanyAndUserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/ApiInput/AllowAll/CreationCompanyAndUserController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/ApiInput/BaseController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/ApiInput/BaseController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/ApiInput/PermissionRequested_Super_Admin_and_Admin/UserJcController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/ApiInput/PermissionRequested_Super_Admin_and_Admin/UserJcController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Dtos/SimpleUserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Dtos/SimpleUserDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/SimpleUserMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Mappers/SimpleUserMapper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/Roles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/HumanSetting/DataAccess/Entities/Roles.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chameleon.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Chameleon.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/ContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/ContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chameleon.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Chameleon.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,22 +41,12 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/tshishi3687/Chameleon.git&quot;,
-    &quot;accountId&quot;: &quot;77cf0411-8b12-4fce-9bdb-dfe152ae6241&quot;
+    &quot;accountId&quot;: &quot;b578363e-847e-4d95-bee3-d56003da4b66&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/213a9397436126a66775c7cd43be3e542d36dda992e6bbd74b414ab2df0d617/Enum.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/293fc8a56995b9410621bcae7798265ce3968d9fc974fc9dd4bd0ea5fe28/MySqlDataReader.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/357b04bb21cfefd40d8bcb16cce0bb2492aed1a2394295a550514389f89688/MySqlConnection.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3bd4df5aff92cabbc4d630be64227073db1b8539b3a1e47786b4b189d7cdb7/DbContext.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3e2fdc3e37fd991c23cca9476ad429ff20cbaed1c29ea45744fe76f73d413a76/MySqlCommand.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/55e6cf27a49a5807a429b2189969f43967ab52d52b21d8694c697f1f8b19/MySqlParameterCollection.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6780d13016c376c4491c5618b257d84da7eacf747ed2719783e775546b79b/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/abfadfcf168b17dd25ad62a3a2b89c89b9a3587ade1ccf7d80e4740274ef/Boolean.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/17.9.0/build/netcoreapp3.1/Microsoft.NET.Test.Sdk.Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf9021a960b74107a7e141aa06bc9d8a0a53c929178c2fb95b1597be8af8dc/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ffc196dcaa72b99bef7ac446415884fe13cbff486fc89fe87d78638ac873/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -104,7 +88,9 @@
     &quot;Docker.Docker: Compose Deployment.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;b323ea10-506f-4568-bd74-0c7517428d2d.executor&quot;: &quot;Debug&quot;,
     &quot;da4d22a8-5028-4dea-a22d-ed3d73257239.executor&quot;: &quot;Run&quot;,
     &quot;daea3169-1b0c-4393-adb1-842030a4021b.executor&quot;: &quot;Debug&quot;,
@@ -130,13 +116,14 @@
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Chameleon.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
       <option name="LAUNCH_PROFILE_NAME" value="http" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
       <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
       <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -145,13 +132,14 @@
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Chameleon.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
       <option name="LAUNCH_PROFILE_NAME" value="https" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
       <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
       <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -188,8 +176,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.Docker.database: Compose Deployment" />
         <item itemvalue="Docker.Docker: Compose Deployment" />
+        <item itemvalue="Docker.Docker.database: Compose Deployment" />
         <item itemvalue="Docker.Docker: Compose Deployment" />
       </list>
     </recent_temporary>
@@ -327,6 +315,10 @@
       <workItem from="1744448450133" duration="667000" />
       <workItem from="1744617832487" duration="11118000" />
       <workItem from="1744874297438" duration="3479000" />
+      <workItem from="1762372317622" duration="216000" />
+      <workItem from="1768812025734" duration="5358000" />
+      <workItem from="1768985422344" duration="4558000" />
+      <workItem from="1769069937525" duration="709000" />
     </task>
     <task id="LOCAL-00001" summary="base">
       <option name="closed" value="true" />
@@ -780,19 +772,6 @@
           <option name="timeStamp" value="159" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs</url>
-          <line>252</line>
-          <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'CheckAuthentication'">
-            <startOffsets>
-              <option value="8139" />
-            </startOffsets>
-            <endOffsets>
-              <option value="8156" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="162" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Application/ApiInput/AllowAll/LoginController.cs</url>
           <line>17</line>
           <properties documentPath="$PROJECT_DIR$/Application/ApiInput/AllowAll/LoginController.cs" containingFunctionPresentation="Method 'Login'">
@@ -810,49 +789,23 @@
           <line>263</line>
           <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'CheckLogger'">
             <startOffsets>
-              <option value="8449" />
+              <option value="8457" />
             </startOffsets>
             <endOffsets>
-              <option value="8450" />
+              <option value="8458" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="170" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs</url>
-          <line>270</line>
-          <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'CheckLogger'">
-            <startOffsets>
-              <option value="8674" />
-            </startOffsets>
-            <endOffsets>
-              <option value="8675" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="171" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs</url>
-          <line>267</line>
-          <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'CheckLogger'">
-            <startOffsets>
-              <option value="8610" />
-            </startOffsets>
-            <endOffsets>
-              <option value="8611" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="172" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs</url>
           <line>265</line>
           <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'CheckLogger'">
             <startOffsets>
-              <option value="8518" />
+              <option value="8526" />
             </startOffsets>
             <endOffsets>
-              <option value="8519" />
+              <option value="8527" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="173" />
@@ -862,10 +815,10 @@
           <line>325</line>
           <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Method 'AddUser'">
             <startOffsets>
-              <option value="10791" />
+              <option value="10799" />
             </startOffsets>
             <endOffsets>
-              <option value="10792" />
+              <option value="10800" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="177" />
@@ -914,10 +867,10 @@
           <line>288</line>
           <properties documentPath="$PROJECT_DIR$/Application/HumanSetting/Business/Services/UserService.cs" containingFunctionPresentation="Lambda expression inside Method 'GetCompanyUser'">
             <startOffsets>
-              <option value="9293" />
+              <option value="9301" />
             </startOffsets>
             <endOffsets>
-              <option value="9325" />
+              <option value="9333" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="194" />

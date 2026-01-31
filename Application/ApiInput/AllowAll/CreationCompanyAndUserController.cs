@@ -1,7 +1,6 @@
 using System.Net;
 using Chameleon.Application.Common.Business.Dtos;
 using Chameleon.Application.CompanySetting.Business.Dtos;
-using Chameleon.Application.HumanSetting.Business.Dtos;
 using Chameleon.Application.HumanSetting.Business.Services;
 using Microsoft.AspNetCore.Mvc;
 
